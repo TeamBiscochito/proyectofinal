@@ -16,7 +16,7 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
 @Database(entities = {Card.class, Question.class, User.class}, version = 1, exportSchema = false)
 public abstract class GameDataBase extends RoomDatabase {
 
-    public abstract CardDao getCarDao();
+    public abstract CardDao getCardDao();
     public abstract QuestionDao getQuestionDao();
     public abstract UserDao getUserDao();
 

@@ -1,5 +1,6 @@
 package teambiscochito.toptrumpsgame.model.room.dao;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -7,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import teambiscochito.toptrumpsgame.model.room.pojo.Question;
 
@@ -27,6 +29,6 @@ public interface QuestionDao {
 
     //returs ALL questions about a card
     @Query("select * from question where card_id = :cardId")
-    ArrayList<Question> getQuestionByCardId(long cardId);
+    LiveData<List<Question>> getQuestionByCardId(long cardId);
 
 }
