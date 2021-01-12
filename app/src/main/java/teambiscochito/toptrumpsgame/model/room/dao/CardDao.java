@@ -1,11 +1,15 @@
 package teambiscochito.toptrumpsgame.model.room.dao;
 
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 
@@ -31,5 +35,5 @@ public interface CardDao {
 
     //get ALL cards
     @Query("select * from card")
-    Card getAll();
+    LiveData<List<Card>> getAll();
 }
