@@ -20,7 +20,7 @@ public class User {
 
     //@NonNull //may have a default value?
     @ColumnInfo(name = "avatar")
-    private String avatar;
+    private int avatar;
 
     @NonNull
     @ColumnInfo(name = "answer")//numero de respuestas, por defecto 0
@@ -30,11 +30,18 @@ public class User {
     @ColumnInfo(name = "TrueAnswer")//numero de ACIERTOS, por defecto 0
     private int TrueAnswer = 0;
 
-    public User(@NonNull String name, String avatar, int answer, int trueAnswer) {
+    public User(@NonNull String name, int avatar, int answer, int trueAnswer) {
         this.name = name;
         this.avatar = avatar;
         this.answer = answer;
         TrueAnswer = trueAnswer;
+    }
+
+    public User(@NonNull String name, int avatar){
+        this.name = name;
+        this.avatar = avatar;
+        this.answer = 0;
+        TrueAnswer = 0;
     }
 
     public User() {
@@ -57,11 +64,11 @@ public class User {
         this.name = name;
     }
 
-    public String getAvatar() {
+    public int getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(String avatar) {
+    public void setAvatar(int avatar) {
         this.avatar = avatar;
     }
 
