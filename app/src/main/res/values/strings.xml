@@ -1,5 +1,19 @@
 <resources>
     <string name="app_name">Top Trumps Game</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btJugar">JUGAR</string>
+    <string name="btCartas">Cartas</string>
+    <string name="btTutorial">Tutorial</string>
+    <string name="tvTitulo1">ANIMALES</string>
+    <string name="tvTitulo2">SALVAJES</string>
+    <string name="tvCreditos">Créditos</string>
+    <string name="tvCreditosMayus">CRÉDITOS</string>
+    <string name="imgMusica">Música</string>
+    <string name="imgUser">Perfil</string>
+    <string name="contAtras">Atrás</string>
+    <string name="tvNombreGabriel">Gabriel Guerrero Expósito</string>
+    <string name="tvNombreManuel">Manuel García Arquelladas</string>
+    <string name="tvNombreOleg">Oleg Fernández-Llebrez Rodríguez</string>
+    <string name="tvNombrePablo">Pablo Javier Jáimez Cobos</string>
+    <string name="tvElegirJugador">Elige tu jugador</string>
 </resources>

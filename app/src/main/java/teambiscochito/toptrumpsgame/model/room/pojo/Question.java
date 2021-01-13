@@ -48,12 +48,12 @@ public class Question {
         this.id = id;
     }
 
-    public long getIdcard() {
+    public long getCard_id() {
         return card_id;
     }
 
-    public void setIdcard(long idcard) {
-        this.card_id = idcard;
+    public void setCard_id(long card_id) {
+        this.card_id = card_id;
     }
 
     @NonNull
