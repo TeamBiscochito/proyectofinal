@@ -1,3 +1,4 @@
+/*
 package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.os.Bundle;
@@ -24,9 +25,8 @@ public class AddUserFragment extends Fragment {
     private EditText usuarioEt;
     private Button añadirBt;
     private ImageView avatarIv;
-    //Posible Recycler con imagenes para escoger el avatar. Por defecto vendrá seleccionada 1.
+
     public AddUserFragment() {
-        // Required empty public constructor
     }
 
 
@@ -52,7 +52,7 @@ public class AddUserFragment extends Fragment {
                 try{
                     String name = usuarioEt.getText().toString();
                     int avatar = 0 ;
-                    //avatar = avatarIv.getTransitionName();
+
                     User user = new User(name, avatar);
                     viewModel.insertUser(user);
                 } catch (Exception e){
@@ -62,4 +62,4 @@ public class AddUserFragment extends Fragment {
         });
 
     }
-}
+} */
