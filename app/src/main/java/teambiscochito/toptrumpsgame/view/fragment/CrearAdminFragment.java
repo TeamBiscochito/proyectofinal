@@ -43,6 +43,7 @@ public class CrearAdminFragment extends Fragment {
 
 
         Button btMenuParaProbar = view.findViewById(R.id.btMenuParaProbar);
+        Button btSeleccionarJugadorParaProbar = view.findViewById(R.id.btSeleccionarParaProbar);
 
         final NavController navController = Navigation.findNavController(view);
 
@@ -78,6 +79,13 @@ public class CrearAdminFragment extends Fragment {
                 // -----------------------------------------------------------------------------------------
                 navController.navigate(R.id.action_prueba);
 
+            }
+        });
+
+        btSeleccionarJugadorParaProbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_crearAdminFragment_to_addUserFragment);
             }
         });
     }

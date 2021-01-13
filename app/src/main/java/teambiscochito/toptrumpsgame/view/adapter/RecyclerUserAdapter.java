@@ -63,7 +63,12 @@ public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapte
 
     @Override
     public int getItemCount() {
-        return userList.size();
+        try{
+            return userList.size();
+        } catch (Exception exception){
+            return -1;
+        }
+
     }
 
 

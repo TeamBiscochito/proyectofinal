@@ -1,5 +1,6 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,6 +8,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +30,8 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 public class ChooseUserFragment extends Fragment {
     RecyclerView recyclerView;
     ViewModel viewModel;
+
+    private MediaPlayer mp_seleccionarJugador;
     public ChooseUserFragment() {
 
     }
@@ -44,6 +50,19 @@ public class ChooseUserFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initMediaPlayerSeleccionarJugador();
+
+        Button btIrAlMenu = view.findViewById(R.id.btIrAELMenuChoose);
+
+        final NavController navController = Navigation.findNavController(view);
+
+        btIrAlMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp_seleccionarJugador.stop();
+                navController.navigate(R.id.action_chooseUserFragment_to_menuFragment2);
+            }
+        });
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.recyclerView);
@@ -51,5 +70,32 @@ public class ChooseUserFragment extends Fragment {
         RecyclerUserAdapter recyclerUserAdapter = new RecyclerUserAdapter(userList, this, view);
         recyclerView.setAdapter(recyclerUserAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    public void initMediaPlayerSeleccionarJugador() {
+
+        mp_seleccionarJugador = MediaPlayer.create(getContext(), R.raw.seleccionarjugador_music);
+        mp_seleccionarJugador.setLooping(true);
+        mp_seleccionarJugador.start();
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mp_seleccionarJugador.pause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mp_seleccionarJugador.start();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mp_seleccionarJugador.stop();
+        mp_seleccionarJugador.release();
     }
 }
