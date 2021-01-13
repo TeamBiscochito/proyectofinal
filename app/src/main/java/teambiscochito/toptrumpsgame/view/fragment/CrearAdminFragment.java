@@ -50,7 +50,7 @@ public class CrearAdminFragment extends Fragment {
         etClave = view.findViewById(R.id.claveEt);
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         String random = cadenaAleatoria();
-        String claveAdmin = sharedPreferences.getString("clave_aadmin", random);
+        String claveAdmin = sharedPreferences.getString("clave_admin", random);
         if (claveAdmin != random){
             Log.v("XYZ", claveAdmin);
             navController.navigate(R.id.action_prueba);
@@ -69,7 +69,7 @@ public class CrearAdminFragment extends Fragment {
                     }
                     SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("clave_aadmin", clave);
+                    editor.putString("clave_admin", clave);
                     editor.commit();
                 }catch (Exception e){
                     Log.v("xyz", e.getMessage() );

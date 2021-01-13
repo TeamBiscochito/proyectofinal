@@ -96,7 +96,32 @@ public class MenuFragment extends Fragment {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vPlay.startAnimation(animScaleDown);
                 }
+/*              ----------------------------------------------------------------------------------
+                final EditText input = new EditText(getContext());
+                AlertDialog builder = new AlertDialog.Builder(getContext())
+                        .setTitle("Clave de acceso").setMessage("Introduzca una nueva clave de acceso")
+                        .setView(input).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String txt = input.getText().toString();
+                                String claveAdmin = sharedPreferences.getString("clave_admin", "");
+                                Log.v("xyz Menu", claveAdmin);
+                                if(txt.equals(claveAdmin)){
+                                    Toast.makeText(getContext(), "aceptado", Toast.LENGTH_LONG).show();
+                                }else{
+                                    Toast.makeText(getContext(), "Contraseña incorrecta", Toast.LENGTH_LONG).show();
+                                }
 
+                            }
+                        }).setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getContext(), "Cancelado", Toast.LENGTH_LONG).show();
+                            }
+                        }).show();
+
+                ----------------------------------------------------------------------------------
+                */
                 return true;
             }
         });
