@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_crearAdminFragment_to_addUserFragment"
             app:destination="@id/addUserFragment" />
+        <action
+            android:id="@+id/action_prueba"
+            app:destination="@id/menuFragment" />
     </fragment>
     <fragment
         android:id="@+id/addUserFragment"
