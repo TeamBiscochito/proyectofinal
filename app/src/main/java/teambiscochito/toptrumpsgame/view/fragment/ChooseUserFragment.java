@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -43,13 +44,16 @@ public class ChooseUserFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.recyclerView);
-        List<User> userList= viewModel.getUserList().getValue();
-        RecyclerUserAdapter recyclerUserAdapter = new RecyclerUserAdapter(userList, this, view);
-        recyclerView.setAdapter(recyclerUserAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        LiveData<List<User>> userList= viewModel.getUserList();
+        userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
+            @Override
+            public void onChanged(List<User> users) {
+                RecyclerUserAdapter adapter = new RecyclerUserAdapter(users ,view);
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            }
+        });
     }
 }

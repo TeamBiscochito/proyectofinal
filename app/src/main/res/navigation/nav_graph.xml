@@ -11,7 +11,7 @@
         android:label="fragment_crear_admin"
         tools:layout="@layout/fragment_crear_admin" >
         <action
-            android:id="@+id/action_crearAdminFragment_to_addUserFragment"
+            android:id="@+id/action_crearAdminFragment_to_chooseUserFragment"
             app:destination="@id/addUserFragment" />
         <action
             android:id="@+id/action_prueba"

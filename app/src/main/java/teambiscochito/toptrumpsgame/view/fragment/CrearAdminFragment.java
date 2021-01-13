@@ -53,7 +53,7 @@ public class CrearAdminFragment extends Fragment {
         String claveAdmin = sharedPreferences.getString("clave_admin", random);
         if (claveAdmin != random){
             Log.v("XYZ", claveAdmin);
-            navController.navigate(R.id.action_prueba);
+            navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
         }
         // -----------------------------------------------------------------------------------------
         btMenuParaProbar.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +61,6 @@ public class CrearAdminFragment extends Fragment {
             public void onClick(View v) {
                 // -----------------------------------------------------------------------------------------
                 try {
-                    guardarClave();
                     String clave = etClave.getText().toString();
                     if(clave.isEmpty()){
                         Toast.makeText(getContext(),"La clave no puede estar vacia", Toast.LENGTH_LONG ).show();
@@ -76,16 +75,11 @@ public class CrearAdminFragment extends Fragment {
                 }
 
                 // -----------------------------------------------------------------------------------------
-                navController.navigate(R.id.action_prueba);
+                navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
 
             }
         });
     }
-
-    private void guardarClave() {
-
-    }
-
     public String cadenaAleatoria(){
         String lista = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890";
         String s="";

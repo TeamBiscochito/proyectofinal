@@ -25,11 +25,11 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
 
 public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapter.ViewHolder> {
     List<User> userList;
-    Fragment fragment;
+    //Fragment fragment;
     View view;
-    public RecyclerUserAdapter(List<User> userList, Fragment fragment, View view){
+
+    public RecyclerUserAdapter( List<User> userList, View view){
         this.userList = userList;
-        this.fragment = fragment;
         this.view = view;
     }
 
@@ -55,7 +55,7 @@ public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapte
 
                 bundle.putLong("userid", userList.get(position).getId());
 
-                navController.navigate(R.id.action_chooseUserFragment_to_menuFragment2, bundle);
+                navController.navigate(R.id.action_chooseUserFragment_to_menuFragment2 , bundle );
 
             }
         });
