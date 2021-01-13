@@ -48,7 +48,7 @@ public class ChooseUserFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.recyclerView);
         List<User> userList= viewModel.getUserList().getValue();
-        RecyclerUserAdapter recyclerUserAdapter = new RecyclerUserAdapter(userList);
+        RecyclerUserAdapter recyclerUserAdapter = new RecyclerUserAdapter(userList, this, view);
         recyclerView.setAdapter(recyclerUserAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
