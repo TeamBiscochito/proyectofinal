@@ -18,4 +18,9 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
     </style>
+
+    <style name="DialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/slide_dialog_entrar</item>
+        <item name="android:windowExitAnimation">@anim/slide_dialog_salir</item>
+    </style>
 </resources>

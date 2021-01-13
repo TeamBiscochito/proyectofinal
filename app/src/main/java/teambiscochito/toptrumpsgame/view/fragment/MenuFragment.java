@@ -1,9 +1,7 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.SharedPreferences;
+import android.app.ActionBar;
+import android.app.Dialog;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -12,32 +10,29 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import teambiscochito.toptrumpsgame.R;
-import teambiscochito.toptrumpsgame.view.activity.MainActivity;
 
 public class MenuFragment extends Fragment {
 
-    private MediaPlayer mp;
+    private boolean estoyEnCreditos = false;
+
+    private MediaPlayer mp_menu, mp_creditos;
     Animation animTablero, animScaleUp, animScaleDown;
     TextView tvAnimales, tvSalvajes, tvCartas, tvTuto, tvCreditos;
     View v, vp, vCartas, vTuto, vCreditos, vNote, vUser, vPlay;
     ImageView ivNote, ivUser;
-
-
-    SharedPreferences sharedPreferences;
-
+    Dialog dialog;
 
     public MenuFragment() {
 
@@ -46,6 +41,7 @@ public class MenuFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
@@ -56,9 +52,6 @@ public class MenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-        sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
 
         init(view);
 
@@ -103,31 +96,7 @@ public class MenuFragment extends Fragment {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vPlay.startAnimation(animScaleDown);
                 }
-                //----------------------------------------------------------------------------------
-                final EditText input = new EditText(getContext());
-                AlertDialog builder = new AlertDialog.Builder(getContext())
-                        .setTitle("Clave de acceso").setMessage("Introduzca una nueva clave de acceso")
-                        .setView(input).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String txt = input.getText().toString();
-                                String claveAdmin = sharedPreferences.getString("clave_admin", "");
-                                Log.v("xyz Menu", claveAdmin);
-                                if(txt.equals(claveAdmin)){
-                                    Toast.makeText(getContext(), "aceptado", Toast.LENGTH_LONG).show();
-                                }else{
-                                    Toast.makeText(getContext(), "Contraseña incorrecta", Toast.LENGTH_LONG).show();
-                                }
 
-                            }
-                        }).setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getContext(), "Cancelado", Toast.LENGTH_LONG).show();
-                            }
-                        }).show();
-
-                //----------------------------------------------------------------------------------
                 return true;
             }
         });
@@ -139,6 +108,10 @@ public class MenuFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vCreditos.startAnimation(animScaleUp);
                     tvCreditos.startAnimation(animScaleUp);
+
+                    mp_menu.pause();
+                    creditosDialog();
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vCreditos.startAnimation(animScaleDown);
                     tvCreditos.startAnimation(animScaleDown);
@@ -146,6 +119,7 @@ public class MenuFragment extends Fragment {
 
                 return true;
             }
+
         });
 
         vNote.setOnTouchListener(new View.OnTouchListener() {
@@ -187,9 +161,7 @@ public class MenuFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        mp = MediaPlayer.create(getContext(), R.raw.menu_music);
-        mp.setLooping(true);
-        mp.start();
+        initMediaPlayerMenu();
 
         tvAnimales = view.findViewById(R.id.tvTitulo1);
         tvSalvajes = view.findViewById(R.id.tvTitulo2);
@@ -209,6 +181,9 @@ public class MenuFragment extends Fragment {
         ivNote = view.findViewById(R.id.ivMenuNote);
         ivUser = view.findViewById(R.id.ivMenuUser);
 
+        vNote.setVisibility(View.INVISIBLE);
+        ivNote.setVisibility(View.INVISIBLE);
+
         AnimationDrawable animDrawable = (AnimationDrawable) vp.getBackground();
 
         v.setAnimation(animTablero);
@@ -220,22 +195,89 @@ public class MenuFragment extends Fragment {
 
     }
 
+    public void creditosDialog() {
+
+        ImageView imgAtras;
+
+        initMediaPlayerCreditos();
+
+        estoyEnCreditos = true;
+
+        dialog = new Dialog(getContext());
+        dialog.setContentView(R.layout.creditos_dialog);
+        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialog.getWindow();
+        window.setGravity(Gravity.CENTER);
+        //dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        imgAtras = dialog.findViewById(R.id.imgBackCreditos);
+
+        imgAtras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                estoyEnCreditos = false;
+                mp_creditos.stop();
+                mp_menu.start();
+            }
+        });
+
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialog.show();
+
+    }
+
+    public void initMediaPlayerMenu() {
+
+        mp_menu = MediaPlayer.create(getContext(), R.raw.menu_music);
+        mp_menu.setLooping(true);
+        mp_menu.start();
+
+    }
+
+    public void initMediaPlayerCreditos() {
+
+        mp_creditos = MediaPlayer.create(getContext(), R.raw.creditos_music);
+        mp_creditos.setLooping(true);
+        mp_creditos.start();
+
+    }
+
     @Override
     public void onResume() {
         super.onResume();
-        mp.start();
+
+        if(!estoyEnCreditos) {
+            mp_menu.start();
+        } else {
+            mp_creditos.start();
+        }
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        mp.pause();
+
+        if(!estoyEnCreditos) {
+            mp_menu.pause();
+        } else {
+            mp_creditos.pause();
+        }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mp.stop();
-        mp.release();
+        if(!estoyEnCreditos) {
+            mp_menu.stop();
+            mp_menu.release();
+        } else {
+            mp_creditos.stop();
+            mp_creditos.release();
+        }
     }
 }
