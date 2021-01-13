@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/crearAdminFragment"
+        android:icon="@drawable/ic_baseline_filter_1_24"
+        android:title="Primera opción" />
+    <item
+        android:id="@+id/juegoFragment"
+        android:icon="@drawable/ic_baseline_filter_2_24"
+        android:title="Segunda opción" />
+    <item
+        android:id="@+id/menuFragment"
+        android:icon="@drawable/ic_baseline_filter_3_24"
+        android:title="Tercera opción" />
+    <item
+        android:id="@+id/opt4"
+        android:icon="@drawable/ic_baseline_filter_4_24"
+        android:title="Cuarta opción" />
+    <item
+        android:id="@+id/opt5"
+        android:icon="@drawable/ic_baseline_filter_5_24"
+        android:title="Quinta opción" />
+    <item android:title="Opciones variadas">
+        <menu>
+            <item
+                android:id="@+id/subOpt1"
+                android:icon="@drawable/ic_baseline_filter_6_24"
+                android:title="Sexta opción" />
+            <item
+                android:id="@+id/subOpt2"
+                android:icon="@drawable/ic_baseline_filter_7_24"
+                android:title="Séptima opción" />
+        </menu>
+    </item>
+</menu>

@@ -23,4 +23,8 @@
         <item name="android:windowEnterAnimation">@anim/slide_dialog_entrar</item>
         <item name="android:windowExitAnimation">@anim/slide_dialog_salir</item>
     </style>
+
+    <style name="Theme.NavigationDrawer.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.NavigationDrawer.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>
