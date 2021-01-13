@@ -19,9 +19,9 @@
     </fragment>
     <fragment
         android:id="@+id/addUserFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.AddUserFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.ChooseUserFragment"
         android:label="fragment_add_user"
-        tools:layout="@layout/fragment_add_user" >
+        tools:layout="@layout/fragment_choose_user" >
         <action
             android:id="@+id/action_addUserFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
