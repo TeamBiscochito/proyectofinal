@@ -1,5 +1,9 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -8,16 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import teambiscochito.toptrumpsgame.R;
+import teambiscochito.toptrumpsgame.view.activity.MainActivity;
 
 public class MenuFragment extends Fragment {
 
@@ -26,6 +34,10 @@ public class MenuFragment extends Fragment {
     TextView tvAnimales, tvSalvajes, tvCartas, tvTuto, tvCreditos;
     View v, vp, vCartas, vTuto, vCreditos, vNote, vUser, vPlay;
     ImageView ivNote, ivUser;
+
+
+    SharedPreferences sharedPreferences;
+
 
     public MenuFragment() {
 
@@ -44,6 +56,9 @@ public class MenuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
 
         init(view);
 
@@ -88,7 +103,31 @@ public class MenuFragment extends Fragment {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vPlay.startAnimation(animScaleDown);
                 }
+                //----------------------------------------------------------------------------------
+                final EditText input = new EditText(getContext());
+                AlertDialog builder = new AlertDialog.Builder(getContext())
+                        .setTitle("Clave de acceso").setMessage("Introduzca una nueva clave de acceso")
+                        .setView(input).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                String txt = input.getText().toString();
+                                String claveAdmin = sharedPreferences.getString("clave_admin", "");
+                                Log.v("xyz Menu", claveAdmin);
+                                if(txt.equals(claveAdmin)){
+                                    Toast.makeText(getContext(), "aceptado", Toast.LENGTH_LONG).show();
+                                }else{
+                                    Toast.makeText(getContext(), "Contraseña incorrecta", Toast.LENGTH_LONG).show();
+                                }
 
+                            }
+                        }).setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(getContext(), "Cancelado", Toast.LENGTH_LONG).show();
+                            }
+                        }).show();
+
+                //----------------------------------------------------------------------------------
                 return true;
             }
         });
