@@ -1,4 +1,4 @@
-package teambiscochito.toptrumpsgame;
+package teambiscochito.toptrumpsgame.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.util.Log;
+
+import teambiscochito.toptrumpsgame.MyReceiver;
+import teambiscochito.toptrumpsgame.R;
 
 public class MainActivity extends AppCompatActivity {
     MyReceiver receiver;
