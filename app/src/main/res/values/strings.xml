@@ -7,6 +7,12 @@
     <string name="tvTitulo1">ANIMALES</string>
     <string name="tvTitulo2">SALVAJES</string>
     <string name="tvCreditos">Créditos</string>
+    <string name="tvCreditosMayus">CRÉDITOS</string>
     <string name="imgMusica">Música</string>
     <string name="imgUser">Perfil</string>
+    <string name="contAtras">Atrás</string>
+    <string name="tvNombreGabriel">Gabriel Guerrero Expósito</string>
+    <string name="tvNombreManuel">Manuel García Arquelladas</string>
+    <string name="tvNombreOleg">Oleg Fernández-Llebrez Rodríguez</string>
+    <string name="tvNombrePablo">Pablo Javier Jáimez Cobos</string>
 </resources>
