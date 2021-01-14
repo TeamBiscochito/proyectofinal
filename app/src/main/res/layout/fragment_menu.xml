@@ -255,6 +255,7 @@
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:contentDescription="@string/imgUser"
+        android:foregroundGravity="center|center_horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
         app:layout_constraintEnd_toEndOf="@+id/viewMenuUser"
         app:layout_constraintStart_toStartOf="@+id/viewMenuUser"

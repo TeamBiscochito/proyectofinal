@@ -1,5 +1,6 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
+import android.content.res.TypedArray;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +28,7 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 public class ChooseUserFragment extends Fragment {
     RecyclerView recyclerView;
     ViewModel viewModel;
+
     public ChooseUserFragment() {
 
     }
@@ -47,8 +50,14 @@ public class ChooseUserFragment extends Fragment {
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.recyclerView);
-        List<User> userList= viewModel.getUserList().getValue();
-        RecyclerUserAdapter recyclerUserAdapter = new RecyclerUserAdapter(userList, this, view);
+        List<User> userList = viewModel.getUserList();
+        Log.v("xyzyx", "ARRAY DEVUELTO POR EL VIEWMODEL: " + userList.toString());
+        //la foto de avatares numero 0 deberia de ser un simbolo de suma
+        //aunque sea de tipo usuario, se usa como botón de añadir usuario
+        userList.add(new User("Create new user", 0));
+
+        TypedArray avatarImages = getResources().obtainTypedArray(R.array.avatar);
+        RecyclerUserAdapter recyclerUserAdapter = new RecyclerUserAdapter(userList, this, view, viewModel, avatarImages);
         recyclerView.setAdapter(recyclerUserAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
