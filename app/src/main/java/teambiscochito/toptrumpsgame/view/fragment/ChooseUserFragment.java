@@ -17,7 +17,10 @@ import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +34,10 @@ public class ChooseUserFragment extends Fragment {
     RecyclerView recyclerView;
     ViewModel viewModel;
 
+    TextView tvEligeTuJugador;
+
     private MediaPlayer mp_seleccionarJugador;
+
     public ChooseUserFragment() {
 
     }
@@ -51,6 +57,11 @@ public class ChooseUserFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         initMediaPlayerSeleccionarJugador();
+
+        tvEligeTuJugador = view.findViewById(R.id.tvEligeTuJugador);
+
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.tv_choose_player);
+        tvEligeTuJugador.startAnimation(anim);
 
         Button btIrAlMenu = view.findViewById(R.id.btIrAELMenuChoose);
 

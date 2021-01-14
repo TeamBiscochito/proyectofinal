@@ -30,9 +30,9 @@ public class MenuFragment extends Fragment {
     private MediaPlayer mp_menu, mp_creditos;
     Animation animTablero, animScaleUp, animScaleDown;
     TextView tvAnimales, tvSalvajes, tvCartas, tvTuto, tvCreditos;
-    View v, vp, vCartas, vTuto, vCreditos, vNote, vUser, vPlay;
-    ImageView ivNote, ivUser;
-    Dialog dialog;
+    View v, vp, vCartas, vTuto, vCreditos, vSettings, vUser, vPlay;
+    ImageView ivSettings, ivUser;
+    Dialog dialogCreditos, dialogPerfil;
 
     public MenuFragment() {
 
@@ -147,16 +147,17 @@ public class MenuFragment extends Fragment {
 
         });
 
-        vNote.setOnTouchListener(new View.OnTouchListener() {
+        vSettings.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    vNote.startAnimation(animScaleUp);
-                    ivNote.startAnimation(animScaleUp);
+                    vSettings.startAnimation(animScaleUp);
+                    ivSettings.startAnimation(animScaleUp);
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    vNote.startAnimation(animScaleDown);
-                    ivNote.startAnimation(animScaleDown);
+                    vSettings.startAnimation(animScaleDown);
+                    ivSettings.startAnimation(animScaleDown);
                 }
 
                 return true;
@@ -170,6 +171,9 @@ public class MenuFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vUser.startAnimation(animScaleUp);
                     ivUser.startAnimation(animScaleUp);
+
+                    perfilDialog();
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vUser.startAnimation(animScaleDown);
                     ivUser.startAnimation(animScaleDown);
@@ -199,15 +203,12 @@ public class MenuFragment extends Fragment {
         vCartas = view.findViewById(R.id.viewCartas);
         vTuto = view.findViewById(R.id.viewTuto);
         vCreditos = view.findViewById(R.id.viewMenuCreditos);
-        vNote = view.findViewById(R.id.viewMenuNote);
+        vSettings = view.findViewById(R.id.viewMenuSettings);
         vUser = view.findViewById(R.id.viewMenuUser);
         vPlay = view.findViewById(R.id.viewMenuPlay);
 
-        ivNote = view.findViewById(R.id.ivMenuNote);
+        ivSettings = view.findViewById(R.id.ivMenuSettings);
         ivUser = view.findViewById(R.id.ivMenuUser);
-
-        vNote.setVisibility(View.INVISIBLE);
-        ivNote.setVisibility(View.INVISIBLE);
 
         AnimationDrawable animDrawable = (AnimationDrawable) vp.getBackground();
 
@@ -222,37 +223,62 @@ public class MenuFragment extends Fragment {
 
     public void creditosDialog() {
 
-        ImageView imgAtras;
+        ImageView imgAtrasCreditos;
 
         initMediaPlayerCreditos();
 
         estoyEnCreditos = true;
 
-        dialog = new Dialog(getContext());
-        dialog.setContentView(R.layout.creditos_dialog);
-        dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        Window window = dialog.getWindow();
+        dialogCreditos = new Dialog(getContext());
+        dialogCreditos.setContentView(R.layout.creditos_dialog);
+        dialogCreditos.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogCreditos.getWindow();
         window.setGravity(Gravity.CENTER);
-        //dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        imgAtras = dialog.findViewById(R.id.imgBackCreditos);
+        imgAtrasCreditos = dialogCreditos.findViewById(R.id.imgBackCreditos);
 
-        imgAtras.setOnClickListener(new View.OnClickListener() {
+        imgAtrasCreditos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dialog.dismiss();
+                dialogCreditos.dismiss();
                 estoyEnCreditos = false;
                 mp_creditos.stop();
                 mp_menu.start();
             }
         });
 
-        dialog.setCancelable(true);
-        dialog.setCanceledOnTouchOutside(false);
+        dialogCreditos.setCancelable(true);
+        dialogCreditos.setCanceledOnTouchOutside(false);
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
-        dialog.show();
+        dialogCreditos.show();
 
+    }
+
+    public void perfilDialog() {
+
+        ImageView imgAtrasPerfil;
+
+        dialogPerfil = new Dialog(getContext());
+        dialogPerfil.setContentView(R.layout.perfil_dialog);
+        dialogPerfil.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogPerfil.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        imgAtrasPerfil = dialogPerfil.findViewById(R.id.imgBackPerfil);
+
+        imgAtrasPerfil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogPerfil.dismiss();
+            }
+        });
+
+        dialogPerfil.setCancelable(true);
+        dialogPerfil.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogPerfil.show();
     }
 
     public void initMediaPlayerMenu() {
