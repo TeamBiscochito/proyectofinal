@@ -16,4 +16,12 @@
     <string name="tvNombreOleg">Oleg Fernández-Llebrez Rodríguez</string>
     <string name="tvNombrePablo">Pablo Javier Jáimez Cobos</string>
     <string name="tvElegirJugador">Elige tu jugador</string>
+    <string name="tvPuntuacionAcumulada">Puntuación acumulada</string>
+    <string name="tvAnimalesSalvajes">Animales Salvajes</string>
+    <string name="tvTopTrump">Top Trump - El videojuego</string>
+    <string name="tvIntroduceClave">Introduce una clave para administrar el juego</string>
+    <string name="tvAdvertenciaClave">La clave no podrá ser modificada en un futuro</string>
+    <string name="contImagen">Imagen</string>
+    <string name="tvClaveAcceso">Clave de acceso</string>
+    <string name="textEntrar">Entrar</string>
 </resources>
