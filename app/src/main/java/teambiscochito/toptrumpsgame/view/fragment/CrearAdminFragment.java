@@ -12,17 +12,26 @@ import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import teambiscochito.toptrumpsgame.R;
 
 public class CrearAdminFragment extends Fragment {
+
     SharedPreferences sharedPreferences;
     EditText etClave;
+    Animation animScaleUp, animScaleDown;
+    TextView tvAdminEntrar;
+    View vAdminEntrar;
+
     public CrearAdminFragment() {
 
     }
@@ -41,8 +50,12 @@ public class CrearAdminFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initAnim();
 
         Button btMenuParaProbar = view.findViewById(R.id.btMenuParaProbar);
+        Button btSeleccionarJugadorParaProbar = view.findViewById(R.id.btSeleccionarParaProbar);
+        tvAdminEntrar = view.findViewById(R.id.tvAdminEntrar);
+        vAdminEntrar = view.findViewById(R.id.viewBtAdminEntrar);
 
         final NavController navController = Navigation.findNavController(view);
 
@@ -55,6 +68,25 @@ public class CrearAdminFragment extends Fragment {
             Log.v("XYZ", claveAdmin);
             navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
         }
+        // -----------------------------------------------------------------------------------------
+
+        vAdminEntrar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    vAdminEntrar.startAnimation(animScaleUp);
+                    tvAdminEntrar.startAnimation(animScaleUp);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    vAdminEntrar.startAnimation(animScaleDown);
+                    tvAdminEntrar.startAnimation(animScaleDown);
+                }
+
+                return true;
+            }
+        });
+
         // -----------------------------------------------------------------------------------------
         btMenuParaProbar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,6 +111,20 @@ public class CrearAdminFragment extends Fragment {
 
             }
         });
+
+        btSeleccionarJugadorParaProbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_crearAdminFragment_to_addUserFragment);
+            }
+        });
+    }
+
+    private void initAnim() {
+
+        animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+        animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
+
     }
     public String cadenaAleatoria(){
         String lista = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890";

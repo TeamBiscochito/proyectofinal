@@ -14,7 +14,8 @@
             android:enabled="true"
             android:exported="true"></receiver>
 
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name=".view.activity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
