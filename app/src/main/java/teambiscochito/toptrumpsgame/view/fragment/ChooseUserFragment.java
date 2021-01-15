@@ -1,5 +1,6 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -70,7 +71,7 @@ public class ChooseUserFragment extends Fragment {
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.recyclerView);
-        //viewModel.insertUser(new User("Gabri", R.drawable.defaultimg));
+        viewModel.insertUser(new User("Gabri", R.drawable.defaultimg));
         LiveData<List<User>> userList= viewModel.getUserList();
         userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
