@@ -1,21 +1,27 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
-import android.content.res.TypedArray;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +34,10 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 public class ChooseUserFragment extends Fragment {
     RecyclerView recyclerView;
     ViewModel viewModel;
+
+    TextView tvEligeTuJugador;
+
+    private MediaPlayer mp_seleccionarJugador;
 
     public ChooseUserFragment() {
 
@@ -47,18 +57,56 @@ public class ChooseUserFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        initMediaPlayerSeleccionarJugador();
+
+        tvEligeTuJugador = view.findViewById(R.id.tvEligeTuJugador);
+
+        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.tv_choose_player);
+        tvEligeTuJugador.startAnimation(anim);
+
+
+        final NavController navController = Navigation.findNavController(view);
+
+
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.recyclerView);
-        List<User> userList = viewModel.getUserList();
-        Log.v("xyzyx", "ARRAY DEVUELTO POR EL VIEWMODEL: " + userList.toString());
-        //la foto de avatares numero 0 deberia de ser un simbolo de suma
-        //aunque sea de tipo usuario, se usa como botón de añadir usuario
-        userList.add(new User("Create new user", 0));
+        viewModel.insertUser(new User("Gabri", R.drawable.defaultimg));
+        LiveData<List<User>> userList= viewModel.getUserList();
+        userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
+            @Override
+            public void onChanged(List<User> users) {
+                RecyclerUserAdapter adapter = new RecyclerUserAdapter(users ,view, getActivity());
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            }
+        });
+    }
 
-        TypedArray avatarImages = getResources().obtainTypedArray(R.array.avatar);
-        RecyclerUserAdapter recyclerUserAdapter = new RecyclerUserAdapter(userList, this, view, viewModel, avatarImages);
-        recyclerView.setAdapter(recyclerUserAdapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    public void initMediaPlayerSeleccionarJugador() {
+
+        mp_seleccionarJugador = MediaPlayer.create(getContext(), R.raw.seleccionarjugador_music);
+        mp_seleccionarJugador.setLooping(true);
+        mp_seleccionarJugador.start();
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mp_seleccionarJugador.pause();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        mp_seleccionarJugador.start();
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mp_seleccionarJugador.stop();
+        mp_seleccionarJugador.release();
     }
 }

@@ -200,7 +200,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuNote"
+        app:layout_constraintStart_toEndOf="@+id/viewMenuSettings"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <TextView
@@ -218,7 +218,7 @@
         app:layout_constraintTop_toTopOf="@+id/viewMenuCreditos" />
 
     <View
-        android:id="@+id/viewMenuNote"
+        android:id="@+id/viewMenuSettings"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/imgcredit"
@@ -229,15 +229,15 @@
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
     <ImageView
-        android:id="@+id/ivMenuNote"
+        android:id="@+id/ivMenuSettings"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:contentDescription="@string/imgMusica"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuNote"
-        app:layout_constraintEnd_toEndOf="@+id/viewMenuNote"
-        app:layout_constraintStart_toStartOf="@+id/viewMenuNote"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuNote"
-        app:srcCompat="@drawable/ic_note" />
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenuSettings"
+        app:layout_constraintStart_toStartOf="@+id/viewMenuSettings"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuSettings"
+        app:srcCompat="@drawable/ic_settings" />
 
     <View
         android:id="@+id/viewMenuUser"
@@ -245,7 +245,7 @@
         android:layout_height="70dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/viewMenuNote"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenuSettings"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline3" />
