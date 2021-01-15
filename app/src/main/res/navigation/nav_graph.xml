@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/crearAdminFragment">
+    app:startDestination="@id/chooseUserFragment">
 
     <fragment
         android:id="@+id/crearAdminFragment"
@@ -12,25 +12,28 @@
         tools:layout="@layout/fragment_crear_admin" >
         <action
             android:id="@+id/action_crearAdminFragment_to_chooseUserFragment"
-            app:destination="@id/addUserFragment" />
+            app:destination="@id/chooseUserFragment" />
         <action
             android:id="@+id/action_prueba"
             app:destination="@id/menuFragment" />
     </fragment>
     <fragment
-        android:id="@+id/addUserFragment"
+        android:id="@+id/chooseUserFragment"
         android:name="teambiscochito.toptrumpsgame.view.fragment.ChooseUserFragment"
-        android:label="fragment_add_user"
-        tools:layout="@layout/fragment_choose_user" >
+        android:label="fragment_choose_user"
+        tools:layout="@layout/fragment_choose_user">
         <action
             android:id="@+id/action_addUserFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
         <action
-            android:id="@+id/action_addUserFragment_to_adminFragment"
+            android:id="@+id/action_chooseUserFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
         <action
             android:id="@+id/action_chooseUserFragment_to_menuFragment2"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_chooseUserFragment_to_createUser"
+            app:destination="@id/createUser" />
     </fragment>
     <fragment
         android:id="@+id/adminFragment"
@@ -41,8 +44,8 @@
             android:id="@+id/action_adminFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
         <action
-            android:id="@+id/action_adminFragment_to_addUserFragment"
-            app:destination="@id/addUserFragment" />
+            android:id="@+id/action_adminFragment_to_chooseUserFragment"
+            app:destination="@id/chooseUserFragment" />
         <action
             android:id="@+id/action_adminFragment_to_menuFragment2"
             app:destination="@id/menuFragment" />
@@ -106,5 +109,14 @@
         <action
             android:id="@+id/action_principalFragment_to_adminFragment"
             app:destination="@id/adminFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createUser"
+        android:name="teambiscochito.toptrumpsgame.createUser"
+        android:label="fragment_create_user"
+        tools:layout="@layout/fragment_create_user" >
+        <action
+            android:id="@+id/action_createUser_to_chooseUserFragment"
+            app:destination="@id/chooseUserFragment" />
     </fragment>
 </navigation>

@@ -1,13 +1,17 @@
 package teambiscochito.toptrumpsgame.viewmodel;
 
 import android.app.Application;
+import android.content.res.TypedArray;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
+import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.Repository;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 import teambiscochito.toptrumpsgame.model.room.pojo.Question;
@@ -16,6 +20,7 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
 public class ViewModel extends AndroidViewModel {
 
     private Repository repository;
+    public static User currentUser;
 
     public ViewModel(@NonNull Application application) {
         super(application);
@@ -50,8 +55,18 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteUser(user);
     }
 
-    public LiveData<List<User>> getUserList() {
+    /*public LiveData<List<User>> getUserList() {
         return repository.getUserList();
+    }*/
+
+    public List<User> getUserList() {
+        return new ArrayList<User>(
+                Arrays.asList(
+                    new User("manolito", 4),
+                    new User("manolito", 4),
+                    new User("manolito", 4),
+                    new User("manolito", 4)
+                ));
     }
 
     public void insertQuestion(Question question) {
@@ -69,4 +84,5 @@ public class ViewModel extends AndroidViewModel {
     public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
         return repository.getQuestionListByCardId(cardId);
     }
+
 }
