@@ -1,7 +1,11 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -9,7 +13,9 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -18,10 +24,17 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 import teambiscochito.toptrumpsgame.R;
+import teambiscochito.toptrumpsgame.model.room.pojo.User;
+import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class MenuFragment extends Fragment {
 
@@ -33,7 +46,9 @@ public class MenuFragment extends Fragment {
     View v, vp, vCartas, vTuto, vCreditos, vSettings, vUser, vPlay;
     ImageView ivSettings, ivUser;
     Dialog dialogCreditos, dialogPerfil;
-
+    User userActual;
+    ViewModel viewModel;
+    SharedPreferences sharedPreferences;
     public MenuFragment() {
 
     }
@@ -54,6 +69,9 @@ public class MenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         init(view);
+        sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
+        userActual = viewModel.userActual;
 
         vCartas.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -96,32 +114,7 @@ public class MenuFragment extends Fragment {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vPlay.startAnimation(animScaleDown);
                 }
-/*              ----------------------------------------------------------------------------------
-                final EditText input = new EditText(getContext());
-                AlertDialog builder = new AlertDialog.Builder(getContext())
-                        .setTitle("Clave de acceso").setMessage("Introduzca una nueva clave de acceso")
-                        .setView(input).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                String txt = input.getText().toString();
-                                String claveAdmin = sharedPreferences.getString("clave_admin", "");
-                                Log.v("xyz Menu", claveAdmin);
-                                if(txt.equals(claveAdmin)){
-                                    Toast.makeText(getContext(), "aceptado", Toast.LENGTH_LONG).show();
-                                }else{
-                                    Toast.makeText(getContext(), "Contraseña incorrecta", Toast.LENGTH_LONG).show();
-                                }
 
-                            }
-                        }).setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getContext(), "Cancelado", Toast.LENGTH_LONG).show();
-                            }
-                        }).show();
-
-                ----------------------------------------------------------------------------------
-                */
                 return true;
             }
         });
@@ -154,6 +147,31 @@ public class MenuFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vSettings.startAnimation(animScaleUp);
                     ivSettings.startAnimation(animScaleUp);
+
+                    final EditText input = new EditText(getContext());
+                    AlertDialog builder = new AlertDialog.Builder(getContext())
+                            .setTitle("Clave de acceso").setMessage("Introduzca una nueva clave de acceso")
+                            .setView(input).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    String txt = input.getText().toString();
+                                    String claveAdmin = sharedPreferences.getString("clave_admin", "");
+
+                                    if(txt.equals(claveAdmin)){
+                                        Toast.makeText(getContext(), "aceptado", Toast.LENGTH_LONG).show();
+                                    }else{
+                                        Toast.makeText(getContext(), "Contraseña incorrecta", Toast.LENGTH_LONG).show();
+                                    }
+
+                                }
+                            }).setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    Toast.makeText(getContext(), "Cancelado", Toast.LENGTH_LONG).show();
+                                }
+                            }).show();
+
+
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vSettings.startAnimation(animScaleDown);
@@ -279,6 +297,18 @@ public class MenuFragment extends Fragment {
         dialogPerfil.setCanceledOnTouchOutside(false);
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogPerfil.show();
+
+        TextView tvTotalScoreVerPerfil = dialogPerfil.findViewById(R.id.tvTotalScoreVerPerfil);
+        tvTotalScoreVerPerfil.setText(""+userActual.getTrueAnswer());
+
+        TextView tvNombreVerPerfil =  dialogPerfil.findViewById(R.id.tvNombreVerPerfil);
+        tvNombreVerPerfil.setText(userActual.getName());
+
+        CircleImageView imgAvatarPerfil = dialogPerfil.findViewById(R.id.imgAvatarVerPerfil);
+        imgAvatarPerfil.setImageDrawable(getResources().getDrawable(userActual.getAvatar()));
+
+
+
     }
 
     public void initMediaPlayerMenu() {

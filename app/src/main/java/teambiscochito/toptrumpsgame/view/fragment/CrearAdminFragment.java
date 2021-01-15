@@ -52,8 +52,7 @@ public class CrearAdminFragment extends Fragment {
 
         initAnim();
 
-        Button btMenuParaProbar = view.findViewById(R.id.btMenuParaProbar);
-        Button btSeleccionarJugadorParaProbar = view.findViewById(R.id.btSeleccionarParaProbar);
+
         tvAdminEntrar = view.findViewById(R.id.tvAdminEntrar);
         vAdminEntrar = view.findViewById(R.id.viewBtAdminEntrar);
 
@@ -77,6 +76,23 @@ public class CrearAdminFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vAdminEntrar.startAnimation(animScaleUp);
                     tvAdminEntrar.startAnimation(animScaleUp);
+                    try {
+                        String clave = etClave.getText().toString();
+                        if(clave.isEmpty()){
+                            Toast.makeText(getContext(),"La clave no puede estar vacia", Toast.LENGTH_LONG ).show();
+                            return false;
+                        }
+                        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedPref.edit();
+                        editor.putString("clave_admin", clave);
+                        editor.commit();
+                    }catch (Exception e){
+                        Log.v("xyz", e.getMessage() );
+                    }
+
+                    // -----------------------------------------------------------------------------------------
+                    navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
+
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vAdminEntrar.startAnimation(animScaleDown);
@@ -88,36 +104,12 @@ public class CrearAdminFragment extends Fragment {
         });
 
         // -----------------------------------------------------------------------------------------
-        btMenuParaProbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // -----------------------------------------------------------------------------------------
-                try {
-                    String clave = etClave.getText().toString();
-                    if(clave.isEmpty()){
-                        Toast.makeText(getContext(),"La clave no puede estar vacia", Toast.LENGTH_LONG ).show();
-                        return;
-                    }
-                    SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPref.edit();
-                    editor.putString("clave_admin", clave);
-                    editor.commit();
-                }catch (Exception e){
-                    Log.v("xyz", e.getMessage() );
-                }
 
                 // -----------------------------------------------------------------------------------------
-                navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
 
-            }
-        });
 
-        btSeleccionarJugadorParaProbar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_crearAdminFragment_to_addUserFragment);
-            }
-        });
+
+
     }
 
     private void initAnim() {

@@ -64,25 +64,19 @@ public class ChooseUserFragment extends Fragment {
         Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.tv_choose_player);
         tvEligeTuJugador.startAnimation(anim);
 
-        Button btIrAlMenu = view.findViewById(R.id.btIrAELMenuChoose);
 
         final NavController navController = Navigation.findNavController(view);
 
-        btIrAlMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mp_seleccionarJugador.stop();
-                navController.navigate(R.id.action_chooseUserFragment_to_menuFragment2);
-            }
-        });
+
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.recyclerView);
+        //viewModel.insertUser(new User("Gabri", R.drawable.defaultimg));
         LiveData<List<User>> userList= viewModel.getUserList();
         userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
-                RecyclerUserAdapter adapter = new RecyclerUserAdapter(users ,view);
+                RecyclerUserAdapter adapter = new RecyclerUserAdapter(users ,view, getActivity());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }

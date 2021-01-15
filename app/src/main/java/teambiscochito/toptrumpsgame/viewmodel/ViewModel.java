@@ -16,6 +16,7 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
 public class ViewModel extends AndroidViewModel {
 
     private Repository repository;
+    public static User userActual;
 
     public ViewModel(@NonNull Application application) {
         super(application);

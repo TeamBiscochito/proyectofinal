@@ -1,6 +1,7 @@
 package teambiscochito.toptrumpsgame.view.adapter;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +13,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
@@ -22,15 +25,19 @@ import java.util.List;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
+import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapter.ViewHolder> {
     List<User> userList;
     //Fragment fragment;
     View view;
+    ViewModel viewModel;
+    Activity activity;
 
-    public RecyclerUserAdapter( List<User> userList, View view){
+    public RecyclerUserAdapter(List<User> userList, View view, Activity activity){
         this.userList = userList;
         this.view = view;
+        this.activity = activity;
     }
 
     @NonNull
@@ -49,13 +56,15 @@ public class RecyclerUserAdapter extends RecyclerView.Adapter<RecyclerUserAdapte
             final NavController navController = Navigation.findNavController(view);
             @Override
             public void onClick(View v) {
+                viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
+
 
                 // TODO: Por comprobar
-                Bundle bundle = new Bundle();
+                //Bundle bundle = new Bundle();
+                //bundle.putLong("userid", userList.get(position).getId());
+                viewModel.userActual = userList.get(position);
 
-                bundle.putLong("userid", userList.get(position).getId());
-
-                navController.navigate(R.id.action_chooseUserFragment_to_menuFragment2 , bundle );
+                navController.navigate(R.id.action_chooseUserFragment_to_menuFragment2);
 
             }
         });
