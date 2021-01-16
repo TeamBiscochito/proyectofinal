@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.WindowManager;
 
-import teambiscochito.toptrumpsgame.MyReceiver;
+import teambiscochito.toptrumpsgame.receiver.ReceiverBateria;
 import teambiscochito.toptrumpsgame.R;
 
 public class MainActivity extends AppCompatActivity {
 
-    MyReceiver receiver;
+    ReceiverBateria receiver;
     IntentFilter intentFilter;
 
     @Override
@@ -23,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        receiver = new MyReceiver();
+        receiver = new ReceiverBateria();
         intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_BATTERY_LOW);
     }

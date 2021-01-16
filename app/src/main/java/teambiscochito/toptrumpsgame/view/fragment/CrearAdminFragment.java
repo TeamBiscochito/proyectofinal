@@ -17,10 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import teambiscochito.toptrumpsgame.R;
 
@@ -31,6 +29,8 @@ public class CrearAdminFragment extends Fragment {
     Animation animScaleUp, animScaleDown;
     TextView tvAdminEntrar;
     View vAdminEntrar;
+
+    TextView tvAlertaCrearAdmin;
 
     public CrearAdminFragment() {
 
@@ -55,6 +55,7 @@ public class CrearAdminFragment extends Fragment {
 
         tvAdminEntrar = view.findViewById(R.id.tvAdminEntrar);
         vAdminEntrar = view.findViewById(R.id.viewBtAdminEntrar);
+        tvAlertaCrearAdmin = view.findViewById(R.id.tvAlertaCrearAdmin);
 
         final NavController navController = Navigation.findNavController(view);
 
@@ -76,10 +77,11 @@ public class CrearAdminFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vAdminEntrar.startAnimation(animScaleUp);
                     tvAdminEntrar.startAnimation(animScaleUp);
+
                     try {
                         String clave = etClave.getText().toString();
                         if(clave.isEmpty()){
-                            Toast.makeText(getContext(),"La clave no puede estar vacia", Toast.LENGTH_LONG ).show();
+                            tvAlertaCrearAdmin.setText(R.string.textIntroduceUnaClave);
                             return false;
                         }
                         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
