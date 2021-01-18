@@ -14,7 +14,7 @@
         app:layout_constraintGuide_percent="0.20" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rvJugadoresSeleccion"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textAlignment="center"

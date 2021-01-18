@@ -25,6 +25,9 @@ public interface UserDao {
     @Update
     int update(User user);
 
+    @Query("delete from user where id = :id")
+    int deleteId(long id);
+
     @Query("select * from user where id = :id")
     User getUserById(long id);
 

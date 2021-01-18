@@ -125,6 +125,20 @@ public class Repository {
         });
     }
 
+    public void deleteUserById(long id) {
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    userDao.deleteId(id);
+                    Log.v("xyz", "borrado el user: " + id);
+                } catch (Exception e) {
+                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
+                }
+            }
+        });
+    }
+
 
     public LiveData<List<User>> getUserList() {
         return userDao.getAllUser();

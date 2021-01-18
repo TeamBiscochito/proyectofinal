@@ -34,7 +34,7 @@ import java.util.List;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
-import teambiscochito.toptrumpsgame.view.adapter.RecyclerUserAdapter;
+import teambiscochito.toptrumpsgame.view.adapter.RecyclerJugadoresSeleccionAdapter;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class ChooseUserFragment extends Fragment {
@@ -99,19 +99,17 @@ public class ChooseUserFragment extends Fragment {
             }
         });
 
-        final NavController navController = Navigation.findNavController(view);
-
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
-        recyclerView = getView().findViewById(R.id.recyclerView);
+        recyclerView = getView().findViewById(R.id.rvJugadoresSeleccion);
 
         viewModel.insertUser(new User("Gabri", R.drawable.defaultimg));
 
-        LiveData<List<User>> userList= viewModel.getUserList();
+        LiveData<List<User>> userList = viewModel.getUserList();
         userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
 
-                RecyclerUserAdapter adapter = new RecyclerUserAdapter(users ,view, getActivity());
+                RecyclerJugadoresSeleccionAdapter adapter = new RecyclerJugadoresSeleccionAdapter(users ,view, getActivity());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

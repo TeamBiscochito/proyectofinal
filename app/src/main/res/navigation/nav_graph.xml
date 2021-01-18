@@ -42,6 +42,16 @@
             app:destination="@id/chooseUserFragment"
             app:enterAnim="@anim/fade_entrar_fragment"
             app:exitAnim="@anim/fade_salir_fragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_adminJugadorFragment"
+            app:destination="@id/adminJugadorFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
+        <action
+            android:id="@+id/action_adminFragment_to_adminCartasFragment"
+            app:destination="@id/adminCartasFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
     <fragment
         android:id="@+id/cartasFragment"
@@ -111,4 +121,25 @@
             app:enterAnim="@anim/fade_entrar_fragment"
             app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
+    <fragment
+        android:id="@+id/adminJugadorFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.AdminJugadorFragment"
+        android:label="fragment_admin_jugador"
+        tools:layout="@layout/fragment_admin_jugador" >
+        <action
+            android:id="@+id/action_adminJugadorFragment_to_adminFragment"
+            app:destination="@id/adminFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
+        <action
+            android:id="@+id/action_adminJugadorFragment_to_chooseUserFragment"
+            app:destination="@id/chooseUserFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/adminCartasFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.AdminCartasFragment"
+        android:label="fragment_admin_cartas"
+        tools:layout="@layout/fragment_admin_cartas" />
 </navigation>

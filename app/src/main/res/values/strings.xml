@@ -41,7 +41,16 @@
     <string name="textCorreoNoValido">El correo electrónico no es válido</string>
     <string name="textCorreoSubject">Animales Salvajes. Puntuación acumulada</string>
     <string name="textNoSePudoEnviarCorreo">No se pudo enviar el correo electrónico</string>
-    <string name="tvEmailEnviadoExito">Si has mandado el correo, te habrá llegado. Sino, es porque has cancelado</string>
+    <string name="tvEmailEnviadoExito">Si finalmente has decidido mandar el mensaje, comprueba tu correo</string>
     <string name="alertBateriaAgotarse">La batería del dispositivo está a punto de agotarse</string>
     <string name="contBateria">Batería</string>
+    <string name="textModoAdmin">¡Hola, admin!</string>
+    <string name="textInfoAdmin">Has entrado al modo administrador. Desde aquí podrás gestionar a los jugadores, así como a las cartas</string>
+    <string name="textJugadores">Jugadores</string>
+    <string name="textVasASalirDeAdmin">¿Seguro que quieres salir del modo administrador?</string>
+    <string name="tvEditar">Editar</string>
+    <string name="contAdd">Añadir</string>
+    <string name="tvAddJugador">Añadir jugador</string>
+    <string name="alertCuidado">Cuidado</string>
+    <string name="tvConfirmarBorrarJugador">¿Seguro que quieres borrar a este jugador?</string>
 </resources>

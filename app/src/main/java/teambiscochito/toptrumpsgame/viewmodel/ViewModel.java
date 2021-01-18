@@ -51,6 +51,10 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteUser(user);
     }
 
+    public void deleteUserById(long id) {
+        repository.deleteUserById(id);
+    }
+
     public LiveData<List<User>> getUserList() {
         return repository.getUserList();
     }
