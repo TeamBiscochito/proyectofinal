@@ -1,5 +1,9 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
+import android.app.ActionBar;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
@@ -13,29 +17,36 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.RecyclerViewAccessibilityDelegate;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
-import teambiscochito.toptrumpsgame.view.adapter.RecyclerUserAdapter;
+import teambiscochito.toptrumpsgame.view.adapter.RecyclerJugadoresSeleccionAdapter;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class ChooseUserFragment extends Fragment {
+
     RecyclerView recyclerView;
     ViewModel viewModel;
 
     TextView tvEligeTuJugador;
+    Dialog dialogAjustes;
+    SharedPreferences sharedPreferences;
+    Animation anim, animScaleUp, animScaleDown;
+    NavController navController;
 
     private MediaPlayer mp_seleccionarJugador;
 
@@ -59,33 +70,127 @@ public class ChooseUserFragment extends Fragment {
 
         initMediaPlayerSeleccionarJugador();
 
+        navController = Navigation.findNavController(view);
+        sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+
+        initAnim();
+
         tvEligeTuJugador = view.findViewById(R.id.tvEligeTuJugador);
 
-        Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.tv_choose_player);
         tvEligeTuJugador.startAnimation(anim);
 
+        View imgAjustesChooseUser = view.findViewById(R.id.imgAjustesChooseUser);
 
-        final NavController navController = Navigation.findNavController(view);
+        imgAjustesChooseUser.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
 
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    imgAjustesChooseUser.startAnimation(animScaleUp);
 
+                    ajustesDialog();
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    imgAjustesChooseUser.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
-        recyclerView = getView().findViewById(R.id.recyclerView);
+        recyclerView = getView().findViewById(R.id.rvJugadoresSeleccion);
+
         viewModel.insertUser(new User("Gabri", R.drawable.defaultimg));
-        LiveData<List<User>> userList= viewModel.getUserList();
+
+        LiveData<List<User>> userList = viewModel.getUserList();
         userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
-                RecyclerUserAdapter adapter = new RecyclerUserAdapter(users ,view, getActivity());
+
+                RecyclerJugadoresSeleccionAdapter adapter = new RecyclerJugadoresSeleccionAdapter(users ,view, getActivity());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
             }
         });
     }
 
+    public void initAnim() {
+
+        anim = AnimationUtils.loadAnimation(getContext(), R.anim.tv_choose_player);
+        animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+        animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
+
+    }
+
+    public void ajustesDialog() {
+
+        ImageView imgAtrasAjustesDialog;
+
+        dialogAjustes = new Dialog(getContext());
+        dialogAjustes.setContentView(R.layout.ajustes_dialog);
+        dialogAjustes.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogAjustes.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        imgAtrasAjustesDialog = dialogAjustes.findViewById(R.id.imgBackAjustesDialog);
+
+        imgAtrasAjustesDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogAjustes.dismiss();
+            }
+        });
+
+        dialogAjustes.setCancelable(true);
+        dialogAjustes.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogAjustes.show();
+
+        EditText claveEtAjustes = dialogAjustes.findViewById(R.id.claveEtAjustes);
+        View viewBtAccederAjustesDialog = dialogAjustes.findViewById(R.id.viewBtAccederAjustesDialog);
+        TextView tvAccederAjustesDialog = dialogAjustes.findViewById(R.id.tvAccederAjustesDialog);
+        TextView tvAlertaAjustesDialog = dialogAjustes.findViewById(R.id.tvAlertaAjustesDialog);
+
+        String claveAdmin = sharedPreferences.getString("clave_admin", "");
+
+        viewBtAccederAjustesDialog.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewBtAccederAjustesDialog.startAnimation(animScaleUp);
+                    tvAccederAjustesDialog.startAnimation(animScaleUp);
+
+                    String txt = claveEtAjustes.getText().toString();
+
+                    if(txt.equals(claveAdmin)){
+
+                        mp_seleccionarJugador.stop();
+                        dialogAjustes.dismiss();
+                        navController.navigate(R.id.action_chooseUserFragment_to_adminFragment);
+
+                    }else{
+                        tvAlertaAjustesDialog.setText(R.string.textAccesoDenegado);
+                    }
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewBtAccederAjustesDialog.startAnimation(animScaleDown);
+                    tvAccederAjustesDialog.startAnimation(animScaleDown);
+                }
+
+                return true;
+            }
+        });
+
+    }
+
     public void initMediaPlayerSeleccionarJugador() {
 
-        mp_seleccionarJugador = MediaPlayer.create(getContext(), R.raw.seleccionarjugador_music);
+        mp_seleccionarJugador = MediaPlayer.create(getContext(), R.raw.jugador_music);
         mp_seleccionarJugador.setLooping(true);
         mp_seleccionarJugador.start();
 

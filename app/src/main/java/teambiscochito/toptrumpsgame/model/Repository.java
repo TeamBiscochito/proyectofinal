@@ -125,6 +125,20 @@ public class Repository {
         });
     }
 
+    public void deleteUserById(long id) {
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    userDao.deleteId(id);
+                    Log.v("xyz", "borrado el user: " + id);
+                } catch (Exception e) {
+                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
+                }
+            }
+        });
+    }
+
 
     public LiveData<List<User>> getUserList() {
         return userDao.getAllUser();
@@ -179,6 +193,10 @@ public class Repository {
 
     public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
         return questionDao.getQuestionByCardId(cardId);
+    }
+
+    public String getNameFromName(String name) {
+        return userDao.getNameFromName(name);
     }
 
 }

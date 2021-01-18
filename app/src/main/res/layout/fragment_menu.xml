@@ -196,19 +196,20 @@
         android:id="@+id/viewMenuCreditos"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/imgcredit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuSettings"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenuSettings" />
 
     <TextView
         android:id="@+id/tvMenuCreditos"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/schoolbell"
         android:text="@string/tvCreditos"
+        android:textAlignment="center"
         android:textColor="#472C06"
         android:textSize="15sp"
         android:textStyle="bold"
@@ -222,11 +223,10 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:background="@drawable/imgcredit"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
         app:layout_constraintEnd_toStartOf="@+id/viewMenuCreditos"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuUser"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenuUser" />
 
     <ImageView
         android:id="@+id/ivMenuSettings"
@@ -243,12 +243,12 @@
         android:id="@+id/viewMenuUser"
         android:layout_width="70dp"
         android:layout_height="70dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewMenuSettings"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenuCerrarSesion" />
 
     <ImageView
         android:id="@+id/ivMenuUser"
@@ -261,5 +261,30 @@
         app:layout_constraintStart_toStartOf="@+id/viewMenuUser"
         app:layout_constraintTop_toTopOf="@+id/viewMenuUser"
         app:srcCompat="@drawable/ic_user" />
+
+    <View
+        android:id="@+id/viewMenuCerrarSesion"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/imgcredit"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenuUser"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMenuCerrarSesion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:text="@string/tvCerrarSesion"
+        android:textAlignment="center"
+        android:textColor="#472C06"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuCerrarSesion"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenuCerrarSesion"
+        app:layout_constraintStart_toStartOf="@+id/viewMenuCerrarSesion"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuCerrarSesion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

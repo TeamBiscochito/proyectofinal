@@ -51,6 +51,10 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteUser(user);
     }
 
+    public void deleteUserById(long id) {
+        repository.deleteUserById(id);
+    }
+
     public LiveData<List<User>> getUserList() {
         return repository.getUserList();
     }
@@ -69,5 +73,9 @@ public class ViewModel extends AndroidViewModel {
 
     public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
         return repository.getQuestionListByCardId(cardId);
+    }
+
+    public String getNameFromName(String name) {
+        return repository.getNameFromName(name);
     }
 }
