@@ -14,14 +14,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline46"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.50" />
+            app:layout_constraintGuide_percent="0.45" />
 
         <TextView
             android:id="@+id/textView23"
@@ -90,12 +92,127 @@
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_avatar"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/guideline52"
+            app:layout_constraintEnd_toStartOf="@+id/viewNextAvatar"
+            app:layout_constraintStart_toEndOf="@+id/viewPreviousAvatar"
+            app:layout_constraintTop_toTopOf="@+id/guideline46" />
+
+        <View
+            android:id="@+id/viewNextAvatar"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="2dp"
+            android:background="@drawable/next"
             app:layout_constraintBottom_toTopOf="@+id/guideline52"
             app:layout_constraintEnd_toStartOf="@+id/guideline55"
+            app:layout_constraintTop_toTopOf="@+id/guideline46" />
+
+        <View
+            android:id="@+id/viewPreviousAvatar"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="2dp"
+            android:background="@drawable/previous"
+            app:layout_constraintBottom_toTopOf="@+id/guideline52"
             app:layout_constraintStart_toStartOf="@+id/guideline54"
             app:layout_constraintTop_toTopOf="@+id/guideline46" />
+
+        <View
+            android:id="@+id/viewAddJugador2"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
+            android:background="@drawable/tablero_2"
+            app:layout_constraintBottom_toTopOf="@+id/guideline53"
+            app:layout_constraintEnd_toStartOf="@+id/guideline55"
+            app:layout_constraintStart_toStartOf="@+id/guideline54"
+            app:layout_constraintTop_toTopOf="@+id/guideline52" />
+
+        <TextView
+            android:id="@+id/tvAddJugador2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/contAdd"
+            android:textAlignment="center"
+            android:textColor="#472C06"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/viewAddJugador2"
+            app:layout_constraintEnd_toEndOf="@+id/viewAddJugador2"
+            app:layout_constraintStart_toStartOf="@+id/viewAddJugador2"
+            app:layout_constraintTop_toTopOf="@+id/viewAddJugador2" />
+
+        <TextView
+            android:id="@+id/textView26"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/tvSeleccionaAvatar"
+            android:textAlignment="center"
+            android:textColor="#472C06"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/vp_avatar"
+            app:layout_constraintEnd_toStartOf="@+id/guideline55"
+            app:layout_constraintStart_toStartOf="@+id/guideline54" />
+
+        <TextView
+            android:id="@+id/textView27"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/tvIntroduceNombre"
+            android:textAlignment="center"
+            android:textColor="#472C06"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline55"
+            app:layout_constraintStart_toStartOf="@+id/guideline54"
+            app:layout_constraintTop_toTopOf="@+id/guideline51" />
+
+        <EditText
+            android:id="@+id/etNombreJugador"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:autofillHints=""
+            android:background="@drawable/edittext_bg"
+            android:ems="10"
+            android:fontFamily="@font/schoolbell"
+            android:hint="@string/tvNombre"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toTopOf="@+id/textView26"
+            app:layout_constraintEnd_toStartOf="@+id/guideline55"
+            app:layout_constraintStart_toStartOf="@+id/guideline54"
+            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+        <TextView
+            android:id="@+id/tvAlertaAddJugador"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#D3443A"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/viewAddJugador2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline55"
+            app:layout_constraintStart_toStartOf="@+id/guideline54"
+            app:layout_constraintTop_toBottomOf="@+id/vp_avatar" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

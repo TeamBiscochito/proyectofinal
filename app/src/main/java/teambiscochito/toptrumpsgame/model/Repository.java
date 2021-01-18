@@ -195,4 +195,8 @@ public class Repository {
         return questionDao.getQuestionByCardId(cardId);
     }
 
+    public String getNameFromName(String name) {
+        return userDao.getNameFromName(name);
+    }
+
 }

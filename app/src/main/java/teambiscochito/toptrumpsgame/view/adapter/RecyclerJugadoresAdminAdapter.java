@@ -83,6 +83,8 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
                 TextView tvBorrarInfoAdminJ = dialogJugadores.findViewById(R.id.tvBorrarInfoAdminJ);
                 View viewBackInfoAdminJ = dialogJugadores.findViewById(R.id.viewBackInfoAdminJ);
                 View viewBorrarInfoAdminJ = dialogJugadores.findViewById(R.id.viewBorrarInfoAdminJ);
+                View viewEditarInfoAdminJ = dialogJugadores.findViewById(R.id.viewEditarInfoAdminJ);
+                TextView tvEditarInfoAdminJ = dialogJugadores.findViewById(R.id.tvEditarInfoAdminJ);
 
                 viewBackInfoAdminJ.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -90,6 +92,23 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
 
                         dialogJugadores.dismiss();
 
+                    }
+                });
+
+                viewEditarInfoAdminJ.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+
+                        if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                            viewEditarInfoAdminJ.startAnimation(animScaleUp);
+                            tvEditarInfoAdminJ.startAnimation(animScaleUp);
+
+                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                            viewEditarInfoAdminJ.startAnimation(animScaleDown);
+                            tvEditarInfoAdminJ.startAnimation(animScaleDown);
+                        }
+
+                        return true;
                     }
                 });
 

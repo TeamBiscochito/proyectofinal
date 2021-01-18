@@ -45,7 +45,6 @@ public class AdminJugadorFragment extends Fragment {
     Dialog dialogSalirAdmin;
 
     NavController navController;
-    private MediaPlayer mp_admin;
 
     public AdminJugadorFragment() {
 
@@ -110,6 +109,8 @@ public class AdminJugadorFragment extends Fragment {
                     imgAddJugador.startAnimation(animScaleUp);
                     tvAddJugador.startAnimation(animScaleUp);
 
+                    navController.navigate(R.id.action_adminJugadorFragment_to_addPlayerFragment);
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     viewAddJugador.startAnimation(animScaleDown);
                     imgAddJugador.startAnimation(animScaleDown);
@@ -146,8 +147,6 @@ public class AdminJugadorFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        initMediaPlayerAdmin();
-
         viewBackAdminJugadores = view.findViewById(R.id.viewBackAdminJugadores);
         viewCerrarAdminJugadores = view.findViewById(R.id.viewCerrarAdminJugadores);
         viewAddJugador = view.findViewById(R.id.viewAddJugador);
@@ -183,7 +182,6 @@ public class AdminJugadorFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                mp_admin.stop();
                 dialogSalirAdmin.dismiss();
                 navController.navigate(R.id.action_adminJugadorFragment_to_chooseUserFragment);
 
@@ -197,33 +195,4 @@ public class AdminJugadorFragment extends Fragment {
 
     }
 
-    public void initMediaPlayerAdmin() {
-
-        mp_admin = MediaPlayer.create(getContext(), R.raw.admin_music);
-        mp_admin.setLooping(true);
-        mp_admin.start();
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mp_admin.start();
-
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mp_admin.pause();
-
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mp_admin.stop();
-        mp_admin.release();
-
-    }
 }

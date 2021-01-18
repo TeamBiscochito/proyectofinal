@@ -13,8 +13,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/bt_enviar_correo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="@+id/guideline33"
         app:layout_constraintTop_toBottomOf="@+id/viewCorreoBorrar" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -65,7 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/mail_icon_bg"
         app:layout_constraintBottom_toBottomOf="@+id/textView15"
         app:layout_constraintEnd_toStartOf="@+id/guideline34"
@@ -87,8 +87,6 @@
         android:id="@+id/textView13"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/schoolbell"
         android:text="@string/tvCorreoElectronico"
@@ -97,15 +95,13 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/etCorreo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="@+id/guideline33" />
 
     <EditText
         android:id="@+id/etCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="16dp"
         android:autofillHints=""
         android:background="@drawable/edittext_bg"
@@ -118,23 +114,21 @@
         android:padding="8dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/tvAlertaCorreo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="@+id/guideline33" />
 
     <TextView
         android:id="@+id/tvAlertaCorreo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/schoolbell"
         android:textAlignment="center"
         android:textColor="#D3443A"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline31"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="@+id/guideline33" />
 
     <View
         android:id="@+id/viewBackCorreo"
@@ -159,8 +153,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bt_enviar_correo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline34"
+        app:layout_constraintStart_toStartOf="@+id/guideline33"
         app:layout_constraintTop_toTopOf="@+id/guideline31" />
 
     <TextView

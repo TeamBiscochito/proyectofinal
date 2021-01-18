@@ -53,4 +53,9 @@
     <string name="tvAddJugador">Añadir jugador</string>
     <string name="alertCuidado">Cuidado</string>
     <string name="tvConfirmarBorrarJugador">¿Seguro que quieres borrar a este jugador?</string>
+    <string name="tvSeleccionaAvatar">Selecciona un avatar:</string>
+    <string name="tvIntroduceNombre">Introduce un nombre:</string>
+    <string name="tvIntroduceNombreSinPuntos">Introduce un nombre</string>
+    <string name="tvNombre">Nombre</string>
+    <string name="tvNombreYaEnUso">El nombre ya está en uso</string>
 </resources>

@@ -29,7 +29,6 @@ public class AdminFragment extends Fragment {
     Animation animScaleUp, animScaleDown;
     TextView tvAdminEntrarJugadores, tvAdminEntrarCartas;
     NavController navController;
-    private MediaPlayer mp_admin;
     Dialog dialogSalirAdmin;
 
     public AdminFragment() {
@@ -115,8 +114,6 @@ public class AdminFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        initMediaPlayerAdmin();
-
         viewCerrarAdmin = view.findViewById(R.id.viewCerrarAdminScreen);
         viewAdminEntrarJugadores = view.findViewById(R.id.viewAdminEntrarJugadores);
         viewAdminEntrarCartas = view.findViewById(R.id.viewAdminEntrarCartas);
@@ -152,7 +149,6 @@ public class AdminFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                mp_admin.stop();
                 dialogSalirAdmin.dismiss();
                 navController.navigate(R.id.action_adminFragment_to_chooseUserFragment);
 
@@ -166,33 +162,4 @@ public class AdminFragment extends Fragment {
 
     }
 
-    public void initMediaPlayerAdmin() {
-
-        mp_admin = MediaPlayer.create(getContext(), R.raw.admin_music);
-        mp_admin.setLooping(true);
-        mp_admin.start();
-
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mp_admin.start();
-
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        mp_admin.pause();
-
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mp_admin.stop();
-        mp_admin.release();
-
-    }
 }

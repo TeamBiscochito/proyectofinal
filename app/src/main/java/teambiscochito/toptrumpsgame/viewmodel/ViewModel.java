@@ -74,4 +74,8 @@ public class ViewModel extends AndroidViewModel {
     public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
         return repository.getQuestionListByCardId(cardId);
     }
+
+    public String getNameFromName(String name) {
+        return repository.getNameFromName(name);
+    }
 }

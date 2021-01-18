@@ -2,6 +2,7 @@ package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -29,6 +30,7 @@ public class CrearAdminFragment extends Fragment {
     Animation animScaleUp, animScaleDown;
     TextView tvAdminEntrar;
     View vAdminEntrar;
+    private MediaPlayer mp_intro;
 
     TextView tvAlertaCrearAdmin;
 
@@ -52,23 +54,22 @@ public class CrearAdminFragment extends Fragment {
 
         initAnim();
 
-
         tvAdminEntrar = view.findViewById(R.id.tvAdminEntrar);
         vAdminEntrar = view.findViewById(R.id.viewBtAdminEntrar);
         tvAlertaCrearAdmin = view.findViewById(R.id.tvAlertaCrearAdmin);
 
         final NavController navController = Navigation.findNavController(view);
 
-        // -----------------------------------------------------------------------------------------
         etClave = view.findViewById(R.id.claveEt);
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         String random = cadenaAleatoria();
         String claveAdmin = sharedPreferences.getString("clave_admin", random);
         if (claveAdmin != random){
             Log.v("XYZ", claveAdmin);
+
+            mp_intro.stop();
             navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
         }
-        // -----------------------------------------------------------------------------------------
 
         vAdminEntrar.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -92,7 +93,7 @@ public class CrearAdminFragment extends Fragment {
                         Log.v("xyz", e.getMessage() );
                     }
 
-                    // -----------------------------------------------------------------------------------------
+                    mp_intro.stop();
                     navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
 
 
@@ -105,13 +106,6 @@ public class CrearAdminFragment extends Fragment {
             }
         });
 
-        // -----------------------------------------------------------------------------------------
-
-                // -----------------------------------------------------------------------------------------
-
-
-
-
     }
 
     private void initAnim() {
@@ -119,7 +113,18 @@ public class CrearAdminFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
+        initMediaPlayerIntro();
+
     }
+
+    public void initMediaPlayerIntro() {
+
+        mp_intro = MediaPlayer.create(getContext(), R.raw.intro_music);
+        mp_intro.setLooping(true);
+        mp_intro.start();
+
+    }
+
     public String cadenaAleatoria(){
         String lista = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890";
         String s="";
@@ -129,4 +134,25 @@ public class CrearAdminFragment extends Fragment {
         return s;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mp_intro.start();
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mp_intro.pause();
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mp_intro.stop();
+        mp_intro.release();
+
+    }
 }
