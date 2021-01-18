@@ -57,13 +57,6 @@
             app:layout_constraintTop_toTopOf="@+id/guideline41" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline46"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.965" />
-
-        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline41"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,8 +117,8 @@
 
         <TextView
             android:id="@+id/tvAddJugador"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="154dp"
+            android:layout_height="22dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/schoolbell"
