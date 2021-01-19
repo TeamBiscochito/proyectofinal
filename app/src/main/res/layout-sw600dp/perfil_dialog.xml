@@ -78,7 +78,7 @@
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="36sp"
+            android:textSize="42sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline17"
             app:layout_constraintStart_toStartOf="@+id/guideline16"
