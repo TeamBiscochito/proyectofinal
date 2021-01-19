@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg">
+
+    <View
+        android:id="@+id/viewTuto"
+        android:layout_width="208dp"
+        android:layout_height="112dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/tablero_ct"
+        app:layout_constraintBottom_toTopOf="@+id/view8"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/viewCartas"
+        android:layout_width="208dp"
+        android:layout_height="112dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/tablero_ct"
+        app:layout_constraintBottom_toTopOf="@+id/view8"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMenuCartas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:text="@string/btCartas"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewCartas"
+        app:layout_constraintEnd_toEndOf="@+id/viewCartas"
+        app:layout_constraintStart_toStartOf="@+id/viewCartas"
+        app:layout_constraintTop_toTopOf="@+id/viewCartas" />
+
+    <TextView
+        android:id="@+id/tvMenuTuto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:text="@string/btTutorial"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewTuto"
+        app:layout_constraintEnd_toEndOf="@+id/viewTuto"
+        app:layout_constraintStart_toStartOf="@+id/viewTuto"
+        app:layout_constraintTop_toTopOf="@+id/viewTuto" />
+
+    <View
+        android:id="@+id/viewTablero"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/tablero"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.23392613" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.16552667" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30506155" />
+
+    <TextView
+        android:id="@+id/tvTitulo1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amadeus"
+        android:paddingStart="90dp"
+        android:text="@string/tvTitulo1"
+        android:textAlignment="viewStart"
+        android:textColor="#472C06"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline6"
+        app:layout_constraintEnd_toEndOf="@+id/viewTablero"
+        app:layout_constraintStart_toStartOf="@+id/viewTablero"
+        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+
+    <TextView
+        android:id="@+id/tvTitulo2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amadeus"
+        android:paddingEnd="60dp"
+        android:text="@string/tvTitulo2"
+        android:textAlignment="viewEnd"
+        android:textColor="#472C06"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitulo1"
+        app:layout_constraintStart_toStartOf="@+id/tvTitulo1"
+        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.57" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:background="@drawable/brown_bg"
+        app:layout_constraintBottom_toBottomOf="@+id/view8"
+        app:layout_constraintEnd_toEndOf="@+id/view8"
+        app:layout_constraintStart_toStartOf="@+id/view8"
+        app:layout_constraintTop_toTopOf="@+id/view8"
+        app:layout_constraintVertical_bias="0.502" />
+
+    <View
+        android:id="@+id/viewPlayButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/play_bt_gradient_list"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/view3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/view3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/view8"
+        android:layout_width="600dp"
+        android:layout_height="300dp"
+        android:background="@drawable/tronco"
+        android:foregroundGravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <View
+        android:id="@+id/viewMenuPlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/imgplay"
+        app:layout_constraintBottom_toBottomOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="@+id/viewPlayButton"
+        app:layout_constraintStart_toStartOf="@+id/view3"
+        app:layout_constraintTop_toTopOf="@+id/viewPlayButton" />
+
+    <View
+        android:id="@+id/viewMenuCreditos"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/imgcredit"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewMenuSettings" />
+
+    <TextView
+        android:id="@+id/tvMenuCreditos"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:text="@string/tvCreditos"
+        android:textAlignment="center"
+        android:textColor="#472C06"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuCreditos"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenuCreditos"
+        app:layout_constraintStart_toStartOf="@+id/viewMenuCreditos"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuCreditos" />
+
+    <View
+        android:id="@+id/viewMenuSettings"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/imgcredit"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenuCreditos"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewMenuUser" />
+
+    <ImageView
+        android:id="@+id/ivMenuSettings"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:contentDescription="@string/imgMusica"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenuSettings"
+        app:layout_constraintStart_toStartOf="@+id/viewMenuSettings"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuSettings"
+        app:srcCompat="@drawable/ic_settings" />
+
+    <View
+        android:id="@+id/viewMenuUser"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/imgcredit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenuSettings"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewMenuCerrarSesion" />
+
+    <ImageView
+        android:id="@+id/ivMenuUser"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:contentDescription="@string/imgUser"
+        android:foregroundGravity="center|center_horizontal"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenuUser"
+        app:layout_constraintStart_toStartOf="@+id/viewMenuUser"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuUser"
+        app:srcCompat="@drawable/ic_user" />
+
+    <View
+        android:id="@+id/viewMenuCerrarSesion"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/imgcredit"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenuUser"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvMenuCerrarSesion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:text="@string/tvCerrarSesion"
+        android:textAlignment="center"
+        android:textColor="#472C06"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuCerrarSesion"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenuCerrarSesion"
+        app:layout_constraintStart_toStartOf="@+id/viewMenuCerrarSesion"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuCerrarSesion" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
