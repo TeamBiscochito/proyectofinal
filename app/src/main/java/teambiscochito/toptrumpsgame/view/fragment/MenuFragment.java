@@ -27,6 +27,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
@@ -296,8 +298,25 @@ public class MenuFragment extends Fragment {
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogPerfil.show();
 
-        TextView tvTotalScoreVerPerfil = dialogPerfil.findViewById(R.id.tvTotalScoreVerPerfil);
-        tvTotalScoreVerPerfil.setText("" + userActual.getTrueAnswer());
+        TextView tvNumeroRespuestasAcertadas = dialogPerfil.findViewById(R.id.tvTotalScoreVerPerfil);
+        tvNumeroRespuestasAcertadas.setText("" + userActual.getTrueAnswer());
+
+        TextView tvNumeroRespuestas = dialogPerfil.findViewById(R.id.tvNumeroRespuestasVerPerfil);
+        tvNumeroRespuestas.setText("" + userActual.getAnswer());
+
+        TextView tvPorcentajeAciertos = dialogPerfil.findViewById(R.id.tvPorcentajeAciertosVerPerfil);
+
+        if(userActual.getAnswer() == 0) {
+
+            tvPorcentajeAciertos.setText("0 %");
+
+        } else {
+
+            DecimalFormat formateador = new DecimalFormat("##.#");
+
+            tvPorcentajeAciertos.setText(formateador.format(((Double.parseDouble(String.valueOf(userActual.getTrueAnswer()))) / (Double.parseDouble(String.valueOf(userActual.getAnswer()))) * 100)) + " %");
+
+        }
 
         TextView tvNombreVerPerfil =  dialogPerfil.findViewById(R.id.tvNombreVerPerfil);
         tvNombreVerPerfil.setText(userActual.getName());

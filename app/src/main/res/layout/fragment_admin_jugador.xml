@@ -142,6 +142,22 @@
             app:layout_constraintBottom_toBottomOf="@+id/viewAddJugador"
             app:layout_constraintStart_toStartOf="@+id/viewAddJugador"
             app:layout_constraintTop_toTopOf="@+id/viewAddJugador" />
+
+        <TextView
+            android:id="@+id/tvRvVacioAdminUser"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#472C06"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline47"
+            app:layout_constraintEnd_toStartOf="@+id/guideline45"
+            app:layout_constraintStart_toStartOf="@+id/guideline44"
+            app:layout_constraintTop_toTopOf="@+id/guideline42" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -58,4 +58,12 @@
     <string name="tvIntroduceNombreSinPuntos">Introduce un nombre</string>
     <string name="tvNombre">Nombre</string>
     <string name="tvNombreYaEnUso">El nombre ya está en uso</string>
+    <string name="alertRvVacioChooseUser">Oops, parece que no hemos encontrado nada. Añade nuevos jugadores desde las opciones avanzadas</string>
+    <string name="alertRvVacioAdminUser">Oops, parece que no hemos encontrado nada. Añade nuevos jugadores con el botón de abajo</string>
+    <string name="tvEditarJugador">Editar jugador</string>
+    <string name="tvNuevoNombre">Nuevo nombre:</string>
+    <string name="textSeleccionarActual">Seleccionar actual</string>
+    <string name="textPreguntasContestadas">Preguntas contestadas:</string>
+    <string name="textPreguntasAcertadas">Preguntas acertadas:</string>
+    <string name="textPorcentajeAciertos">Porcentaje de aciertos:</string>
 </resources>

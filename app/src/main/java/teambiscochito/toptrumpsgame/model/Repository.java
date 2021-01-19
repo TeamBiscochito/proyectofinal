@@ -24,6 +24,7 @@ public class Repository {
     public CardDao cardDao;
     public QuestionDao questionDao;
     public UserDao userDao;
+    private int repeatedName;
 
     public Repository(Context context) {
         GameDataBase db = GameDataBase.getDb(context);
@@ -195,8 +196,30 @@ public class Repository {
         return questionDao.getQuestionByCardId(cardId);
     }
 
-    public String getNameFromName(String name) {
-        return userDao.getNameFromName(name);
+    public void getNameFromName(String name) {
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    repeatedName = userDao.getNameFromName(name);
+
+                } catch (Exception e) {
+                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
+                }
+            }
+        });
+
+        try {
+            Thread.sleep(30);
+        } catch (InterruptedException e) {
+
+        }
+    }
+
+    public int getRepeatedName() {
+
+        return repeatedName;
+
     }
 
 }

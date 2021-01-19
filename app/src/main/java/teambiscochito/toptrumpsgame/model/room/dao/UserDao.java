@@ -26,8 +26,8 @@ public interface UserDao {
     @Query("delete from user where id = :id")
     int deleteId(long id);
 
-    @Query("select name from user where name = :nombre")
-    String getNameFromName(String nombre);
+    @Query("select * from user where name = :nombre")
+    int getNameFromName(String nombre);
 
     @Query("select * from user where id = :id")
     User getUserById(long id);

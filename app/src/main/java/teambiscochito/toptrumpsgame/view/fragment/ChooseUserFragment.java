@@ -42,7 +42,7 @@ public class ChooseUserFragment extends Fragment {
     RecyclerView recyclerView;
     ViewModel viewModel;
 
-    TextView tvEligeTuJugador;
+    TextView tvEligeTuJugador, tvRvVacioChooseUser;
     Dialog dialogAjustes;
     SharedPreferences sharedPreferences;
     Animation anim, animScaleUp, animScaleDown;
@@ -76,6 +76,7 @@ public class ChooseUserFragment extends Fragment {
         initAnim();
 
         tvEligeTuJugador = view.findViewById(R.id.tvEligeTuJugador);
+        tvRvVacioChooseUser = view.findViewById(R.id.tvRvVacioChooseUser);
 
         tvEligeTuJugador.startAnimation(anim);
 
@@ -102,8 +103,6 @@ public class ChooseUserFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.rvJugadoresSeleccion);
 
-        viewModel.insertUser(new User("Gabri", R.drawable.defaultimg));
-
         LiveData<List<User>> userList = viewModel.getUserList();
         userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
@@ -113,8 +112,15 @@ public class ChooseUserFragment extends Fragment {
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+                if(adapter.getItemCount() == 0) {
+
+                    tvRvVacioChooseUser.setText(R.string.alertRvVacioChooseUser);
+
+                }
+
             }
         });
+
     }
 
     public void initAnim() {
