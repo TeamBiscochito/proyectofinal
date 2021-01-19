@@ -1,10 +1,8 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.app.ActionBar;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
@@ -14,8 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -27,9 +26,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
+import java.text.DecimalFormat;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import teambiscochito.toptrumpsgame.R;
@@ -42,13 +40,15 @@ public class MenuFragment extends Fragment {
 
     private MediaPlayer mp_menu, mp_creditos;
     Animation animTablero, animScaleUp, animScaleDown;
-    TextView tvAnimales, tvSalvajes, tvCartas, tvTuto, tvCreditos;
-    View v, vp, vCartas, vTuto, vCreditos, vSettings, vUser, vPlay;
+    TextView tvAnimales, tvSalvajes, tvCartas, tvTuto, tvCreditos, tvCerrarSesion;
+    View v, vp, vCartas, vTuto, vCreditos, vSettings, vUser, vPlay, vCerrarSesion;
     ImageView ivSettings, ivUser;
-    Dialog dialogCreditos, dialogPerfil;
+    Dialog dialogCreditos, dialogPerfil, dialogAjustes;
     User userActual;
     ViewModel viewModel;
     SharedPreferences sharedPreferences;
+    NavController navController;
+
     public MenuFragment() {
 
     }
@@ -69,6 +69,8 @@ public class MenuFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         init(view);
+
+        navController = Navigation.findNavController(view);
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         userActual = viewModel.userActual;
@@ -148,30 +150,7 @@ public class MenuFragment extends Fragment {
                     vSettings.startAnimation(animScaleUp);
                     ivSettings.startAnimation(animScaleUp);
 
-                    final EditText input = new EditText(getContext());
-                    AlertDialog builder = new AlertDialog.Builder(getContext())
-                            .setTitle("Clave de acceso").setMessage("Introduzca una nueva clave de acceso")
-                            .setView(input).setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    String txt = input.getText().toString();
-                                    String claveAdmin = sharedPreferences.getString("clave_admin", "");
-
-                                    if(txt.equals(claveAdmin)){
-                                        Toast.makeText(getContext(), "aceptado", Toast.LENGTH_LONG).show();
-                                    }else{
-                                        Toast.makeText(getContext(), "Contraseña incorrecta", Toast.LENGTH_LONG).show();
-                                    }
-
-                                }
-                            }).setNegativeButton("cancelar", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    Toast.makeText(getContext(), "Cancelado", Toast.LENGTH_LONG).show();
-                                }
-                            }).show();
-
-
+                    ajustesDialog();
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vSettings.startAnimation(animScaleDown);
@@ -200,6 +179,25 @@ public class MenuFragment extends Fragment {
                 return true;
             }
         });
+
+        vCerrarSesion.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    vCerrarSesion.startAnimation(animScaleUp);
+                    tvCerrarSesion.startAnimation(animScaleUp);
+
+                    navController.navigate(R.id.action_menuFragment_to_chooseUserFragment);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    vCerrarSesion.startAnimation(animScaleDown);
+                    tvCerrarSesion.startAnimation(animScaleDown);
+                }
+
+                return true;
+            }
+        });
     }
 
     private void init(View view) {
@@ -215,6 +213,7 @@ public class MenuFragment extends Fragment {
         tvCartas = view.findViewById(R.id.tvMenuCartas);
         tvTuto = view.findViewById(R.id.tvMenuTuto);
         tvCreditos = view.findViewById(R.id.tvMenuCreditos);
+        tvCerrarSesion = view.findViewById(R.id.tvMenuCerrarSesion);
 
         v = view.findViewById(R.id.viewTablero);
         vp = view.findViewById(R.id.viewPlayButton);
@@ -224,6 +223,7 @@ public class MenuFragment extends Fragment {
         vSettings = view.findViewById(R.id.viewMenuSettings);
         vUser = view.findViewById(R.id.viewMenuUser);
         vPlay = view.findViewById(R.id.viewMenuPlay);
+        vCerrarSesion = view.findViewById(R.id.viewMenuCerrarSesion);
 
         ivSettings = view.findViewById(R.id.ivMenuSettings);
         ivUser = view.findViewById(R.id.ivMenuUser);
@@ -298,8 +298,25 @@ public class MenuFragment extends Fragment {
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogPerfil.show();
 
-        TextView tvTotalScoreVerPerfil = dialogPerfil.findViewById(R.id.tvTotalScoreVerPerfil);
-        tvTotalScoreVerPerfil.setText(""+userActual.getTrueAnswer());
+        TextView tvNumeroRespuestasAcertadas = dialogPerfil.findViewById(R.id.tvTotalScoreVerPerfil);
+        tvNumeroRespuestasAcertadas.setText("" + userActual.getTrueAnswer());
+
+        TextView tvNumeroRespuestas = dialogPerfil.findViewById(R.id.tvNumeroRespuestasVerPerfil);
+        tvNumeroRespuestas.setText("" + userActual.getAnswer());
+
+        TextView tvPorcentajeAciertos = dialogPerfil.findViewById(R.id.tvPorcentajeAciertosVerPerfil);
+
+        if(userActual.getAnswer() == 0) {
+
+            tvPorcentajeAciertos.setText("0 %");
+
+        } else {
+
+            DecimalFormat formateador = new DecimalFormat("##.#");
+
+            tvPorcentajeAciertos.setText(formateador.format(((Double.parseDouble(String.valueOf(userActual.getTrueAnswer()))) / (Double.parseDouble(String.valueOf(userActual.getAnswer()))) * 100)) + " %");
+
+        }
 
         TextView tvNombreVerPerfil =  dialogPerfil.findViewById(R.id.tvNombreVerPerfil);
         tvNombreVerPerfil.setText(userActual.getName());
@@ -307,7 +324,92 @@ public class MenuFragment extends Fragment {
         CircleImageView imgAvatarPerfil = dialogPerfil.findViewById(R.id.imgAvatarVerPerfil);
         imgAvatarPerfil.setImageDrawable(getResources().getDrawable(userActual.getAvatar()));
 
+        View viewPerfilEnviarCorreo = dialogPerfil.findViewById(R.id.viewPerfilEnviarCorreo);
+        ImageView ivPerfilEnviarCorreo = dialogPerfil.findViewById(R.id.ivPerfilEnviarCorreo);
 
+        viewPerfilEnviarCorreo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewPerfilEnviarCorreo.startAnimation(animScaleUp);
+                    ivPerfilEnviarCorreo.startAnimation(animScaleUp);
+
+                    mp_menu.stop();
+                    dialogPerfil.dismiss();
+                    navController.navigate(R.id.action_menuFragment_to_correoFragment);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewPerfilEnviarCorreo.startAnimation(animScaleDown);
+                    ivPerfilEnviarCorreo.startAnimation(animScaleDown);
+                }
+
+                return true;
+            }
+        });
+
+    }
+
+    public void ajustesDialog() {
+
+        ImageView imgAtrasAjustesDialog;
+
+        dialogAjustes = new Dialog(getContext());
+        dialogAjustes.setContentView(R.layout.ajustes_dialog);
+        dialogAjustes.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogAjustes.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        imgAtrasAjustesDialog = dialogAjustes.findViewById(R.id.imgBackAjustesDialog);
+
+        imgAtrasAjustesDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogAjustes.dismiss();
+            }
+        });
+
+        dialogAjustes.setCancelable(true);
+        dialogAjustes.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogAjustes.show();
+
+        EditText claveEtAjustes = dialogAjustes.findViewById(R.id.claveEtAjustes);
+        View viewBtAccederAjustesDialog = dialogAjustes.findViewById(R.id.viewBtAccederAjustesDialog);
+        TextView tvAccederAjustesDialog = dialogAjustes.findViewById(R.id.tvAccederAjustesDialog);
+        TextView tvAlertaAjustesDialog = dialogAjustes.findViewById(R.id.tvAlertaAjustesDialog);
+
+        String claveAdmin = sharedPreferences.getString("clave_admin", "");
+
+        viewBtAccederAjustesDialog.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewBtAccederAjustesDialog.startAnimation(animScaleUp);
+                    tvAccederAjustesDialog.startAnimation(animScaleUp);
+
+                    String txt = claveEtAjustes.getText().toString();
+
+                    if(txt.equals(claveAdmin)){
+
+                        mp_menu.stop();
+                        dialogAjustes.dismiss();
+                        navController.navigate(R.id.action_menuFragment_to_adminFragment);
+
+                    }else{
+                        tvAlertaAjustesDialog.setText(R.string.textAccesoDenegado);
+                    }
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewBtAccederAjustesDialog.startAnimation(animScaleDown);
+                    tvAccederAjustesDialog.startAnimation(animScaleDown);
+                }
+
+                return true;
+            }
+        });
 
     }
 

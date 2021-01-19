@@ -17,6 +17,7 @@ public class ViewModel extends AndroidViewModel {
 
     private Repository repository;
     public static User userActual;
+    User user;
 
     public ViewModel(@NonNull Application application) {
         super(application);
@@ -51,8 +52,20 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteUser(user);
     }
 
+    public void deleteUserById(long id) {
+        repository.deleteUserById(id);
+    }
+
     public LiveData<List<User>> getUserList() {
         return repository.getUserList();
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public void insertQuestion(Question question) {
@@ -70,4 +83,15 @@ public class ViewModel extends AndroidViewModel {
     public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
         return repository.getQuestionListByCardId(cardId);
     }
+
+    public void getNameFromName(String name) {
+        repository.getNameFromName(name);
+    }
+
+    public int getRepeatedName() {
+
+        return repository.getRepeatedName();
+
+    }
+
 }

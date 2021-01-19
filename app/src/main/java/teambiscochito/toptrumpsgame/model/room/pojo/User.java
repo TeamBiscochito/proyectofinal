@@ -6,7 +6,7 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "user")
+@Entity(tableName = "user", indices = {@Index(value = {"name"}, unique = true)})
 public class User {
 
     //Usuario: id, nombre, avatar, número de respuestas, número de respuestas correctas
@@ -18,17 +18,17 @@ public class User {
     @ColumnInfo(name = "name")
     private String name;
 
-    //@NonNull //may have a default value?
+    @NonNull
     @ColumnInfo(name = "avatar")
     private int avatar;
 
     @NonNull
-    @ColumnInfo(name = "answer")//numero de respuestas, por defecto 0
-    private int answer = 0;
+    @ColumnInfo(name = "answer") //numero de respuestas, por defecto 0
+    private int answer;
 
     @NonNull
-    @ColumnInfo(name = "TrueAnswer")//numero de ACIERTOS, por defecto 0
-    private int TrueAnswer = 0;
+    @ColumnInfo(name = "TrueAnswer") //numero de ACIERTOS, por defecto 0
+    private int TrueAnswer;
 
     public User(@NonNull String name, int avatar, int answer, int trueAnswer) {
         this.name = name;

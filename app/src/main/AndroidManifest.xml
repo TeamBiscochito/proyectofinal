@@ -11,11 +11,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TopTrumpsGame.NoActionBar"
         tools:ignore="AllowBackup">
+
         <receiver
-            android:name=".MyReceiver"
+            android:name=".receiver.ReceiverBateria"
             android:enabled="true"
-            android:exported="true"
-            tools:ignore="ExportedReceiver" />
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+            </intent-filter>
+
+        </receiver>>
 
         <activity android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait">
