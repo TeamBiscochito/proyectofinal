@@ -29,7 +29,7 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 public class EditPlayerFragment extends Fragment {
 
     ViewPager2 vp_avatar;
-    int [] avatares = {R.drawable.av_tigre, R.drawable.av_hipo, R.drawable.av_loro, R.drawable.av_cerdo, R.drawable.av_gato, R.drawable.av_gallina};
+    int [] avatares = {R.drawable.av_tigre, R.drawable.av_hipo, R.drawable.av_tucan, R.drawable.av_cerdo, R.drawable.av_gato, R.drawable.av_gallina};
     VpAvatarAdapter adapter;
     Animation animScaleUp, animScaleDown;
     NavController navController;

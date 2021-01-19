@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         receiver = new ReceiverBateria();
         intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_BATTERY_LOW);
+
     }
 
     @Override
