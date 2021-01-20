@@ -45,7 +45,7 @@
     <string name="alertBateriaAgotarse">La batería del dispositivo está a punto de agotarse</string>
     <string name="contBateria">Batería</string>
     <string name="textModoAdmin">¡Hola, admin!</string>
-    <string name="textInfoAdmin">Has entrado al modo administrador. Desde aquí podrás gestionar a los jugadores, así como a las cartas</string>
+    <string name="textInfoAdmin">Has entrado al modo administrador. \n\nDesde aquí podrás gestionar a los jugadores, así como a las cartas</string>
     <string name="textJugadores">Jugadores</string>
     <string name="textVasASalirDeAdmin">¿Seguro que quieres salir del modo administrador?</string>
     <string name="tvEditar">Editar</string>
@@ -58,4 +58,12 @@
     <string name="tvIntroduceNombreSinPuntos">Introduce un nombre</string>
     <string name="tvNombre">Nombre</string>
     <string name="tvNombreYaEnUso">El nombre ya está en uso</string>
+    <string name="alertRvVacioChooseUser">Oops, parece que no hemos encontrado nada. Añade nuevos jugadores desde las opciones avanzadas</string>
+    <string name="alertRvVacioAdminUser">Oops, parece que no hemos encontrado nada. Añade nuevos jugadores con el botón de abajo</string>
+    <string name="tvEditarJugador">Editar jugador</string>
+    <string name="tvNuevoNombre">Nuevo nombre:</string>
+    <string name="textSeleccionarActual">Seleccionar actual</string>
+    <string name="textPreguntasContestadas">Preguntas contestadas:</string>
+    <string name="textPreguntasAcertadas">Preguntas acertadas:</string>
+    <string name="textPorcentajeAciertos">Porcentaje de aciertos:</string>
 </resources>

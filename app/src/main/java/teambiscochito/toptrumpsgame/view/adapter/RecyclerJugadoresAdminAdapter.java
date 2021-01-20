@@ -39,6 +39,7 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
     Dialog dialogJugadores, dialogConfirmarBorrar;
     Context context;
     Animation animScaleUp, animScaleDown;
+    NavController navController;
 
     public RecyclerJugadoresAdminAdapter(List<User> userList, View view, Activity activity, Context context){
         this.userList = userList;
@@ -59,17 +60,24 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
     @Override
     public void onBindViewHolder(@NonNull RecyclerJugadoresAdminAdapter.ViewHolder holder, int position) {
 
+        viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
+
         holder.avatarRecycler.setImageResource(userList.get(position).getAvatar());
         holder.nombreJugadorRecycler.setText(userList.get(position).getName());
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
 
+        User user = userList.get(position);
+
+        navController = Navigation.findNavController(view);
+
         holder.parent.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
+
+                viewModel.setUser(user);
 
                 dialogJugadores = new Dialog(context);
                 dialogJugadores.setContentView(R.layout.jugadores_dialog);
@@ -102,6 +110,9 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
                         if(event.getAction() == MotionEvent.ACTION_DOWN) {
                             viewEditarInfoAdminJ.startAnimation(animScaleUp);
                             tvEditarInfoAdminJ.startAnimation(animScaleUp);
+
+                            dialogJugadores.dismiss();
+                            navController.navigate(R.id.action_adminJugadorFragment_to_editPlayerFragment);
 
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
                             viewEditarInfoAdminJ.startAnimation(animScaleDown);

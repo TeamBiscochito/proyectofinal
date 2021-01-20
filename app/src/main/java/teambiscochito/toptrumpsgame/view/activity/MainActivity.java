@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         receiver = new ReceiverBateria();
         intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_BATTERY_LOW);
+
+        getWindow().setNavigationBarColor(Color.parseColor("#4B2C20"));
     }
 
     @Override

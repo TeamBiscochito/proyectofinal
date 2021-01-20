@@ -17,13 +17,9 @@
         android:id="@+id/rvJugadoresSeleccion"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline14"
         app:layout_constraintTop_toTopOf="@+id/guideline12"
         tools:listitem="@layout/item_recycler_elegir_player" />
@@ -87,7 +83,7 @@
         android:fontFamily="@font/schoolbell"
         android:text="@string/tvElegirJugador"
         android:textColor="#472C06"
-        android:textSize="24sp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline11"
         app:layout_constraintEnd_toStartOf="@+id/guideline15"
@@ -106,11 +102,11 @@
 
     <View
         android:id="@+id/imgAjustesChooseUser"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginTop="8dp"
-        android:contentDescription="@string/textAjustes"
         android:background="@drawable/ic_settings"
+        android:contentDescription="@string/textAjustes"
         app:layout_constraintBottom_toTopOf="@+id/guideline13"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -122,7 +118,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.851" />
+        app:layout_constraintGuide_percent="0.83" />
 
     <View
         android:id="@+id/view9"
@@ -133,21 +129,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
-
-    <TextView
-        android:id="@+id/tvRvVacioChooseUser"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:fontFamily="@font/schoolbell"
-        android:textAlignment="center"
-        android:textColor="#472C06"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline25"
-        app:layout_constraintEnd_toEndOf="@+id/rvJugadoresSeleccion"
-        app:layout_constraintStart_toStartOf="@+id/rvJugadoresSeleccion"
-        app:layout_constraintTop_toTopOf="@+id/rvJugadoresSeleccion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

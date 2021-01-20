@@ -26,20 +26,21 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
 import teambiscochito.toptrumpsgame.view.adapter.VpAvatarAdapter;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
-public class AddPlayerFragment extends Fragment {
+public class EditPlayerFragment extends Fragment {
 
     ViewPager2 vp_avatar;
     int [] avatares = {R.drawable.av_tigre, R.drawable.av_hipo, R.drawable.av_tucan, R.drawable.av_cerdo, R.drawable.av_gato, R.drawable.av_gallina};
     VpAvatarAdapter adapter;
     Animation animScaleUp, animScaleDown;
     NavController navController;
-    View viewNextAvatar, viewPreviousAvatar, viewBackAdminAddPlayer, viewAddJugador;
-    TextView tvAddJugador, tvAlertaAddJugador;
+    View viewNextAvatar, viewPreviousAvatar, viewBackAdminEditPlayer, viewEditJugador, viewSeleccionarAvatarActual;
+    TextView tvEditJugador, tvAlertaEditJugador, tvSeleccionarAvatarActual;
 
     EditText etNombreJugador;
     ViewModel viewModel;
+    int numeroAvatarParaCargar;
 
-    public AddPlayerFragment() {
+    public EditPlayerFragment() {
 
     }
 
@@ -50,7 +51,7 @@ public class AddPlayerFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_add_player, container, false);
+        return inflater.inflate(R.layout.fragment_edit_player, container, false);
     }
 
     @Override
@@ -62,7 +63,36 @@ public class AddPlayerFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         navController = Navigation.findNavController(view);
 
-        vp_avatar = view.findViewById(R.id.vp_avatar);
+        User user = viewModel.getUser();
+
+        vp_avatar = view.findViewById(R.id.vp_avatar_edit);
+
+        etNombreJugador.setText(user.getName());
+
+        String nombreAvatarParaCargar = getResources().getResourceEntryName(user.getAvatar());
+
+        switch (nombreAvatarParaCargar) {
+
+            case "av_tigre":
+                numeroAvatarParaCargar = 0;
+                break;
+            case "av_hipo":
+                numeroAvatarParaCargar = 1;
+                break;
+            case "av_loro":
+                numeroAvatarParaCargar = 2;
+                break;
+            case "av_cerdo":
+                numeroAvatarParaCargar = 3;
+                break;
+            case "av_gato":
+                numeroAvatarParaCargar = 4;
+                break;
+            case "av_gallina":
+                numeroAvatarParaCargar = 5;
+                break;
+
+        }
 
         adapter = new VpAvatarAdapter(avatares);
 
@@ -89,18 +119,38 @@ public class AddPlayerFragment extends Fragment {
 
         vp_avatar.setPageTransformer(transformer);
 
-        viewBackAdminAddPlayer.setOnTouchListener(new View.OnTouchListener() {
+        viewBackAdminEditPlayer.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewBackAdminAddPlayer.startAnimation(animScaleUp);
+                    viewBackAdminEditPlayer.startAnimation(animScaleUp);
 
-                    tvAlertaAddJugador.setText("");
-                    navController.navigate(R.id.action_addPlayerFragment_to_adminJugadorFragment);
+                    tvAlertaEditJugador.setText("");
+                    navController.navigate(R.id.action_editPlayerFragment_to_adminJugadorFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewBackAdminAddPlayer.startAnimation(animScaleDown);
+                    viewBackAdminEditPlayer.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
+
+        viewSeleccionarAvatarActual.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewSeleccionarAvatarActual.startAnimation(animScaleUp);
+                    tvSeleccionarAvatarActual.startAnimation(animScaleUp);
+
+                    vp_avatar.setCurrentItem(numeroAvatarParaCargar);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewSeleccionarAvatarActual.startAnimation(animScaleDown);
+                    tvSeleccionarAvatarActual.startAnimation(animScaleDown);
 
                 }
 
@@ -148,13 +198,13 @@ public class AddPlayerFragment extends Fragment {
             }
         });
 
-        viewAddJugador.setOnTouchListener(new View.OnTouchListener() {
+        viewEditJugador.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewAddJugador.startAnimation(animScaleUp);
-                    tvAddJugador.startAnimation(animScaleUp);
+                    viewEditJugador.startAnimation(animScaleUp);
+                    tvEditJugador.startAnimation(animScaleUp);
 
                     String nombre = etNombreJugador.getText().toString();
                     viewModel.getNameFromName(nombre);
@@ -162,26 +212,47 @@ public class AddPlayerFragment extends Fragment {
 
                     if(nombre.isEmpty()) {
 
-                        tvAlertaAddJugador.setText(R.string.tvIntroduceNombreSinPuntos);
+                        tvAlertaEditJugador.setText(R.string.tvIntroduceNombreSinPuntos);
 
-                    } else if (num != 0) {
+                    } else if (nombre.equals(user.getName())) {
 
-                            tvAlertaAddJugador.setText(R.string.tvNombreYaEnUso);
+                        int avatar = avatares[vp_avatar.getCurrentItem()];
+
+                        user.setAvatar(avatar);
+                        viewModel.updateUser(user);
+                        tvAlertaEditJugador.setText("");
+                        navController.navigate(R.id.action_editPlayerFragment_to_adminJugadorFragment);
+
+                    } else if(num != 0 && nombre.equals(user.getName())) {
+
+                        int avatar = avatares[vp_avatar.getCurrentItem()];
+
+                        user.setAvatar(avatar);
+                        viewModel.updateUser(user);
+                        tvAlertaEditJugador.setText("");
+                        navController.navigate(R.id.action_editPlayerFragment_to_adminJugadorFragment);
+
+                    } else if (num != 0 && !(nombre.equals(user.getName()))) {
+
+                        tvAlertaEditJugador.setText(R.string.tvNombreYaEnUso);
 
                     } else {
 
                         int avatar = avatares[vp_avatar.getCurrentItem()];
-                        viewModel.insertUser(new User(nombre, avatar));
-                        tvAlertaAddJugador.setText("");
-                        navController.navigate(R.id.action_addPlayerFragment_to_adminJugadorFragment);
+
+                        user.setName(nombre);
+                        user.setAvatar(avatar);
+                        viewModel.updateUser(user);
+                        tvAlertaEditJugador.setText("");
+                        navController.navigate(R.id.action_editPlayerFragment_to_adminJugadorFragment);
 
                     }
 
 
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewAddJugador.startAnimation(animScaleDown);
-                    tvAddJugador.startAnimation(animScaleDown);
+                    viewEditJugador.startAnimation(animScaleDown);
+                    tvEditJugador.startAnimation(animScaleDown);
 
                 }
 
@@ -196,14 +267,16 @@ public class AddPlayerFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        viewNextAvatar = view.findViewById(R.id.viewNextAvatar);
-        viewPreviousAvatar = view.findViewById(R.id.viewPreviousAvatar);
-        viewBackAdminAddPlayer = view.findViewById(R.id.viewBackAdminAddPlayer);
-        viewAddJugador = view.findViewById(R.id.viewAddJugador2);
-        tvAddJugador = view.findViewById(R.id.tvAddJugador2);
-        tvAlertaAddJugador = view.findViewById(R.id.tvAlertaAddJugador);
+        viewNextAvatar = view.findViewById(R.id.viewNextAvatarEdit);
+        viewPreviousAvatar = view.findViewById(R.id.viewPreviousAvatarEdit);
+        viewBackAdminEditPlayer = view.findViewById(R.id.viewBackAdminEditPlayer);
+        viewEditJugador = view.findViewById(R.id.viewEditJugador2);
+        viewSeleccionarAvatarActual = view.findViewById(R.id.viewSeleccionarAvatarActual);
+        tvEditJugador = view.findViewById(R.id.tvEditJugador2);
+        tvAlertaEditJugador = view.findViewById(R.id.tvAlertaEditJugador);
+        tvSeleccionarAvatarActual = view.findViewById(R.id.tvSeleccionarAvatarActual);
 
-        etNombreJugador = view.findViewById(R.id.etNombreJugador);
+        etNombreJugador = view.findViewById(R.id.etNombreJugadorEditar);
 
     }
 }
