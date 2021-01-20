@@ -45,7 +45,7 @@ public abstract class GameDataBase extends RoomDatabase {
                 QuestionDao questionDao = INSTANCE.getQuestionDao();
                 //INICIALIZAR O HACER PRUEBAS CON VALORES INICIALES EN LA BASE DE DATOS
 
-                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/Proyecto%20Top%20Trump/tigre.png",
+                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/tigre.png",
                         "Tigre",
                         "desc"));
                 questionDao.insertToName("Tigre","Altura", 95.0, "Cm");
@@ -54,7 +54,7 @@ public abstract class GameDataBase extends RoomDatabase {
                 questionDao.insertToName("Tigre","Velocidad", 65.0, "Km/h");
                 questionDao.insertToName("Tigre","Poder mortífero", 9.0);
 
-                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/Proyecto%20Top%20Trump/tigre.png",
+                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/elefante.jpg",
                         "Elefante",
                         "desc"));
                 questionDao.insertToName("Elefante","Altura", 3.2, "M");
@@ -63,7 +63,7 @@ public abstract class GameDataBase extends RoomDatabase {
                 questionDao.insertToName("Elefante","Velocidad", 40.0, "Km/h");
                 questionDao.insertToName("Elefante","Poder mortífero", 6.0);
 
-                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/Proyecto%20Top%20Trump/tigre.png",
+                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/cocodrilo.jpg",
                         "Cocodrilo",
                         "desc"));
                 questionDao.insertToName("Cocodrilo","Altura", 30.0, "Cm");
@@ -72,7 +72,7 @@ public abstract class GameDataBase extends RoomDatabase {
                 questionDao.insertToName("Cocodrilo","Velocidad", 30.0, "Km/h");
                 questionDao.insertToName("Cocodrilo","Poder mortífero", 7.0);
 
-                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/Proyecto%20Top%20Trump/tigre.png",
+                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/oso.jpg",
                         "Oso",
                         "desc"));
                 questionDao.insertToName("Oso","Altura", 1.5, "M");
@@ -81,7 +81,7 @@ public abstract class GameDataBase extends RoomDatabase {
                 questionDao.insertToName("Oso","Velocidad", 56.0, "Km/h");
                 questionDao.insertToName("Oso","Poder mortífero", 7.0);
 
-                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/Proyecto%20Top%20Trump/tigre.png",
+                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/tortuga.jpg",
                         "Tortuga",
                         "desc"));
                 questionDao.insertToName("Tortuga","Altura", 30.0, "Cm");
