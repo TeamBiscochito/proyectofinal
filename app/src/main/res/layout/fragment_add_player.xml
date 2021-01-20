@@ -18,13 +18,6 @@
         android:focusable="true"
         android:focusableInTouchMode="true">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline46"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.45" />
-
         <TextView
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
@@ -70,13 +63,6 @@
             app:layout_constraintGuide_percent="0.90" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline52"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.78" />
-
-        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline51"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,10 +81,10 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/guideline52"
+            app:layout_constraintBottom_toTopOf="@+id/tvAlertaAddJugador"
             app:layout_constraintEnd_toStartOf="@+id/viewNextAvatar"
             app:layout_constraintStart_toEndOf="@+id/viewPreviousAvatar"
-            app:layout_constraintTop_toTopOf="@+id/guideline46" />
+            app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
         <View
             android:id="@+id/viewNextAvatar"
@@ -106,9 +92,9 @@
             android:layout_height="40dp"
             android:layout_marginEnd="2dp"
             android:background="@drawable/next"
-            app:layout_constraintBottom_toTopOf="@+id/guideline52"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_avatar"
             app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintTop_toTopOf="@+id/guideline46" />
+            app:layout_constraintTop_toTopOf="@+id/vp_avatar" />
 
         <View
             android:id="@+id/viewPreviousAvatar"
@@ -116,19 +102,19 @@
             android:layout_height="40dp"
             android:layout_marginStart="2dp"
             android:background="@drawable/previous"
-            app:layout_constraintBottom_toTopOf="@+id/guideline52"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_avatar"
             app:layout_constraintStart_toStartOf="@+id/guideline54"
-            app:layout_constraintTop_toTopOf="@+id/guideline46" />
+            app:layout_constraintTop_toTopOf="@+id/vp_avatar" />
 
         <View
             android:id="@+id/viewAddJugador2"
             android:layout_width="150dp"
             android:layout_height="50dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/tablero_2"
             app:layout_constraintBottom_toTopOf="@+id/guideline53"
             app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintStart_toStartOf="@+id/guideline54"
-            app:layout_constraintTop_toTopOf="@+id/guideline52" />
+            app:layout_constraintStart_toStartOf="@+id/guideline54" />
 
         <TextView
             android:id="@+id/tvAddJugador2"
@@ -151,7 +137,6 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
             android:fontFamily="@font/schoolbell"
             android:text="@string/tvSeleccionaAvatar"
             android:textAlignment="center"
@@ -160,7 +145,8 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/vp_avatar"
             app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintStart_toStartOf="@+id/guideline54" />
+            app:layout_constraintStart_toStartOf="@+id/guideline54"
+            app:layout_constraintTop_toBottomOf="@+id/etNombreJugador" />
 
         <TextView
             android:id="@+id/textView27"

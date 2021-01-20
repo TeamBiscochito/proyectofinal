@@ -18,8 +18,8 @@
 
         <View
             android:id="@+id/viewAdminEntrarCartas"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
             android:background="@drawable/bt_enviar_correo"
             app:layout_constraintBottom_toTopOf="@+id/guideline39"
             app:layout_constraintEnd_toStartOf="@+id/guideline38"
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.18" />
+            app:layout_constraintGuide_percent="0.2" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline35"
@@ -97,7 +97,6 @@
             android:textColor="#472C06"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/viewAdminEntrarJugadores"
             app:layout_constraintEnd_toStartOf="@+id/guideline38"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/guideline37"
@@ -105,8 +104,8 @@
 
         <View
             android:id="@+id/viewAdminEntrarJugadores"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
             android:background="@drawable/bt_enviar_correo"
             app:layout_constraintBottom_toTopOf="@+id/viewAdminEntrarCartas"
             app:layout_constraintEnd_toStartOf="@+id/guideline38"

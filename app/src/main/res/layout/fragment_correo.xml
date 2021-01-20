@@ -59,7 +59,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:autofillHints=""
         android:background="@drawable/edittext_bg"
@@ -68,7 +67,7 @@
         android:ems="10"
         android:fontFamily="@font/schoolbell"
         android:hint="@string/tvCorreoElectronicoSinPuntos"
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         android:padding="8dp"
         android:textAlignment="center"
         app:layout_constraintBottom_toTopOf="@+id/tvAlertaCorreo"
@@ -80,21 +79,21 @@
         android:id="@+id/viewCorreoBorrar"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/bt_enviar_correo"
         app:layout_constraintBottom_toTopOf="@+id/viewCorreoEnviar"
         app:layout_constraintEnd_toStartOf="@+id/guideline31"
-        app:layout_constraintStart_toStartOf="@+id/guideline27" />
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/tvAlertaCorreo" />
 
     <View
         android:id="@+id/viewCorreoEnviar"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/bt_enviar_correo"
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
         app:layout_constraintEnd_toStartOf="@+id/guideline31"
-        app:layout_constraintStart_toStartOf="@+id/guideline27" />
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/viewCorreoBorrar" />
 
     <TextView
         android:id="@+id/tvCorreoBorrar"
@@ -145,9 +144,11 @@
         android:fontFamily="@font/schoolbell"
         android:textAlignment="center"
         android:textColor="#D3443A"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/viewCorreoBorrar"
         app:layout_constraintEnd_toStartOf="@+id/guideline31"
-        app:layout_constraintStart_toStartOf="@+id/guideline27" />
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/etCorreo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
