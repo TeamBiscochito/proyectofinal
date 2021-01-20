@@ -81,8 +81,12 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteQuestion(question);
     }
 
-    public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
+    public List<Question> getQuestionListByCardId(long cardId) {
         return repository.getQuestionListByCardId(cardId);
+    }
+
+    public LiveData<List<Question>> getQuestionList() {
+        return repository.getQuestionList();
     }
 
 }

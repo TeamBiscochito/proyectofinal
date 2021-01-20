@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/chooseUserFragment">
+    app:startDestination="@id/pruebas">
 
     <fragment
         android:id="@+id/crearAdminFragment"
@@ -119,4 +119,9 @@
             android:id="@+id/action_createUser_to_chooseUserFragment"
             app:destination="@id/chooseUserFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/pruebas"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.pruebas"
+        android:label="fragment_pruebas"
+        tools:layout="@layout/fragment_pruebas" />
 </navigation>

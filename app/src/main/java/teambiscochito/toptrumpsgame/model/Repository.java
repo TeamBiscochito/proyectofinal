@@ -20,13 +20,14 @@ import teambiscochito.toptrumpsgame.util.UtilThread;
 
 public class Repository {
 
+    private GameDataBase db;
 
     public CardDao cardDao;
     public QuestionDao questionDao;
     public UserDao userDao;
 
     public Repository(Context context) {
-        GameDataBase db = GameDataBase.getDb(context);
+        db = GameDataBase.getDatabase(context);
         cardDao = db.getCardDao();
         questionDao = db.getQuestionDao();
         userDao = db.getUserDao();
@@ -177,8 +178,28 @@ public class Repository {
     }
 
 
-    public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
-        return questionDao.getQuestionByCardId(cardId);
+    public List<Question> getQuestionListByCardId(long cardId) {
+        final List<Question>[] questions = new List[]{new ArrayList<>()};
+
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    questions[0] = questionDao.getQuestionByCardId(cardId);
+                    Log.v("xyz", "consulta a las preguntas (REPOSITORIO)");
+                } catch (Exception e) {
+                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
+                }
+            }
+        });
+
+        return questions[0];
+    }
+
+    public LiveData<List<Question>> getQuestionList() {
+
+        Log.v("xyz", "consulta a las preguntas (REPOSITORIO)");
+        return questionDao.getQuestionList();
     }
 
 }
