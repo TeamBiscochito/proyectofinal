@@ -66,4 +66,10 @@
     <string name="textPreguntasContestadas">Preguntas contestadas:</string>
     <string name="textPreguntasAcertadas">Preguntas acertadas:</string>
     <string name="textPorcentajeAciertos">Porcentaje de aciertos:</string>
+    <string name="textAnimal">Animal</string>
+    <string name="textAlturaMedia">Altura</string>
+    <string name="textPesoMedio">Peso</string>
+    <string name="textLongitudMedia">Longitud</string>
+    <string name="textVelocidadMedia">Velocidad</string>
+    <string name="textPoderMortifero">Poder mortífero</string>
 </resources>

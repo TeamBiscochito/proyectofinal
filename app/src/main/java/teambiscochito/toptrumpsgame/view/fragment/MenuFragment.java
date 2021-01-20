@@ -82,6 +82,10 @@ public class MenuFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vCartas.startAnimation(animScaleUp);
                     tvCartas.startAnimation(animScaleUp);
+
+                    mp_menu.stop();
+                    navController.navigate(R.id.action_menuFragment_to_cartasFragment);
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vCartas.startAnimation(animScaleDown);
                     tvCartas.startAnimation(animScaleDown);
@@ -188,6 +192,7 @@ public class MenuFragment extends Fragment {
                     vCerrarSesion.startAnimation(animScaleUp);
                     tvCerrarSesion.startAnimation(animScaleUp);
 
+                    mp_menu.stop();
                     navController.navigate(R.id.action_menuFragment_to_chooseUserFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
