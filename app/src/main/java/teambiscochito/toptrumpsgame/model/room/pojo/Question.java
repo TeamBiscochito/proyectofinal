@@ -7,19 +7,15 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "question",
-        foreignKeys = @ForeignKey(
-                entity = Card.class,
-                parentColumns = "id",
-                childColumns = "card_id",
-                onDelete = ForeignKey.CASCADE))
+@Entity(tableName = "question")
 public class Question {
 
-    //Pregunta: id, id de la carta, pregunta, respuesta
+    //Pregunta: id, id de la carta, pregunta, respuesta , magnitud
 
     @PrimaryKey(autoGenerate = true)
     private long id;
 
+    @NonNull
     @ColumnInfo(name = "card_id")
     private long card_id;
 
@@ -29,12 +25,23 @@ public class Question {
 
     @NonNull
     @ColumnInfo(name = "answer")
-    private String answer;
+    private Double answer;
 
-    public Question(long idcard, @NonNull String question, @NonNull String answer) {
+    @ColumnInfo(name = "magnitude")
+    private String magnitude;
+
+    public Question(@NonNull long idcard, @NonNull String question, @NonNull Double answer) {
         this.card_id = idcard;
         this.question = question;
         this.answer = answer;
+        this.magnitude = null;
+    }
+
+    public Question(@NonNull long idcard, @NonNull String question, @NonNull Double answer, String magnitude) {
+        this.card_id = idcard;
+        this.question = question;
+        this.answer = answer;
+        this.magnitude = magnitude;
     }
 
     public Question() {
@@ -48,11 +55,12 @@ public class Question {
         this.id = id;
     }
 
+    @NonNull
     public long getCard_id() {
         return card_id;
     }
 
-    public void setCard_id(long card_id) {
+    public void setCard_id(@NonNull long card_id) {
         this.card_id = card_id;
     }
 
@@ -66,11 +74,19 @@ public class Question {
     }
 
     @NonNull
-    public String getAnswer() {
+    public Double getAnswer() {
         return answer;
     }
 
-    public void setAnswer(@NonNull String answer) {
+    public void setAnswer(@NonNull Double answer) {
         this.answer = answer;
+    }
+
+    public String getMagnitude() {
+        return magnitude;
+    }
+
+    public void setMagnitude(String magnitude) {
+        this.magnitude = magnitude;
     }
 }
