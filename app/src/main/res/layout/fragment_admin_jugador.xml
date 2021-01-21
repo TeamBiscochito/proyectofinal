@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.78" />
+            app:layout_constraintGuide_percent="0.81" />
 
         <View
             android:id="@+id/viewCerrarAdminJugadores"
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.18" />
+            app:layout_constraintGuide_percent="0.155" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline43"
@@ -82,14 +82,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.16" />
+            app:layout_constraintGuide_percent="0.145" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline45"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.83" />
+            app:layout_constraintGuide_percent="0.848" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvJugadoresAdmin"
@@ -106,7 +106,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="20dp"
             android:background="@drawable/bt_add_jugador_bg"
@@ -117,11 +116,12 @@
 
         <TextView
             android:id="@+id/tvAddJugador"
-            android:layout_width="154dp"
-            android:layout_height="22dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/schoolbell"
+            android:gravity="center"
             android:text="@string/tvAddJugador"
             android:textAlignment="center"
             android:textColor="#472C06"
@@ -136,7 +136,7 @@
             android:id="@+id/imgAddJugador"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="16dp"
             android:contentDescription="@string/contAdd"
             android:src="@drawable/ic_adduser"
             app:layout_constraintBottom_toBottomOf="@+id/viewAddJugador"

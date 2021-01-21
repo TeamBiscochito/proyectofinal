@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="350dp"
-        android:layout_height="600dp"
+        android:layout_height="650dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -27,9 +27,9 @@
 
         <ImageView
             android:id="@+id/imgBackPerfil"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:layout_marginStart="32dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="24dp"
             android:layout_marginBottom="32dp"
             android:contentDescription="@string/contAtras"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -85,19 +85,12 @@
             app:layout_constraintTop_toBottomOf="@+id/imgAvatarVerPerfil"
             tools:text="Nombre" />
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline26"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.63" />
-
         <View
             android:id="@+id/viewPerfilEnviarCorreo"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginEnd="24dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/imgcredit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline17" />
@@ -118,6 +111,7 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:background="@drawable/text_field_perfil_dos"
+            app:layout_constraintBottom_toTopOf="@+id/textView31"
             app:layout_constraintEnd_toStartOf="@+id/guideline17"
             app:layout_constraintStart_toStartOf="@+id/guideline16"
             app:layout_constraintTop_toBottomOf="@+id/textView30" />
@@ -127,6 +121,7 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:background="@drawable/text_field_perfil_dos"
+            app:layout_constraintBottom_toTopOf="@+id/textView32"
             app:layout_constraintEnd_toStartOf="@+id/guideline17"
             app:layout_constraintStart_toStartOf="@+id/guideline16"
             app:layout_constraintTop_toBottomOf="@+id/textView31" />
@@ -136,6 +131,7 @@
             android:layout_width="200dp"
             android:layout_height="60dp"
             android:background="@drawable/text_field_perfil_uno"
+            app:layout_constraintBottom_toTopOf="@+id/guideline19"
             app:layout_constraintEnd_toStartOf="@+id/guideline17"
             app:layout_constraintStart_toStartOf="@+id/guideline16"
             app:layout_constraintTop_toBottomOf="@+id/textView32" />
@@ -145,13 +141,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/schoolbell"
             android:text="@string/textPreguntasContestadas"
             android:textAlignment="center"
             android:textColor="#472C06"
+            android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view12"
             app:layout_constraintEnd_toStartOf="@+id/guideline17"
             app:layout_constraintStart_toStartOf="@+id/guideline16"
             app:layout_constraintTop_toBottomOf="@+id/tvNombreVerPerfil" />
@@ -167,7 +165,9 @@
             android:text="@string/textPreguntasAcertadas"
             android:textAlignment="center"
             android:textColor="#472C06"
+            android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view13"
             app:layout_constraintEnd_toStartOf="@+id/guideline17"
             app:layout_constraintStart_toStartOf="@+id/guideline16"
             app:layout_constraintTop_toBottomOf="@+id/view12" />
@@ -183,16 +183,23 @@
             android:text="@string/textPorcentajeAciertos"
             android:textAlignment="center"
             android:textColor="#472C06"
+            android:textSize="16sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view14"
             app:layout_constraintEnd_toStartOf="@+id/guideline17"
             app:layout_constraintStart_toStartOf="@+id/guideline16"
             app:layout_constraintTop_toBottomOf="@+id/view13" />
 
         <TextView
             android:id="@+id/tvNumeroRespuestasVerPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/schoolbell"
+            android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -203,9 +210,14 @@
 
         <TextView
             android:id="@+id/tvTotalScoreVerPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/schoolbell"
+            android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -216,9 +228,14 @@
 
         <TextView
             android:id="@+id/tvPorcentajeAciertosVerPerfil"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
             android:fontFamily="@font/schoolbell"
+            android:gravity="center"
             android:textColor="#FFFFFF"
             android:textSize="18sp"
             android:textStyle="bold"

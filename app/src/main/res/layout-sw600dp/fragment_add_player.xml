@@ -144,7 +144,7 @@
             android:text="@string/tvSeleccionaAvatar"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline55"
             app:layout_constraintStart_toStartOf="@+id/guideline54"
