@@ -4,8 +4,11 @@ package teambiscochito.toptrumpsgame.view.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +19,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.wajahatkarim3.easyflipview.EasyFlipView;
 
 import java.util.List;
 
@@ -27,6 +31,7 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
     View view;
     Activity activity;
     Context context;
+    Animation animScaleUp, animScaleDown;
 
     public RecyclerCartasNoAdminAdapter(List<Card> cardList, View view, Activity activity, Context context){
         this.cardList = cardList;
@@ -46,6 +51,9 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
+        animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
+
         RequestOptions options = new RequestOptions()
                 .centerCrop()
                 .placeholder(R.drawable.cargando)
@@ -60,6 +68,25 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
         holder.tvNombreCartaNoAdmin.setText(cardList.get(position).getName());
         holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDesc());
 
+        holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    holder.viewClicParaHacerFlipCarta.startAnimation(animScaleUp);
+                    holder.tvClicParaHacerFlipCarta.startAnimation(animScaleUp);
+
+                    holder.easyFlipView.flipTheView();
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    holder.viewClicParaHacerFlipCarta.startAnimation(animScaleDown);
+                    holder.tvClicParaHacerFlipCarta.startAnimation(animScaleDown);
+                }
+
+                return true;
+            }
+        });
+
     }
 
     @Override
@@ -72,16 +99,22 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
 
     }
 
-
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ImageView imgFotoCartaNoAdmin;
         TextView tvNombreCartaNoAdmin, tvDescCartasNoAdminBack;
+        EasyFlipView easyFlipView;
+        TextView tvClicParaHacerFlipCarta;
+        View viewClicParaHacerFlipCarta;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgFotoCartaNoAdmin = itemView.findViewById(R.id.imgFotoCartaNoAdmin);
             tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvNombreCartaNoAdmin);
             tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvDescCartasNoAdminBack);
+            easyFlipView = itemView.findViewById(R.id.easyflipview);
+            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvClicParaHacerFlipCarta);
+            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewClicParaHacerFlipCarta);
         }
     }
 }
