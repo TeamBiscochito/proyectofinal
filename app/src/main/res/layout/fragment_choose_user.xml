@@ -145,4 +145,14 @@
         app:layout_constraintStart_toStartOf="@+id/rvJugadoresSeleccion"
         app:layout_constraintTop_toTopOf="@+id/rvJugadoresSeleccion" />
 
+    <View
+        android:id="@+id/viewCerrarAppChooseUser"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/cerrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

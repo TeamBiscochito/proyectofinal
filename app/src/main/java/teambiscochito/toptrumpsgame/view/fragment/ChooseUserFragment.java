@@ -43,7 +43,7 @@ public class ChooseUserFragment extends Fragment {
     ViewModel viewModel;
 
     TextView tvEligeTuJugador, tvRvVacioChooseUser;
-    Dialog dialogAjustes;
+    Dialog dialogAjustes, salirDialog;
     SharedPreferences sharedPreferences;
     Animation anim, animScaleUp, animScaleDown;
     NavController navController;
@@ -79,6 +79,26 @@ public class ChooseUserFragment extends Fragment {
         tvRvVacioChooseUser = view.findViewById(R.id.tvRvVacioChooseUser);
 
         tvEligeTuJugador.startAnimation(anim);
+
+        View viewCerrarAppChooseUser = view.findViewById(R.id.viewCerrarAppChooseUser);
+
+        viewCerrarAppChooseUser.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewCerrarAppChooseUser.startAnimation(animScaleUp);
+
+                    salirDialog();
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewCerrarAppChooseUser.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
 
         View imgAjustesChooseUser = view.findViewById(R.id.imgAjustesChooseUser);
 
@@ -191,6 +211,47 @@ public class ChooseUserFragment extends Fragment {
                 return true;
             }
         });
+
+    }
+
+    public void salirDialog() {
+
+        View viewCancelarSalirDialog, viewAceptarSalirDialog;
+
+        salirDialog = new Dialog(getContext());
+        salirDialog.setContentView(R.layout.salir_app_dialog);
+        salirDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = salirDialog.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        viewCancelarSalirDialog = salirDialog.findViewById(R.id.viewCancelarSalirDialog);
+        viewAceptarSalirDialog = salirDialog.findViewById(R.id.viewAceptarSalirDialog);
+
+        viewCancelarSalirDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                salirDialog.dismiss();
+
+            }
+        });
+
+        viewAceptarSalirDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                salirDialog.dismiss();
+                getActivity().finish();
+                System.exit(0);
+
+            }
+        });
+
+        salirDialog.setCancelable(true);
+        salirDialog.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        salirDialog.show();
 
     }
 

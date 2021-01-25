@@ -2,7 +2,6 @@ package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.app.ActionBar;
 import android.app.Dialog;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;

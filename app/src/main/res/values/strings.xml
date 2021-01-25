@@ -72,4 +72,7 @@
     <string name="textLongitudMedia">Longitud</string>
     <string name="textVelocidadMedia">Velocidad</string>
     <string name="textPoderMortifero">Poder mortífero</string>
+    <string name="textVasASalirDeLaApp">¿Seguro que quieres salir de la aplicación?</string>
+    <string name="infoClicaEnImagenParaDesc">Pulsa la imagen para leer la descripción</string>
+    <string name="textGirarCarta">Girar</string>
 </resources>
