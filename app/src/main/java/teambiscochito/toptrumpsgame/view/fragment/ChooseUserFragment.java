@@ -43,7 +43,7 @@ public class ChooseUserFragment extends Fragment {
     ViewModel viewModel;
 
     TextView tvEligeTuJugador, tvRvVacioChooseUser;
-    Dialog dialogAjustes, salirDialog;
+    Dialog dialogAjustes, salirDialog, tutorialDialog;
     SharedPreferences sharedPreferences;
     Animation anim, animScaleUp, animScaleDown;
     NavController navController;
@@ -72,6 +72,14 @@ public class ChooseUserFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+
+        boolean firstStart = sharedPreferences.getBoolean("firstStart", true);
+
+        if(firstStart) {
+
+            tutorialDialog();
+
+        }
 
         initAnim();
 
@@ -241,7 +249,6 @@ public class ChooseUserFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                salirDialog.dismiss();
                 getActivity().finish();
                 System.exit(0);
 
@@ -252,6 +259,55 @@ public class ChooseUserFragment extends Fragment {
         salirDialog.setCanceledOnTouchOutside(false);
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         salirDialog.show();
+
+    }
+
+    public void tutorialDialog() {
+
+        View viewCancelarTutorialDialog, viewAceptarTutorialDialog;
+
+        tutorialDialog = new Dialog(getContext());
+        tutorialDialog.setContentView(R.layout.ir_a_tutorial_dialog);
+        tutorialDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = tutorialDialog.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        viewCancelarTutorialDialog = tutorialDialog.findViewById(R.id.viewCancelarTutorialDialog);
+        viewAceptarTutorialDialog = tutorialDialog.findViewById(R.id.viewAceptarTutorialDialog);
+
+        viewCancelarTutorialDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                tutorialDialog.dismiss();
+
+            }
+        });
+
+        viewAceptarTutorialDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                mp_seleccionarJugador.stop();
+                tutorialDialog.dismiss();
+
+                Bundle bundle = new Bundle();
+                bundle.putBoolean("vieneDelFirstStart", true);
+
+                navController.navigate(R.id.action_chooseUserFragment_to_tutorialFragment, bundle);
+
+            }
+        });
+
+        tutorialDialog.setCancelable(true);
+        tutorialDialog.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        tutorialDialog.show();
+
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("firstStart", false);
+        editor.apply();
 
     }
 

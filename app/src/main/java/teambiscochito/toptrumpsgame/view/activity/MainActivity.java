@@ -2,19 +2,26 @@ package teambiscochito.toptrumpsgame.view.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActionBar;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.widget.Toast;
 
 import teambiscochito.toptrumpsgame.receiver.ReceiverBateria;
 import teambiscochito.toptrumpsgame.R;
 
 public class MainActivity extends AppCompatActivity {
 
+    private long backPressedTime;
     ReceiverBateria receiver;
     IntentFilter intentFilter;
+    Dialog salirDialog;
     private View decorView;
 
     @Override
@@ -79,5 +86,63 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         unregisterReceiver(receiver);
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if(backPressedTime + 2000 > System.currentTimeMillis()) {
+
+            salirDialog();
+            return;
+
+        } else {
+
+            Toast.makeText(getApplicationContext(), "Pulsa otra vez para salir", Toast.LENGTH_SHORT).show();
+
+        }
+
+        backPressedTime = System.currentTimeMillis();
+
+    }
+
+    public void salirDialog() {
+
+        View viewCancelarSalirDialog, viewAceptarSalirDialog;
+
+        salirDialog = new Dialog(MainActivity.this);
+        salirDialog.setContentView(R.layout.salir_app_dialog);
+        salirDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = salirDialog.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        viewCancelarSalirDialog = salirDialog.findViewById(R.id.viewCancelarSalirDialog);
+        viewAceptarSalirDialog = salirDialog.findViewById(R.id.viewAceptarSalirDialog);
+
+        viewCancelarSalirDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                salirDialog.dismiss();
+
+            }
+        });
+
+        viewAceptarSalirDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                finish();
+                System.exit(0);
+
+            }
+        });
+
+        salirDialog.setCancelable(true);
+        salirDialog.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        salirDialog.show();
+
     }
 }

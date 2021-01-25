@@ -67,6 +67,8 @@ public class EditPlayerFragment extends Fragment {
 
         vp_avatar = view.findViewById(R.id.vp_avatar_edit);
 
+        vp_avatar.setUserInputEnabled(false);
+
         etNombreJugador.setText(user.getName());
 
         String nombreAvatarParaCargar = getResources().getResourceEntryName(user.getAvatar());
