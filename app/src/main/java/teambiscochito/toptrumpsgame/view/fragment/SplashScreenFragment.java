@@ -2,6 +2,7 @@ package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -28,6 +29,8 @@ public class SplashScreenFragment extends Fragment {
     SharedPreferences sharedPreferences;
     NavController navController;
 
+    private MediaPlayer mp_sound;
+
     public SplashScreenFragment() {
 
     }
@@ -47,6 +50,7 @@ public class SplashScreenFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         navController = Navigation.findNavController(view);
+        mp_sound = MediaPlayer.create(getContext(), R.raw.splash_screen_sound);
 
         animLogo = AnimationUtils.loadAnimation(getContext(), R.anim.fade_logo_team);
         imgLogoTeam = view.findViewById(R.id.imgLogoTeam);
@@ -58,6 +62,8 @@ public class SplashScreenFragment extends Fragment {
 
         imgLogoTeam.startAnimation(animLogo);
 
+        mp_sound.start();
+
         Thread thread = new Thread() {
 
             @Override
@@ -65,7 +71,7 @@ public class SplashScreenFragment extends Fragment {
 
                 try {
 
-                    sleep(3000);
+                    sleep(3500);
 
                     if (claveAdmin != random){
 
@@ -97,4 +103,25 @@ public class SplashScreenFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mp_sound.start();
+
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        mp_sound.pause();
+
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mp_sound.stop();
+        mp_sound.release();
+
+    }
 }
