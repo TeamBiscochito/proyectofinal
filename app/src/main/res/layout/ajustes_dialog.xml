@@ -45,6 +45,7 @@
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="8dp"
             android:ems="10"
+            android:imeOptions="actionDone"
             android:fontFamily="@font/schoolbell"
             android:hint="@string/tvClaveAcceso"
             android:inputType="textPassword"

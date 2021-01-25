@@ -39,7 +39,7 @@ public class AdminJugadorFragment extends Fragment {
     ViewModel viewModel;
     View viewBackAdminJugadores, viewCerrarAdminJugadores, viewAddJugador;
     ImageView imgAddJugador;
-    TextView tvAddJugador, tvRvVacioAdminUser;
+    TextView tvAddJugador;
     Animation animScaleUp, animScaleDown;
     Dialog dialogSalirAdmin;
 
@@ -77,12 +77,6 @@ public class AdminJugadorFragment extends Fragment {
                 RecyclerJugadoresAdminAdapter adapter = new RecyclerJugadoresAdminAdapter(users ,view, getActivity(), getContext());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-                if(adapter.getItemCount() == 0) {
-
-                    tvRvVacioAdminUser.setText(R.string.alertRvVacioAdminUser);
-
-                }
 
             }
         });
@@ -157,7 +151,6 @@ public class AdminJugadorFragment extends Fragment {
         viewAddJugador = view.findViewById(R.id.viewAddJugador);
         imgAddJugador = view.findViewById(R.id.imgAddJugador);
         tvAddJugador = view.findViewById(R.id.tvAddJugador);
-        tvRvVacioAdminUser = view.findViewById(R.id.tvRvVacioAdminUser);
 
     }
 

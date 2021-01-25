@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class CartasFragment extends Fragment {
     NavController navController;
     View viewBackCartasNoAdmin;
     private MediaPlayer mp_cards;
-    ConstraintLayout consCartasNoAdmin;
+    TextView tvRvVacioCartasNoAdmin;
 
     public CartasFragment() {
 
@@ -63,11 +64,11 @@ public class CartasFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
 
-        consCartasNoAdmin = view.findViewById(R.id.consCartasNoAdmin);
-
         initAnim();
 
         viewBackCartasNoAdmin = view.findViewById(R.id.viewBackCartasNoAdmin);
+
+        tvRvVacioCartasNoAdmin = view.findViewById(R.id.tvRvVacioCartasNoAdmin);
 
         viewBackCartasNoAdmin.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -105,6 +106,12 @@ public class CartasFragment extends Fragment {
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(layoutManager);
 
+                if(adapter.getItemCount() == 0) {
+
+                    tvRvVacioCartasNoAdmin.setText(R.string.alertRvVacioCartasNoAdmin);
+
+                }
+
             }
         });
     }
@@ -113,12 +120,6 @@ public class CartasFragment extends Fragment {
 
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
-
-        AnimationDrawable animDrawable = (AnimationDrawable) consCartasNoAdmin.getBackground();
-
-        animDrawable.setEnterFadeDuration(2000);
-        animDrawable.setExitFadeDuration(2000);
-        animDrawable.start();
 
     }
 

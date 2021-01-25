@@ -61,7 +61,7 @@ public class CrearAdminFragment extends Fragment {
         final NavController navController = Navigation.findNavController(view);
 
         etClave = view.findViewById(R.id.claveEt);
-        sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        /*sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         String random = cadenaAleatoria();
         String claveAdmin = sharedPreferences.getString("clave_admin", random);
         if (claveAdmin != random){
@@ -69,7 +69,7 @@ public class CrearAdminFragment extends Fragment {
 
             mp_intro.stop();
             navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
-        }
+        }*/
 
         vAdminEntrar.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -125,14 +125,14 @@ public class CrearAdminFragment extends Fragment {
 
     }
 
-    public String cadenaAleatoria(){
+    /*public String cadenaAleatoria(){
         String lista = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890";
         String s="";
         for(int i = 0; i < 20; i++){
             s+= lista.charAt((int) (Math.random() *61)+1);
         }
         return s;
-    }
+    }*/
 
     @Override
     public void onResume() {

@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B97A57"
-    tools:context=".view.fragment.AddPlayerFragment">
+    tools:context=".view.fragment.AddPlayerFragment"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -188,6 +190,7 @@
             android:autofillHints=""
             android:background="@drawable/edittext_bg"
             android:ems="10"
+            android:imeOptions="actionDone"
             android:fontFamily="@font/schoolbell"
             android:hint="@string/tvNombre"
             android:inputType="textPersonName"
