@@ -76,17 +76,20 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
 
         holder.tvNombreCartaNoAdmin.setText(cardList.get(position).getName());
         holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDesc());
+
         try{
-        List<Question> questionList = viewModel.getQuestionListByCardId(cardList.get(position).getId());
-        holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
-        holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
-        holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
-        holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
-        holder.tvPoder.setText(questionList.get(4).getAnswer().toString());
-        holder.tvAlturaUnidad.setText(questionList.get(0).getMagnitude());
-        holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
-        holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());
-        holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
+
+            List<Question> questionList = viewModel.getQuestionListByCardId(cardList.get(position).getId());
+            holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
+            holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
+            holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
+            holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
+            holder.tvPoder.setText(questionList.get(4).getAnswer().toString());
+            holder.tvAlturaUnidad.setText(questionList.get(0).getMagnitude());
+            holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
+            holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());
+            holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
+
         } catch (Exception ex){
             Log.v("xyz", ex.getLocalizedMessage());
         }
@@ -129,7 +132,6 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
         EasyFlipView easyFlipView;
         TextView tvClicParaHacerFlipCarta;
         View viewClicParaHacerFlipCarta;
-        TextView tvAltura, tvPeso, tvLongitud, tvVelocidad, tvPoder, tvAlturaUnidad, tvPesoUnidad, tvLongitudUnidad, tvVelocidadUnidad;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -139,16 +141,6 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
             easyFlipView = itemView.findViewById(R.id.easyflipview);
             tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvClicParaHacerFlipCarta);
             viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewClicParaHacerFlipCarta);
-            tvAltura = itemView.findViewById(R.id.tvValorAlturaMediaNoAdmin);
-            tvPeso = itemView.findViewById(R.id.tvPesoMedioNoAdmin);
-            tvLongitud = itemView.findViewById(R.id.tvLongitudMediaNoAdmin);
-            tvVelocidad = itemView.findViewById(R.id.tvVelocidadMediaNoAdmin);
-            tvPoder = itemView.findViewById(R.id.tvPoderMortiferoNoAdmin);
-
-            tvAlturaUnidad = itemView.findViewById(R.id.tvUnidadAlturaMediaNoAdmin);
-            tvPesoUnidad = itemView.findViewById(R.id.tvUnidadPesoMedioNoAdmin);
-            tvLongitudUnidad = itemView.findViewById(R.id.tvUnidadLongitudMediaNoAdmin);
-            tvVelocidadUnidad = itemView.findViewById(R.id.tvUnidadVelocidadMediaNoAdmin);
 
             tvAltura = itemView.findViewById(R.id.tvValorAlturaMediaNoAdmin);
             tvPeso = itemView.findViewById(R.id.tvPesoMedioNoAdmin);
