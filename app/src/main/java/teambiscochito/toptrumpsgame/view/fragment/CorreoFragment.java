@@ -24,6 +24,7 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import teambiscochito.toptrumpsgame.R;
@@ -35,10 +36,11 @@ public class CorreoFragment extends Fragment {
     ViewModel viewModel;
     User userActual;
     View viewBackCorreo, viewCorreoBorrar, viewCorreoEnviar;
-    Animation animScaleUp, animScaleDown;
+    Animation animCaraLeon, animScaleUp, animScaleDown;
     EditText etCorreo;
     TextView tvCorreoBorrar, tvCorreoEnviar, tvAlertaCorreo;
     NavController navController;
+    ImageView imgCaraLeonCorreo;
     private MediaPlayer mp_correo;
     Dialog dialogCorreo;
 
@@ -65,6 +67,8 @@ public class CorreoFragment extends Fragment {
         navController = Navigation.findNavController(view);
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         userActual = viewModel.getUser();
+
+        imgCaraLeonCorreo.startAnimation(animCaraLeon);
 
         viewBackCorreo.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -160,6 +164,7 @@ public class CorreoFragment extends Fragment {
 
     public void init(View view) {
 
+        animCaraLeon = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
@@ -171,6 +176,7 @@ public class CorreoFragment extends Fragment {
         tvCorreoBorrar = view.findViewById(R.id.tvCorreoBorrar);
         tvCorreoEnviar = view.findViewById(R.id.tvCorreoEnviar);
         tvAlertaCorreo = view.findViewById(R.id.tvAlertaCorreo);
+        imgCaraLeonCorreo = view.findViewById(R.id.imgCaraLeonCorreo);
 
         etCorreo = view.findViewById(R.id.etCorreo);
 

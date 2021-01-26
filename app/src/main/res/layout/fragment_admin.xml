@@ -18,28 +18,28 @@
 
         <View
             android:id="@+id/viewAdminEntrarCartas"
-            android:layout_width="220dp"
+            android:layout_width="130dp"
             android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/bt_enviar_correo"
             app:layout_constraintBottom_toTopOf="@+id/guideline39"
             app:layout_constraintEnd_toStartOf="@+id/guideline38"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/guideline37"
-            app:layout_constraintTop_toBottomOf="@+id/viewAdminEntrarJugadores" />
+            app:layout_constraintStart_toEndOf="@+id/viewAdminEntrarJugadores" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline37"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.16" />
+            app:layout_constraintGuide_percent="0.15" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline36"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.19" />
+            app:layout_constraintGuide_percent="0.18" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline35"
@@ -53,27 +53,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05" />
+            app:layout_constraintGuide_percent="0.04" />
 
         <View
             android:id="@+id/viewCerrarAdminScreen"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/cerrar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
         <TextView
             android:id="@+id/textView19"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/schoolbell"
+            android:gravity="center|top"
+            android:rotation="-8"
             android:text="@string/textModoAdmin"
             android:textColor="#472C06"
-            android:textSize="24sp"
+            android:textSize="30sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view2"
             app:layout_constraintEnd_toStartOf="@+id/guideline38"
             app:layout_constraintStart_toStartOf="@+id/guideline37"
             app:layout_constraintTop_toTopOf="@+id/guideline32" />
@@ -83,35 +87,18 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.83" />
-
-        <TextView
-            android:id="@+id/textView20"
-            android:layout_width="0dp"
-            android:layout_height="153dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/schoolbell"
-            android:text="@string/textInfoAdmin"
-            android:textAlignment="center"
-            android:textColor="#472C06"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline38"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/guideline37"
-            app:layout_constraintTop_toTopOf="@+id/guideline36" />
+            app:layout_constraintGuide_percent="0.838" />
 
         <View
             android:id="@+id/viewAdminEntrarJugadores"
-            android:layout_width="220dp"
+            android:layout_width="130dp"
             android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/bt_enviar_correo"
-            app:layout_constraintBottom_toTopOf="@+id/viewAdminEntrarCartas"
-            app:layout_constraintEnd_toStartOf="@+id/guideline38"
+            app:layout_constraintBottom_toTopOf="@+id/guideline39"
+            app:layout_constraintEnd_toStartOf="@+id/viewAdminEntrarCartas"
             app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/guideline37"
-            app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            app:layout_constraintStart_toStartOf="@+id/guideline37" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline39"
@@ -128,7 +115,7 @@
             android:text="@string/textJugadores"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewAdminEntrarJugadores"
             app:layout_constraintEnd_toEndOf="@+id/viewAdminEntrarJugadores"
@@ -143,12 +130,40 @@
             android:text="@string/btCartas"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="20sp"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewAdminEntrarCartas"
             app:layout_constraintEnd_toEndOf="@+id/viewAdminEntrarCartas"
             app:layout_constraintStart_toStartOf="@+id/viewAdminEntrarCartas"
             app:layout_constraintTop_toTopOf="@+id/viewAdminEntrarCartas" />
+
+        <ImageView
+            android:id="@+id/imgCaraLeonAdmin"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/contLeon"
+            android:src="@drawable/leon_tutorial_cara"
+            app:layout_constraintStart_toStartOf="@+id/guideline37"
+            app:layout_constraintTop_toTopOf="@+id/guideline89" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bocadillo_admin"
+            app:layout_constraintBottom_toTopOf="@+id/guideline89"
+            app:layout_constraintEnd_toStartOf="@+id/guideline38"
+            app:layout_constraintStart_toStartOf="@+id/guideline37"
+            app:layout_constraintTop_toTopOf="@+id/guideline36" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline89"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.58" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

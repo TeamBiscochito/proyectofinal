@@ -73,7 +73,7 @@ public class MenuFragment extends Fragment {
         navController = Navigation.findNavController(view);
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
-        userActual = viewModel.getUser();
+        userActual = viewModel.userActual;
 
         vCartas.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -102,6 +102,14 @@ public class MenuFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vTuto.startAnimation(animScaleUp);
                     tvTuto.startAnimation(animScaleUp);
+
+                    mp_menu.stop();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putBoolean("vieneDelFirstStart", false);
+
+                    navController.navigate(R.id.action_menuFragment_to_tutorialFragment, bundle);
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vTuto.startAnimation(animScaleDown);
                     tvTuto.startAnimation(animScaleDown);
@@ -117,10 +125,13 @@ public class MenuFragment extends Fragment {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vPlay.startAnimation(animScaleUp);
+
+                    mp_menu.stop();
                     navController.navigate(R.id.action_menuFragment_to_juegoFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vPlay.startAnimation(animScaleDown);
+
                 }
 
                 return true;
