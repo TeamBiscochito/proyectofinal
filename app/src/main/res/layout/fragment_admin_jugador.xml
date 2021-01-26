@@ -22,12 +22,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.78" />
+            app:layout_constraintGuide_percent="0.824" />
 
         <View
             android:id="@+id/viewCerrarAdminJugadores"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/cerrar"
             app:layout_constraintStart_toStartOf="parent"
@@ -35,10 +35,10 @@
 
         <View
             android:id="@+id/viewBackAdminJugadores"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/back_2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline41" />
@@ -46,11 +46,13 @@
         <TextView
             android:id="@+id/textView22"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
             android:fontFamily="@font/schoolbell"
+            android:rotation="-7"
             android:text="@string/textJugadores"
             android:textColor="#472C06"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline45"
             app:layout_constraintStart_toStartOf="@+id/guideline44"
@@ -61,14 +63,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05" />
+            app:layout_constraintGuide_percent="0.04" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline42"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.18" />
+            app:layout_constraintGuide_percent="0.152" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline43"
@@ -82,14 +84,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.16" />
+            app:layout_constraintGuide_percent="0.145" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline45"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.83" />
+            app:layout_constraintGuide_percent="0.847" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvJugadoresAdmin"
@@ -103,12 +105,12 @@
 
         <View
             android:id="@+id/viewAddJugador"
-            android:layout_width="200dp"
+            android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="16dp"
             android:background="@drawable/bt_add_jugador_bg"
             app:layout_constraintBottom_toTopOf="@+id/guideline43"
             app:layout_constraintEnd_toStartOf="@+id/guideline45"
@@ -125,7 +127,7 @@
             android:text="@string/tvAddJugador"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewAddJugador"
             app:layout_constraintEnd_toEndOf="@+id/viewAddJugador"
@@ -134,8 +136,8 @@
 
         <ImageView
             android:id="@+id/imgAddJugador"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:contentDescription="@string/contAdd"
             android:src="@drawable/ic_adduser"

@@ -8,30 +8,35 @@
 
     <View
         android:id="@+id/viewTuto"
-        android:layout_width="130dp"
-        android:layout_height="70dp"
-        android:layout_marginEnd="32dp"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/tablero_ct"
         app:layout_constraintBottom_toTopOf="@+id/view8"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <View
         android:id="@+id/viewCartas"
-        android:layout_width="130dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="160dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/tablero_ct"
         app:layout_constraintBottom_toTopOf="@+id/view8"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
 
     <TextView
         android:id="@+id/tvMenuCartas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/schoolbell"
         android:text="@string/btCartas"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewCartas"
         app:layout_constraintEnd_toEndOf="@+id/viewCartas"
@@ -42,10 +47,12 @@
         android:id="@+id/tvMenuTuto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="8dp"
         android:fontFamily="@font/schoolbell"
         android:text="@string/btTutorial"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewTuto"
         app:layout_constraintEnd_toEndOf="@+id/viewTuto"
@@ -78,21 +85,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.85" />
+        app:layout_constraintGuide_percent="0.87" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.23392613" />
+        app:layout_constraintGuide_percent="0.235" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.16552667" />
+        app:layout_constraintGuide_percent="0.159" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline8"
@@ -105,12 +112,13 @@
         android:id="@+id/tvTitulo1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:fontFamily="@font/amadeus"
         android:paddingStart="50dp"
         android:text="@string/tvTitulo1"
         android:textAlignment="viewStart"
         android:textColor="#472C06"
-        android:textSize="38sp"
+        android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toEndOf="@+id/viewTablero"
@@ -126,7 +134,7 @@
         android:text="@string/tvTitulo2"
         android:textAlignment="viewEnd"
         android:textColor="#472C06"
-        android:textSize="28sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline8"
         app:layout_constraintEnd_toEndOf="@+id/tvTitulo1"
@@ -149,9 +157,9 @@
 
     <View
         android:id="@+id/view3"
-        android:layout_width="60dp"
+        android:layout_width="70dp"
         android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/brown_bg"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -162,10 +170,10 @@
 
     <View
         android:id="@+id/viewPlayButton"
-        android:layout_width="70dp"
+        android:layout_width="80dp"
         android:layout_height="0dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/play_bt_gradient_list"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toEndOf="parent"
@@ -174,8 +182,8 @@
 
     <View
         android:id="@+id/view8"
-        android:layout_width="360dp"
-        android:layout_height="210dp"
+        android:layout_width="400dp"
+        android:layout_height="250dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/tronco"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -185,9 +193,9 @@
 
     <View
         android:id="@+id/viewMenuPlay"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="70dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="14dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/imgplay"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
@@ -197,8 +205,8 @@
 
     <View
         android:id="@+id/viewMenuCreditos"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
         app:layout_constraintEnd_toEndOf="parent"
@@ -213,7 +221,7 @@
         android:text="@string/tvCreditos"
         android:textAlignment="center"
         android:textColor="#472C06"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuCreditos"
         app:layout_constraintEnd_toEndOf="@+id/viewMenuCreditos"
@@ -222,8 +230,8 @@
 
     <View
         android:id="@+id/viewMenuSettings"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
         app:layout_constraintEnd_toStartOf="@+id/viewMenuCreditos"
@@ -232,8 +240,8 @@
 
     <ImageView
         android:id="@+id/ivMenuSettings"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:contentDescription="@string/imgMusica"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
         app:layout_constraintEnd_toEndOf="@+id/viewMenuSettings"
@@ -243,9 +251,9 @@
 
     <View
         android:id="@+id/viewMenuUser"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewMenuSettings"
@@ -254,8 +262,8 @@
 
     <ImageView
         android:id="@+id/ivMenuUser"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:contentDescription="@string/imgUser"
         android:foregroundGravity="center|center_horizontal"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
@@ -266,8 +274,8 @@
 
     <View
         android:id="@+id/viewMenuCerrarSesion"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
         app:layout_constraintEnd_toStartOf="@+id/viewMenuUser"
@@ -282,7 +290,7 @@
         android:text="@string/tvCerrarSesion"
         android:textAlignment="center"
         android:textColor="#472C06"
-        android:textSize="15sp"
+        android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuCerrarSesion"
         app:layout_constraintEnd_toEndOf="@+id/viewMenuCerrarSesion"

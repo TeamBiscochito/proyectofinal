@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:background="@drawable/correo_dialog_bg"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout3"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
@@ -24,7 +24,7 @@
             android:text="@string/textQuieresVerElTutorialInicio"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView20"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,10 +38,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
             android:fontFamily="@font/schoolbell"
             android:text="@string/textAunqueCancelesTutorialDialog"
             android:textAlignment="center"
             android:textColor="#D3443A"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,8 +56,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout3"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,8 +72,8 @@
 
         <View
             android:id="@+id/viewCancelarTutorialDialog"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/cerrar"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -79,8 +81,8 @@
 
         <View
             android:id="@+id/viewAceptarTutorialDialog"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="24dp"
             android:background="@drawable/aceptar"
             app:layout_constraintBottom_toBottomOf="parent"

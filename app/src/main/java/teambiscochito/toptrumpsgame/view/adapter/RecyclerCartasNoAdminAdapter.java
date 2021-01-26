@@ -3,6 +3,9 @@ package teambiscochito.toptrumpsgame.view.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.text.LineBreaker;
+import android.os.Build;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -115,6 +118,13 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
             easyFlipView = itemView.findViewById(R.id.easyflipview);
             tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvClicParaHacerFlipCarta);
             viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewClicParaHacerFlipCarta);
+
+            // Poner texto de la carta justificado
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                tvDescCartasNoAdminBack.setJustificationMode(LineBreaker.JUSTIFICATION_MODE_INTER_WORD);
+            } else {
+                tvNombreCartaNoAdmin.setGravity(Gravity.CENTER);
+            }
         }
     }
 }

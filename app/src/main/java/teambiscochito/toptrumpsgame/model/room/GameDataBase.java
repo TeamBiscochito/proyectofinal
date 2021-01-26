@@ -47,7 +47,7 @@ public abstract class GameDataBase extends RoomDatabase {
 
                 cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/tigre.png",
                         "Tigre",
-                        "desc"));
+                        "Tigre es el nombre común que reciben los integrantes de la especie Panthera tigris. Este animal mamífero, que está considerado como el felino más grande del planeta, se caracteriza por su pelaje amarillo con rayas negras en el lomo Tigre es el nombre común que reciben los integranteslos integrantes "));
                 questionDao.insertToName("Tigre","Altura", 95.0, "Cm");
                 questionDao.insertToName("Tigre","Peso", 200.0, "Kg");
                 questionDao.insertToName("Tigre","Longitud", 3.4, "M");

@@ -6,8 +6,8 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="300dp"
+        android:layout_height="350dp"
         android:background="@drawable/correo_dialog_bg"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
@@ -24,7 +24,7 @@
             android:text="@string/textEstasSeguroSalirTutorial"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="16sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textViewotro3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -38,10 +38,12 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="32dp"
             android:fontFamily="@font/schoolbell"
             android:text="@string/textSalirTutorialVerOtraVez"
             android:textAlignment="center"
             android:textColor="#D3443A"
+            android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -54,8 +56,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="350dp"
+        android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,8 +72,8 @@
 
         <View
             android:id="@+id/viewCancelarSalirTutorialDialog"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/cerrar"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -79,8 +81,8 @@
 
         <View
             android:id="@+id/viewAceptarSalirTutorialDialog"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_marginStart="24dp"
             android:background="@drawable/aceptar"
             app:layout_constraintBottom_toBottomOf="parent"
