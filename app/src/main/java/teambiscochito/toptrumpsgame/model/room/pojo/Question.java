@@ -89,4 +89,15 @@ public class Question {
     public void setMagnitude(String magnitude) {
         this.magnitude = magnitude;
     }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id=" + id +
+                ", card_id=" + card_id +
+                ", question='" + question + '\'' +
+                ", answer=" + answer +
+                ", magnitude='" + magnitude + '\'' +
+                '}';
+    }
 }

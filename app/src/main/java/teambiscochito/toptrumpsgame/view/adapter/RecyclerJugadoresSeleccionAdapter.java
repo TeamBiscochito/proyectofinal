@@ -57,7 +57,7 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
                 // TODO: Por comprobar "Bundle en pruebas"
                 //Bundle bundle = new Bundle();
                 //bundle.putLong("userid", userList.get(position).getId());
-                viewModel.userActual = userList.get(position);
+                viewModel.setUser(userList.get(position));
 
                 navController.navigate(R.id.action_chooseUserFragment_to_menuFragment);
 

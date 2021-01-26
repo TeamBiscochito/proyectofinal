@@ -16,8 +16,7 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
 public class ViewModel extends AndroidViewModel {
 
     private Repository repository;
-    public static User userActual;
-    User user;
+    private User user;
 
     public ViewModel(@NonNull Application application) {
         super(application);
@@ -36,8 +35,12 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteCard(card);
     }
 
-    public LiveData<List<Card>> getCardList() {
+    public LiveData<List<Card>> getCardLiveList() {
         return repository.getCardList();
+    }
+
+    public Card[] getAllCard() {
+        return repository.getAllCard();
     }
 
     public void insertUser(User user) {
@@ -66,6 +69,7 @@ public class ViewModel extends AndroidViewModel {
 
     public void setUser(User user) {
         this.user = user;
+        repository.updateUser(user);
     }
 
     public void insertQuestion(Question question) {
@@ -80,7 +84,7 @@ public class ViewModel extends AndroidViewModel {
         repository.deleteQuestion(question);
     }
 
-    public List<Question> getQuestionListByCardId(long cardId) {
+    public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
         return repository.getQuestionListByCardId(cardId);
     }
 

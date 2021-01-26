@@ -39,7 +39,7 @@ public interface QuestionDao {
 
     //returs ALL questions about a card
     @Query("select * from question where card_id = :cardId")
-    List<Question> getQuestionByCardId(long cardId);
+    LiveData<List<Question>> getQuestionByCardId(long cardId);
 
     @Query("select * from question")
     LiveData<List<Question>> getQuestionList();

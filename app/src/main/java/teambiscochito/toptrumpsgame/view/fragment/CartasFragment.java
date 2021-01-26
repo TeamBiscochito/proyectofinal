@@ -87,7 +87,7 @@ public class CartasFragment extends Fragment {
         Card card = new Card("https://static.wikia.nocookie.net/reinoanimalia/images/5/58/Tigre_de_bengala_wiki.png/revision/latest?cb=20130303105615&path-prefix=es", "Tigre", "Hola soy un tigre");
         viewModel.insertCard(card);
 
-        LiveData<List<Card>> cardList = viewModel.getCardList();
+        LiveData<List<Card>> cardList = viewModel.getCardLiveList();
         cardList.observe(getViewLifecycleOwner(), new Observer<List<Card>>() {
             @Override
             public void onChanged(List<Card> cards) {

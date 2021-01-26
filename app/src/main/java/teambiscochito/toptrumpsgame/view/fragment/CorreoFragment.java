@@ -64,7 +64,7 @@ public class CorreoFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
-        userActual = viewModel.userActual;
+        userActual = viewModel.getUser();
 
         viewBackCorreo.setOnTouchListener(new View.OnTouchListener() {
             @Override

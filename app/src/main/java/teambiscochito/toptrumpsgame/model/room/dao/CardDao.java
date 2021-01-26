@@ -39,8 +39,11 @@ public interface CardDao {
 
     //get ALL cards
     @Query("select * from card")
-    LiveData<List<Card>> getAll();
+    LiveData<List<Card>> getAllLive();
 
     @Query("delete from card")
     void deleteAll();
+
+    @Query("SELECT * FROM card")
+    Card[] getAll();
 }

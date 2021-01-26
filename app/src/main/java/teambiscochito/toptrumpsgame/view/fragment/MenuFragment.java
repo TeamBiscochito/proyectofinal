@@ -73,7 +73,7 @@ public class MenuFragment extends Fragment {
         navController = Navigation.findNavController(view);
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
-        userActual = viewModel.userActual;
+        userActual = viewModel.getUser();
 
         vCartas.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -117,6 +117,8 @@ public class MenuFragment extends Fragment {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vPlay.startAnimation(animScaleUp);
+                    navController.navigate(R.id.action_menuFragment_to_juegoFragment);
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vPlay.startAnimation(animScaleDown);
                 }

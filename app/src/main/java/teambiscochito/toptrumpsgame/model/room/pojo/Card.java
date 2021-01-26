@@ -4,8 +4,10 @@ package teambiscochito.toptrumpsgame.model.room.pojo;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
+import androidx.room.Query;
 
 @Entity(tableName = "card")
 public class Card {
@@ -34,6 +36,7 @@ public class Card {
         this.desc = desc;
     }
 
+    @Ignore
     public Card() {
     }
 
@@ -71,4 +74,16 @@ public class Card {
     public void setDesc(@NonNull String desc) {
         this.desc = desc;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "id=" + id +
+                ", picUrl='" + picUrl + '\'' +
+                ", name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                '}';
+    }
+
+
 }

@@ -58,7 +58,7 @@ public class pruebas extends Fragment {
 
         List<Card> cartas = new ArrayList<>();
 
-        viewModel.getCardList().observe(getActivity(), new Observer<List<Card>>() {
+        viewModel.getCardLiveList().observe(getActivity(), new Observer<List<Card>>() {
             @Override
             public void onChanged(List<Card> cards) {
                 nombre.setText("");

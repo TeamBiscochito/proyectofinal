@@ -4,7 +4,6 @@ import android.content.Context;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,8 +77,20 @@ public class Repository {
     }
 
 
+    public Card[] getAllCard() {
+        final Card[][] lista = {new Card[]{}};
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                    lista[0] = cardDao.getAll();
+            }
+        });
+        return lista[0];
+    }
+
+
     public LiveData<List<Card>> getCardList() {
-        return cardDao.getAll();
+        return cardDao.getAllLive();
     }
 
 
@@ -193,22 +204,8 @@ public class Repository {
     }
 
 
-    public List<Question> getQuestionListByCardId(long cardId) {
-        final List<Question>[] questions = new List[]{new ArrayList<>()};
-
-        UtilThread.threadExecutorPool.execute(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    questions[0] = questionDao.getQuestionByCardId(cardId);
-                    Log.v("xyz", "consulta a las preguntas (REPOSITORIO)");
-                } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
-                }
-            }
-        });
-
-        return questions[0];
+    public LiveData<List<Question>> getQuestionListByCardId(long cardId) {
+        return questionDao.getQuestionByCardId(cardId);
     }
 
     public LiveData<List<Question>> getQuestionList() {
