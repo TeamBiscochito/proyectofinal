@@ -27,6 +27,7 @@ public class Card {
     @ColumnInfo(name = "desc")
     private String desc;
 
+
     public Card(@NonNull String picUrl, @NonNull String name, @NonNull String desc) {
         this.picUrl = picUrl;
         this.name = name;

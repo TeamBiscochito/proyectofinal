@@ -1,14 +1,327 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_jugar"
     tools:context=".view.fragment.JuegoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+    <View
+        android:id="@+id/viewNombreAnimalJuego"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:background="@drawable/tablero_nombre_jugar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline27" />
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tvNombreAnimalJuego"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewNombreAnimalJuego"
+        app:layout_constraintEnd_toEndOf="@+id/viewNombreAnimalJuego"
+        app:layout_constraintStart_toStartOf="@+id/viewNombreAnimalJuego"
+        app:layout_constraintTop_toTopOf="@+id/viewNombreAnimalJuego"
+        tools:text="Nombre" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <View
+        android:id="@+id/view25"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="8dp"
+        android:alpha="0.5"
+        android:background="@drawable/brown_bg_jugar_redondo"
+        app:layout_constraintBottom_toTopOf="@+id/tvPreguntaJuegoDeterminante"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgAnimalJuego"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@drawable/av_cerdo"
+        app:layout_constraintBottom_toBottomOf="@+id/view25"
+        app:layout_constraintEnd_toEndOf="@+id/view25"
+        app:layout_constraintStart_toStartOf="@+id/view25"
+        app:layout_constraintTop_toTopOf="@+id/view25" />
+
+    <View
+        android:id="@+id/viewCloseJuego"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/cerrar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.60" />
+
+    <View
+        android:id="@+id/view22"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="#B97A57"
+        android:alpha="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline31" />
+
+    <View
+        android:id="@+id/viewBotonJuego1"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:background="@drawable/bt_juego_opciones"
+        app:layout_constraintBottom_toTopOf="@+id/viewBotonJuego3"
+        app:layout_constraintEnd_toStartOf="@+id/viewBotonJuego2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline31" />
+
+    <View
+        android:id="@+id/viewBotonJuego2"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:background="@drawable/bt_juego_opciones"
+        app:layout_constraintBottom_toTopOf="@+id/viewBotonJuego4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewBotonJuego1"
+        app:layout_constraintTop_toTopOf="@+id/guideline31" />
+
+    <View
+        android:id="@+id/viewBotonJuego3"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:background="@drawable/bt_juego_opciones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/viewBotonJuego4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewBotonJuego1" />
+
+    <View
+        android:id="@+id/viewBotonJuego4"
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:background="@drawable/bt_juego_opciones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/viewBotonJuego3"
+        app:layout_constraintTop_toBottomOf="@+id/viewBotonJuego2" />
+
+    <TextView
+        android:id="@+id/tvBotonJuego1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBotonJuego1"
+        app:layout_constraintEnd_toEndOf="@+id/viewBotonJuego1"
+        app:layout_constraintStart_toStartOf="@+id/viewBotonJuego1"
+        app:layout_constraintTop_toTopOf="@+id/viewBotonJuego1" />
+
+    <TextView
+        android:id="@+id/tvBotonJuego2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBotonJuego2"
+        app:layout_constraintEnd_toEndOf="@+id/viewBotonJuego2"
+        app:layout_constraintStart_toStartOf="@+id/viewBotonJuego2"
+        app:layout_constraintTop_toTopOf="@+id/viewBotonJuego2" />
+
+    <TextView
+        android:id="@+id/tvBotonJuego3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBotonJuego3"
+        app:layout_constraintEnd_toEndOf="@+id/viewBotonJuego3"
+        app:layout_constraintStart_toStartOf="@+id/viewBotonJuego3"
+        app:layout_constraintTop_toTopOf="@+id/viewBotonJuego3" />
+
+    <TextView
+        android:id="@+id/tvBotonJuego4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/viewBotonJuego4"
+        app:layout_constraintEnd_toEndOf="@+id/viewBotonJuego4"
+        app:layout_constraintStart_toStartOf="@+id/viewBotonJuego4"
+        app:layout_constraintTop_toTopOf="@+id/viewBotonJuego4" />
+
+    <View
+        android:id="@+id/viewPergaminoPreguntaJugar"
+        android:layout_width="300dp"
+        android:layout_height="100dp"
+        android:background="@drawable/pergamino_pregunta_jugar"
+        app:layout_constraintBottom_toTopOf="@+id/guideline31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline99"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5325" />
+
+    <TextView
+        android:id="@+id/tvPreguntaJuegoTema"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/schoolbell"
+        android:textAlignment="center"
+        android:textColor="#224E96"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline99"
+        app:layout_constraintEnd_toEndOf="@+id/viewPergaminoPreguntaJugar"
+        app:layout_constraintStart_toStartOf="@+id/viewPergaminoPreguntaJugar" />
+
+    <TextView
+        android:id="@+id/textView40"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/schoolbell"
+        android:text="@string/textDeEsteAnimal"
+        android:textAlignment="center"
+        android:textColor="#472C06"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/guideline31"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvPreguntaJuegoDeterminante"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/schoolbell"
+        android:textAlignment="center"
+        android:textColor="#472C06"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/viewPergaminoPreguntaJugar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="¿Cuál es la" />
+
+    <View
+        android:id="@+id/view23"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/frame_bot_jugar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline31" />
+
+    <View
+        android:id="@+id/view26"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/brown_bg_jugar_redondo_frame"
+        app:layout_constraintBottom_toTopOf="@+id/tvPreguntaJuegoDeterminante"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/bird1"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bird_jugar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewCloseJuego" />
+
+    <View
+        android:id="@+id/bird2"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/bird_jugar"
+        app:layout_constraintStart_toEndOf="@+id/bird1"
+        app:layout_constraintTop_toBottomOf="@+id/bird1" />
+
+    <View
+        android:id="@+id/bird3"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/bird_jugar"
+        app:layout_constraintBottom_toTopOf="@+id/tvPreguntaJuegoDeterminante"
+        app:layout_constraintEnd_toStartOf="@+id/bird2" />
+
+    <View
+        android:id="@+id/bird4"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/bird_jugar"
+        app:layout_constraintBottom_toTopOf="@+id/viewPergaminoPreguntaJugar"
+        app:layout_constraintStart_toEndOf="@+id/view25" />
+
+    <View
+        android:id="@+id/view32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/marco_jugar_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

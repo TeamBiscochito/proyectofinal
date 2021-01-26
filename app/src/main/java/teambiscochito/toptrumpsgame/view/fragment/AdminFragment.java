@@ -2,7 +2,6 @@ package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.app.ActionBar;
 import android.app.Dialog;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import teambiscochito.toptrumpsgame.R;
@@ -26,10 +26,11 @@ import teambiscochito.toptrumpsgame.R;
 public class AdminFragment extends Fragment {
 
     View viewCerrarAdmin, viewAdminEntrarJugadores, viewAdminEntrarCartas;
-    Animation animScaleUp, animScaleDown;
+    Animation animScaleUp, animScaleDown, animCaraLeon;
     TextView tvAdminEntrarJugadores, tvAdminEntrarCartas;
     NavController navController;
     Dialog dialogSalirAdmin;
+    ImageView imgCaraLeonAdmin;
 
     public AdminFragment() {
 
@@ -52,6 +53,8 @@ public class AdminFragment extends Fragment {
         init(view);
 
         navController = Navigation.findNavController(view);
+
+        imgCaraLeonAdmin.startAnimation(animCaraLeon);
 
         viewCerrarAdmin.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -113,12 +116,14 @@ public class AdminFragment extends Fragment {
 
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
+        animCaraLeon = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
 
         viewCerrarAdmin = view.findViewById(R.id.viewCerrarAdminScreen);
         viewAdminEntrarJugadores = view.findViewById(R.id.viewAdminEntrarJugadores);
         viewAdminEntrarCartas = view.findViewById(R.id.viewAdminEntrarCartas);
         tvAdminEntrarJugadores = view.findViewById(R.id.tvAdminEntrarJugadores);
         tvAdminEntrarCartas = view.findViewById(R.id.tvAdminEntrarCartas);
+        imgCaraLeonAdmin = view.findViewById(R.id.imgCaraLeonAdmin);
 
     }
 

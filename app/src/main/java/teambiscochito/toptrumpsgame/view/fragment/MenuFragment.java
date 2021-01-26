@@ -82,6 +82,10 @@ public class MenuFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vCartas.startAnimation(animScaleUp);
                     tvCartas.startAnimation(animScaleUp);
+
+                    mp_menu.stop();
+                    navController.navigate(R.id.action_menuFragment_to_cartasFragment);
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vCartas.startAnimation(animScaleDown);
                     tvCartas.startAnimation(animScaleDown);
@@ -98,6 +102,14 @@ public class MenuFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vTuto.startAnimation(animScaleUp);
                     tvTuto.startAnimation(animScaleUp);
+
+                    mp_menu.stop();
+
+                    Bundle bundle = new Bundle();
+                    bundle.putBoolean("vieneDelFirstStart", false);
+
+                    navController.navigate(R.id.action_menuFragment_to_tutorialFragment, bundle);
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vTuto.startAnimation(animScaleDown);
                     tvTuto.startAnimation(animScaleDown);
@@ -113,8 +125,13 @@ public class MenuFragment extends Fragment {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vPlay.startAnimation(animScaleUp);
+
+                    mp_menu.stop();
+                    navController.navigate(R.id.action_menuFragment_to_juegoFragment);
+
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vPlay.startAnimation(animScaleDown);
+
                 }
 
                 return true;
@@ -188,6 +205,7 @@ public class MenuFragment extends Fragment {
                     vCerrarSesion.startAnimation(animScaleUp);
                     tvCerrarSesion.startAnimation(animScaleUp);
 
+                    mp_menu.stop();
                     navController.navigate(R.id.action_menuFragment_to_chooseUserFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {

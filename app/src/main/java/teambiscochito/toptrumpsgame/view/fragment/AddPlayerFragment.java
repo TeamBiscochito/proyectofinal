@@ -31,7 +31,9 @@ public class AddPlayerFragment extends Fragment {
     ViewPager2 vp_avatar;
     int [] avatares = {R.drawable.av_tigre, R.drawable.av_hipo, R.drawable.av_tucan, R.drawable.av_cerdo, R.drawable.av_gato, R.drawable.av_gallina};
     VpAvatarAdapter adapter;
+
     Animation animScaleUp, animScaleDown;
+
     NavController navController;
     View viewNextAvatar, viewPreviousAvatar, viewBackAdminAddPlayer, viewAddJugador;
     TextView tvAddJugador, tvAlertaAddJugador;
@@ -63,6 +65,8 @@ public class AddPlayerFragment extends Fragment {
         navController = Navigation.findNavController(view);
 
         vp_avatar = view.findViewById(R.id.vp_avatar);
+
+        vp_avatar.setUserInputEnabled(false);
 
         adapter = new VpAvatarAdapter(avatares);
 

@@ -33,7 +33,14 @@ public interface CardDao {
     @Query("select * from card where id = :id")
     Card getById(long id);
 
+    //get one card
+    @Query("select id from card where name = :name")
+    Long getIdByName(String name);
+
     //get ALL cards
     @Query("select * from card")
     LiveData<List<Card>> getAll();
+
+    @Query("delete from card")
+    void deleteAll();
 }

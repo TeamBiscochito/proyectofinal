@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/crearAdminFragment">
+    app:startDestination="@id/fragmentSplashScreen">
 
     <fragment
         android:id="@+id/crearAdminFragment"
@@ -29,6 +29,11 @@
         <action
             android:id="@+id/action_chooseUserFragment_to_adminFragment"
             app:destination="@id/adminFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
+        <action
+            android:id="@+id/action_chooseUserFragment_to_tutorialFragment"
+            app:destination="@id/tutorialFragment"
             app:enterAnim="@anim/fade_entrar_fragment"
             app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
@@ -60,7 +65,9 @@
         tools:layout="@layout/fragment_cartas" >
         <action
             android:id="@+id/action_cartasFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
     <fragment
         android:id="@+id/juegoFragment"
@@ -69,7 +76,9 @@
         tools:layout="@layout/fragment_juego" >
         <action
             android:id="@+id/action_juegoFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
     <fragment
         android:id="@+id/tutorialFragment"
@@ -78,7 +87,14 @@
         tools:layout="@layout/fragment_tutorial" >
         <action
             android:id="@+id/action_tutorialFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            app:destination="@id/menuFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
+        <action
+            android:id="@+id/action_tutorialFragment_to_chooseUserFragment"
+            app:destination="@id/chooseUserFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
@@ -102,13 +118,19 @@
             app:exitAnim="@anim/fade_salir_fragment" />
         <action
             android:id="@+id/action_menuFragment_to_cartasFragment"
-            app:destination="@id/cartasFragment" />
+            app:destination="@id/cartasFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
         <action
             android:id="@+id/action_menuFragment_to_tutorialFragment"
-            app:destination="@id/tutorialFragment" />
+            app:destination="@id/tutorialFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
         <action
             android:id="@+id/action_menuFragment_to_juegoFragment"
-            app:destination="@id/juegoFragment" />
+            app:destination="@id/juegoFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
     <fragment
         android:id="@+id/correoFragment"
@@ -173,5 +195,21 @@
             app:destination="@id/adminJugadorFragment"
             app:enterAnim="@anim/slide_entrar_fragment_2"
             app:exitAnim="@anim/slide_salir_fragment_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSplashScreen"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_fragmentSplashScreen_to_crearAdminFragment"
+            app:destination="@id/crearAdminFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
+        <action
+            android:id="@+id/action_fragmentSplashScreen_to_chooseUserFragment"
+            app:destination="@id/chooseUserFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
 </navigation>

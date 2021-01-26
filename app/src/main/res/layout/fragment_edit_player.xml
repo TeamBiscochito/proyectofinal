@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B97A57"
-    tools:context=".view.fragment.EditPlayerFragment">
+    tools:context=".view.fragment.EditPlayerFragment"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -26,8 +28,10 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:fontFamily="@font/schoolbell"
+            android:gravity="center"
             android:textAlignment="center"
             android:textColor="#D3443A"
+            android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/viewEditJugador2"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
@@ -36,23 +40,23 @@
 
         <View
             android:id="@+id/viewEditJugador2"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/tablero_2"
             app:layout_constraintBottom_toTopOf="@+id/guideline60"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toTopOf="@+id/guideline59" />
+            app:layout_constraintStart_toStartOf="@+id/guideline61" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vp_avatar_edit"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/guideline59"
+            app:layout_constraintBottom_toTopOf="@+id/tvAlertaEditJugador"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
             app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toTopOf="@+id/guideline58" />
+            app:layout_constraintTop_toBottomOf="@+id/viewSeleccionarAvatarActual" />
 
         <TextView
             android:id="@+id/textView29"
@@ -65,8 +69,9 @@
             android:text="@string/tvSeleccionaAvatar"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/viewSeleccionarAvatarActual"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
             app:layout_constraintStart_toStartOf="@+id/guideline61"
             app:layout_constraintTop_toBottomOf="@+id/etNombreJugadorEditar" />
@@ -83,9 +88,11 @@
             android:ems="10"
             android:fontFamily="@font/schoolbell"
             android:hint="@string/tvNombre"
+            android:imeOptions="actionDone"
             android:inputType="textPersonName"
             android:padding="8dp"
             android:textAlignment="center"
+            android:textSize="20sp"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
             app:layout_constraintStart_toStartOf="@+id/guideline61"
             app:layout_constraintTop_toBottomOf="@+id/textView28" />
@@ -101,7 +108,7 @@
             android:text="@string/tvNuevoNombre"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
             app:layout_constraintStart_toStartOf="@+id/guideline61"
@@ -109,23 +116,27 @@
 
         <View
             android:id="@+id/viewBackAdminEditPlayer"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/back_2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline56" />
 
         <TextView
             android:id="@+id/textView24"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/schoolbell"
+            android:gravity="center|top"
+            android:rotation="-7"
             android:text="@string/tvEditarJugador"
             android:textColor="#472C06"
-            android:textSize="24sp"
+            android:textSize="28sp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline57"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
             app:layout_constraintStart_toStartOf="@+id/guideline61"
             app:layout_constraintTop_toTopOf="@+id/guideline56" />
@@ -135,49 +146,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.05" />
+            app:layout_constraintGuide_percent="0.04" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline57"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.18" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline58"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.45" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline59"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.78" />
+            app:layout_constraintGuide_percent="0.16" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline60"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.90" />
+            app:layout_constraintGuide_percent="0.91" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline61"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.16" />
+            app:layout_constraintGuide_percent="0.148" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline62"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.83" />
+            app:layout_constraintGuide_percent="0.84" />
 
         <TextView
             android:id="@+id/tvEditJugador2"
@@ -187,7 +184,7 @@
             android:text="@string/tvEditar"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewEditJugador2"
             app:layout_constraintEnd_toEndOf="@+id/viewEditJugador2"
@@ -196,8 +193,8 @@
 
         <View
             android:id="@+id/viewSeleccionarAvatarActual"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
             android:background="@drawable/bt_enviar_correo"
             app:layout_constraintBottom_toTopOf="@+id/vp_avatar_edit"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
@@ -212,7 +209,7 @@
             android:text="@string/textSeleccionarActual"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewSeleccionarAvatarActual"
             app:layout_constraintEnd_toEndOf="@+id/viewSeleccionarAvatarActual"
@@ -221,23 +218,23 @@
 
         <View
             android:id="@+id/viewPreviousAvatarEdit"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_marginStart="2dp"
             android:background="@drawable/previous"
-            app:layout_constraintBottom_toTopOf="@+id/guideline59"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_avatar_edit"
             app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toTopOf="@+id/guideline58" />
+            app:layout_constraintTop_toTopOf="@+id/vp_avatar_edit" />
 
         <View
             android:id="@+id/viewNextAvatarEdit"
-            android:layout_width="50dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
             android:layout_marginEnd="2dp"
             android:background="@drawable/next"
-            app:layout_constraintBottom_toTopOf="@+id/guideline59"
+            app:layout_constraintBottom_toBottomOf="@+id/vp_avatar_edit"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintTop_toTopOf="@+id/guideline58" />
+            app:layout_constraintTop_toTopOf="@+id/vp_avatar_edit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
