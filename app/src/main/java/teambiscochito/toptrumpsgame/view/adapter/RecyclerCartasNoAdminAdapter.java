@@ -1,6 +1,5 @@
 package teambiscochito.toptrumpsgame.view.adapter;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.text.LineBreaker;
@@ -109,6 +108,7 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
         EasyFlipView easyFlipView;
         TextView tvClicParaHacerFlipCarta;
         View viewClicParaHacerFlipCarta;
+        TextView tvAltura, tvPeso, tvLongitud, tvVelocidad, tvPoder, tvAlturaUnidad, tvPesoUnidad, tvLongitudUnidad, tvVelocidadUnidad;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -118,6 +118,17 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
             easyFlipView = itemView.findViewById(R.id.easyflipview);
             tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvClicParaHacerFlipCarta);
             viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewClicParaHacerFlipCarta);
+
+            tvAltura = itemView.findViewById(R.id.tvValorAlturaMediaNoAdmin);
+            tvPeso = itemView.findViewById(R.id.tvPesoMedioNoAdmin);
+            tvLongitud = itemView.findViewById(R.id.tvLongitudMediaNoAdmin);
+            tvVelocidad = itemView.findViewById(R.id.tvVelocidadMediaNoAdmin);
+            tvPoder = itemView.findViewById(R.id.tvPoderMortiferoNoAdmin);
+
+            tvAlturaUnidad = itemView.findViewById(R.id.tvUnidadAlturaMediaNoAdmin);
+            tvPesoUnidad = itemView.findViewById(R.id.tvUnidadPesoMedioNoAdmin);
+            tvLongitudUnidad = itemView.findViewById(R.id.tvUnidadLongitudMediaNoAdmin);
+            tvVelocidadUnidad = itemView.findViewById(R.id.tvUnidadVelocidadMediaNoAdmin);
 
             // Poner texto de la carta justificado
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

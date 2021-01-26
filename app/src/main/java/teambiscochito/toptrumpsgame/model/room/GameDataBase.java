@@ -43,11 +43,10 @@ public abstract class GameDataBase extends RoomDatabase {
             threadExecutorPool.execute(() -> {
                 CardDao cardDao = INSTANCE.getCardDao();
                 QuestionDao questionDao = INSTANCE.getQuestionDao();
-                //INICIALIZAR O HACER PRUEBAS CON VALORES INICIALES EN LA BASE DE DATOS
 
                 cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/tigre.png",
                         "Tigre",
-                        "Tigre es el nombre común que reciben los integrantes de la especie Panthera tigris. Este animal mamífero, que está considerado como el felino más grande del planeta, se caracteriza por su pelaje amarillo con rayas negras en el lomo Tigre es el nombre común que reciben los integranteslos integrantes "));
+                        "Tigre es el nombre común que reciben los integrantes de la especie Panthera tigris. Este animal mamífero, que está considerado como el felino más grande del planeta, se caracteriza por su pelaje amarillo con rayas negras en el lomo."));
                 questionDao.insertToName("Tigre","Altura", 95.0, "Cm");
                 questionDao.insertToName("Tigre","Peso", 200.0, "Kg");
                 questionDao.insertToName("Tigre","Longitud", 3.4, "M");
@@ -56,7 +55,7 @@ public abstract class GameDataBase extends RoomDatabase {
 
                 cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/elefante.jpg",
                         "Elefante",
-                        "desc"));
+                        "Son los animales terrestres más grandes del mundo, siendo el elefante africano el de mayor tamaño ya que puede llegar a pesar hasta 7.000 - 7.500 kg. Las hembras por lo regular son más pequeñas. La trompa del elefante tiene 100 mil músculos y tendones."));
                 questionDao.insertToName("Elefante","Altura", 3.2, "M");
                 questionDao.insertToName("Elefante","Peso", 6000.0, "Kg");
                 questionDao.insertToName("Elefante","Longitud", 5.7, "M");
@@ -65,7 +64,7 @@ public abstract class GameDataBase extends RoomDatabase {
 
                 cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/cocodrilo.jpg",
                         "Cocodrilo",
-                        "desc"));
+                        "Estos reptiles están adaptados a llevar un modo de vida semiacuática. Son excelentes nadadores y también pueden pasar poco tiempo en tierra firme. Además, su piel es dura, rígida y cubierta por resistentes escamas que sirven como armadura."));
                 questionDao.insertToName("Cocodrilo","Altura", 30.0, "Cm");
                 questionDao.insertToName("Cocodrilo","Peso", 1000.0, "Kg");
                 questionDao.insertToName("Cocodrilo","Longitud", 7.0, "M");
@@ -74,7 +73,7 @@ public abstract class GameDataBase extends RoomDatabase {
 
                 cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/oso.jpg",
                         "Oso",
-                        "desc"));
+                        "Los osos se caracterizan por su cabeza de gran tamaño, orejas pequeñas y redondeadas, ojos pequeños, un cuerpo pesado, robusto y una cola corta. Las patas son cortas y poderosas, con cinco dedos provistos de uñas fuertes y recurvadas garras."));
                 questionDao.insertToName("Oso","Altura", 1.5, "M");
                 questionDao.insertToName("Oso","Peso", 200.0, "Kg");
                 questionDao.insertToName("Oso","Longitud", 2.0, "M");
@@ -83,7 +82,7 @@ public abstract class GameDataBase extends RoomDatabase {
 
                 cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9027/ProyectoTopTrump/tortuga.jpg",
                         "Tortuga",
-                        "desc"));
+                        "Las tortugas son un tipo de reptiles caracterizados por el sólido caparazón que protege sus órganos vitales del que emergen la cabeza, las patas y la cola. Son animales ovíparos que cavan sus nidos en la tierra, donde llevan a cabo la incubación de los huevos."));
                 questionDao.insertToName("Tortuga","Altura", 30.0, "Cm");
                 questionDao.insertToName("Tortuga","Peso", 800.0, "Kg");
                 questionDao.insertToName("Tortuga","Longitud", 1.0, "M");
