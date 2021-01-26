@@ -90,6 +90,8 @@ public class CartasFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.rvCartasNoAdmin);
 
+
+
         LiveData<List<Card>> cardList = viewModel.getCardList();
         cardList.observe(getViewLifecycleOwner(), new Observer<List<Card>>() {
             @Override
