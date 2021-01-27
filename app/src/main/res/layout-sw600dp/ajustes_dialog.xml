@@ -60,14 +60,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.13" />
+            app:layout_constraintGuide_percent="0.11" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.86" />
+            app:layout_constraintGuide_percent="0.875" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline30"
@@ -112,7 +112,7 @@
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textColor="#D3443A"
-            android:textSize="26sp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/imgBackAjustesDialog"
             app:layout_constraintEnd_toStartOf="@+id/guideline29"
@@ -121,8 +121,9 @@
 
         <ImageView
             android:id="@+id/imgBackAjustesDialog"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="2dp"
             android:layout_marginBottom="32dp"
             android:contentDescription="@string/contAtras"
             app:layout_constraintBottom_toBottomOf="parent"
