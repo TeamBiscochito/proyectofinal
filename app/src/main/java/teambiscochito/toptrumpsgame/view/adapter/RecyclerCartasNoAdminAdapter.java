@@ -69,7 +69,7 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
                 .into(holder.imgFotoCartaNoAdmin);
 
         holder.tvNombreCartaNoAdmin.setText(cardList.get(position).getName());
-        holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDesc());
+        holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDescription());
 
         holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {
             @Override
