@@ -107,7 +107,6 @@
             android:id="@+id/viewPreviousAvatar"
             android:layout_width="60dp"
             android:layout_height="50dp"
-            android:layout_marginStart="2dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/previous"
             app:layout_constraintBottom_toBottomOf="@+id/vp_avatar"

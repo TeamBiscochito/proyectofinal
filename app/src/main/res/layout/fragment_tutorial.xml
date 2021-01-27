@@ -103,11 +103,11 @@
 
     <View
         android:id="@+id/viewNextTutorial"
-        android:layout_width="70dp"
+        android:layout_width="65dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/next"
         app:layout_constraintBottom_toTopOf="@+id/viewPreviousTutorial"
         app:layout_constraintEnd_toEndOf="parent"
@@ -116,9 +116,9 @@
 
     <View
         android:id="@+id/viewPreviousTutorial"
-        android:layout_width="75dp"
+        android:layout_width="65dp"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/previous"

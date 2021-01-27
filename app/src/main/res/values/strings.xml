@@ -80,4 +80,10 @@
     <string name="textEstasSeguroSalirTutorial">¿Estás seguro que quieres salir del tutorial?</string>
     <string name="textSalirTutorialVerOtraVez">Siempre podrás verlo otra vez</string>
     <string name="textLogo">Logo</string>
+    <string name="textSalir">Salir</string>
+    <string name="tvPuntosMas">Preguntas acertadas:</string>
+    <string name="tvSalirVolverAlMenu">¿Quieres salir y volver al menú principal?</string>
+    <string name="textDeEsteAnimal">de este animal?</string>
+    <string name="tvVisitarNuestraWeb">¡No te olvides de visitar nuestra página web!</string>
+    <string name="tvCopiarAlPortapapeles">Copiar</string>
 </resources>

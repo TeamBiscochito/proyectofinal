@@ -2,10 +2,13 @@ package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.app.ActionBar;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,6 +30,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.text.DecimalFormat;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -41,13 +46,14 @@ public class MenuFragment extends Fragment {
     private MediaPlayer mp_menu, mp_creditos;
     Animation animTablero, animScaleUp, animScaleDown;
     TextView tvAnimales, tvSalvajes, tvCartas, tvTuto, tvCreditos, tvCerrarSesion;
-    View v, vp, vCartas, vTuto, vCreditos, vSettings, vUser, vPlay, vCerrarSesion;
+    View v, vp, vCartas, vTuto, vCreditos, vSettings, vUser, vPlay, vCerrarSesion, viewVerDialogWeb;
     ImageView ivSettings, ivUser;
-    Dialog dialogCreditos, dialogPerfil, dialogAjustes;
+    Dialog dialogCreditos, dialogPerfil, dialogAjustes, dialogWeb;
     User userActual;
     ViewModel viewModel;
     SharedPreferences sharedPreferences;
     NavController navController;
+    private String linkWeb = "https://teambiscochito.github.io/animales-salvajes-web/";
 
     public MenuFragment() {
 
@@ -216,6 +222,24 @@ public class MenuFragment extends Fragment {
                 return true;
             }
         });
+
+        viewVerDialogWeb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewVerDialogWeb.startAnimation(animScaleUp);
+
+                    webDialog();
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewVerDialogWeb.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
     }
 
     private void init(View view) {
@@ -242,6 +266,7 @@ public class MenuFragment extends Fragment {
         vUser = view.findViewById(R.id.viewMenuUser);
         vPlay = view.findViewById(R.id.viewMenuPlay);
         vCerrarSesion = view.findViewById(R.id.viewMenuCerrarSesion);
+        viewVerDialogWeb = view.findViewById(R.id.viewVerDialogWeb);
 
         ivSettings = view.findViewById(R.id.ivMenuSettings);
         ivUser = view.findViewById(R.id.ivMenuUser);
@@ -288,6 +313,78 @@ public class MenuFragment extends Fragment {
         dialogCreditos.setCanceledOnTouchOutside(false);
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogCreditos.show();
+
+    }
+
+    public void webDialog() {
+
+        View viewCerrarWebDialog, viewCopiarEnlaceWeb;
+        TextView tvCopiarEnlaceWeb;
+
+        dialogWeb = new Dialog(getContext());
+        dialogWeb.setContentView(R.layout.web_dialog);
+        dialogWeb.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogWeb.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        viewCerrarWebDialog = dialogWeb.findViewById(R.id.viewCerrarWebDialog);
+        viewCopiarEnlaceWeb = dialogWeb.findViewById(R.id.viewCopiarEnlaceWeb);
+        tvCopiarEnlaceWeb = dialogWeb.findViewById(R.id.tvCopiarEnlaceWeb);
+
+        viewCerrarWebDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialogWeb.dismiss();
+
+            }
+        });
+
+        viewCopiarEnlaceWeb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewCopiarEnlaceWeb.startAnimation(animScaleUp);
+                    tvCopiarEnlaceWeb.startAnimation(animScaleUp);
+
+                    ClipboardManager clipboardManager = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clipData = ClipData.newPlainText("Enlace", linkWeb);
+                    clipboardManager.setPrimaryClip(clipData);
+
+                    Snackbar mSnackbar = Snackbar.make(viewCopiarEnlaceWeb, "Enlace copiado al portapapeles", Snackbar.LENGTH_SHORT);
+
+                    View mView = mSnackbar.getView();
+
+                    TextView mTextView = (TextView) mView.findViewById(R.id.snackbar_text);
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+
+                        mTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+                    } else {
+
+                        mTextView.setGravity(Gravity.CENTER_HORIZONTAL);
+
+                    }
+
+                    mSnackbar.show();
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewCopiarEnlaceWeb.startAnimation(animScaleDown);
+                    tvCopiarEnlaceWeb.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
+
+        dialogWeb.setCancelable(true);
+        dialogWeb.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogWeb.show();
 
     }
 

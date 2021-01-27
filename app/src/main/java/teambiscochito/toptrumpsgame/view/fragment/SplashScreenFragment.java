@@ -71,7 +71,7 @@ public class SplashScreenFragment extends Fragment {
 
                 try {
 
-                    sleep(3500);
+                    sleep(3000);
 
                     if (claveAdmin != random){
 
