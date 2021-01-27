@@ -5,9 +5,11 @@ import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -318,8 +320,8 @@ public class MenuFragment extends Fragment {
 
     public void webDialog() {
 
-        View viewCerrarWebDialog, viewCopiarEnlaceWeb;
-        TextView tvCopiarEnlaceWeb;
+        View viewCerrarWebDialog, viewCopiarEnlaceWeb, viewEntrarEnlaceWeb;
+        TextView tvCopiarEnlaceWeb, tvEntrarEnlaceWeb;
 
         dialogWeb = new Dialog(getContext());
         dialogWeb.setContentView(R.layout.web_dialog);
@@ -331,6 +333,9 @@ public class MenuFragment extends Fragment {
         viewCerrarWebDialog = dialogWeb.findViewById(R.id.viewCerrarWebDialog);
         viewCopiarEnlaceWeb = dialogWeb.findViewById(R.id.viewCopiarEnlaceWeb);
         tvCopiarEnlaceWeb = dialogWeb.findViewById(R.id.tvCopiarEnlaceWeb);
+
+        viewEntrarEnlaceWeb = dialogWeb.findViewById(R.id.viewEntrarEnlaceWeb);
+        tvEntrarEnlaceWeb = dialogWeb.findViewById(R.id.tvEntrarEnlaceWeb);
 
         viewCerrarWebDialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -353,7 +358,7 @@ public class MenuFragment extends Fragment {
                     ClipData clipData = ClipData.newPlainText("Enlace", linkWeb);
                     clipboardManager.setPrimaryClip(clipData);
 
-                    Snackbar mSnackbar = Snackbar.make(viewCopiarEnlaceWeb, "Enlace copiado al portapapeles", Snackbar.LENGTH_SHORT);
+                    Snackbar mSnackbar = Snackbar.make(viewCopiarEnlaceWeb, "Enlace copiado al portapapeles", Snackbar.LENGTH_LONG);
 
                     View mView = mSnackbar.getView();
 
@@ -374,6 +379,27 @@ public class MenuFragment extends Fragment {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     viewCopiarEnlaceWeb.startAnimation(animScaleDown);
                     tvCopiarEnlaceWeb.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
+
+        viewEntrarEnlaceWeb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewEntrarEnlaceWeb.startAnimation(animScaleUp);
+                    tvEntrarEnlaceWeb.startAnimation(animScaleUp);
+
+                    Intent intentEntrarWeb = new Intent(Intent.ACTION_VIEW, Uri.parse(linkWeb));
+                    startActivity(intentEntrarWeb);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewEntrarEnlaceWeb.startAnimation(animScaleDown);
+                    tvEntrarEnlaceWeb.startAnimation(animScaleDown);
 
                 }
 

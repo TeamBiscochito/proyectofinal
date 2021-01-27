@@ -86,4 +86,6 @@
     <string name="textDeEsteAnimal">de este animal?</string>
     <string name="tvVisitarNuestraWeb">¡No te olvides de visitar nuestra página web!</string>
     <string name="tvCopiarAlPortapapeles">Copiar</string>
+    <string name="tvAddCarta">Añadir carta</string>
+    <string name="textPinchaNombreParaInfoCarta">Pulsa en el nombre para + info</string>
 </resources>

@@ -18,6 +18,7 @@ public class ViewModel extends AndroidViewModel {
     private Repository repository;
     public static User userActual;
     User user;
+    Card card;
 
     public ViewModel(@NonNull Application application) {
         super(application);
@@ -66,6 +67,14 @@ public class ViewModel extends AndroidViewModel {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
     }
 
     public void insertQuestion(Question question) {
