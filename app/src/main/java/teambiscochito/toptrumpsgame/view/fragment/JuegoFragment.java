@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -21,8 +20,13 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.Priority;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -45,13 +49,15 @@ public class JuegoFragment extends Fragment {
     private ArrayList<View> btRespuestas = new ArrayList<>();
 
     private int respuestasHastaElMomentoAcertadas = 0;
+    private String determinante;
 
-    private MediaPlayer mp_juego;
+    private MediaPlayer mp_juego, mp_acierto, mp_fallo;
     View viewCloseJuego, viewBotonJuego1, viewBotonJuego2, viewBotonJuego3, viewBotonJuego4, viewPergaminoPreguntaJugar, viewNombreAnimalJuego, bird1, bird2, bird3, bird4;
     TextView tvBotonJuego1, tvBotonJuego2, tvBotonJuego3, tvBotonJuego4, tvPreguntaJuegoDeterminante, tvPreguntaJuegoTema, tvNombreAnimalJuego;
     Animation animScaleUp, animScaleDown, animPergaminoPregunta, animTableroNombre, animFade;
+    ImageView imgAnimalJuego;
     NavController navController;
-    Dialog salirJugarDialog;
+    Dialog salirJugarDialog, dialogPAcierto, dialogPFallo;
 
     public JuegoFragment() {
 
@@ -64,12 +70,12 @@ public class JuegoFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         currentUser = viewModel.getUser();
-        //cardList = viewModel.getAllCard();
-
 
         return inflater.inflate(R.layout.fragment_juego, container, false);
+
     }
 
     @Override
@@ -123,80 +129,6 @@ public class JuegoFragment extends Fragment {
             }
         });
 
-        /*viewBotonJuego1.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewBotonJuego1.startAnimation(animScaleUp);
-                    tvBotonJuego1.startAnimation(animScaleUp);
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewBotonJuego1.startAnimation(animScaleDown);
-                    tvBotonJuego1.startAnimation(animScaleDown);
-
-                }
-
-                return true;
-            }
-        });
-
-        viewBotonJuego2.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewBotonJuego2.startAnimation(animScaleUp);
-                    tvBotonJuego2.startAnimation(animScaleUp);
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewBotonJuego2.startAnimation(animScaleDown);
-                    tvBotonJuego2.startAnimation(animScaleDown);
-
-                }
-
-                return true;
-            }
-        });
-
-        viewBotonJuego3.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewBotonJuego3.startAnimation(animScaleUp);
-                    tvBotonJuego3.startAnimation(animScaleUp);
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewBotonJuego3.startAnimation(animScaleDown);
-                    tvBotonJuego3.startAnimation(animScaleDown);
-
-                }
-
-                return true;
-            }
-        });
-
-        viewBotonJuego4.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewBotonJuego4.startAnimation(animScaleUp);
-                    tvBotonJuego4.startAnimation(animScaleUp);
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewBotonJuego4.startAnimation(animScaleDown);
-                    tvBotonJuego4.startAnimation(animScaleDown);
-
-                }
-
-                return true;
-            }
-        });*/
-
-
-
     }
 
     private void init(View view) {
@@ -214,6 +146,7 @@ public class JuegoFragment extends Fragment {
         viewBotonJuego4 = view.findViewById(R.id.viewBotonJuego4);
         viewPergaminoPreguntaJugar = view.findViewById(R.id.viewPergaminoPreguntaJugar);
         viewNombreAnimalJuego = view.findViewById(R.id.viewNombreAnimalJuego);
+        imgAnimalJuego = view.findViewById(R.id.imgAnimalJuego);
         bird1 = view.findViewById(R.id.bird1);
         bird2 = view.findViewById(R.id.bird2);
         bird3 = view.findViewById(R.id.bird3);
@@ -227,8 +160,6 @@ public class JuegoFragment extends Fragment {
         tvPreguntaJuegoDeterminante = view.findViewById(R.id.tvPreguntaJuegoDeterminante);
         tvPreguntaJuegoTema = view.findViewById(R.id.tvPreguntaJuegoTema);
         tvNombreAnimalJuego = view.findViewById(R.id.tvNombreAnimalJuego);
-
-
 
     }
 
@@ -277,11 +208,84 @@ public class JuegoFragment extends Fragment {
 
     }
 
+    public void mostrarDialogPAcierto() {
+
+        dialogPAcierto = new Dialog(getContext());
+        dialogPAcierto.setContentView(R.layout.acierto_p_dialog);
+        dialogPAcierto.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogPAcierto.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimationJuegoAF;
+
+        dialogPAcierto.setCancelable(true);
+        dialogPAcierto.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogPAcierto.show();
+
+        Thread threadCerrarPAciertoDialog = new Thread() {
+
+            @Override
+            public void run() {
+
+                try {
+
+                    sleep(2000);
+                    dialogPAcierto.dismiss();
+
+                } catch (InterruptedException e) {
+
+                }
+
+            }
+
+        };
+        threadCerrarPAciertoDialog.start();
+
+    }
+
+    public void mostrarDialogPFallo() {
+
+        dialogPFallo = new Dialog(getContext());
+        dialogPFallo.setContentView(R.layout.fallo_p_dialog);
+        dialogPFallo.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogPFallo.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimationJuegoAF;
+
+        dialogPFallo.setCancelable(true);
+        dialogPFallo.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogPFallo.show();
+
+        Thread threadCerrarPFalloDialog = new Thread() {
+
+            @Override
+            public void run() {
+
+                try {
+
+                    sleep(2000);
+                    dialogPFallo.dismiss();
+
+                } catch (InterruptedException e) {
+
+                }
+
+            }
+
+        };
+        threadCerrarPFalloDialog.start();
+
+    }
+
     public void initMediaPlayerJuego() {
 
         mp_juego = MediaPlayer.create(getContext(), R.raw.game_music);
         mp_juego.setLooping(true);
         mp_juego.start();
+
+        mp_acierto = MediaPlayer.create(getContext(), R.raw.acierto_sound);
+        mp_fallo = MediaPlayer.create(getContext(), R.raw.fallo_sound);
 
     }
 
@@ -296,7 +300,6 @@ public class JuegoFragment extends Fragment {
     public void onPause() {
         super.onPause();
         mp_juego.pause();
-        viewModel.updateUser(currentUser);
 
     }
 
@@ -305,217 +308,261 @@ public class JuegoFragment extends Fragment {
         super.onDestroy();
         mp_juego.stop();
         mp_juego.release();
-        viewModel.updateUser(currentUser);
 
     }
 
-    /*-------- GAME METHODS ---------*/
+    /*-------- MÉTODOS DEL JUEGO ---------*/
 
-    public void initJuego(){
+    public void initJuego() {
 
-        //seleccionamos la carta aleatoria
+        // Seleccionamos la carta aleatoria
         currentCard = getRandomCard(viewModel.cards);
 
-        //tambien recuperamos las preguntas de la carta y seleccionamos una al azar
+        // También recuperamos las preguntas de la carta y seleccionamos una al azar
         ArrayList<Question> preguntas = getQuestionsForCurrentCard();
+
         currentQuestion = getRandomQuestion(preguntas);
 
-
-        //generamos posibles respuestas para esta pregunta
+        // Generamos posibles respuestas para esta pregunta
         ArrayList<Double> respuestas = getPosiblesRespuestas(currentQuestion);
 
+        // Finalmente mostramos la carta, sus preguntas y las posibles respuestas que salgan de una de las preguntas
 
+        tvNombreAnimalJuego.setText(currentCard.getName());
 
-        //finalmente mostramos la carta, sus preguntas y las posibles respuestas que salgan de una de las preguntas
-        Toast.makeText(getContext(), "La carta elegida va a ser: " + currentCard.toString(), Toast.LENGTH_LONG).show();
-        Toast.makeText(getContext(), "La PREGUNTA es: " + currentQuestion.toString(), Toast.LENGTH_LONG).show();
-        Toast.makeText(getContext(), "Las POSIBLES RESPUESTAS: " + respuestas.toString(), Toast.LENGTH_LONG).show();
-        Log.v("xyzyx", "La carta elegida va a ser: " + currentCard.toString());
-        Log.v("xyzyx", "La PREGUNTA es: " + currentQuestion.toString());
-        Log.v("xyzyx", "Las POSIBLES RESPUESTAS: " + respuestas.toString());
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.cargando)
+                .error(R.drawable.cerdi)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH);
+
+        Glide.with(getContext()).load(currentCard.getPicUrl())
+                .apply(options)
+                .into(imgAnimalJuego);
+
+        tvPreguntaJuegoTema.setText((currentQuestion.getQuestion()).toUpperCase());
+
+        switch (currentQuestion.getQuestion().toUpperCase()) {
+
+            case "ALTURA":
+                determinante = "la";
+                break;
+            case "PESO":
+                determinante = "el";
+                break;
+            case "LONGITUD":
+                determinante = "la";
+                break;
+            case "VELOCIDAD":
+                determinante = "la";
+                break;
+            case "PODER":
+                determinante = "el";
+                break;
+
+        }
+
+        tvPreguntaJuegoDeterminante.setText("¿Cuál es " + determinante);
 
         tvBotonJuego1.setText(respuestas.get(0) + "");
         tvBotonJuego2.setText(respuestas.get(1) + "");
         tvBotonJuego3.setText(respuestas.get(2) + "");
         tvBotonJuego4.setText(respuestas.get(3) + "");
 
-
-        //muestro las posibles respuestas en forma de boton
+        // Muestro las posibles respuestas en forma de botón
         bindButtons(respuestas);
-
 
     }
 
+    private void preguntaAcertada() {
 
-    private void preguntaAcertada(){
+        mp_acierto.start();
+        mostrarDialogPAcierto();
         initJuego();
 
+        respuestasHastaElMomentoAcertadas = respuestasHastaElMomentoAcertadas + 1;
         currentUser.setAnswer(currentUser.getAnswer() + 1);
         currentUser.setTrueAnswer(currentUser.getTrueAnswer() + 1);
 
         viewModel.updateUser(currentUser);
+
     }
 
-    private void preguntaFallada(){
+    private void preguntaFallada() {
+
+        mp_fallo.start();
+        mostrarDialogPFallo();
         initJuego();
 
         currentUser.setAnswer(currentUser.getAnswer() + 1);
 
         viewModel.updateUser(currentUser);
+
     }
 
-    public Card getRandomCard(List<Card> cards){
+    public Card getRandomCard(List<Card> cards) {
 
         Card result = null;
-        if(!cards.isEmpty()){
+
+        if (!cards.isEmpty()) {
+
             result = cards.get(new Random().nextInt(cards.size()));
+
         }
 
 
-        if ((currentCard != null && currentCard == result) || result == null ){
+        if ((currentCard != null && currentCard == result) || result == null ) {
+
             return getRandomCard(cards);
+
         } else {
+
             return result;
+
         }
+
     }
 
-
-    public Question getRandomQuestion(List<Question> preguntas){
+    public Question getRandomQuestion(List<Question> preguntas) {
 
         Question result;
 
-        result = preguntas.get(new Random().nextInt(preguntas.size() - 1));
-
-
-        /*if ( result == null ){
-            initJuego();
-        }*/
+        result = preguntas.get(new Random().nextInt(preguntas.size()));
 
         return result;
+
     }
 
+    public ArrayList<Double> getPosiblesRespuestas(Question incognita) {
 
-    public ArrayList<Double> getPosiblesRespuestas(Question incognita){
         ArrayList<Double> respuestas = new ArrayList<>();
-        //en poder mortifero no usar ni un decimal
 
-
-        //rellenamos el array sin la respuesta válida
+        // Rellenamos el array sin la respuesta válida
         while (respuestas.size() < 3) {
+
             Double respuestaAleatoria = generaRespuesta(incognita.getAnswer());
 
-            //comprobamos que no hay dos iguales
+            // Comprobamos que no hay dos iguales
             Boolean iguales = false;
             for (Double respuesta:respuestas) {
-                if(respuestaAleatoria == respuesta || respuestaAleatoria == incognita.getAnswer()){
+
+                if(respuestaAleatoria == respuesta || respuestaAleatoria == incognita.getAnswer()) {
+
                     iguales = true;
+
                 }
+
             }
 
+            if (!iguales) {
 
-            if (!iguales){
                 respuestas.add(respuestaAleatoria);
+
             }
 
         }
 
-        //ordenar aleatoriamente las respuestas:
-        //como todas las respuestas están generadas aleatorias, solo tenemos que poner la respuesta correcta en una posicion del array aleatoria
+        // Ordenar aleatoriamente las respuestas:
+        // Como todas las respuestas están generadas aleatoriamente, sólo tenemos que poner la respuesta correcta en una posición del array aleatoria
 
         respuestas.add(new Random().nextInt(4), incognita.getAnswer());
 
         return respuestas;
+
     }
 
+    private double generaRespuesta(Double respuestaInicial) {
 
-    private double generaRespuesta(Double respuestaInicial){
         double min = respuestaInicial - (respuestaInicial / 100 * 15);
         double max = respuestaInicial + (respuestaInicial / 100 * 15);
+
         Random r = new Random();
+
         double numero = ((max - min) * r.nextDouble()) + min;
 
         return numero;
+
     }
 
-
     private ArrayList<Question> getQuestionsForCurrentCard() {
+
         ArrayList<Question> result = new ArrayList<>();
 
         for (Question q : viewModel.questions) {
-            if(q.getCard_id() == currentCard.getId()){
+
+            if(q.getCard_id() == currentCard.getId()) {
+
                 result.add(q);
+
             }
+
         }
 
         return result;
+
     }
 
+    private void bindButtons(ArrayList<Double> respuestas) {
 
-    private void bindButtons(ArrayList<Double> respuestas){
-        /*NumberFormat numberFormat = NumberFormat.getInstance();
-        numberFormat.setMaximumFractionDigits(2);*/
-        Log.v("xyzyx", "BindButtons " + tvRespuestas.size());
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(1);
 
         for (int i = 0; i < respuestas.size(); i++) {
 
-            Log.v("xyzyx", "FOR");
             View vBt = btRespuestas.get(i);
             TextView tv = tvRespuestas.get(i);
-            tv.setText(respuestas.get(i) + currentQuestion.getMagnitude());
 
-            tv.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Log.v("xyzyx", "hola click");
-                }
-            });
+            if(currentQuestion.getMagnitude() == null) {
 
-            if (respuestas.get(i) == currentQuestion.getAnswer()){
+                double d = respuestas.get(i);
 
+                int valorPoderInt = (int) d;
 
-                vBt.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-
-                        Log.v("xyzyx", "hola touch");
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                            vBt.startAnimation(animScaleUp);
-                            tv.startAnimation(animScaleUp);
-                            preguntaAcertada();
-
-                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                            vBt.startAnimation(animScaleDown);
-                            tv.startAnimation(animScaleDown);
-
-                        }
-
-
-                        return true;
-                    }
-                });
+                tv.setText(valorPoderInt + "");
 
             } else {
-                vBt.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
 
-                        Log.v("xyzyx", "hola touch");
+                tv.setText(numberFormat.format(respuestas.get(i)) + " " + currentQuestion.getMagnitude());
+
+            }
+
+            double valori = respuestas.get(i);
+
+            vBt.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+
                         if (event.getAction() == MotionEvent.ACTION_DOWN) {
+
                             vBt.startAnimation(animScaleUp);
                             tv.startAnimation(animScaleUp);
-                            preguntaFallada();
+
+                            if (valori == currentQuestion.getAnswer()) {
+
+                                preguntaAcertada();
+
+                            } else {
+
+                                preguntaFallada();
+
+                            }
 
                         } else if (event.getAction() == MotionEvent.ACTION_UP) {
+
                             vBt.startAnimation(animScaleDown);
                             tv.startAnimation(animScaleDown);
 
                         }
 
                         return true;
-                    }
-                });
-            }
+
+                }
+
+            });
+
         }
 
     }
+
 }

@@ -1,12 +1,10 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
-import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.Observer;
@@ -92,8 +90,7 @@ public class CartasFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.rvCartasNoAdmin);
 
-        Card card = new Card("https://static.wikia.nocookie.net/reinoanimalia/images/5/58/Tigre_de_bengala_wiki.png/revision/latest?cb=20130303105615&path-prefix=es", "Tigre", "Tigre es el nombre común que reciben los integrantes de la especie Panthera tigris. Este animal mamífero, que está considerado como el felino más grande del planeta, se caracteriza por su pelaje amarillo con rayas negras en el lomo");
-        viewModel.insertCard(card);
+
 
         LiveData<List<Card>> cardList = viewModel.getCardLiveList();
         cardList.observe(getViewLifecycleOwner(), new Observer<List<Card>>() {
@@ -102,18 +99,13 @@ public class CartasFragment extends Fragment {
 
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-                RecyclerCartasNoAdminAdapter adapter = new RecyclerCartasNoAdminAdapter(cards ,view, getActivity(), getContext());
+                RecyclerCartasNoAdminAdapter adapter = new RecyclerCartasNoAdminAdapter(cards, view, getActivity(), getContext());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(layoutManager);
 
-                if(adapter.getItemCount() == 0) {
-
-                    tvRvVacioCartasNoAdmin.setText(R.string.alertRvVacioCartasNoAdmin);
-
-                }
-
             }
         });
+
     }
 
     public void initAnim() {

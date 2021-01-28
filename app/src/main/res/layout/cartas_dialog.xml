@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="350dp"
+        android:layout_height="450dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout3"
+            android:layout_width="300dp"
+            android:layout_height="400dp"
+            android:background="@drawable/jugadores_dialog"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgInfoAdminCartas"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="24dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvNombreInfoAdminCartas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:fontFamily="@font/schoolbell"
+                android:textAlignment="center"
+                android:textColor="#472C06"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imgInfoAdminCartas"
+                tools:text="Nombre" />
+
+            <View
+                android:id="@+id/viewEditarInfoAdminCartas"
+                android:layout_width="210dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bt_editar_bg"
+                app:layout_constraintBottom_toTopOf="@+id/viewBorrarInfoAdminCartas"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <View
+                android:id="@+id/viewBorrarInfoAdminCartas"
+                android:layout_width="210dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="32dp"
+                android:background="@drawable/bt_eliminar_bg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvEditarInfoAdminCartas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/schoolbell"
+                android:text="@string/tvEditar"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/viewEditarInfoAdminCartas"
+                app:layout_constraintEnd_toEndOf="@+id/viewEditarInfoAdminCartas"
+                app:layout_constraintStart_toStartOf="@+id/viewEditarInfoAdminCartas"
+                app:layout_constraintTop_toTopOf="@+id/viewEditarInfoAdminCartas" />
+
+            <TextView
+                android:id="@+id/tvBorrarInfoAdminCartas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:fontFamily="@font/schoolbell"
+                android:text="@string/tvBorrarCorreo"
+                android:textAlignment="center"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/viewBorrarInfoAdminCartas"
+                app:layout_constraintEnd_toEndOf="@+id/viewBorrarInfoAdminCartas"
+                app:layout_constraintStart_toStartOf="@+id/viewBorrarInfoAdminCartas"
+                app:layout_constraintTop_toTopOf="@+id/viewBorrarInfoAdminCartas" />
+
+            <TextView
+                android:id="@+id/tvEstaCartaNoSeModifica"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/schoolbell"
+                android:textAlignment="center"
+                android:textColor="#6E6B66"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNombreInfoAdminCartas" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/viewBackInfoAdminCartas"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/back_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@
 
         <View
             android:id="@+id/viewAdminEntrarCartas"
-            android:layout_width="130dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bt_enviar_correo"
@@ -91,7 +91,7 @@
 
         <View
             android:id="@+id/viewAdminEntrarJugadores"
-            android:layout_width="130dp"
+            android:layout_width="110dp"
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bt_enviar_correo"
@@ -115,7 +115,7 @@
             android:text="@string/textJugadores"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewAdminEntrarJugadores"
             app:layout_constraintEnd_toEndOf="@+id/viewAdminEntrarJugadores"
@@ -130,7 +130,7 @@
             android:text="@string/btCartas"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewAdminEntrarCartas"
             app:layout_constraintEnd_toEndOf="@+id/viewAdminEntrarCartas"

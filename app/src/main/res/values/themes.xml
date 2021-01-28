@@ -23,4 +23,9 @@
         <item name="android:windowEnterAnimation">@anim/slide_dialog_entrar</item>
         <item name="android:windowExitAnimation">@anim/slide_dialog_salir</item>
     </style>
+
+    <style name="DialogAnimationJuegoAF">
+        <item name="android:windowEnterAnimation">@anim/fade_entrar_dialog_af</item>
+        <item name="android:windowExitAnimation">@anim/slide_salir_dialog_af</item>
+    </style>
 </resources>

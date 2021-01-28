@@ -2,10 +2,15 @@ package teambiscochito.toptrumpsgame.view.fragment;
 
 import android.app.ActionBar;
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.AnimationDrawable;
 import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -27,6 +32,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.text.DecimalFormat;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -40,14 +47,15 @@ public class MenuFragment extends Fragment {
 
     private MediaPlayer mp_menu, mp_creditos;
     Animation animTablero, animScaleUp, animScaleDown;
-    TextView tvAnimales, tvSalvajes, tvCartas, tvTuto, tvCreditos, tvCerrarSesion;
-    View v, vp, vCartas, vTuto, vCreditos, vSettings, vUser, vPlay, vCerrarSesion;
-    ImageView ivSettings, ivUser;
-    Dialog dialogCreditos, dialogPerfil, dialogAjustes;
+    TextView tvAnimales, tvSalvajes, tvCartas, tvTuto;
+    View v, vp, vCartas, vTuto, vWeb, vSettings, vUser, vPlay, vCerrarSesion, viewVerDialogCreditos;
+    ImageView ivSettings, ivUser, ivCerrarSesion, ivWeb;
+    Dialog dialogCreditos, dialogPerfil, dialogAjustes, dialogWeb;
     User userActual;
     ViewModel viewModel;
     SharedPreferences sharedPreferences;
     NavController navController;
+    private final String linkWeb = "https://teambiscochito.github.io/animales-salvajes-web/";
 
     public MenuFragment() {
 
@@ -74,6 +82,8 @@ public class MenuFragment extends Fragment {
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         userActual = viewModel.userActual;
+
+        ivUser.setImageDrawable(getResources().getDrawable(userActual.getAvatar()));
 
         vCartas.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -127,6 +137,7 @@ public class MenuFragment extends Fragment {
                     vPlay.startAnimation(animScaleUp);
 
                     mp_menu.stop();
+                    viewModel.setUser(userActual);
                     navController.navigate(R.id.action_menuFragment_to_juegoFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -138,20 +149,19 @@ public class MenuFragment extends Fragment {
             }
         });
 
-        vCreditos.setOnTouchListener(new View.OnTouchListener() {
+        vWeb.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    vCreditos.startAnimation(animScaleUp);
-                    tvCreditos.startAnimation(animScaleUp);
+                    vWeb.startAnimation(animScaleUp);
+                    ivWeb.startAnimation(animScaleUp);
 
-                    mp_menu.pause();
-                    creditosDialog();
+                    webDialog();
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    vCreditos.startAnimation(animScaleDown);
-                    tvCreditos.startAnimation(animScaleDown);
+                    vWeb.startAnimation(animScaleDown);
+                    ivWeb.startAnimation(animScaleDown);
                 }
 
                 return true;
@@ -203,14 +213,33 @@ public class MenuFragment extends Fragment {
 
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     vCerrarSesion.startAnimation(animScaleUp);
-                    tvCerrarSesion.startAnimation(animScaleUp);
+                    ivCerrarSesion.startAnimation(animScaleUp);
 
                     mp_menu.stop();
                     navController.navigate(R.id.action_menuFragment_to_chooseUserFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vCerrarSesion.startAnimation(animScaleDown);
-                    tvCerrarSesion.startAnimation(animScaleDown);
+                    ivCerrarSesion.startAnimation(animScaleDown);
+                }
+
+                return true;
+            }
+        });
+
+        viewVerDialogCreditos.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewVerDialogCreditos.startAnimation(animScaleUp);
+
+                    mp_menu.pause();
+                    creditosDialog();
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewVerDialogCreditos.startAnimation(animScaleDown);
+
                 }
 
                 return true;
@@ -230,18 +259,19 @@ public class MenuFragment extends Fragment {
         tvSalvajes = view.findViewById(R.id.tvTitulo2);
         tvCartas = view.findViewById(R.id.tvMenuCartas);
         tvTuto = view.findViewById(R.id.tvMenuTuto);
-        tvCreditos = view.findViewById(R.id.tvMenuCreditos);
-        tvCerrarSesion = view.findViewById(R.id.tvMenuCerrarSesion);
+        ivWeb = view.findViewById(R.id.ivMenuWeb);
+        ivCerrarSesion = view.findViewById(R.id.ivMenuCerrarSesion);
 
         v = view.findViewById(R.id.viewTablero);
         vp = view.findViewById(R.id.viewPlayButton);
         vCartas = view.findViewById(R.id.viewCartas);
         vTuto = view.findViewById(R.id.viewTuto);
-        vCreditos = view.findViewById(R.id.viewMenuCreditos);
+        vWeb = view.findViewById(R.id.viewMenuWeb);
         vSettings = view.findViewById(R.id.viewMenuSettings);
         vUser = view.findViewById(R.id.viewMenuUser);
         vPlay = view.findViewById(R.id.viewMenuPlay);
         vCerrarSesion = view.findViewById(R.id.viewMenuCerrarSesion);
+        viewVerDialogCreditos = view.findViewById(R.id.viewVerDialogCreditos);
 
         ivSettings = view.findViewById(R.id.ivMenuSettings);
         ivUser = view.findViewById(R.id.ivMenuUser);
@@ -288,6 +318,102 @@ public class MenuFragment extends Fragment {
         dialogCreditos.setCanceledOnTouchOutside(false);
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogCreditos.show();
+
+    }
+
+    public void webDialog() {
+
+        View viewCerrarWebDialog, viewCopiarEnlaceWeb, viewEntrarEnlaceWeb;
+        TextView tvCopiarEnlaceWeb, tvEntrarEnlaceWeb;
+
+        dialogWeb = new Dialog(getContext());
+        dialogWeb.setContentView(R.layout.web_dialog);
+        dialogWeb.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogWeb.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        viewCerrarWebDialog = dialogWeb.findViewById(R.id.viewCerrarWebDialog);
+        viewCopiarEnlaceWeb = dialogWeb.findViewById(R.id.viewCopiarEnlaceWeb);
+        tvCopiarEnlaceWeb = dialogWeb.findViewById(R.id.tvCopiarEnlaceWeb);
+
+        viewEntrarEnlaceWeb = dialogWeb.findViewById(R.id.viewEntrarEnlaceWeb);
+        tvEntrarEnlaceWeb = dialogWeb.findViewById(R.id.tvEntrarEnlaceWeb);
+
+        viewCerrarWebDialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                dialogWeb.dismiss();
+
+            }
+        });
+
+        viewCopiarEnlaceWeb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewCopiarEnlaceWeb.startAnimation(animScaleUp);
+                    tvCopiarEnlaceWeb.startAnimation(animScaleUp);
+
+                    ClipboardManager clipboardManager = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+                    ClipData clipData = ClipData.newPlainText("Enlace", linkWeb);
+                    clipboardManager.setPrimaryClip(clipData);
+
+                    Snackbar mSnackbar = Snackbar.make(viewCopiarEnlaceWeb, "Enlace copiado al portapapeles", Snackbar.LENGTH_LONG);
+
+                    View mView = mSnackbar.getView();
+
+                    TextView mTextView = (TextView) mView.findViewById(R.id.snackbar_text);
+
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+
+                        mTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+                    } else {
+
+                        mTextView.setGravity(Gravity.CENTER_HORIZONTAL);
+
+                    }
+
+                    mSnackbar.show();
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewCopiarEnlaceWeb.startAnimation(animScaleDown);
+                    tvCopiarEnlaceWeb.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
+
+        viewEntrarEnlaceWeb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewEntrarEnlaceWeb.startAnimation(animScaleUp);
+                    tvEntrarEnlaceWeb.startAnimation(animScaleUp);
+
+                    Intent intentEntrarWeb = new Intent(Intent.ACTION_VIEW, Uri.parse(linkWeb));
+                    startActivity(intentEntrarWeb);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewEntrarEnlaceWeb.startAnimation(animScaleDown);
+                    tvEntrarEnlaceWeb.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
+
+        dialogWeb.setCancelable(true);
+        dialogWeb.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogWeb.show();
 
     }
 

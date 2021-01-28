@@ -23,7 +23,7 @@
         android:fontFamily="@font/schoolbell"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="26sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewNombreAnimalJuego"
         app:layout_constraintEnd_toEndOf="@+id/viewNombreAnimalJuego"
@@ -53,7 +53,6 @@
         android:id="@+id/imgAnimalJuego"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:background="@drawable/av_cerdo"
         app:layout_constraintBottom_toBottomOf="@+id/view25"
         app:layout_constraintEnd_toEndOf="@+id/view25"
         app:layout_constraintStart_toStartOf="@+id/view25"
@@ -86,6 +85,20 @@
         android:layout_marginBottom="24dp"
         android:background="#B97A57"
         android:alpha="0.5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline31" />
+
+    <View
+        android:id="@+id/view23"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/frame_bot_jugar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -251,20 +264,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:text="¿Cuál es la" />
-
-    <View
-        android:id="@+id/view23"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/frame_bot_jugar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline31" />
 
     <View
         android:id="@+id/view26"
