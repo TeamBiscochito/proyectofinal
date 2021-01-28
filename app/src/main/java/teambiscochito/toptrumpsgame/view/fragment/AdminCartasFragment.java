@@ -184,7 +184,7 @@ public class AdminCartasFragment extends Fragment {
             public void onClick(View v) {
 
                 dialogSalirAdmin.dismiss();
-                navController.navigate(R.id.action_adminJugadorFragment_to_chooseUserFragment);
+                navController.navigate(R.id.action_adminCartasFragment_to_chooseUserFragment);
 
             }
         });

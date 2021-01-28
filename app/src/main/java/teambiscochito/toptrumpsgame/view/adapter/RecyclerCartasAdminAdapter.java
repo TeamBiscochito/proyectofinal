@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.text.LineBreaker;
 import android.os.Build;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -111,7 +110,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
             holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
 
         } catch (Exception ex){
-            Log.v("xyz", ex.getLocalizedMessage());
+
         }
 
         holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {
@@ -151,10 +150,13 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                     CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgInfoAdminCartas);
                     TextView tvNombre = dialogCartas.findViewById(R.id.tvNombreInfoAdminCartas);
                     TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvBorrarInfoAdminCartas);
+                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvEstaCartaNoSeModifica);
                     View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewBackInfoAdminCartas);
                     View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewBorrarInfoAdminCartas);
                     View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewEditarInfoAdminCartas);
                     TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvEditarInfoAdminCartas);
+
+                    tvEstaCartaNoSeModifica.setVisibility(View.GONE);
 
                     viewBackInfoAdminCartas.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -270,6 +272,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                     CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgInfoAdminCartas);
                     TextView tvNombre = dialogCartas.findViewById(R.id.tvNombreInfoAdminCartas);
                     TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvBorrarInfoAdminCartas);
+                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvEstaCartaNoSeModifica);
                     View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewBackInfoAdminCartas);
                     View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewBorrarInfoAdminCartas);
                     View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewEditarInfoAdminCartas);
@@ -284,10 +287,10 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                         }
                     });
 
-                    viewBorrarInfoAdminCartas.setVisibility(View.INVISIBLE);
-                    tvBorrarInfoAdminCartas.setVisibility(View.INVISIBLE);
-                    viewEditarInfoAdminCartas.setVisibility(View.INVISIBLE);
-                    tvEditarInfoAdminCartas.setVisibility(View.INVISIBLE);
+                    viewBorrarInfoAdminCartas.setVisibility(View.GONE);
+                    tvBorrarInfoAdminCartas.setVisibility(View.GONE);
+                    viewEditarInfoAdminCartas.setVisibility(View.GONE);
+                    tvEditarInfoAdminCartas.setVisibility(View.GONE);
 
                     RequestOptions options = new RequestOptions()
                             .centerCrop()
@@ -300,7 +303,8 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                             .apply(options)
                             .into(imgAnimal);
 
-                    tvNombre.setText("Esta carta no se puede modificar");
+                    tvNombre.setText(cardList.get(position).getName());
+                    tvEstaCartaNoSeModifica.setText("Esta carta no se puede modificar");
 
                     dialogCartas.setCancelable(true);
                     dialogCartas.setCanceledOnTouchOutside(false);

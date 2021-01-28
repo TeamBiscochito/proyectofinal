@@ -197,7 +197,7 @@
         app:layout_constraintTop_toTopOf="@+id/viewPlayButton" />
 
     <View
-        android:id="@+id/viewMenuCreditos"
+        android:id="@+id/viewMenuWeb"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@drawable/imgcredit"
@@ -216,10 +216,10 @@
         android:textColor="#472C06"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuCreditos"
-        app:layout_constraintEnd_toEndOf="@+id/viewMenuCreditos"
-        app:layout_constraintStart_toStartOf="@+id/viewMenuCreditos"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuCreditos" />
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuWeb"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenuWeb"
+        app:layout_constraintStart_toStartOf="@+id/viewMenuWeb"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuWeb" />
 
     <View
         android:id="@+id/viewMenuSettings"
@@ -227,7 +227,7 @@
         android:layout_height="100dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
-        app:layout_constraintEnd_toStartOf="@+id/viewMenuCreditos"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenuWeb"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/viewMenuUser" />
 

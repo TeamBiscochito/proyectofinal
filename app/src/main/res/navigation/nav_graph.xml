@@ -189,6 +189,11 @@
             app:destination="@id/editCardFragment"
             app:enterAnim="@anim/slide_entrar_fragment"
             app:exitAnim="@anim/slide_salir_fragment" />
+        <action
+            android:id="@+id/action_adminCartasFragment_to_chooseUserFragment"
+            app:destination="@id/chooseUserFragment"
+            app:enterAnim="@anim/fade_entrar_fragment"
+            app:exitAnim="@anim/fade_salir_fragment" />
     </fragment>
     <fragment
         android:id="@+id/addPlayerFragment"
