@@ -36,7 +36,7 @@
                 android:textColor="#472C06"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/viewCopiarEnlaceWeb"
+                app:layout_constraintBottom_toTopOf="@+id/viewEntrarEnlaceWeb"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +44,7 @@
             <View
                 android:id="@+id/viewCopiarEnlaceWeb"
                 android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_marginBottom="24dp"
                 android:background="@drawable/bt_enviar_correo"
                 app:layout_constraintBottom_toTopOf="@+id/guideline100"
@@ -71,6 +71,30 @@
                 app:layout_constraintEnd_toEndOf="@+id/viewCopiarEnlaceWeb"
                 app:layout_constraintStart_toStartOf="@+id/viewCopiarEnlaceWeb"
                 app:layout_constraintTop_toTopOf="@+id/viewCopiarEnlaceWeb" />
+
+            <View
+                android:id="@+id/viewEntrarEnlaceWeb"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="8dp"
+                android:background="@drawable/bt_enviar_correo"
+                app:layout_constraintBottom_toTopOf="@+id/viewCopiarEnlaceWeb"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tvEntrarEnlaceWeb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/schoolbell"
+                android:text="@string/textEntrar"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/viewEntrarEnlaceWeb"
+                app:layout_constraintEnd_toEndOf="@+id/viewEntrarEnlaceWeb"
+                app:layout_constraintStart_toStartOf="@+id/viewEntrarEnlaceWeb"
+                app:layout_constraintTop_toTopOf="@+id/viewEntrarEnlaceWeb" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View

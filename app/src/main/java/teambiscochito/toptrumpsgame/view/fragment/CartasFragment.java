@@ -103,12 +103,6 @@ public class CartasFragment extends Fragment {
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(layoutManager);
 
-                if(adapter.getItemCount() == 0) {
-
-                    tvRvVacioCartasNoAdmin.setText(R.string.alertRvVacioCartasNoAdmin);
-
-                }
-
             }
         });
 

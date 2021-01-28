@@ -73,7 +73,6 @@
     <string name="infoClicaEnImagenParaDesc">Pulsa la imagen para leer la descripción</string>
     <string name="textGirarCarta">Girar</string>
     <string name="infoDeslizaParaVerCartas">Desliza ↔ para ver todas las cartas</string>
-    <string name="alertRvVacioCartasNoAdmin">No se ha encontrado ninguna carta</string>
     <string name="contLeon">León</string>
     <string name="textQuieresVerElTutorialInicio">Parece que es la primera vez que entras a Animales Salvajes. ¿Quieres ver el tutorial?</string>
     <string name="textAunqueCancelesTutorialDialog">Aunque canceles, siempre podrás ver el tutorial más adelante</string>
@@ -86,4 +85,8 @@
     <string name="textDeEsteAnimal">de este animal?</string>
     <string name="tvVisitarNuestraWeb">¡No te olvides de visitar nuestra página web!</string>
     <string name="tvCopiarAlPortapapeles">Copiar</string>
+    <string name="tvAddCarta">Añadir carta</string>
+    <string name="textPinchaNombreParaInfoCarta">Pulsa en el nombre para + info</string>
+    <string name="textPreguntaCorrecta">¡Correcto!</string>
+    <string name="textPreguntaErronea">¡Has fallado!</string>
 </resources>
