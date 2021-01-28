@@ -43,7 +43,7 @@
             android:text="@string/textAunqueCancelesTutorialDialog"
             android:textAlignment="center"
             android:textColor="#D3443A"
-            android:textSize="16sp"
+            android:textSize="17sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

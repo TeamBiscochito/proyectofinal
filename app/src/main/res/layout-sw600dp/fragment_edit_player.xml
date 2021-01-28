@@ -235,8 +235,10 @@
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="2dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/previous"
             app:layout_constraintBottom_toBottomOf="@+id/vp_avatar_edit"
+            app:layout_constraintEnd_toStartOf="@+id/vp_avatar_edit"
             app:layout_constraintStart_toStartOf="@+id/guideline61"
             app:layout_constraintTop_toTopOf="@+id/vp_avatar_edit" />
 
@@ -244,10 +246,12 @@
             android:id="@+id/viewNextAvatarEdit"
             android:layout_width="80dp"
             android:layout_height="70dp"
+            android:layout_marginStart="16dp"
             android:layout_marginEnd="2dp"
             android:background="@drawable/next"
             app:layout_constraintBottom_toBottomOf="@+id/vp_avatar_edit"
             app:layout_constraintEnd_toStartOf="@+id/guideline62"
+            app:layout_constraintStart_toEndOf="@+id/vp_avatar_edit"
             app:layout_constraintTop_toTopOf="@+id/vp_avatar_edit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 

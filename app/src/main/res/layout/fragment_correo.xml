@@ -48,17 +48,17 @@
 
     <View
         android:id="@+id/viewCorreoBorrar"
-        android:layout_width="150dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/bt_enviar_correo"
         app:layout_constraintBottom_toTopOf="@+id/viewCorreoEnviar"
-        app:layout_constraintEnd_toStartOf="@+id/guideline91"
+        app:layout_constraintEnd_toEndOf="@+id/viewCorreoEnviar"
         app:layout_constraintHorizontal_bias="0.512"
-        app:layout_constraintStart_toStartOf="@+id/guideline90"
+        app:layout_constraintStart_toStartOf="@+id/viewCorreoEnviar"
         app:layout_constraintTop_toBottomOf="@+id/tvAlertaCorreo" />
 
     <View

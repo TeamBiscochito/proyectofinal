@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="450dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,7 +16,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout4"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="300dp"
             android:background="@drawable/red_borders"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -28,14 +28,14 @@
                 android:id="@+id/textView25"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
-                android:layout_marginEnd="6dp"
+                android:layout_marginEnd="8dp"
                 android:fontFamily="@font/schoolbell"
                 android:text="@string/tvConfirmarBorrarJugador"
                 android:textAlignment="center"
                 android:textColor="#472C06"
-                android:textSize="24sp"
+                android:textSize="26sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -62,8 +62,8 @@
 
         <View
             android:id="@+id/viewCancelarBorrarJugador"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginStart="24dp"
             android:layout_marginBottom="48dp"
             android:background="@drawable/cerrar"
@@ -73,8 +73,8 @@
 
         <View
             android:id="@+id/viewAceptarBorrarJugador"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:layout_marginStart="56dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="48dp"

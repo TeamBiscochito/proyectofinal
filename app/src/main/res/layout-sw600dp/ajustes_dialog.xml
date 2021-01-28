@@ -112,7 +112,7 @@
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textColor="#D3443A"
-            android:textSize="30sp"
+            android:textSize="28sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/imgBackAjustesDialog"
             app:layout_constraintEnd_toStartOf="@+id/guideline29"

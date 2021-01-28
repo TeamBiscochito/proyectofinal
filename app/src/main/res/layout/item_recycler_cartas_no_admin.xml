@@ -97,7 +97,7 @@
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline63"
             app:layout_constraintEnd_toStartOf="@+id/guideline26"

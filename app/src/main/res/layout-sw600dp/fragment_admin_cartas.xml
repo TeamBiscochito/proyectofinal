@@ -18,10 +18,9 @@
 
         <View
             android:id="@+id/viewBackAdminCartas"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="16dp"
             android:background="@drawable/back_2"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline101" />
@@ -45,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.814" />
+            app:layout_constraintGuide_percent="0.824" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline104"
@@ -77,7 +76,7 @@
             android:rotation="-7"
             android:text="@string/btCartas"
             android:textColor="#472C06"
-            android:textSize="28sp"
+            android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline106"
             app:layout_constraintStart_toStartOf="@+id/guideline105"
@@ -85,10 +84,12 @@
 
         <View
             android:id="@+id/viewCerrarAdminCartas"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/cerrar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline104" />
 
@@ -104,12 +105,10 @@
 
         <View
             android:id="@+id/viewAddCarta"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
+            android:layout_width="350dp"
+            android:layout_height="70dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginBottom="16dp"
             android:background="@drawable/bt_add_jugador_bg"
             app:layout_constraintBottom_toTopOf="@+id/guideline104"
             app:layout_constraintEnd_toStartOf="@+id/guideline106"
@@ -118,9 +117,10 @@
 
         <ImageView
             android:id="@+id/imgAddCarta"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginStart="16dp"
+            android:layout_marginBottom="2dp"
             android:contentDescription="@string/contAdd"
             android:src="@drawable/ic_adduser"
             app:layout_constraintBottom_toBottomOf="@+id/viewAddCarta"
@@ -137,7 +137,7 @@
             android:text="@string/tvAddCarta"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="20sp"
+            android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewAddCarta"
             app:layout_constraintEnd_toEndOf="@+id/viewAddCarta"
@@ -148,13 +148,12 @@
             android:id="@+id/textView44"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="24dp"
             android:fontFamily="@font/schoolbell"
             android:text="@string/textPinchaNombreParaInfoCarta"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="18sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/guideline108"
             app:layout_constraintEnd_toStartOf="@+id/guideline106"
