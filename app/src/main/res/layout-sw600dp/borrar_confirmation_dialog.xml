@@ -8,7 +8,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="500dp"
-        android:layout_height="600dp"
+        android:layout_height="650dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +45,8 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="170dp"
-            android:layout_height="170dp"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
             android:contentDescription="@string/alertCuidado"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,20 +55,20 @@
 
         <View
             android:id="@+id/viewCancelarBorrarJugador"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginStart="64dp"
+            android:layout_marginBottom="52dp"
             android:background="@drawable/cerrar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <View
             android:id="@+id/viewAceptarBorrarJugador"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginBottom="32dp"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_marginEnd="64dp"
+            android:layout_marginBottom="52dp"
             android:background="@drawable/aceptar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

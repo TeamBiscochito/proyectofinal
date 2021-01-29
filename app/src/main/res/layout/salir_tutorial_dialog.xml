@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="300dp"
+        android:layout_width="330dp"
         android:layout_height="350dp"
         android:background="@drawable/correo_dialog_bg"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
@@ -24,7 +24,7 @@
             android:text="@string/textEstasSeguroSalirTutorial"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="24sp"
+            android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textViewotro3"
             app:layout_constraintEnd_toEndOf="parent"
@@ -43,7 +43,7 @@
             android:text="@string/textSalirTutorialVerOtraVez"
             android:textAlignment="center"
             android:textColor="#D3443A"
-            android:textSize="19sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
-        android:layout_width="350dp"
+        android:layout_width="380dp"
         android:layout_height="400dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

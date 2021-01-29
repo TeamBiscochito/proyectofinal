@@ -7,8 +7,8 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="350dp"
-        android:layout_height="400dp"
+        android:layout_width="500dp"
+        android:layout_height="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -16,8 +16,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout5"
-            android:layout_width="300dp"
-            android:layout_height="300dp"
+            android:layout_width="400dp"
+            android:layout_height="450dp"
             android:background="@drawable/red_borders"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +34,7 @@
                 android:text="@string/tvVisitarNuestraWeb"
                 android:textAlignment="center"
                 android:textColor="#472C06"
-                android:textSize="24sp"
+                android:textSize="32sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/viewEntrarEnlaceWeb"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -44,8 +44,8 @@
             <View
                 android:id="@+id/viewCopiarEnlaceWeb"
                 android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginBottom="24dp"
+                android:layout_height="70dp"
+                android:layout_marginBottom="32dp"
                 android:background="@drawable/bt_enviar_correo"
                 app:layout_constraintBottom_toTopOf="@+id/guideline100"
                 app:layout_constraintEnd_toEndOf="@+id/viewEntrarEnlaceWeb"
@@ -66,7 +66,7 @@
                 android:fontFamily="@font/schoolbell"
                 android:text="@string/tvCopiarAlPortapapeles"
                 android:textColor="#FFFFFF"
-                android:textSize="21sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/viewCopiarEnlaceWeb"
                 app:layout_constraintEnd_toEndOf="@+id/viewCopiarEnlaceWeb"
@@ -75,8 +75,8 @@
 
             <View
                 android:id="@+id/viewEntrarEnlaceWeb"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/bt_enviar_correo"
                 app:layout_constraintBottom_toTopOf="@+id/viewCopiarEnlaceWeb"
@@ -91,7 +91,7 @@
                 android:fontFamily="@font/schoolbell"
                 android:text="@string/textEntrar"
                 android:textColor="#FFFFFF"
-                android:textSize="21sp"
+                android:textSize="30sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/viewEntrarEnlaceWeb"
                 app:layout_constraintEnd_toEndOf="@+id/viewEntrarEnlaceWeb"
@@ -101,9 +101,9 @@
 
         <View
             android:id="@+id/viewCerrarWebDialog"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginBottom="16dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginBottom="32dp"
             android:background="@drawable/cerrar"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

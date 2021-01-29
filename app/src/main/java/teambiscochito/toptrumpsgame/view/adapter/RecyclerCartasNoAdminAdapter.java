@@ -34,6 +34,7 @@ import teambiscochito.toptrumpsgame.model.room.pojo.Question;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerCartasNoAdminAdapter.ViewHolder> {
+
     List<Card> cardList;
     View view;
     Activity activity;
@@ -84,7 +85,11 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
             holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
             holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
             holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
-            holder.tvPoder.setText(questionList.get(4).getAnswer().toString());
+
+            double valorPoderDouble = Double.parseDouble(questionList.get(4).getAnswer().toString());
+            int valorPoderInt = (int) valorPoderDouble;
+            holder.tvPoder.setText("" + valorPoderInt);
+
             holder.tvAlturaUnidad.setText(questionList.get(0).getMagnitude());
             holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
             holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());

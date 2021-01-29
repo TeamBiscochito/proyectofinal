@@ -5,6 +5,7 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 
 import java.util.List;
 
@@ -18,10 +19,28 @@ public class ViewModel extends AndroidViewModel {
     private Repository repository;
     public static User userActual;
     User user;
+    Card card;
+    public static List<Card> cards;
+    public static List<Question> questions;
 
     public ViewModel(@NonNull Application application) {
         super(application);
         repository = new Repository(application);
+
+        //repository.getQuestionList()
+        repository.getQuestionList().observeForever(new Observer<List<Question>>() {
+            @Override
+            public void onChanged(List<Question> livequestions) {
+                questions = livequestions;
+            }
+        });
+
+        repository.getCardList().observeForever(new Observer<List<Card>>() {
+            @Override
+            public void onChanged(List<Card> livecards) {
+                cards = livecards;
+            }
+        });
     }
 
     public void insertCard(Card card) {
@@ -66,6 +85,14 @@ public class ViewModel extends AndroidViewModel {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Card getCard() {
+        return card;
+    }
+
+    public void setCard(Card card) {
+        this.card = card;
     }
 
     public void insertQuestion(Question question) {
