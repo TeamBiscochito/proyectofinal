@@ -1,0 +1,226 @@
+[
+  {
+    "name": "Bug",
+    "color": "B60205",
+    "description": "Something isn't working"
+  },
+  {
+    "name": "Documentation",
+    "color": "0075ca",
+    "description": "Improvements or additions to documentation"
+  },
+  {
+    "name": "Duplicate",
+    "color": "cfd3d7",
+    "description": "This issue or pull request already exists"
+  },
+    {
+    "name": "Enhancement",
+    "color": "a2eeef",
+    "description": "New feature or request"
+  },
+  {
+    "name": "For: App",
+    "color": "0087ED",
+    "description": "Content for general App"
+  },
+  {
+    "name": "For: Marketing",
+    "color": "FFC64C",
+    "description": "Content for marketing proposal"
+  },
+  {
+    "name": "Help wanted",
+    "color": "008672",
+    "description": "Extra attention is needed"
+  },
+  {
+    "name": "Invalid",
+    "color": "e4e669",
+    "description": "This doesn't seem right"
+  },
+  {
+    "name": "Priority: Critical",
+    "color": "ff2222",
+    "description": "Critical, needs to check quickly"
+  },
+  {
+    "name": "Priority: High",
+    "color": "FF7922",
+    "description": "Priority level high"
+  },
+  {
+    "name": "Priority: Low",
+    "color": "c2e0c6",
+    "description": "Priority level low"
+  },
+  {
+    "name": "Priority: Medium",
+    "color": "fbca04",
+    "description": "Priority level medium"
+  },  
+  {
+    "name": "Question",
+    "color": "d876e3",
+    "description": "Further information is requested"
+  },
+  {
+    "name": "Status: Changes Requested",
+    "color": "E6FF00",
+    "description": "Changes requested for better optimization or to make new functionality that should be add in the application"
+  },
+  {
+    "name": "Status: Complete",
+    "color": "7ED321",
+    "description": "Task, feature, implemented without problems"
+  },
+  {
+    "name": "Status: Confirmed",
+    "color": "0e8a16",
+    "description": "Task, feature confirmed ready for review"
+  },
+  {
+    "name": "Status: Debugging",
+    "color": "750DFF",
+    "description": "Code debugging and searching errors on it"
+  },
+  {
+    "name": "Status: Feedback Needed",
+    "color": "006b75",
+    "description": "Feedback priority in some task, features, code..."
+  },  
+  {
+    "name": "Status: Generate Conflicts",
+    "color": "BB00B0",
+    "description": "Feature that generates conflicts on code deployment"
+  }, 
+  {
+    "name": "Status: In Observation",
+    "color": "00E1EA",
+    "description": "Code implemented and feature is under observation in case generates conflicts"
+  },  
+  {
+    "name": "Status: In Progress",
+    "color": "FC8264",
+    "description": "Still in progress or developing or checking functionality"
+  },  
+  {
+    "name": "Status: On Discussion",
+    "color": "8BFBFF",
+    "description": "Feature or new function to implement, that need a little discussion over it"
+  },  
+  {
+    "name": "Status: On Hold",
+    "color": "BABABA",
+    "description": "Task, feature is hold due to time or no people working there right now"
+  },
+  {
+    "name": "Status: Ready for Merge",
+    "color": "34FF8D",
+    "description": "Feature ready for merge and see functionality and how works"
+  },
+  {
+    "name": "Status: Ready for Test",
+    "color": "007734",
+    "description": "Feature confirmed and already finished, need some test before deploy on main branch"
+  },
+  {
+    "name": "Status: Review Needed",
+    "color": "EAE435",
+    "description": "Feature, task or code needs review for check the functionality"
+  },
+  {
+    "name": "Status: Stopped",
+    "color": "000000",
+    "description": "Currently functionality stopped"
+  },
+  {
+    "name": "Status: Under Consideration",
+    "color": "B3B3B3",
+    "description": "Developers thinking about the implementation of the feature, suggestion..."
+  },
+  {
+    "name": "Stopped",
+    "color": "d876e3",
+    "description": "This feature is stopped or is not going to be implemented now"
+  },
+  {
+    "name": "Type: Bug",
+    "color": "ff2222",
+    "description": "Bug exists on code development, needs to check, review for fast push"
+  },
+  {
+    "name": "Type: Documentation",
+    "color": "00858A",
+    "description": "For code documentation issues or recomendation"
+  },
+  {
+    "name": "Type: Enhancement",
+    "color": "1d76db",
+    "description": "Enhancement for application that need to be review"
+  },
+  {
+    "name": "Type: Feature",
+    "color": "6DFF6D",
+    "description": "New feature to implement, need review"
+  },
+  {
+    "name": "Type: Help Needed",
+    "color": "5319e7",
+    "description": "Attention is needed"
+  },
+  {
+    "name": "Type: Idea",
+    "color": "E6FF00",
+    "description": "Idea, or suggestion for change some functionality on application"
+  },
+  {
+    "name": "Type: Question",
+    "color": "FF6DD9",
+    "description": "Question, for explain what exactly want to implement"
+  },
+  {
+    "name": "Type: Refactoring",
+    "color": "00A7AE",
+    "description": "Improvements for code, refactoring code on application"
+  },
+  {
+    "name": "Type: Regression",
+    "color": "FF6B00",
+    "description": "Suggestion for regression for an older version due to instability"
+  },
+  {
+    "name": "Type: Security",
+    "color": "FF6767",
+    "description": "Layer of security level, bug or zero day appears that compromise application functionality "
+  },
+  {
+    "name": "Wontfix",
+    "color": "ffffff",
+    "description": "This will not be worked on"
+  },
+  {
+    "name": "DRAWABLE",
+    "color": "2700FF",
+  },
+  {
+    "name": "FRAGMENT",
+    "color": "2700FF",
+  },
+  {
+    "name": "IMAGE",
+    "color": "2700FF",
+  },
+  {
+    "name": "JAVA",
+    "color": "2700FF",
+  },
+  {
+    "name": "LARAVEL",
+    "color": "2700FF",
+  },
+  {
+    "name": "XML",
+    "color": "2700FF",
+  }
+]
