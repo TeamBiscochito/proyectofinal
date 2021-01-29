@@ -70,19 +70,11 @@ public class AdminCartasFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.rvCartasAdmin);
 
-        LiveData<List<Card>> cardList = viewModel.getCardList();
-        cardList.observe(getViewLifecycleOwner(), new Observer<List<Card>>() {
-            @Override
-            public void onChanged(List<Card> cards) {
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
-
-                RecyclerCartasAdminAdapter adapter = new RecyclerCartasAdminAdapter(cards ,view, getActivity(), getContext());
-                recyclerView.setAdapter(adapter);
-                recyclerView.setLayoutManager(layoutManager);
-
-            }
-        });
+        RecyclerCartasAdminAdapter adapter = new RecyclerCartasAdminAdapter(view, getActivity(), getContext());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(layoutManager);
 
         viewBackAdminCartas.setOnTouchListener(new View.OnTouchListener() {
             @Override

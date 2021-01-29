@@ -40,7 +40,6 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCartasAdminAdapter.ViewHolder> {
 
-    List<Card> cardList;
     View view;
     Activity activity;
     Context context;
@@ -50,8 +49,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
     NavController navController;
 
-    public RecyclerCartasAdminAdapter(List<Card> cardList, View view, Activity activity, Context context){
-        this.cardList = cardList;
+    public RecyclerCartasAdminAdapter(View view, Activity activity, Context context){
         this.view = view;
         this.activity = activity;
         this.context = context;
@@ -74,7 +72,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
 
-        Card card = cardList.get(position);
+        Card card = viewModel.cards.get(position);
 
         navController = Navigation.findNavController(view);
 
@@ -85,16 +83,16 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .priority(Priority.HIGH);
 
-        Glide.with(context).load(cardList.get(position).getPicUrl())
+        Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
                 .apply(options)
                 .into(holder.imgFotoCartaNoAdmin);
 
-        holder.tvNombreCartaNoAdmin.setText(cardList.get(position).getName());
-        holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDesc());
+        holder.tvNombreCartaNoAdmin.setText(viewModel.cards.get(position).getName());
+        holder.tvDescCartasNoAdminBack.setText(viewModel.cards.get(position).getDescription());
 
         try{
 
-            List<Question> questionList = viewModel.getQuestionListByCardId(cardList.get(position).getId());
+            List<Question> questionList = viewModel.getQuestionsForCurrentCard(viewModel.cards.get(position));
             holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
             holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
             holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
@@ -108,7 +106,10 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
             holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
             holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());
             holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
-
+            Log.v("xyz", viewModel.cards.get(position).toString());
+            for(Question q : questionList){
+                Log.v("xyz", q.toString());
+            }
         } catch (Exception ex){
 
         }
@@ -178,6 +179,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                                 dialogCartas.dismiss();
                                 navController.navigate(R.id.action_adminCartasFragment_to_editCardFragment);
 
+
                             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                                 viewEditarInfoAdminCartas.startAnimation(animScaleDown);
                                 tvEditarInfoAdminCartas.startAnimation(animScaleDown);
@@ -210,6 +212,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                                     public void onClick(View v) {
 
                                         dialogConfirmarBorrar.dismiss();
+                                        Log.v("xyz", "cancelarBt");
 
                                     }
                                 });
@@ -221,8 +224,9 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                                         dialogConfirmarBorrar.dismiss();
                                         dialogCartas.dismiss();
 
-                                        //long idBorrar = userList.get(position).getId();
-                                        //viewModel.deleteUserById(idBorrar);
+                                        long idBorrar = viewModel.cards.get(position).getId();
+                                        Log.v("xyz", "aceptar: " + idBorrar);
+                                        viewModel.deleteCardById(idBorrar);
 
                                     }
                                 });
@@ -249,11 +253,11 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .priority(Priority.HIGH);
 
-                    Glide.with(context).load(cardList.get(position).getPicUrl())
-                            .apply(options)
-                            .into(imgAnimal);
+                    Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
+                    .apply(options)
+                    .into(imgAnimal);
 
-                    tvNombre.setText(cardList.get(position).getName());
+                    tvNombre.setText(viewModel.cards.get(position).getName());
 
                     dialogCartas.setCancelable(true);
                     dialogCartas.setCanceledOnTouchOutside(false);
@@ -299,7 +303,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .priority(Priority.HIGH);
 
-                    Glide.with(context).load(cardList.get(position).getPicUrl())
+                    Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
                             .apply(options)
                             .into(imgAnimal);
 
@@ -321,7 +325,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
     @Override
     public int getItemCount() {
         try{
-            return cardList.size();
+            return viewModel.cards.size();
         } catch (Exception exception){
             return -1;
         }

@@ -109,4 +109,24 @@
     <string name="tvNuevaLongitudDosPuntos">Nueva longitud:</string>
     <string name="tvNuevaVelocidadDosPuntos">Nueva velocidad:</string>
     <string name="tvNuevoPoderDosPuntos">Nuevo poder:</string>
+
+    <array name="magnitudesAltura">
+        <item>m</item>
+        <item>cm</item>
+    </array>
+
+    <array name="magnitudesVelocidad">
+        <item>km/h</item>
+    </array>
+
+    <array name="magnitudesPeso">
+        <item>kg</item>
+        <item>g</item>
+        <item>T</item>
+    </array>
+
+    <array name="magnitudesLongitud">
+        <item>m</item>
+        <item>cm</item>
+    </array>
 </resources>

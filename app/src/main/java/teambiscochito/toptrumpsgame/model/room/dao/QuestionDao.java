@@ -38,7 +38,7 @@ public interface QuestionDao {
     Question getQuestionById(long id);
 
     //returs ALL questions about a card
-    @Query("select * from question where card_id = :cardId")
+    @Query("select * from question where card_id = :cardId ")
     List<Question> getQuestionByCardId(long cardId);
 
     @Query("select * from question")
@@ -47,5 +47,9 @@ public interface QuestionDao {
     @Query("delete from question")
     void deleteAll();
 
+    @Query("select * from question where question = :question and card_id = :idCard ")
+    Question getQuestionByName(String question, long idCard);
 
+    @Query("delete from question where card_id = :id")
+    void deleteById(long id);
 }
