@@ -10,11 +10,13 @@ import androidx.room.Query;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.internal.Util;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
+import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.laravel.CardClient;
 import teambiscochito.toptrumpsgame.model.room.GameDataBase;
 import teambiscochito.toptrumpsgame.model.room.dao.CardDao;
@@ -33,7 +35,7 @@ public class Repository {
     public QuestionDao questionDao;
     public UserDao userDao;
     private int repeatedName;
-    CardClient client;
+    CardClient Cardclient;
 
     public Repository(Context context) {
         GameDataBase db = GameDataBase.getDatabase(context);
@@ -44,7 +46,8 @@ public class Repository {
                 .baseUrl("http://10.0.2.2/laravel/TopTrump/public/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        client = retrofit.create(CardClient.class);
+        Cardclient = retrofit.create(CardClient.class);
+
     }
 
     /*-------- Cards --------*/
@@ -270,27 +273,26 @@ public class Repository {
         return repeatedName;
 
     }
-    public List<Card> getAllCards() {
+    public List<Card> getAllCardsFromWeb() {
         final List<Card>[] cardArrayList = new List[]{new ArrayList<>()};
 
         UtilThread.threadExecutorPool.execute(new Runnable() {
             @Override
             public void run() {
-                Call<ArrayList<Card>> cartaCall = client.getAllCards();
+                Call<ArrayList<Card>> cartaCall = Cardclient.getAllCards();
                 cartaCall.enqueue(new Callback<ArrayList<Card>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Card>> call, Response<ArrayList<Card>> response) {
                         Log.v("xyzresponse", response.code()+"");
                         cardArrayList[0] = response.body();
                         try {
-                            Thread.sleep(1000);
+                            Thread.sleep(200);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
                         for(Card c : cardArrayList[0]){
                             Log.v("xyzbodyrep", c.toString());
                         }
-
                     }
                     @Override
                     public void onFailure(Call<ArrayList<Card>> call, Throwable t) {
@@ -299,6 +301,7 @@ public class Repository {
                 });
             }
         });
+        Log.v("xyz", "toma mongolin");
         return cardArrayList[0];
     }
 
@@ -363,5 +366,24 @@ public class Repository {
                 questionDao.insertToName(name, question, answer, magnitude);
             }
         });
+    }
+    public CardClient getCardClient(){
+        return Cardclient;
+    }
+
+    public Card getCardByName(String name){
+        final Card[] c = new Card[1];
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+               c[0] = cardDao.getCardByName(name);
+            }
+        });
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return c[0];
     }
 }

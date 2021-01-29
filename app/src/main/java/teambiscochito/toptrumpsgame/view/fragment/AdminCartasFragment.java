@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +43,7 @@ public class AdminCartasFragment extends Fragment {
     TextView tvAddCarta;
     Animation animScaleUp, animScaleDown;
     Dialog dialogSalirAdmin;
+    Button btgoimportar;
 
     NavController navController;
 
@@ -62,9 +64,15 @@ public class AdminCartasFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        btgoimportar = view.findViewById(R.id.btgoimportar);
         init(view);
         navController = Navigation.findNavController(view);
+        btgoimportar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_adminCartasFragment_to_importFragment);
+            }
+        });
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.rvCartasAdmin);

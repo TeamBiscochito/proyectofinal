@@ -46,4 +46,7 @@ public interface CardDao {
 
     @Query("delete from card where id = :id")
     void deleteById(long id);
+
+    @Query("select * from card where name = :name")
+    Card getCardByName(String name);
 }
