@@ -201,26 +201,26 @@
   },
   {
     "name": "DRAWABLE",
-    "color": "2700FF",
+    "color": "2700FF"
   },
   {
     "name": "FRAGMENT",
-    "color": "2700FF",
+    "color": "2700FF"
   },
   {
     "name": "IMAGE",
-    "color": "2700FF",
+    "color": "2700FF"
   },
   {
     "name": "JAVA",
-    "color": "2700FF",
+    "color": "2700FF"
   },
   {
     "name": "LARAVEL",
-    "color": "2700FF",
+    "color": "2700FF"
   },
   {
     "name": "XML",
-    "color": "2700FF",
+    "color": "2700FF"
   }
 ]
