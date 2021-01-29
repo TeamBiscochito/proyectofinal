@@ -5,7 +5,9 @@ import android.app.Application;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import teambiscochito.toptrumpsgame.model.Repository;
@@ -19,10 +21,26 @@ public class ViewModel extends AndroidViewModel {
     public static User userActual;
     User user;
     Card card;
+    public static List<Card> cards;
+    public static List<Question> questions;
+
 
     public ViewModel(@NonNull Application application) {
         super(application);
         repository = new Repository(application);
+        repository.getQuestionList().observeForever(new Observer<List<Question>>() {
+            @Override
+            public void onChanged(List<Question> livequestions) {
+                questions = livequestions;
+            }
+        });
+
+        repository.getCardList().observeForever(new Observer<List<Card>>() {
+            @Override
+            public void onChanged(List<Card> livecards) {
+                cards = livecards;
+            }
+        });
     }
 
     public void insertCard(Card card) {
@@ -106,5 +124,37 @@ public class ViewModel extends AndroidViewModel {
         return repository.getRepeatedName();
 
     }
+
+    public Long getIdByName(String name) {
+        return repository.getIdByName(name);
+    }
+
+    public Question getQuestionByName(String question, long idCard) {
+        return repository.getQuestionByName(question, idCard);
+    }
+
+    public void deleteCardById(long id) {
+        repository.deleteCardById(id);
+    }
+
+    public void insertToName(String name, String question, Double answer, String magnitude) {
+        repository.insertToName(name, question, answer, magnitude);
+    }
+    public ArrayList<Question> getQuestionsForCurrentCard(Card card) {
+
+        ArrayList<Question> result = new ArrayList<>();
+
+        for (Question q : questions) {
+            if(q.getCard_id() == card.getId()) {
+                result.add(q);
+            }
+        }
+        return result;
+    }
+
+    public void insertAll(ArrayList<Question> questionArrayList) {
+        repository.insertAll(questionArrayList);
+    }
+
 
 }

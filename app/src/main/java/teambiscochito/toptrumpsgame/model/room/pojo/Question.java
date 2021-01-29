@@ -30,11 +30,14 @@ public class Question {
     @ColumnInfo(name = "magnitude")
     private String magnitude;
 
+
+
     public Question(@NonNull long idcard, @NonNull String question, @NonNull Double answer) {
         this.card_id = idcard;
         this.question = question;
         this.answer = answer;
         this.magnitude = null;
+
     }
 
     public Question(@NonNull long idcard, @NonNull String question, @NonNull Double answer, String magnitude) {
@@ -43,6 +46,7 @@ public class Question {
         this.answer = answer;
         this.magnitude = magnitude;
     }
+
 
     public Question() {
     }

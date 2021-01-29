@@ -88,4 +88,24 @@
     <string name="tvCopiarAlPortapapeles">Copiar</string>
     <string name="tvAddCarta">Añadir carta</string>
     <string name="textPinchaNombreParaInfoCarta">Pulsa en el nombre para + info</string>
+
+    <array name="magnitudesAltura">
+        <item>m</item>
+        <item>cm</item>
+    </array>
+
+    <array name="magnitudesVelocidad">
+        <item>km/h</item>
+    </array>
+
+    <array name="magnitudesPeso">
+        <item>kg</item>
+        <item>g</item>
+        <item>T</item>
+    </array>
+
+    <array name="magnitudesLongitud">
+        <item>m</item>
+        <item>cm</item>
+    </array>
 </resources>
