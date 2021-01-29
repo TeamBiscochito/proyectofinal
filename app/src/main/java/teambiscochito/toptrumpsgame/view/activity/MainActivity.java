@@ -6,7 +6,7 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
+
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;

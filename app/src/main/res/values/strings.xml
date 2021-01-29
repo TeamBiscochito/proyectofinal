@@ -89,4 +89,24 @@
     <string name="textPinchaNombreParaInfoCarta">Pulsa en el nombre para + info</string>
     <string name="textPreguntaCorrecta">¡Correcto!</string>
     <string name="textPreguntaErronea">¡Has fallado!</string>
+    <string name="tvEditarCarta">Editar carta</string>
+    <string name="tvNombreDemasiadoLargo">Nombre demasiado largo</string>
+    <string name="tvNombreDosPuntos">Nombre:</string>
+    <string name="tvDescripcionDosPuntos">Descripción:</string>
+    <string name="tvDesc">Descripción</string>
+    <string name="tvUrlImagenDosPuntos">URL de la imagen:</string>
+    <string name="tvURL">URL</string>
+    <string name="tvAlturaDosPuntos">Altura:</string>
+    <string name="tvPesoDosPuntos">Peso:</string>
+    <string name="tvLongitudDosPuntos">Longitud:</string>
+    <string name="tvVelocidadDosPuntos">Velocidad:</string>
+    <string name="tvPoderDosPuntos">Poder:</string>
+    <string name="tvNuevoNombreDosPuntos">Nuevo nombre:</string>
+    <string name="tvNuevaDescripcionDosPuntos">Nueva descripción:</string>
+    <string name="tvNuevaUrlImagenDosPuntos">Nueva URL de la imagen:</string>
+    <string name="tvNuevaAlturaDosPuntos">Nueva altura:</string>
+    <string name="tvNuevoPesoDosPuntos">Nuevo peso:</string>
+    <string name="tvNuevaLongitudDosPuntos">Nueva longitud:</string>
+    <string name="tvNuevaVelocidadDosPuntos">Nueva velocidad:</string>
+    <string name="tvNuevoPoderDosPuntos">Nuevo poder:</string>
 </resources>

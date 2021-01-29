@@ -32,7 +32,7 @@
             android:textColor="#472C06"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView27"
+            app:layout_constraintBottom_toTopOf="@+id/guideline51"
             app:layout_constraintEnd_toStartOf="@+id/guideline55"
             app:layout_constraintStart_toStartOf="@+id/guideline54"
             app:layout_constraintTop_toTopOf="@+id/guideline50" />

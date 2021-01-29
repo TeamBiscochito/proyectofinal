@@ -69,6 +69,7 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
+
         mp_borrar = MediaPlayer.create(context, R.raw.borrar_sound);
 
         User user = userList.get(position);

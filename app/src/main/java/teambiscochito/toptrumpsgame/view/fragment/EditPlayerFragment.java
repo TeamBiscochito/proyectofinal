@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
+import teambiscochito.toptrumpsgame.validar.ValidarDatos;
 import teambiscochito.toptrumpsgame.view.adapter.VpAvatarAdapter;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
@@ -215,6 +216,10 @@ public class EditPlayerFragment extends Fragment {
                     if(nombre.isEmpty()) {
 
                         tvAlertaEditJugador.setText(R.string.tvIntroduceNombreSinPuntos);
+
+                    } else if (ValidarDatos.validarNombre(nombre)) {
+
+                        tvAlertaEditJugador.setText(R.string.tvNombreDemasiadoLargo);
 
                     } else if (nombre.equals(user.getName())) {
 

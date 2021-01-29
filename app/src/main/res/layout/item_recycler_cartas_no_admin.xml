@@ -48,7 +48,9 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:scrollbarThumbVertical="@drawable/brown_scrollbarthumb"
+                android:scrollbarSize="5dp">
 
                 <TextView
                     android:id="@+id/tvDescCartasNoAdminBack"
@@ -57,7 +59,7 @@
                     android:background="#ACE1EE"
                     android:fontFamily="@font/schoolbell"
                     android:gravity="center"
-                    android:padding="10dp"
+                    android:padding="15dp"
                     android:textColor="#2470B1"
                     android:textSize="16sp"
                     android:textStyle="bold"

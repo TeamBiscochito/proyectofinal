@@ -138,7 +138,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
                 viewModel.setCard(card);
 
-                if(!((card.getId() == 1) || (card.getId() == 2) || (card.getId() == 3) || (card.getId() == 4) || (card.getId() == 5))) {
+                if(!((card.getId() == 1) || (card.getId() == 2) || (card.getId() == 3) || (card.getId() == 4)/* || (card.getId() == 5)*/)) {
 
                     dialogCartas = new Dialog(context);
                     dialogCartas.setContentView(R.layout.cartas_dialog);

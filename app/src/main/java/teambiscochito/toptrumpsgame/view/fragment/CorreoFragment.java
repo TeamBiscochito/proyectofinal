@@ -198,6 +198,7 @@ public class CorreoFragment extends Fragment {
         viewBackCorreoDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialogCorreo.dismiss();
 
             }

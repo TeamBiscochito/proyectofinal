@@ -52,6 +52,7 @@ public class JuegoFragment extends Fragment {
     private String determinante;
 
     private MediaPlayer mp_juego, mp_acierto, mp_fallo;
+
     View viewCloseJuego, viewBotonJuego1, viewBotonJuego2, viewBotonJuego3, viewBotonJuego4, viewPergaminoPreguntaJugar, viewNombreAnimalJuego, bird1, bird2, bird3, bird4;
     TextView tvBotonJuego1, tvBotonJuego2, tvBotonJuego3, tvBotonJuego4, tvPreguntaJuegoDeterminante, tvPreguntaJuegoTema, tvNombreAnimalJuego;
     Animation animScaleUp, animScaleDown, animPergaminoPregunta, animTableroNombre, animFade;
@@ -195,6 +196,7 @@ public class JuegoFragment extends Fragment {
             public void onClick(View v) {
 
                 mp_juego.stop();
+
                 salirJugarDialog.dismiss();
                 navController.navigate(R.id.action_juegoFragment_to_menuFragment);
 
