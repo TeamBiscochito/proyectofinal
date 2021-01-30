@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import teambiscochito.toptrumpsgame.model.Repository;
+import teambiscochito.toptrumpsgame.model.laravel.CardClient;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 import teambiscochito.toptrumpsgame.model.room.pojo.Question;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
@@ -23,6 +24,7 @@ public class ViewModel extends AndroidViewModel {
     Card card;
     public static List<Card> cards;
     public static List<Question> questions;
+
 
     public ViewModel(@NonNull Application application) {
         super(application);
@@ -180,4 +182,15 @@ public class ViewModel extends AndroidViewModel {
         repository.insertAll(questionArrayList);
     }
 
+    public List<Card> getAllCardsFromWeb() {
+        return repository.getAllCardsFromWeb();
+    }
+
+    public CardClient getCardClient(){
+        return repository.getCardClient();
+    }
+
+    public Card getCardByName(String name) {
+        return repository.getCardByName(name);
+    }
 }

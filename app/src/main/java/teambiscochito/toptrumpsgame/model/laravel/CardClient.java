@@ -21,6 +21,7 @@ import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
+import teambiscochito.toptrumpsgame.model.room.pojo.Question;
 
 public interface CardClient {
     @DELETE("carta/{id}")
@@ -38,6 +39,8 @@ public interface CardClient {
     @PUT("carta/{id}")
     Call<Integer> putCard(@Path("id") long id, @Body Card Carta);
 
+    @GET("pregunta")
+    Call<ArrayList<Question>> getAllQuestions();
 
 /* private void init() {
         Retrofit retrofit = new Retrofit.Builder()
