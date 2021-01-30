@@ -29,15 +29,11 @@ import teambiscochito.toptrumpsgame.util.UtilThread;
 
 public class Repository {
 
-    private GameDataBase db;
-
     public CardDao cardDao;
     public QuestionDao questionDao;
     public UserDao userDao;
-    private int repeatedName;
-    CardClient Cardclient;
     private int repeatedName, repeatedNameCarta;
-    CardClient client;
+    CardClient Cardclient;
 
     public Repository(Context context) {
         GameDataBase db = GameDataBase.getDatabase(context);
@@ -45,7 +41,7 @@ public class Repository {
         questionDao = db.getQuestionDao();
         userDao = db.getUserDao();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2/laravel/TopTrump/public/api/")
+                .baseUrl("https://informatica.ieszaidinvergeles.org:9027/laraveles/TopTrump/public/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Cardclient = retrofit.create(CardClient.class);

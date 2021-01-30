@@ -38,12 +38,11 @@ public class AdminCartasFragment extends Fragment {
 
     RecyclerView recyclerView;
     ViewModel viewModel;
-    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb;
+    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb, btgoimportar;
     ImageView imgAddCarta;
     TextView tvAddCarta;
     Animation animScaleUp, animScaleDown;
     Dialog dialogSalirAdmin;
-    Button btgoimportar;
 
     NavController navController;
 
@@ -64,16 +63,10 @@ public class AdminCartasFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btgoimportar = view.findViewById(R.id.btgoimportar);
+        btgoimportar = view.findViewById(R.id.viewDownloadCartasWeb);
         init(view);
 
         navController = Navigation.findNavController(view);
-        btgoimportar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_adminCartasFragment_to_importFragment);
-            }
-        });
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.rvCartasAdmin);
@@ -117,6 +110,7 @@ public class AdminCartasFragment extends Fragment {
                 if(event.getAction() == MotionEvent.ACTION_DOWN) {
                     viewDownloadCartasWeb.startAnimation(animScaleUp);
 
+                    navController.navigate(R.id.action_adminCartasFragment_to_importFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     viewDownloadCartasWeb.startAnimation(animScaleDown);

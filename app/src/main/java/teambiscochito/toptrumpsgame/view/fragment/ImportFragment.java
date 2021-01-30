@@ -12,12 +12,15 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,137 +36,229 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class ImportFragment extends Fragment {
 
+    RecyclerView recyclerView;
     ViewModel viewModel;
     List<Card> cardList;
-    Button btimportar, btback;
     NavController navController;
     ArrayList<Question> questionArrayList = new ArrayList<>();
+    View viewBackImport, viewImport;
+    Animation animScaleUp, animScaleDown;
+    TextView tvImport;
 
     public ImportFragment() {
 
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_import, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        init(view);
+
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
+
         navController = Navigation.findNavController(view);
+
         Call<ArrayList<Card>> cartaCall = viewModel.getCardClient().getAllCards();
         cartaCall.enqueue(new Callback<ArrayList<Card>>() {
+
             @Override
             public void onResponse(Call<ArrayList<Card>> call, Response<ArrayList<Card>> response) {
+
                 cardList = response.body();
+
                 try {
+
                     Thread.sleep(100);
+
                 } catch (InterruptedException e) {
+
                     e.printStackTrace();
+
                 }
+
                 initRecycler(view);
+
             }
 
             @Override
             public void onFailure(Call<ArrayList<Card>> call, Throwable t) {
-                Log.v("xyz error", t.getLocalizedMessage());
+
             }
+
         });
 
-        btimportar = view.findViewById(R.id.btImport);
-
         Call<ArrayList<Question>> call = viewModel.getCardClient().getAllQuestions();
+
         try {
+
             Thread.sleep(200);
+
         } catch (InterruptedException e) {
+
             e.printStackTrace();
+
         }
+
         call.enqueue(new Callback<ArrayList<Question>>() {
+
             @Override
             public void onResponse(Call<ArrayList<Question>> call, Response<ArrayList<Question>> response) {
-                for(Question q: response.body()){
-                    questionArrayList.add(q);
+
+                try {
+
+                    for (Question q : response.body()) {
+
+                        questionArrayList.add(q);
+
+                    }
+
+                } catch (NullPointerException e) {
+
                 }
+
             }
 
             @Override
             public void onFailure(Call<ArrayList<Question>> call, Throwable t) {
 
             }
+
         });
 
-        btback = view.findViewById(R.id.btback);
-        btback.setOnClickListener(new View.OnClickListener() {
+        viewBackImport.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.action_importFragment_to_adminCartasFragment);
-            }
-        });
+            public boolean onTouch(View v, MotionEvent event) {
 
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewBackImport.startAnimation(animScaleUp);
+
+                    navController.navigate(R.id.action_importFragment_to_adminCartasFragment);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewBackImport.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+
+        });
 
     }
 
-        private void initRecycler(View view) {
-            for(Card c: cardList){
-                String url= c.getPicUrl();
-                c.setPicUrl("http://10.0.2.2/TopTrump/img/"+url);
+    private void initRecycler(View view) {
 
+        try {
+
+            for (Card c : cardList) {
+
+                String url = c.getPicUrl();
+                c.setPicUrl("https://informatica.ieszaidinvergeles.org:9027/TopTrump/img/" + url);
 
             }
-            //Log.v("zyx", listaCartas.toString());
-            RecyclerView recyclerView = view.findViewById(R.id.recyclerImport);
+
             RecyclerImportAdapter adapter = new RecyclerImportAdapter(cardList, getContext(), getActivity());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-            btimportar.setOnClickListener(new View.OnClickListener() {
+
+            viewImport.setOnTouchListener(new View.OnTouchListener() {
                 @Override
-                public void onClick(View v) {
-                    for(CheckBox checkBox: adapter.getCheckBoxes()){
-                        if (checkBox.isChecked()){
-                            Log.v("xyz", cardList.get(adapter.getCheckBoxes().indexOf(checkBox)).toString() );
-                            Card card = cardList.get(adapter.getCheckBoxes().indexOf(checkBox));
-                            long cardid = card.getId();
+                public boolean onTouch(View v, MotionEvent event) {
 
-                            //Obtener sus preguntas
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        viewImport.startAnimation(animScaleUp);
+                        tvImport.startAnimation(animScaleUp);
 
-                            ArrayList<Question>  questionsFromCard = new ArrayList<>();
-                            for(Question q : questionArrayList) {
-                                if (q.getCard_id() == cardid) {
+                        for (CheckBox checkBox : adapter.getCheckBoxes()) {
 
-                                    questionsFromCard.add(q);
+                            if (checkBox.isChecked()) {
+
+                                Card card = cardList.get(adapter.getCheckBoxes().indexOf(checkBox));
+                                long cardid = card.getId();
+
+                                // Obtener sus preguntas
+                                ArrayList<Question> questionsFromCard = new ArrayList<>();
+
+                                for (Question q : questionArrayList) {
+
+                                    if (q.getCard_id() == cardid) {
+
+                                        questionsFromCard.add(q);
+
+                                    }
                                 }
-                            }
-                            // INSERTARLO EN LA BD
-                            card.setId(0);
-                            viewModel.insertCard(card);
-                            try {
-                                Thread.sleep(500);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            long newId = viewModel.getIdByName(card.getName());
-                            try {
-                                Thread.sleep(500);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
-                            for(Question q: questionsFromCard){
-                                q.setId(0);
-                                q.setCard_id(newId);
-                            }
-                            viewModel.insertAll(questionsFromCard);
 
+                                // INSERTARLO EN LA BD
+                                card.setId(0);
 
+                                viewModel.insertCard(card);
 
+                                try {
+
+                                    Thread.sleep(500);
+
+                                } catch (InterruptedException e) {
+
+                                }
+
+                                long newId = viewModel.getIdByName(card.getName());
+
+                                try {
+
+                                    Thread.sleep(500);
+
+                                } catch (InterruptedException e) {
+
+                                }
+
+                                for (Question q : questionsFromCard) {
+
+                                    q.setId(0);
+                                    q.setCard_id(newId);
+
+                                }
+
+                                viewModel.insertAll(questionsFromCard);
+
+                                navController.navigate(R.id.action_importFragment_to_adminCartasFragment);
+
+                            }
                         }
+
+                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                        viewImport.startAnimation(animScaleDown);
+                        tvImport.startAnimation(animScaleDown);
+
                     }
 
+                    return true;
                 }
+
             });
 
+        } catch (NullPointerException e) {
+
         }
+
+    }
+
+    private void init(View view) {
+
+        animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+        animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
+
+        viewBackImport = view.findViewById(R.id.viewBackImportFragment);
+        viewImport = view.findViewById(R.id.viewImport);
+        recyclerView = view.findViewById(R.id.recyclerImport);
+        tvImport = view.findViewById(R.id.tvImportCard);
+
+    }
+
 }

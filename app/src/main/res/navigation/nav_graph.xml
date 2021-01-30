@@ -196,7 +196,9 @@
             app:exitAnim="@anim/fade_salir_fragment" />
         <action
             android:id="@+id/action_adminCartasFragment_to_importFragment"
-            app:destination="@id/importFragment" />
+            app:destination="@id/importFragment"
+            app:enterAnim="@anim/slide_entrar_fragment"
+            app:exitAnim="@anim/slide_salir_fragment" />
     </fragment>
     <fragment
         android:id="@+id/addPlayerFragment"
@@ -265,6 +267,8 @@
         tools:layout="@layout/fragment_import" >
         <action
             android:id="@+id/action_importFragment_to_adminCartasFragment"
-            app:destination="@id/adminCartasFragment" />
+            app:destination="@id/adminCartasFragment"
+            app:enterAnim="@anim/slide_entrar_fragment_2"
+            app:exitAnim="@anim/slide_salir_fragment_2" />
     </fragment>
 </navigation>

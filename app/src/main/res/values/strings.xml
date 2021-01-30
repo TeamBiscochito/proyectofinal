@@ -118,6 +118,7 @@
     <string name="alertLongitudNoValida">Longitud no válida (máx. 9999)</string>
     <string name="alertVelocidadNoValida">Velocidad no válida (máx. 9999)</string>
     <string name="alertPoderNoValido">Poder no válido (1 - 10)</string>
+    <string name="textImpotar">Importar</string>
 
     <array name="magnitudesAltura">
         <item>m</item>
