@@ -69,6 +69,7 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
+
         mp_borrar = MediaPlayer.create(context, R.raw.borrar_sound);
 
         User user = userList.get(position);
@@ -141,8 +142,11 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
                             window.setGravity(Gravity.CENTER);
                             window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
+                            TextView tvConfirmarBorrarMsg = dialogConfirmarBorrar.findViewById(R.id.tvConfirmarBorrarMsg);
                             View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewCancelarBorrarJugador);
                             View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewAceptarBorrarJugador);
+
+                            tvConfirmarBorrarMsg.setText(R.string.tvConfirmarBorrarJugador);
 
                             viewCancelarBorrarJugador.setOnClickListener(new View.OnClickListener() {
                                 @Override

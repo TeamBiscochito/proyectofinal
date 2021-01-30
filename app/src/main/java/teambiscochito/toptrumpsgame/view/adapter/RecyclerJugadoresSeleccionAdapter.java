@@ -3,6 +3,7 @@ package teambiscochito.toptrumpsgame.view.adapter;
 
 import android.app.Activity;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,15 +25,18 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<RecyclerJugadoresSeleccionAdapter.ViewHolder> {
+
     List<User> userList;
     View view;
     ViewModel viewModel;
     Activity activity;
+    Context context;
 
-    public RecyclerJugadoresSeleccionAdapter(List<User> userList, View view, Activity activity){
+    public RecyclerJugadoresSeleccionAdapter(List<User> userList, View view, Activity activity, Context context){
         this.userList = userList;
         this.view = view;
         this.activity = activity;
+        this.context = context;
     }
 
     @NonNull
@@ -45,6 +49,7 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+
         holder.avatarRecycler.setImageResource(userList.get(position).getAvatar());
         holder.nombreJugadorRecycler.setText(userList.get(position).getName());
         holder.parent.setOnClickListener(new View.OnClickListener() {
@@ -53,10 +58,6 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
             public void onClick(View v) {
                 viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
 
-
-                // TODO: Por comprobar "Bundle en pruebas"
-                //Bundle bundle = new Bundle();
-                //bundle.putLong("userid", userList.get(position).getId());
                 viewModel.userActual = userList.get(position);
 
                 navController.navigate(R.id.action_chooseUserFragment_to_menuFragment);

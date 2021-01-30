@@ -64,6 +64,7 @@ public class AdminJugadorFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         init(view);
+
         navController = Navigation.findNavController(view);
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);

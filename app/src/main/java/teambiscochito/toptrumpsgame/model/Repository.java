@@ -29,12 +29,10 @@ import teambiscochito.toptrumpsgame.util.UtilThread;
 
 public class Repository {
 
-    private GameDataBase db;
-
     public CardDao cardDao;
     public QuestionDao questionDao;
     public UserDao userDao;
-    private int repeatedName;
+    private int repeatedName, repeatedNameCarta;
     CardClient Cardclient;
 
     public Repository(Context context) {
@@ -43,7 +41,7 @@ public class Repository {
         questionDao = db.getQuestionDao();
         userDao = db.getUserDao();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2/laravel/TopTrump/public/api/")
+                .baseUrl("https://informatica.ieszaidinvergeles.org:9027/laraveles/TopTrump/public/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Cardclient = retrofit.create(CardClient.class);
@@ -273,6 +271,32 @@ public class Repository {
         return repeatedName;
 
     }
+
+    public void getNameFromNameCarta(String name) {
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    repeatedNameCarta = cardDao.getNameFromNameCarta(name);
+                } catch (Exception e) {
+                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
+                }
+            }
+        });
+
+        try {
+            Thread.sleep(30);
+        } catch (InterruptedException e) {
+
+        }
+    }
+
+    public int getRepeatedNameCarta() {
+
+        return repeatedNameCarta;
+
+    }
+
     public List<Card> getAllCardsFromWeb() {
         final List<Card>[] cardArrayList = new List[]{new ArrayList<>()};
 
@@ -293,6 +317,7 @@ public class Repository {
                         for(Card c : cardArrayList[0]){
                             Log.v("xyzbodyrep", c.toString());
                         }
+
                     }
                     @Override
                     public void onFailure(Call<ArrayList<Card>> call, Throwable t) {

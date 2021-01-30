@@ -76,6 +76,7 @@ public class CartasFragment extends Fragment {
                     viewBackCartasNoAdmin.startAnimation(animScaleUp);
 
                     mp_cards.stop();
+
                     navController.navigate(R.id.action_cartasFragment_to_menuFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {

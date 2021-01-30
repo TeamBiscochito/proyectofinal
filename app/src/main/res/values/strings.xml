@@ -51,6 +51,7 @@
     <string name="tvAddJugador">Añadir jugador</string>
     <string name="alertCuidado">Cuidado</string>
     <string name="tvConfirmarBorrarJugador">¿Seguro que quieres borrar a este jugador?</string>
+    <string name="tvConfirmarBorrarCarta">¿Seguro que quieres borrar esta carta?</string>
     <string name="tvSeleccionaAvatar">Selecciona un avatar:</string>
     <string name="tvIntroduceNombre">Introduce un nombre:</string>
     <string name="tvIntroduceNombreSinPuntos">Introduce un nombre</string>
@@ -89,4 +90,53 @@
     <string name="textPinchaNombreParaInfoCarta">Pulsa en el nombre para + info</string>
     <string name="textPreguntaCorrecta">¡Correcto!</string>
     <string name="textPreguntaErronea">¡Has fallado!</string>
+    <string name="tvEditarCarta">Editar carta</string>
+    <string name="tvNombreDemasiadoLargo">Nombre demasiado largo</string>
+    <string name="tvNombreDosPuntos">Nombre:</string>
+    <string name="tvDescripcionDosPuntos">Descripción:</string>
+    <string name="tvDesc">Descripción</string>
+    <string name="tvUrlImagenDosPuntos">URL de la imagen:</string>
+    <string name="tvURL">URL</string>
+    <string name="tvAlturaDosPuntos">Altura:</string>
+    <string name="tvPesoDosPuntos">Peso:</string>
+    <string name="tvLongitudDosPuntos">Longitud:</string>
+    <string name="tvVelocidadDosPuntos">Velocidad:</string>
+    <string name="tvPoderDosPuntos">Poder:</string>
+    <string name="tvNuevoNombreDosPuntos">Nuevo nombre:</string>
+    <string name="tvNuevaDescripcionDosPuntos">Nueva descripción:</string>
+    <string name="tvNuevaUrlImagenDosPuntos">Nueva URL de la imagen:</string>
+    <string name="tvNuevaAlturaDosPuntos">Nueva altura:</string>
+    <string name="tvNuevoPesoDosPuntos">Nuevo peso:</string>
+    <string name="tvNuevaLongitudDosPuntos">Nueva longitud:</string>
+    <string name="tvNuevaVelocidadDosPuntos">Nueva velocidad:</string>
+    <string name="tvNuevoPoderDosPuntos">Nuevo poder:</string>
+    <string name="alertAlgunCampoEstaVacio">Algún campo está vacío</string>
+    <string name="alertNombreNoValido">Nombre no válido</string>
+    <string name="alertDescDemasiadoLarga">Descripción demasiado larga</string>
+    <string name="alertAlturaNoValida">Altura no válida (máx. 9999)</string>
+    <string name="alertPesoNoValido">Peso no válido (máx. 9999)</string>
+    <string name="alertLongitudNoValida">Longitud no válida (máx. 9999)</string>
+    <string name="alertVelocidadNoValida">Velocidad no válida (máx. 9999)</string>
+    <string name="alertPoderNoValido">Poder no válido (1 - 10)</string>
+    <string name="textImpotar">Importar</string>
+
+    <array name="magnitudesAltura">
+        <item>m</item>
+        <item>cm</item>
+    </array>
+
+    <array name="magnitudesVelocidad">
+        <item>km/h</item>
+    </array>
+
+    <array name="magnitudesPeso">
+        <item>kg</item>
+        <item>g</item>
+        <item>T</item>
+    </array>
+
+    <array name="magnitudesLongitud">
+        <item>m</item>
+        <item>cm</item>
+    </array>
 </resources>

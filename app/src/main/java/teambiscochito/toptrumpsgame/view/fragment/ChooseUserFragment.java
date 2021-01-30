@@ -136,7 +136,7 @@ public class ChooseUserFragment extends Fragment {
             @Override
             public void onChanged(List<User> users) {
 
-                RecyclerJugadoresSeleccionAdapter adapter = new RecyclerJugadoresSeleccionAdapter(users ,view, getActivity());
+                RecyclerJugadoresSeleccionAdapter adapter = new RecyclerJugadoresSeleccionAdapter(users ,view, getActivity(), getContext());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -175,7 +175,9 @@ public class ChooseUserFragment extends Fragment {
         imgAtrasAjustesDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialogAjustes.dismiss();
+
             }
         });
 
@@ -290,6 +292,7 @@ public class ChooseUserFragment extends Fragment {
             public void onClick(View v) {
 
                 mp_seleccionarJugador.stop();
+
                 tutorialDialog.dismiss();
 
                 Bundle bundle = new Bundle();
