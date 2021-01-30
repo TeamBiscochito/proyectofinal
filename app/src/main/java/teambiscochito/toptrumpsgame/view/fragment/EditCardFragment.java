@@ -21,7 +21,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
+import java.util.Locale;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
@@ -40,6 +42,7 @@ public class EditCardFragment extends Fragment {
     private Spinner alturaSp, velocidadSp, pesoSp, longitudSp;
     private Card card;
     private ViewModel viewModel;
+    DecimalFormat formatter;
 
     public EditCardFragment() {
 
@@ -60,6 +63,9 @@ public class EditCardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         init(view);
+        NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
+        DecimalFormat formatter = (DecimalFormat) nf;
+        formatter.applyPattern("##.#");
 
         navController = Navigation.findNavController(view);
 
@@ -202,21 +208,23 @@ public class EditCardFragment extends Fragment {
                         card.setPicUrl(urlNew);
                         viewModel.updateCard(card);
 
-                        String alturaDouble = new DecimalFormat("##.#").format(alturaNew);
+
+
+                        String alturaDouble =formatter.format(alturaNew);
                         double altd = Double.parseDouble(alturaDouble);
 
                         questionList.get(0).setAnswer(altd);
                         questionList.get(0).setMagnitude(alturaMagNew);
                         viewModel.updateQuestion(questionList.get(0));
 
-                        String pesoDouble = new DecimalFormat("##.#").format(pesoNew);
+                        String pesoDouble = formatter.format(pesoNew);
                         double pesd = Double.parseDouble(pesoDouble);
 
                         questionList.get(1).setAnswer(pesd);
                         questionList.get(1).setMagnitude(pesoMagNew);
                         viewModel.updateQuestion(questionList.get(1));
 
-                        String longitudDouble = new DecimalFormat("##.#").format(longitudNew);
+                        String longitudDouble = formatter.format(longitudNew);
                         double lond = Double.parseDouble(longitudDouble);
 
 
@@ -224,7 +232,7 @@ public class EditCardFragment extends Fragment {
                         questionList.get(2).setMagnitude(longitudMagNew);
                         viewModel.updateQuestion(questionList.get(2));
 
-                        String velocidadDouble = new DecimalFormat("##.#").format(velocidadNew);
+                        String velocidadDouble = formatter.format(velocidadNew);
                         double veld = Double.parseDouble(velocidadDouble);
 
                         questionList.get(3).setAnswer(veld);
@@ -243,21 +251,21 @@ public class EditCardFragment extends Fragment {
                         card.setPicUrl(urlNew);
                         viewModel.updateCard(card);
 
-                        String alturaDouble = new DecimalFormat("##.#").format(alturaNew);
+                        String alturaDouble =formatter.format(alturaNew);
                         double altd = Double.parseDouble(alturaDouble);
 
                         questionList.get(0).setAnswer(altd);
                         questionList.get(0).setMagnitude(alturaMagNew);
                         viewModel.updateQuestion(questionList.get(0));
 
-                        String pesoDouble = new DecimalFormat("##.#").format(pesoNew);
+                        String pesoDouble = formatter.format(pesoNew);
                         double pesd = Double.parseDouble(pesoDouble);
 
                         questionList.get(1).setAnswer(pesd);
                         questionList.get(1).setMagnitude(pesoMagNew);
                         viewModel.updateQuestion(questionList.get(1));
 
-                        String longitudDouble = new DecimalFormat("##.#").format(longitudNew);
+                        String longitudDouble = formatter.format(longitudNew);
                         double lond = Double.parseDouble(longitudDouble);
 
 
@@ -265,7 +273,7 @@ public class EditCardFragment extends Fragment {
                         questionList.get(2).setMagnitude(longitudMagNew);
                         viewModel.updateQuestion(questionList.get(2));
 
-                        String velocidadDouble = new DecimalFormat("##.#").format(velocidadNew);
+                        String velocidadDouble = formatter.format(velocidadNew);
                         double veld = Double.parseDouble(velocidadDouble);
 
                         questionList.get(3).setAnswer(veld);
@@ -289,21 +297,21 @@ public class EditCardFragment extends Fragment {
                         card.setPicUrl(urlNew);
                         viewModel.updateCard(card);
 
-                        String alturaDouble = new DecimalFormat("##.#").format(alturaNew);
+                        String alturaDouble =formatter.format(alturaNew);
                         double altd = Double.parseDouble(alturaDouble);
 
                         questionList.get(0).setAnswer(altd);
                         questionList.get(0).setMagnitude(alturaMagNew);
                         viewModel.updateQuestion(questionList.get(0));
 
-                        String pesoDouble = new DecimalFormat("##.#").format(pesoNew);
+                        String pesoDouble = formatter.format(pesoNew);
                         double pesd = Double.parseDouble(pesoDouble);
 
                         questionList.get(1).setAnswer(pesd);
                         questionList.get(1).setMagnitude(pesoMagNew);
                         viewModel.updateQuestion(questionList.get(1));
 
-                        String longitudDouble = new DecimalFormat("##.#").format(longitudNew);
+                        String longitudDouble =formatter.format(longitudNew);
                         double lond = Double.parseDouble(longitudDouble);
 
 
@@ -311,7 +319,7 @@ public class EditCardFragment extends Fragment {
                         questionList.get(2).setMagnitude(longitudMagNew);
                         viewModel.updateQuestion(questionList.get(2));
 
-                        String velocidadDouble = new DecimalFormat("##.#").format(velocidadNew);
+                        String velocidadDouble = formatter.format(velocidadNew);
                         double veld = Double.parseDouble(velocidadDouble);
 
                         questionList.get(3).setAnswer(veld);

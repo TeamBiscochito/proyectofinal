@@ -9,6 +9,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -21,7 +22,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
@@ -136,17 +139,23 @@ public class AddCardFragment extends Fragment {
                         longitud = Double.parseDouble(longitudEt.getText().toString());
                         poder = Double.parseDouble(poderEt.getText().toString());
 
-                        String alturaDouble = new DecimalFormat("##.#").format(altura);
+                        NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
+                        DecimalFormat formatter = (DecimalFormat) nf;
+                        formatter.applyPattern("##.#");
+
+                        String alturaDouble = formatter.format(altura);
                         altd = Double.parseDouble(alturaDouble);
 
-                        String pesoDouble = new DecimalFormat("##.#").format(peso);
+                        String pesoDouble =  formatter.format(peso);
                         pesd = Double.parseDouble(pesoDouble);
 
-                        String velocidadDouble = new DecimalFormat("##.#").format(velocidad);
+                        String velocidadDouble =  formatter.format(velocidad);
                         veld = Double.parseDouble(velocidadDouble);
 
-                        String longitudDouble = new DecimalFormat("##.#").format(longitud);
+                        String longitudDouble = formatter.format(longitud);
                         lond = Double.parseDouble(longitudDouble);
+
+
 
                     } catch (Exception ex) {
 
