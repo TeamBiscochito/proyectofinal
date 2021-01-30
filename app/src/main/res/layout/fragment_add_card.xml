@@ -13,12 +13,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/admin_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:focusable="true"
-        android:focusableInTouchMode="true">
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline109"
@@ -144,14 +144,16 @@
             android:id="@+id/svCrearCarta"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scrollbarThumbVertical="@drawable/brown_scrollbarthumb"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:scrollbarSize="10dp"
+            android:scrollbarThumbVertical="@drawable/brown_scrollbarthumb"
             app:layout_constraintBottom_toTopOf="@+id/guideline119"
             app:layout_constraintEnd_toEndOf="@id/guideline112"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="@id/guideline111"
             app:layout_constraintTop_toTopOf="@id/guideline110"
-            android:focusable="true"
-            android:focusableInTouchMode="true">
+            app:layout_constraintVertical_bias="1.0">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/consSvCrearCarta"
@@ -159,6 +161,13 @@
                 android:layout_height="wrap_content"
                 android:focusable="true"
                 android:focusableInTouchMode="true">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline121"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.45" />
 
                 <TextView
                     android:id="@+id/textView49"
@@ -291,16 +300,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints=""
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/textAlturaMedia"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/alturasp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline121"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
@@ -327,16 +337,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints=""
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/textPesoMedio"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/pesosp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline121"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
@@ -363,16 +374,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints=""
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/textLongitudMedia"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/longitudsp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline121"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView54" />
 
@@ -399,16 +411,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints=""
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/textVelocidadMedia"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/velocidadsp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline121"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView55" />
 
@@ -444,6 +457,7 @@
                     android:hint="@string/textPoderMortifero"
                     android:imeOptions="actionDone"
                     android:inputType="number"
+                    android:maxLength="2"
                     android:padding="8dp"
                     app:layout_constraintBottom_toBottomOf="@id/consSvCrearCarta"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
@@ -455,8 +469,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/alturaEtAddCard"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline121"
                     app:layout_constraintTop_toTopOf="@+id/alturaEtAddCard" />
 
                 <Spinner
@@ -464,8 +480,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/pesoEtAddCard"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline121"
                     app:layout_constraintTop_toTopOf="@+id/pesoEtAddCard" />
 
                 <Spinner
@@ -473,8 +491,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/longitudEtAddCard"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline121"
                     app:layout_constraintTop_toTopOf="@+id/longitudEtAddCard" />
 
                 <Spinner
@@ -482,8 +502,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/velocidadEtAddCard"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline121"
                     app:layout_constraintTop_toTopOf="@+id/velocidadEtAddCard" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -491,130 +513,5 @@
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <EditText
-        android:id="@+id/descriptionEtAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Descripcion"
-        android:inputType="textMultiLine"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nombreEtAddCard" />
-
-    <EditText
-        android:id="@+id/urlEt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="URL"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/nombreEtAddCard"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Añadir"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/poderEtAddCard" />
-
-    <EditText
-        android:id="@+id/nombreEtAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Nombre"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/alturaEtAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Altura"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionEtAddCard" />
-
-    <EditText
-        android:id="@+id/pesoEtAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Peso"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/alturaEtAddCard" />
-
-    <EditText
-        android:id="@+id/longitudEtAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Longitud"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pesoEtAddCard" />
-
-    <EditText
-        android:id="@+id/velocidadEtAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Velocidad"
-        android:inputType="numberDecimal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/longitudEtAddCard" />
-
-    <EditText
-        android:id="@+id/poderEtAddCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Poder"
-        android:inputType="number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/velocidadEtAddCard" />
-
-    <Spinner
-        android:id="@+id/alturasp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/alturaEtAddCard"
-        app:layout_constraintTop_toBottomOf="@+id/descriptionEtAddCard" />
-
-    <Spinner
-        android:id="@+id/pesosp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/alturaEtAddCard"
-        app:layout_constraintTop_toTopOf="@+id/pesoEtAddCard" />
-
-    <Spinner
-        android:id="@+id/longitudsp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/alturaEtAddCard"
-        app:layout_constraintTop_toBottomOf="@+id/pesoEtAddCard" />
-
-    <Spinner
-        android:id="@+id/velocidadsp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/alturaEtAddCard"
-        app:layout_constraintTop_toBottomOf="@+id/longitudEtAddCard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

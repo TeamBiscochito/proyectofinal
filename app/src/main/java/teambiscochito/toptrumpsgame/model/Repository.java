@@ -32,7 +32,7 @@ public class Repository {
     public CardDao cardDao;
     public QuestionDao questionDao;
     public UserDao userDao;
-    private int repeatedName;
+    private int repeatedName, repeatedNameCarta;
     CardClient client;
 
     public Repository(Context context) {
@@ -270,6 +270,32 @@ public class Repository {
         return repeatedName;
 
     }
+
+    public void getNameFromNameCarta(String name) {
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    repeatedNameCarta = cardDao.getNameFromNameCarta(name);
+                } catch (Exception e) {
+                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
+                }
+            }
+        });
+
+        try {
+            Thread.sleep(30);
+        } catch (InterruptedException e) {
+
+        }
+    }
+
+    public int getRepeatedNameCarta() {
+
+        return repeatedNameCarta;
+
+    }
+
     public List<Card> getAllCards() {
         final List<Card>[] cardArrayList = new List[]{new ArrayList<>()};
 
@@ -305,7 +331,6 @@ public class Repository {
     public void saveCards(Card Carta) {
         return;
     }
-
 
     public Long getIdByName(String name) {
         final long[] id = new long[1];

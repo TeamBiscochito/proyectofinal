@@ -293,16 +293,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints=""
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/textAlturaMedia"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/alturaspEdit"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline122"
                     app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
@@ -329,16 +330,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints=""
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/textPesoMedio"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/pesospEdit"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline122"
                     app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
@@ -365,16 +367,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints=""
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/textLongitudMedia"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/longitudspEdit"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline122"
                     app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView54" />
 
@@ -401,16 +404,17 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints=""
                     android:background="@drawable/edittext_bg"
                     android:ems="10"
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/textVelocidadMedia"
                     android:imeOptions="actionDone"
-                    android:inputType="number"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/velocidadspEdit"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline122"
                     app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView55" />
 
@@ -446,6 +450,7 @@
                     android:hint="@string/textPoderMortifero"
                     android:imeOptions="actionDone"
                     android:inputType="number"
+                    android:maxLength="2"
                     android:padding="8dp"
                     app:layout_constraintBottom_toBottomOf="@id/consSvEditarCarta"
                     app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
@@ -457,8 +462,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/alturaEtEditCard"
                     app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline122"
                     app:layout_constraintTop_toTopOf="@+id/alturaEtEditCard" />
 
                 <Spinner
@@ -466,8 +473,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/pesoEtEditCard"
                     app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline122"
                     app:layout_constraintTop_toTopOf="@+id/pesoEtEditCard" />
 
                 <Spinner
@@ -475,8 +484,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/longitudEtEditCard"
                     app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline122"
                     app:layout_constraintTop_toTopOf="@+id/longitudEtEditCard" />
 
                 <Spinner
@@ -484,9 +495,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/velocidadEtEditCard"
                     app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline122"
                     app:layout_constraintTop_toTopOf="@+id/velocidadEtEditCard" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline122"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.45" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

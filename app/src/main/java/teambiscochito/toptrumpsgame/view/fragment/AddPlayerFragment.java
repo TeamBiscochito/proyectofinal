@@ -169,7 +169,7 @@ public class AddPlayerFragment extends Fragment {
 
                         tvAlertaAddJugador.setText(R.string.tvIntroduceNombreSinPuntos);
 
-                    } else if (ValidarDatos.validarNombre(nombre)) {
+                    } else if (ValidarDatos.validarNombreJugador(nombre)) {
 
                         tvAlertaAddJugador.setText(R.string.tvNombreDemasiadoLargo);
 

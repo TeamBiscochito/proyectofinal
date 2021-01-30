@@ -37,7 +37,7 @@ public class AdminCartasFragment extends Fragment {
 
     RecyclerView recyclerView;
     ViewModel viewModel;
-    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta;
+    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb;
     ImageView imgAddCarta;
     TextView tvAddCarta;
     Animation animScaleUp, animScaleDown;
@@ -70,11 +70,19 @@ public class AdminCartasFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         recyclerView = getView().findViewById(R.id.rvCartasAdmin);
 
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        LiveData<List<Card>> cardList = viewModel.getCardList();
+        cardList.observe(getViewLifecycleOwner(), new Observer<List<Card>>() {
+            @Override
+            public void onChanged(List<Card> cards) {
 
-        RecyclerCartasAdminAdapter adapter = new RecyclerCartasAdminAdapter(view, getActivity(), getContext());
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(layoutManager);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+
+                RecyclerCartasAdminAdapter adapter = new RecyclerCartasAdminAdapter(cards ,view, getActivity(), getContext());
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(layoutManager);
+
+            }
+        });
 
         viewBackAdminCartas.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -87,6 +95,23 @@ public class AdminCartasFragment extends Fragment {
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     viewBackAdminCartas.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
+
+        viewDownloadCartasWeb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewDownloadCartasWeb.startAnimation(animScaleUp);
+
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewDownloadCartasWeb.startAnimation(animScaleDown);
 
                 }
 
@@ -144,6 +169,7 @@ public class AdminCartasFragment extends Fragment {
         viewBackAdminCartas = view.findViewById(R.id.viewBackAdminCartas);
         viewCerrarAdminCartas = view.findViewById(R.id.viewCerrarAdminCartas);
         viewAddCarta = view.findViewById(R.id.viewAddCarta);
+        viewDownloadCartasWeb = view.findViewById(R.id.viewDownloadCartasWeb);
         imgAddCarta = view.findViewById(R.id.imgAddCarta);
         tvAddCarta = view.findViewById(R.id.tvAddCarta);
 

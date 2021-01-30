@@ -23,9 +23,6 @@ public class ViewModel extends AndroidViewModel {
     Card card;
     public static List<Card> cards;
     public static List<Question> questions;
-    public static List<Card> cards;
-    public static List<Question> questions;
-
 
     public ViewModel(@NonNull Application application) {
         super(application);
@@ -136,9 +133,19 @@ public class ViewModel extends AndroidViewModel {
         repository.getNameFromName(name);
     }
 
+    public void getNameFromNameCarta(String name) {
+        repository.getNameFromNameCarta(name);
+    }
+
     public int getRepeatedName() {
 
         return repository.getRepeatedName();
+
+    }
+
+    public int getRepeatedNameCarta() {
+
+        return repository.getRepeatedNameCarta();
 
     }
 
@@ -172,6 +179,5 @@ public class ViewModel extends AndroidViewModel {
     public void insertAll(ArrayList<Question> questionArrayList) {
         repository.insertAll(questionArrayList);
     }
-
 
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+
+        <layer-list>
+
+            <item>
+
+                <shape android:shape="rectangle">
+
+                    <solid android:color="#B37744" />
+                    <corners android:radius="10dp" />
+                    <padding android:right="10dp" />
+
+                </shape>
+
+            </item>
+
+            <item>
+
+                <bitmap android:gravity="center|end" android:src="@drawable/ic_down_spinn" />
+
+            </item>
+
+        </layer-list>
+
+    </item>
+
+</selector>

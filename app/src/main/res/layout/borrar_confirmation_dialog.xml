@@ -25,14 +25,13 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView25"
+                android:id="@+id/tvConfirmarBorrarMsg"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="6dp"
                 android:fontFamily="@font/schoolbell"
-                android:text="@string/tvConfirmarBorrarJugador"
                 android:textAlignment="center"
                 android:textColor="#472C06"
                 android:textSize="24sp"

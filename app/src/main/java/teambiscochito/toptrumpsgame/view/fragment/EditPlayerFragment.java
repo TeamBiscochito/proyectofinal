@@ -217,7 +217,7 @@ public class EditPlayerFragment extends Fragment {
 
                         tvAlertaEditJugador.setText(R.string.tvIntroduceNombreSinPuntos);
 
-                    } else if (ValidarDatos.validarNombre(nombre)) {
+                    } else if (ValidarDatos.validarNombreJugador(nombre)) {
 
                         tvAlertaEditJugador.setText(R.string.tvNombreDemasiadoLargo);
 
@@ -254,8 +254,6 @@ public class EditPlayerFragment extends Fragment {
                         navController.navigate(R.id.action_editPlayerFragment_to_adminJugadorFragment);
 
                     }
-
-
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     viewEditJugador.startAnimation(animScaleDown);

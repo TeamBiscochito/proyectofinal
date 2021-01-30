@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.text.LineBreaker;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -40,6 +41,7 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCartasAdminAdapter.ViewHolder> {
 
+    List<Card> cardList;
     View view;
     Activity activity;
     Context context;
@@ -48,8 +50,10 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
     Dialog dialogCartas, dialogConfirmarBorrar;
 
     NavController navController;
+    private MediaPlayer mp_borrar;
 
-    public RecyclerCartasAdminAdapter(View view, Activity activity, Context context){
+    public RecyclerCartasAdminAdapter(List<Card> cardList, View view, Activity activity, Context context){
+        this.cardList = cardList;
         this.view = view;
         this.activity = activity;
         this.context = context;
@@ -71,6 +75,8 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
+
+        mp_borrar = MediaPlayer.create(context, R.raw.borrar_sound);
 
         Card card = viewModel.cards.get(position);
 
@@ -106,10 +112,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
             holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
             holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());
             holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
-            Log.v("xyz", viewModel.cards.get(position).toString());
-            for(Question q : questionList){
-                Log.v("xyz", q.toString());
-            }
+
         } catch (Exception ex){
 
         }
@@ -139,7 +142,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
                 viewModel.setCard(card);
 
-                if(!((card.getId() == 1) || (card.getId() == 2) || (card.getId() == 3) || (card.getId() == 4)/* || (card.getId() == 5)*/)) {
+                if(!((card.getId() == 1) || (card.getId() == 2) || (card.getId() == 3) || (card.getId() == 4) || (card.getId() == 5))) {
 
                     dialogCartas = new Dialog(context);
                     dialogCartas.setContentView(R.layout.cartas_dialog);
@@ -204,15 +207,17 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                                 window.setGravity(Gravity.CENTER);
                                 window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
+                                TextView tvConfirmarBorrarMsg = dialogConfirmarBorrar.findViewById(R.id.tvConfirmarBorrarMsg);
                                 View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewCancelarBorrarJugador);
                                 View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewAceptarBorrarJugador);
+
+                                tvConfirmarBorrarMsg.setText(R.string.tvConfirmarBorrarCarta);
 
                                 viewCancelarBorrarJugador.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
 
                                         dialogConfirmarBorrar.dismiss();
-                                        Log.v("xyz", "cancelarBt");
 
                                     }
                                 });
@@ -223,9 +228,9 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
                                         dialogConfirmarBorrar.dismiss();
                                         dialogCartas.dismiss();
+                                        mp_borrar.start();
 
-                                        long idBorrar = viewModel.cards.get(position).getId();
-                                        Log.v("xyz", "aceptar: " + idBorrar);
+                                        long idBorrar = cardList.get(position).getId();
                                         viewModel.deleteCardById(idBorrar);
 
                                     }
@@ -307,7 +312,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                             .apply(options)
                             .into(imgAnimal);
 
-                    tvNombre.setText(cardList.get(position).getName());
+                    tvNombre.setText(viewModel.cards.get(position).getName());
                     tvEstaCartaNoSeModifica.setText("Esta carta no se puede modificar");
 
                     dialogCartas.setCancelable(true);

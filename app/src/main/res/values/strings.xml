@@ -51,6 +51,7 @@
     <string name="tvAddJugador">Añadir jugador</string>
     <string name="alertCuidado">Cuidado</string>
     <string name="tvConfirmarBorrarJugador">¿Seguro que quieres borrar a este jugador?</string>
+    <string name="tvConfirmarBorrarCarta">¿Seguro que quieres borrar esta carta?</string>
     <string name="tvSeleccionaAvatar">Selecciona un avatar:</string>
     <string name="tvIntroduceNombre">Introduce un nombre:</string>
     <string name="tvIntroduceNombreSinPuntos">Introduce un nombre</string>
@@ -109,6 +110,14 @@
     <string name="tvNuevaLongitudDosPuntos">Nueva longitud:</string>
     <string name="tvNuevaVelocidadDosPuntos">Nueva velocidad:</string>
     <string name="tvNuevoPoderDosPuntos">Nuevo poder:</string>
+    <string name="alertAlgunCampoEstaVacio">Algún campo está vacío</string>
+    <string name="alertNombreNoValido">Nombre no válido</string>
+    <string name="alertDescDemasiadoLarga">Descripción demasiado larga</string>
+    <string name="alertAlturaNoValida">Altura no válida (máx. 9999)</string>
+    <string name="alertPesoNoValido">Peso no válido (máx. 9999)</string>
+    <string name="alertLongitudNoValida">Longitud no válida (máx. 9999)</string>
+    <string name="alertVelocidadNoValida">Velocidad no válida (máx. 9999)</string>
+    <string name="alertPoderNoValido">Poder no válido (1 - 10)</string>
 
     <array name="magnitudesAltura">
         <item>m</item>
