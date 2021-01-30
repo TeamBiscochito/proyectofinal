@@ -9,7 +9,7 @@
 
     <View
         android:id="@+id/viewNombreAnimalJuego"
-        android:layout_width="200dp"
+        android:layout_width="230dp"
         android:layout_height="80dp"
         android:background="@drawable/tablero_nombre_jugar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,11 +20,11 @@
         android:id="@+id/tvNombreAnimalJuego"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         android:fontFamily="@font/schoolbell"
-        android:text="Nombre"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="26sp"
+        android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewNombreAnimalJuego"
         app:layout_constraintEnd_toEndOf="@+id/viewNombreAnimalJuego"
@@ -41,20 +41,25 @@
 
     <View
         android:id="@+id/view25"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
         android:alpha="0.5"
         android:background="@drawable/brown_bg_jugar_redondo"
         app:layout_constraintBottom_toTopOf="@+id/tvPreguntaJuegoDeterminante"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewNombreAnimalJuego" />
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/imgAnimalJuego"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="@drawable/av_cerdo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/view25"
         app:layout_constraintEnd_toEndOf="@+id/view25"
         app:layout_constraintStart_toStartOf="@+id/view25"
@@ -64,8 +69,8 @@
         android:id="@+id/viewCloseJuego"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/cerrar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -75,18 +80,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.60" />
+        app:layout_constraintGuide_percent="0.61" />
 
     <View
         android:id="@+id/view22"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:background="#B97A57"
         android:alpha="0.5"
+        android:background="#B97A57"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +102,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/frame_bot_jugar"
@@ -157,7 +162,7 @@
         android:fontFamily="@font/schoolbell"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewBotonJuego1"
         app:layout_constraintEnd_toEndOf="@+id/viewBotonJuego1"
@@ -171,7 +176,7 @@
         android:fontFamily="@font/schoolbell"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewBotonJuego2"
         app:layout_constraintEnd_toEndOf="@+id/viewBotonJuego2"
@@ -185,7 +190,7 @@
         android:fontFamily="@font/schoolbell"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewBotonJuego3"
         app:layout_constraintEnd_toEndOf="@+id/viewBotonJuego3"
@@ -199,7 +204,7 @@
         android:fontFamily="@font/schoolbell"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewBotonJuego4"
         app:layout_constraintEnd_toEndOf="@+id/viewBotonJuego4"
@@ -220,21 +225,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5325" />
+        app:layout_constraintGuide_percent="0.5493171" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline109"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.49" />
 
     <TextView
         android:id="@+id/tvPreguntaJuegoTema"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:fontFamily="@font/schoolbell"
-        android:text="altura"
+        android:gravity="center"
+        android:text="Variable"
         android:textAlignment="center"
         android:textColor="#224E96"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline99"
+        app:layout_constraintBottom_toTopOf="@+id/textView40"
         app:layout_constraintEnd_toEndOf="@+id/viewPergaminoPreguntaJugar"
-        app:layout_constraintStart_toStartOf="@+id/viewPergaminoPreguntaJugar" />
+        app:layout_constraintStart_toStartOf="@+id/viewPergaminoPreguntaJugar"
+        app:layout_constraintTop_toBottomOf="@+id/tvPreguntaJuegoDeterminante" />
 
     <TextView
         android:id="@+id/textView40"
@@ -246,7 +261,7 @@
         android:text="@string/textDeEsteAnimal"
         android:textAlignment="center"
         android:textColor="#472C06"
-        android:textSize="18sp"
+        android:textSize="21sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/guideline31"
         app:layout_constraintEnd_toEndOf="parent"
@@ -259,10 +274,9 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:fontFamily="@font/schoolbell"
-        android:text="¿Cuál es la"
         android:textAlignment="center"
         android:textColor="#472C06"
-        android:textSize="18sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/viewPergaminoPreguntaJugar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -271,13 +285,13 @@
 
     <View
         android:id="@+id/view26"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/brown_bg_jugar_redondo_frame"
-        app:layout_constraintBottom_toTopOf="@+id/tvPreguntaJuegoDeterminante"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="@+id/view25"
+        app:layout_constraintEnd_toEndOf="@+id/view25"
+        app:layout_constraintStart_toStartOf="@+id/view25"
+        app:layout_constraintTop_toTopOf="@+id/view25" />
 
     <View
         android:id="@+id/bird1"

@@ -76,9 +76,8 @@
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/vp_bocadillos"
-        android:layout_width="230dp"
-        android:layout_height="230dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="260dp"
+        android:layout_height="260dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/guideline84"

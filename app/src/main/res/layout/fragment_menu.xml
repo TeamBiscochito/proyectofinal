@@ -85,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.87" />
+        app:layout_constraintGuide_percent="0.86" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -204,29 +204,26 @@
         app:layout_constraintTop_toTopOf="@+id/guideline" />
 
     <View
-        android:id="@+id/viewMenuCreditos"
+        android:id="@+id/viewMenuWeb"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuSettings" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenuSettings"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuSettings" />
 
-    <TextView
-        android:id="@+id/tvMenuCreditos"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/schoolbell"
-        android:text="@string/tvCreditos"
-        android:textAlignment="center"
-        android:textColor="#472C06"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuCreditos"
-        app:layout_constraintEnd_toEndOf="@+id/viewMenuCreditos"
-        app:layout_constraintStart_toStartOf="@+id/viewMenuCreditos"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuCreditos" />
+    <ImageView
+        android:id="@+id/ivMenuWeb"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/imgMusica"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenuWeb"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenuWeb"
+        app:layout_constraintStart_toStartOf="@+id/viewMenuWeb"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuWeb"
+        app:srcCompat="@drawable/ic_web" />
 
     <View
         android:id="@+id/viewMenuSettings"
@@ -234,9 +231,10 @@
         android:layout_height="80dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
-        app:layout_constraintEnd_toStartOf="@+id/viewMenuCreditos"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenuWeb"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuUser" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenuUser"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuUser" />
 
     <ImageView
         android:id="@+id/ivMenuSettings"
@@ -253,14 +251,14 @@
         android:id="@+id/viewMenuUser"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginBottom="8dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/viewMenuSettings"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuCerrarSesion" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenuCerrarSesion"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/ivMenuUser"
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -269,8 +267,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
         app:layout_constraintEnd_toEndOf="@+id/viewMenuUser"
         app:layout_constraintStart_toStartOf="@+id/viewMenuUser"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuUser"
-        app:srcCompat="@drawable/ic_user" />
+        app:layout_constraintTop_toTopOf="@+id/viewMenuUser" />
 
     <View
         android:id="@+id/viewMenuCerrarSesion"
@@ -280,25 +277,22 @@
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
         app:layout_constraintEnd_toStartOf="@+id/viewMenuUser"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewMenuUser" />
 
-    <TextView
-        android:id="@+id/tvMenuCerrarSesion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/schoolbell"
-        android:text="@string/tvCerrarSesion"
-        android:textAlignment="center"
-        android:textColor="#472C06"
-        android:textSize="17sp"
-        android:textStyle="bold"
+    <ImageView
+        android:id="@+id/ivMenuCerrarSesion"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:contentDescription="@string/imgMusica"
         app:layout_constraintBottom_toBottomOf="@+id/viewMenuCerrarSesion"
         app:layout_constraintEnd_toEndOf="@+id/viewMenuCerrarSesion"
         app:layout_constraintStart_toStartOf="@+id/viewMenuCerrarSesion"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuCerrarSesion" />
+        app:layout_constraintTop_toTopOf="@+id/viewMenuCerrarSesion"
+        app:srcCompat="@drawable/ic_cerrarsesion" />
 
     <View
-        android:id="@+id/viewVerDialogWeb"
+        android:id="@+id/viewVerDialogCreditos"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvCartasNoAdmin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="35dp"
+    android:layout_marginTop="30dp"
+    android:layout_marginEnd="35dp"
+    android:layout_marginBottom="15dp"
+    android:background="#6A3403"
+    android:backgroundTint="#6A3403"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/carta_bg_dos">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline46"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <com.wajahatkarim3.easyflipview.EasyFlipView
+            android:id="@+id/easyflipview"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="16dp"
+            app:autoFlipBack="false"
+            app:flipDuration="400"
+            app:flipEnabled="true"
+            app:flipFrom="right"
+            app:flipOnTouch="false"
+            app:flipType="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/guideline72"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline73">
+
+            <!-- Back Layout Goes Here -->
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvDescCartasNoAdminBack"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="#ACE1EE"
+                    android:fontFamily="@font/schoolbell"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textColor="#2470B1"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </ScrollView>
+
+            <!-- Front Layout Goes Here -->
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgFotoCartaNoAdmin"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:contentDescription="@string/textAnimal"
+                app:layout_constraintBottom_toTopOf="@+id/parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </com.wajahatkarim3.easyflipview.EasyFlipView>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline49"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.42" />
+
+        <TextView
+            android:id="@+id/tvNombreCartaNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="46sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline63"
+            app:layout_constraintEnd_toStartOf="@+id/guideline26"
+            app:layout_constraintStart_toStartOf="@+id/guideline46"
+            app:layout_constraintTop_toTopOf="@+id/guideline49"
+            tools:text="Nombre" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline63"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.53" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline66"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.635" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/textAlturaMedia"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline66"
+            app:layout_constraintStart_toStartOf="@+id/guideline64"
+            app:layout_constraintTop_toTopOf="@+id/guideline71" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/textLongitudMedia"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline68"
+            app:layout_constraintStart_toStartOf="@+id/guideline64"
+            app:layout_constraintTop_toTopOf="@+id/guideline67" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/textPoderMortifero"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline70"
+            app:layout_constraintStart_toStartOf="@+id/guideline64"
+            app:layout_constraintTop_toTopOf="@+id/guideline69" />
+
+        <TextView
+            android:id="@+id/textView36"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/textVelocidadMedia"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline69"
+            app:layout_constraintStart_toStartOf="@+id/guideline64"
+            app:layout_constraintTop_toTopOf="@+id/guideline68" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/textPesoMedio"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline67"
+            app:layout_constraintStart_toStartOf="@+id/guideline64"
+            app:layout_constraintTop_toTopOf="@+id/guideline66" />
+
+        <TextView
+            android:id="@+id/tvValorAlturaMediaNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="textEnd"
+            android:textColor="#E11367"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline66"
+            app:layout_constraintEnd_toStartOf="@+id/guideline65"
+            app:layout_constraintStart_toStartOf="@+id/tvPesoMedioNoAdmin"
+            app:layout_constraintTop_toTopOf="@+id/guideline71"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tvLongitudMediaNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="textEnd"
+            android:textColor="#E11367"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline68"
+            app:layout_constraintEnd_toStartOf="@+id/guideline65"
+            app:layout_constraintStart_toEndOf="@+id/textView36"
+            app:layout_constraintTop_toTopOf="@+id/guideline67"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tvPoderMortiferoNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="textEnd"
+            android:textColor="#E11367"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline70"
+            app:layout_constraintEnd_toStartOf="@+id/guideline65"
+            app:layout_constraintStart_toStartOf="@+id/tvVelocidadMediaNoAdmin"
+            app:layout_constraintTop_toTopOf="@+id/guideline69"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tvVelocidadMediaNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="textEnd"
+            android:textColor="#E11367"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline69"
+            app:layout_constraintEnd_toStartOf="@+id/guideline65"
+            app:layout_constraintStart_toEndOf="@+id/textView36"
+            app:layout_constraintTop_toTopOf="@+id/guideline68"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tvPesoMedioNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="textEnd"
+            android:textColor="#E11367"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline67"
+            app:layout_constraintEnd_toStartOf="@+id/guideline65"
+            app:layout_constraintStart_toStartOf="@+id/tvLongitudMediaNoAdmin"
+            app:layout_constraintTop_toTopOf="@+id/guideline66"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/tvUnidadAlturaMediaNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline66"
+            app:layout_constraintStart_toStartOf="@+id/guideline65"
+            app:layout_constraintTop_toTopOf="@+id/guideline71"
+            tools:text="m" />
+
+        <TextView
+            android:id="@+id/tvUnidadLongitudMediaNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline68"
+            app:layout_constraintStart_toStartOf="@+id/guideline65"
+            app:layout_constraintTop_toTopOf="@+id/guideline67"
+            tools:text="m" />
+
+        <TextView
+            android:id="@+id/tvUnidadVelocidadMediaNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline69"
+            app:layout_constraintStart_toStartOf="@+id/guideline65"
+            app:layout_constraintTop_toTopOf="@+id/guideline68"
+            tools:text="km/h" />
+
+        <TextView
+            android:id="@+id/tvUnidadPesoMedioNoAdmin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#955E0D"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline67"
+            app:layout_constraintStart_toStartOf="@+id/guideline65"
+            app:layout_constraintTop_toTopOf="@+id/guideline66"
+            tools:text="kg" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline64"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.18" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline65"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.76" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.77" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline67"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.71" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline68"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.78" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline69"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.858" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.93" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline71"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.57" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline72"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.285" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline73"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.02" />
+
+        <View
+            android:id="@+id/viewClicParaHacerFlipCarta"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/bt_carta_girar_bg"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline26"
+            app:layout_constraintStart_toStartOf="@+id/guideline46"
+            app:layout_constraintTop_toTopOf="@+id/guideline72" />
+
+        <TextView
+            android:id="@+id/tvClicParaHacerFlipCarta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/textGirarCarta"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/viewClicParaHacerFlipCarta"
+            app:layout_constraintEnd_toEndOf="@+id/viewClicParaHacerFlipCarta"
+            app:layout_constraintStart_toStartOf="@+id/viewClicParaHacerFlipCarta"
+            app:layout_constraintTop_toTopOf="@+id/viewClicParaHacerFlipCarta" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

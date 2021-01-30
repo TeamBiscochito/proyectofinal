@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.media.MediaPlayer;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -40,6 +41,7 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
     Context context;
     Animation animScaleUp, animScaleDown;
     NavController navController;
+    private MediaPlayer mp_borrar;
 
     public RecyclerJugadoresAdminAdapter(List<User> userList, View view, Activity activity, Context context){
         this.userList = userList;
@@ -67,6 +69,7 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
+        mp_borrar = MediaPlayer.create(context, R.raw.borrar_sound);
 
         User user = userList.get(position);
 
@@ -156,6 +159,7 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
 
                                     dialogConfirmarBorrar.dismiss();
                                     dialogJugadores.dismiss();
+                                    mp_borrar.start();
 
                                     long idBorrar = userList.get(position).getId();
                                     viewModel.deleteUserById(idBorrar);
