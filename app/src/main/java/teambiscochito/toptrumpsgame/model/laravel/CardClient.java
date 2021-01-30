@@ -11,24 +11,35 @@ import retrofit2.http.PUT;
 import retrofit2.http.Path;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;*/
 
-public interface TypeClient {
-    /*@DELETE("carta/{id}")
-    Call<Integer> deleteType(@Path("id") long id);
+import java.util.ArrayList;
+
+import retrofit2.Call;
+import retrofit2.http.Body;
+import retrofit2.http.DELETE;
+import retrofit2.http.GET;
+import retrofit2.http.POST;
+import retrofit2.http.PUT;
+import retrofit2.http.Path;
+import teambiscochito.toptrumpsgame.model.room.pojo.Card;
+
+public interface CardClient {
+    @DELETE("carta/{id}")
+    Call<Integer> deleteCard(@Path("id") long id);
 
     @GET("carta/{id}")
-    Call<Card> getType(@Path("id") long id);
+    Call<Card> getCardById(@Path("id") long id);
 
     @GET("carta")
-    Call<ArrayList<Card>> getcartas();
+    Call<ArrayList<Card>> getAllCards();
 
     @POST("carta")
-    Call<Long> postType(@Body Card Carta);
+    Call<Long> postCard(@Body Card Carta);
 
     @PUT("carta/{id}")
-    Call<Integer> putType(@Path("id") long id, @Body Card Carta);
+    Call<Integer> putCard(@Path("id") long id, @Body Card Carta);
 
-/*
-* private void init() {
+
+/* private void init() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://10.0.2.2/laravel/TopTrump/public/api/")
                 .addConverterFactory(GsonConverterFactory.create())

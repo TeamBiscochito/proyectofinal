@@ -49,7 +49,6 @@ public class JuegoFragment extends Fragment {
     private ArrayList<View> btRespuestas = new ArrayList<>();
 
     private int respuestasHastaElMomentoAcertadas = 0;
-    private String determinante;
 
     private MediaPlayer mp_juego, mp_acierto, mp_fallo;
     View viewCloseJuego, viewBotonJuego1, viewBotonJuego2, viewBotonJuego3, viewBotonJuego4, viewPergaminoPreguntaJugar, viewNombreAnimalJuego, bird1, bird2, bird3, bird4;
@@ -315,6 +314,8 @@ public class JuegoFragment extends Fragment {
 
     public void initJuego() {
 
+        String determinante;
+
         // Seleccionamos la carta aleatoria
         currentCard = getRandomCard(viewModel.cards);
 
@@ -327,7 +328,6 @@ public class JuegoFragment extends Fragment {
         ArrayList<Double> respuestas = getPosiblesRespuestas(currentQuestion);
 
         // Finalmente mostramos la carta, sus preguntas y las posibles respuestas que salgan de una de las preguntas
-
         tvNombreAnimalJuego.setText(currentCard.getName());
 
         RequestOptions options = new RequestOptions()
@@ -360,15 +360,13 @@ public class JuegoFragment extends Fragment {
             case "PODER":
                 determinante = "el";
                 break;
+            default:
+                determinante = "";
+                break;
 
         }
 
         tvPreguntaJuegoDeterminante.setText("¿Cuál es " + determinante);
-
-        tvBotonJuego1.setText(respuestas.get(0) + "");
-        tvBotonJuego2.setText(respuestas.get(1) + "");
-        tvBotonJuego3.setText(respuestas.get(2) + "");
-        tvBotonJuego4.setText(respuestas.get(3) + "");
 
         // Muestro las posibles respuestas en forma de botón
         bindButtons(respuestas);
@@ -379,7 +377,6 @@ public class JuegoFragment extends Fragment {
 
         mp_acierto.start();
         mostrarDialogPAcierto();
-        initJuego();
 
         respuestasHastaElMomentoAcertadas = respuestasHastaElMomentoAcertadas + 1;
         currentUser.setAnswer(currentUser.getAnswer() + 1);
@@ -387,17 +384,20 @@ public class JuegoFragment extends Fragment {
 
         viewModel.updateUser(currentUser);
 
+        initJuego();
+
     }
 
     private void preguntaFallada() {
 
         mp_fallo.start();
         mostrarDialogPFallo();
-        initJuego();
 
         currentUser.setAnswer(currentUser.getAnswer() + 1);
 
         viewModel.updateUser(currentUser);
+
+        initJuego();
 
     }
 
@@ -410,7 +410,6 @@ public class JuegoFragment extends Fragment {
             result = cards.get(new Random().nextInt(cards.size()));
 
         }
-
 
         if ((currentCard != null && currentCard == result) || result == null ) {
 
@@ -434,55 +433,113 @@ public class JuegoFragment extends Fragment {
 
     }
 
-    public ArrayList<Double> getPosiblesRespuestas(Question incognita) {
-
+    public ArrayList<Double> getPosiblesRespuestas(Question incognita){
         ArrayList<Double> respuestas = new ArrayList<>();
 
         // Rellenamos el array sin la respuesta válida
         while (respuestas.size() < 3) {
 
-            Double respuestaAleatoria = generaRespuesta(incognita.getAnswer());
+            Double respuestaAleatoria;
 
-            // Comprobamos que no hay dos iguales
+            if( incognita.getMagnitude() == null ) {
+                respuestaAleatoria = (double) new Random().nextInt(9) + 1;
+            } else {
+
+                respuestaAleatoria = generaRespuesta(incognita.getAnswer());
+
+            }
+
+            // Comprobamos que no hay dos iguales o numero inválido
             Boolean iguales = false;
             for (Double respuesta:respuestas) {
 
-                if(respuestaAleatoria == respuesta || respuestaAleatoria == incognita.getAnswer()) {
+                if(respuestaAleatoria - respuesta == 0) {
 
                     iguales = true;
 
                 }
+            }
+
+            if(respuestaAleatoria - incognita.getAnswer() == 0 || respuestaAleatoria < 0 || respuestaAleatoria > 9999) {
+
+                iguales = true;
 
             }
 
-            if (!iguales) {
 
+            if (!iguales){
                 respuestas.add(respuestaAleatoria);
-
             }
 
         }
 
         // Ordenar aleatoriamente las respuestas:
-        // Como todas las respuestas están generadas aleatoriamente, sólo tenemos que poner la respuesta correcta en una posición del array aleatoria
-
+        // Como todas las respuestas están generadas aleatorias, solo tenemos que poner la respuesta correcta en una posicion del array aleatoria
         respuestas.add(new Random().nextInt(4), incognita.getAnswer());
 
         return respuestas;
-
     }
+
 
     private double generaRespuesta(Double respuestaInicial) {
 
-        double min = respuestaInicial - (respuestaInicial / 100 * 15);
-        double max = respuestaInicial + (respuestaInicial / 100 * 15);
+        double min, max, numero;
 
-        Random r = new Random();
+        NumberFormat numberFormat = NumberFormat.getInstance();
 
-        double numero = ((max - min) * r.nextDouble()) + min;
+        if(respuestaInicial <= 10) {
+
+            Random r = new Random();
+            min = respuestaInicial - (respuestaInicial / 100 * 35);
+            max = respuestaInicial + (respuestaInicial / 100 * 35);
+
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+
+
+
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+
+            }
+
+            numero = Double.parseDouble(numberFormat.format((max - min) * r.nextDouble()+ min)) ;
+
+        } else if (respuestaInicial <= 20) {
+
+            numberFormat.setMaximumFractionDigits(1);
+            min = respuestaInicial - (respuestaInicial / 100 * 20);
+            max = respuestaInicial + (respuestaInicial / 100 * 20);
+            Random r = new Random();
+
+            numero = Double.parseDouble(numberFormat.format((max - min) * r.nextDouble()+ min)) ;
+            while( !(numero % 1 == 0 || (numero + 0.5) % 1 == 0) ){
+                numero = Double.parseDouble(numberFormat.format((max - min) * r.nextDouble()+ min)) ;
+            }
+
+        } else if (respuestaInicial <= 100) {
+
+            Random r = new Random();
+
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+                numero = (double) respuestaInicial + ((r.nextInt(8) - 3) * 5);
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+                numero = (double) respuestaInicial + ((r.nextInt(80) - 30) * 0.5);
+            }
+
+        } else {
+
+            Random r = new Random();
+
+            numberFormat.setMaximumFractionDigits(0);
+            numero = (double) respuestaInicial + ((r.nextInt(6) - 3) * 500);
+
+
+        }
 
         return numero;
-
     }
 
     private ArrayList<Question> getQuestionsForCurrentCard() {
@@ -505,9 +562,6 @@ public class JuegoFragment extends Fragment {
 
     private void bindButtons(ArrayList<Double> respuestas) {
 
-        NumberFormat numberFormat = NumberFormat.getInstance();
-        numberFormat.setMaximumFractionDigits(1);
-
         for (int i = 0; i < respuestas.size(); i++) {
 
             View vBt = btRespuestas.get(i);
@@ -519,11 +573,20 @@ public class JuegoFragment extends Fragment {
 
                 int valorPoderInt = (int) d;
 
-                tv.setText(valorPoderInt + "");
+                tv.setText("" + valorPoderInt);
+
+            } else if(respuestas.get(i) % 1 == 0 ) {
+
+                double d = respuestas.get(i);
+
+                int valorPoderInt = (int) d;
+
+                tv.setText("" + valorPoderInt + " " + currentQuestion.getMagnitude());
 
             } else {
 
-                tv.setText(numberFormat.format(respuestas.get(i)) + " " + currentQuestion.getMagnitude());
+                tv.setText(respuestas.get(i) + " " + currentQuestion.getMagnitude());
+
 
             }
 
@@ -533,29 +596,29 @@ public class JuegoFragment extends Fragment {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
 
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
-                            vBt.startAnimation(animScaleUp);
-                            tv.startAnimation(animScaleUp);
+                        vBt.startAnimation(animScaleUp);
+                        tv.startAnimation(animScaleUp);
 
-                            if (valori == currentQuestion.getAnswer()) {
+                        if (valori == currentQuestion.getAnswer()) {
 
-                                preguntaAcertada();
+                            preguntaAcertada();
 
-                            } else {
+                        } else {
 
-                                preguntaFallada();
-
-                            }
-
-                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
-
-                            vBt.startAnimation(animScaleDown);
-                            tv.startAnimation(animScaleDown);
+                            preguntaFallada();
 
                         }
 
-                        return true;
+                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
+
+                        vBt.startAnimation(animScaleDown);
+                        tv.startAnimation(animScaleDown);
+
+                    }
+
+                    return true;
 
                 }
 

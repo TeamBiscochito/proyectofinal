@@ -5,10 +5,17 @@ import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
+import androidx.room.Query;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import teambiscochito.toptrumpsgame.model.laravel.CardClient;
 import teambiscochito.toptrumpsgame.model.room.GameDataBase;
 import teambiscochito.toptrumpsgame.model.room.dao.CardDao;
 import teambiscochito.toptrumpsgame.model.room.dao.QuestionDao;
@@ -25,13 +32,19 @@ public class Repository {
     public CardDao cardDao;
     public QuestionDao questionDao;
     public UserDao userDao;
-    private int repeatedName;
+    private int repeatedName, repeatedNameCarta;
+    CardClient client;
 
     public Repository(Context context) {
-        db = GameDataBase.getDatabase(context);
+        GameDataBase db = GameDataBase.getDatabase(context);
         cardDao = db.getCardDao();
         questionDao = db.getQuestionDao();
         userDao = db.getUserDao();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2/laravel/TopTrump/public/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        client = retrofit.create(CardClient.class);
     }
 
     /*-------- Cards --------*/
@@ -150,6 +163,18 @@ public class Repository {
     /*-------- Questions --------*/
 
 
+    public void insertAll(ArrayList<Question> questionArrayList){
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+
+                for(Question q : questionArrayList){
+                    questionDao.insert(q);
+                }
+            }
+        });
+    }
+
     public void insertQuestion(Question question) {
         UtilThread.threadExecutorPool.execute(new Runnable() {
             @Override
@@ -227,7 +252,6 @@ public class Repository {
             public void run() {
                 try {
                     repeatedName = userDao.getNameFromName(name);
-
                 } catch (Exception e) {
                     Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
@@ -247,4 +271,122 @@ public class Repository {
 
     }
 
+    public void getNameFromNameCarta(String name) {
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    repeatedNameCarta = cardDao.getNameFromNameCarta(name);
+                } catch (Exception e) {
+                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
+                }
+            }
+        });
+
+        try {
+            Thread.sleep(30);
+        } catch (InterruptedException e) {
+
+        }
+    }
+
+    public int getRepeatedNameCarta() {
+
+        return repeatedNameCarta;
+
+    }
+
+    public List<Card> getAllCards() {
+        final List<Card>[] cardArrayList = new List[]{new ArrayList<>()};
+
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                Call<ArrayList<Card>> cartaCall = client.getAllCards();
+                cartaCall.enqueue(new Callback<ArrayList<Card>>() {
+                    @Override
+                    public void onResponse(Call<ArrayList<Card>> call, Response<ArrayList<Card>> response) {
+                        Log.v("xyzresponse", response.code()+"");
+                        cardArrayList[0] = response.body();
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        for(Card c : cardArrayList[0]){
+                            Log.v("xyzbodyrep", c.toString());
+                        }
+
+                    }
+                    @Override
+                    public void onFailure(Call<ArrayList<Card>> call, Throwable t) {
+                        Log.v("xyz errorgetallcards", t.getLocalizedMessage());
+                    }
+                });
+            }
+        });
+        return cardArrayList[0];
+    }
+
+    public void saveCards(Card Carta) {
+        return;
+    }
+
+    public Long getIdByName(String name) {
+        final long[] id = new long[1];
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                id[0] = cardDao.getIdByName(name);
+
+            }
+        });
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return id[0];
+    }
+
+    public Question getQuestionByName(String question, long idCard){
+        final Question[] q = new Question[1];
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                q[0] = questionDao.getQuestionByName(question, idCard);
+                try {
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return q[0];
+
+    }
+
+    public void deleteCardById(long id) {
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    cardDao.deleteById(id);
+                    Log.v("xyz", "borrada la carta con id: " + id);
+                    questionDao.deleteById(id);
+                } catch (Exception e) {
+                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
+                }
+            }
+        });
+    }
+
+    public void insertToName(String name, String question, Double answer, String magnitude) {
+        UtilThread.threadExecutorPool.execute(new Runnable() {
+            @Override
+            public void run() {
+                questionDao.insertToName(name, question, answer, magnitude);
+            }
+        });
+    }
 }

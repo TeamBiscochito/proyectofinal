@@ -11,6 +11,7 @@
         android:id="@+id/viewNombreAnimalJuego"
         android:layout_width="230dp"
         android:layout_height="80dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/tablero_nombre_jugar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
