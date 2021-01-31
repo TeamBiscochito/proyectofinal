@@ -75,7 +75,6 @@ public class SplashScreenFragment extends Fragment {
 
                     if (claveAdmin != random){
 
-                        Log.v("XYZ", claveAdmin);
                         navController.navigate(R.id.action_fragmentSplashScreen_to_chooseUserFragment);
 
                     } else {

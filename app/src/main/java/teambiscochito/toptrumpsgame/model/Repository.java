@@ -1,7 +1,6 @@
 package teambiscochito.toptrumpsgame.model;
 
 import android.content.Context;
-import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -55,9 +54,7 @@ public class Repository {
             public void run() {
                 try {
                     long id = cardDao.insert(card);
-                    Log.v("xyz", "insertada la carta: " + id);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -69,9 +66,7 @@ public class Repository {
             public void run() {
                 try {
                     cardDao.update(card);
-                    Log.v("xyz", "update la carta: " + card.toString());
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -83,9 +78,7 @@ public class Repository {
             public void run() {
                 try {
                     long id = cardDao.delete(card);
-                    Log.v("xyz", "borrada la carta" + id);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): "+e.toString());
                 }
             }
         });
@@ -105,9 +98,7 @@ public class Repository {
             public void run() {
                 try {
                     long id = userDao.insert(user);
-                    Log.v("xyz", "insertado el usuario " + id);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -119,9 +110,7 @@ public class Repository {
             public void run() {
                 try {
                     userDao.update(user);
-                    Log.v("xyz", "update user: " + user.toString());
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -133,9 +122,7 @@ public class Repository {
             public void run() {
                 try {
                     long id = userDao.delete(user);
-                    Log.v("xyz", "borrado el user: " + id);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -147,9 +134,7 @@ public class Repository {
             public void run() {
                 try {
                     userDao.deleteId(id);
-                    Log.v("xyz", "borrado el user: " + id);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -182,9 +167,7 @@ public class Repository {
             public void run() {
                 try {
                     long id = questionDao.insert(question);
-                    Log.v("xyz", "insertada la pregunta " + id);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -196,9 +179,7 @@ public class Repository {
             public void run() {
                 try {
                     questionDao.update(question);
-                    Log.v("xyz", "update question: " + question.toString());
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -210,9 +191,7 @@ public class Repository {
             public void run() {
                 try {
                     long id = questionDao.delete(question);
-                    Log.v("xyz", "borrada la pregunta: " + id);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -227,9 +206,7 @@ public class Repository {
             public void run() {
                 try {
                     questions[0] = questionDao.getQuestionByCardId(cardId);
-                    Log.v("xyz", "consulta a las preguntas (REPOSITORIO)");
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -243,7 +220,6 @@ public class Repository {
 
     public LiveData<List<Question>> getQuestionList() {
 
-        Log.v("xyz", "consulta a las preguntas (REPOSITORIO)");
         return questionDao.getQuestionList();
     }
 
@@ -254,7 +230,6 @@ public class Repository {
                 try {
                     repeatedName = userDao.getNameFromName(name);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -279,7 +254,6 @@ public class Repository {
                 try {
                     repeatedNameCarta = cardDao.getNameFromNameCarta(name);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });
@@ -307,7 +281,6 @@ public class Repository {
                 cartaCall.enqueue(new Callback<ArrayList<Card>>() {
                     @Override
                     public void onResponse(Call<ArrayList<Card>> call, Response<ArrayList<Card>> response) {
-                        Log.v("xyzresponse", response.code()+"");
                         cardArrayList[0] = response.body();
                         try {
                             Thread.sleep(200);
@@ -315,18 +288,15 @@ public class Repository {
                             e.printStackTrace();
                         }
                         for(Card c : cardArrayList[0]){
-                            Log.v("xyzbodyrep", c.toString());
                         }
 
                     }
                     @Override
                     public void onFailure(Call<ArrayList<Card>> call, Throwable t) {
-                        Log.v("xyz errorgetallcards", t.getLocalizedMessage());
                     }
                 });
             }
         });
-        Log.v("xyz", "toma mongolin");
         return cardArrayList[0];
     }
 
@@ -375,10 +345,8 @@ public class Repository {
             public void run() {
                 try {
                     cardDao.deleteById(id);
-                    Log.v("xyz", "borrada la carta con id: " + id);
                     questionDao.deleteById(id);
                 } catch (Exception e) {
-                    Log.v("xyz", "ERROR(repositorio): " + e.toString());
                 }
             }
         });

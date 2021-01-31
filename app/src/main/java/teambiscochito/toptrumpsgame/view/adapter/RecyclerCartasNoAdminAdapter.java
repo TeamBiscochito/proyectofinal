@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.text.LineBreaker;
 import android.os.Build;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -95,7 +94,6 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
             holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
 
         } catch (Exception ex){
-            Log.v("xyz", ex.getLocalizedMessage());
         }
 
         holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {

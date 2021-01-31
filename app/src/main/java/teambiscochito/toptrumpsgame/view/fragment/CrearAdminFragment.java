@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -81,7 +80,6 @@ public class CrearAdminFragment extends Fragment {
                         editor.apply();
 
                     }catch (Exception e){
-                        Log.v("xyz", e.getMessage() );
                     }
 
                     mp_intro.stop();
