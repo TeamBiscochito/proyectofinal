@@ -36,7 +36,7 @@ public interface CardDao {
     //get one card
     @Query("select id from card where name = :name")
     Long getIdByName(String name);
-
+    //get the card with the name
     @Query("select * from card where name = :nombre")
     int getNameFromNameCarta(String nombre);
 

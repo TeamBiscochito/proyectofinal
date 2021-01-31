@@ -41,7 +41,7 @@ public class Repository {
         questionDao = db.getQuestionDao();
         userDao = db.getUserDao();
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://informatica.ieszaidinvergeles.org:9027/laraveles/TopTrump/public/api/")
+                .baseUrl("https://informatica.ieszaidinvergeles.org:9022/LaravelFinal/TopTrump/public/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         Cardclient = retrofit.create(CardClient.class);

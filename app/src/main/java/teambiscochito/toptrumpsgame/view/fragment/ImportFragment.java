@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -69,17 +70,15 @@ public class ImportFragment extends Fragment {
 
             @Override
             public void onResponse(Call<ArrayList<Card>> call, Response<ArrayList<Card>> response) {
-
+                Log.v("xyz", response.code()+"");
                 cardList = response.body();
-
+              /*  for(Card c: cardList){
+                    Log.v("xyz", c.toString());
+                }*/
                 try {
-
                     Thread.sleep(100);
-
                 } catch (InterruptedException e) {
-
                     e.printStackTrace();
-
                 }
 
                 initRecycler(view);
@@ -159,7 +158,7 @@ public class ImportFragment extends Fragment {
             for (Card c : cardList) {
 
                 String url = c.getPicUrl();
-                c.setPicUrl("https://informatica.ieszaidinvergeles.org:9027/TopTrump/img/" + url);
+                c.setPicUrl("https://informatica.ieszaidinvergeles.org:9022/Github-Web/img/" + url);
 
             }
 

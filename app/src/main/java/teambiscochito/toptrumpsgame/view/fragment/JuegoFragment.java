@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -406,8 +407,8 @@ public class JuegoFragment extends Fragment {
         Card result = null;
 
         if (!cards.isEmpty()) {
-
             result = cards.get(new Random().nextInt(cards.size()));
+            Log.v("xyzjuego", result.toString());
 
         }
 
@@ -428,9 +429,9 @@ public class JuegoFragment extends Fragment {
         Question result;
 
         result = preguntas.get(new Random().nextInt(preguntas.size()));
+        Log.v("xyzjuego", result.toString());
 
         return result;
-
     }
 
     public ArrayList<Double> getPosiblesRespuestas(Question incognita){
@@ -476,13 +477,14 @@ public class JuegoFragment extends Fragment {
         // Ordenar aleatoriamente las respuestas:
         // Como todas las respuestas están generadas aleatorias, solo tenemos que poner la respuesta correcta en una posicion del array aleatoria
         respuestas.add(new Random().nextInt(4), incognita.getAnswer());
+        Log.v("xyzop", respuestas.toString());
 
         return respuestas;
     }
 
-
-    private double generaRespuesta(Double respuestaInicial) {
-
+    //------------Esto es lo que ese carga el juego-----------------
+    private double generaRespuesta(Double respuestaInicial){
+        
         double min, max, numero;
 
         NumberFormat numberFormat = NumberFormat.getInstance();
@@ -538,7 +540,7 @@ public class JuegoFragment extends Fragment {
 
 
         }
-
+        //Log.v("xyzjuego", numero+"");
         return numero;
     }
 
