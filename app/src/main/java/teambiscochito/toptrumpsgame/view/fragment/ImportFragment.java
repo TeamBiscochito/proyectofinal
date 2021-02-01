@@ -222,8 +222,10 @@ public class ImportFragment extends Fragment {
 
                                 viewModel.insertAll(questionsFromCard);
 
-                                navController.navigate(R.id.action_importFragment_to_adminCartasFragment);
-
+                                try{
+                                    navController.navigate(R.id.action_importFragment_to_adminCartasFragment);
+                                }catch (IllegalArgumentException exception){
+                                }
                             }
                         }
 
