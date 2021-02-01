@@ -31,6 +31,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -71,6 +72,9 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(0);
+
         viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
@@ -99,10 +103,32 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
         try{
 
             List<Question> questionList = viewModel.getQuestionsForCurrentCard(viewModel.cards.get(position));
-            holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
-            holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
-            holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
-            holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
+
+            if (questionList.get(0).getAnswer() % 1 == 0) {
+                holder.tvAltura.setText(numberFormat.format(questionList.get(0).getAnswer()));
+            } else {
+                holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
+            }
+
+            if (questionList.get(1).getAnswer() % 1 == 0) {
+                holder.tvPeso.setText(numberFormat.format(questionList.get(1).getAnswer()));
+            } else {
+                holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
+            }
+
+            if (questionList.get(2).getAnswer() % 1 == 0) {
+                holder.tvLongitud.setText(numberFormat.format(questionList.get(2).getAnswer()));
+            } else {
+                holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
+            }
+
+            if (questionList.get(3).getAnswer() % 1 == 0) {
+                holder.tvVelocidad.setText(numberFormat.format(questionList.get(3).getAnswer()));
+            } else {
+                holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
+            }
+
+
 
             double valorPoderDouble = Double.parseDouble(questionList.get(4).getAnswer().toString());
             int valorPoderInt = (int) valorPoderDouble;

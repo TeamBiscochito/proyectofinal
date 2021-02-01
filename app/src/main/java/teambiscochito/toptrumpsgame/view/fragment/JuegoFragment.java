@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -313,7 +314,6 @@ public class JuegoFragment extends Fragment {
     /*-------- MÉTODOS DEL JUEGO ---------*/
 
     public void initJuego() {
-
         String determinante;
 
         // Seleccionamos la carta aleatoria
@@ -390,6 +390,7 @@ public class JuegoFragment extends Fragment {
 
     private void preguntaFallada() {
 
+
         mp_fallo.start();
         mostrarDialogPFallo();
 
@@ -423,7 +424,6 @@ public class JuegoFragment extends Fragment {
     }
 
     public Question getRandomQuestion(List<Question> preguntas) {
-
         Question result;
 
         result = preguntas.get(new Random().nextInt(preguntas.size()));
@@ -439,12 +439,10 @@ public class JuegoFragment extends Fragment {
 
             Double respuestaAleatoria;
 
-            if( incognita.getMagnitude() == null ) {
-                respuestaAleatoria = (double) new Random().nextInt(9) + 1;
+            if( incognita.getQuestion().compareToIgnoreCase("PODER") == 0 ) {
+                respuestaAleatoria = (double) new Random().nextInt(8) + 2;
             } else {
-
                 respuestaAleatoria = generaRespuesta(incognita.getAnswer());
-
             }
 
             // Comprobamos que no hay dos iguales o numero inválido
@@ -458,7 +456,7 @@ public class JuegoFragment extends Fragment {
                 }
             }
 
-            if(respuestaAleatoria - incognita.getAnswer() == 0 || respuestaAleatoria < 0 || respuestaAleatoria > 9999) {
+            if(respuestaAleatoria - incognita.getAnswer() == 0 || respuestaAleatoria < 0.0 || respuestaAleatoria > 9999) {
 
                 iguales = true;
 
@@ -478,64 +476,79 @@ public class JuegoFragment extends Fragment {
         return respuestas;
     }
 
-    //------------Esto es lo que ese carga el juego-----------------
-    private double generaRespuesta(Double respuestaInicial){
-        
+
+
+    private double generaRespuesta(Double respuestaInicial) {
         double min, max, numero;
 
         NumberFormat numberFormat = NumberFormat.getInstance();
 
-        if(respuestaInicial <= 10) {
+        Random r = new Random();
 
-            Random r = new Random();
+        if (respuestaInicial <= 1) {
+
+            numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(10) - 5) * 0.2)));
+
+        }else if (respuestaInicial <= 5) {
+
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+            }
+
+            numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(12) - 3) * 0.5)));
+
+        }else if(respuestaInicial <= 10) {
+
             min = respuestaInicial - (respuestaInicial / 100 * 35);
             max = respuestaInicial + (respuestaInicial / 100 * 35);
 
             if (respuestaInicial % 1 == 0) {
                 numberFormat.setMaximumFractionDigits(0);
-
-
-
             } else {
                 numberFormat.setMaximumFractionDigits(1);
-
             }
 
-            numero = Double.parseDouble(numberFormat.format((max - min) * r.nextDouble()+ min)) ;
+            numero = Double.parseDouble(numberFormat.format((max - min) * r.nextDouble() + min ));
 
-        } else if (respuestaInicial <= 20) {
+        } else if (respuestaInicial <= 25) {
 
-            numberFormat.setMaximumFractionDigits(1);
-            min = respuestaInicial - (respuestaInicial / 100 * 20);
-            max = respuestaInicial + (respuestaInicial / 100 * 20);
-            Random r = new Random();
-
-            numero = Double.parseDouble(numberFormat.format((max - min) * r.nextDouble()+ min)) ;
-            while( !(numero % 1 == 0 || (numero + 0.5) % 1 == 0) ){
-                numero = Double.parseDouble(numberFormat.format((max - min) * r.nextDouble()+ min)) ;
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+                numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(6) - 2) * 5)));
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+                numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(60) - 30) * 0.5)));
             }
 
         } else if (respuestaInicial <= 100) {
 
-            Random r = new Random();
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+                numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(7) - 3) * 5) ));
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+                numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(70) - 30) * 0.5)));
+            }
+
+        } else if(respuestaInicial <= 1000) {
 
             if (respuestaInicial % 1 == 0) {
                 numberFormat.setMaximumFractionDigits(0);
-                numero = (double) respuestaInicial + ((r.nextInt(8) - 3) * 5);
             } else {
                 numberFormat.setMaximumFractionDigits(1);
-                numero = (double) respuestaInicial + ((r.nextInt(80) - 30) * 0.5);
             }
 
-        } else {
+            numero = (double) respuestaInicial + ((r.nextInt(8) - 3) * 50);
 
-            Random r = new Random();
+        } else {
 
             numberFormat.setMaximumFractionDigits(0);
             numero = (double) respuestaInicial + ((r.nextInt(6) - 3) * 500);
 
-
         }
+
         return numero;
     }
 

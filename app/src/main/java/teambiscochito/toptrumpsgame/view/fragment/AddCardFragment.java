@@ -246,7 +246,7 @@ public class AddCardFragment extends Fragment {
                         Question q4 = new Question(idcard, "Velocidad", veld, velocidadMag);
                         questionArrayList.add(q4);
 
-                        Question q5 = new Question(idcard, "Poder", poder, "");
+                        Question q5 = new Question(idcard, "Poder", poder);
                         questionArrayList.add(q5);
 
                         viewModel.insertAll(questionArrayList);
