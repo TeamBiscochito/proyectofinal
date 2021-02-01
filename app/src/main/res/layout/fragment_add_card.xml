@@ -277,12 +277,23 @@
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
+                <Button
+                    android:id="@+id/btBuscarEnInternet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Buscar en internet "
+                    app:layout_constraintBottom_toTopOf="@+id/textView52"
+                    app:layout_constraintEnd_toEndOf="@+id/urlEt"
+                    app:layout_constraintStart_toStartOf="@+id/urlEt"
+                    app:layout_constraintTop_toBottomOf="@+id/urlEt" />
+
                 <TextView
                     android:id="@+id/textView52"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
                     android:text="@string/tvAlturaDosPuntos"
@@ -292,7 +303,7 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/urlEt" />
+                    app:layout_constraintTop_toBottomOf="@+id/btBuscarEnInternet" />
 
                 <EditText
                     android:id="@+id/alturaEtAddCard"

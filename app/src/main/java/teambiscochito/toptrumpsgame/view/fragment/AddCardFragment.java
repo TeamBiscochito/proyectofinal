@@ -1,5 +1,7 @@
 package teambiscochito.toptrumpsgame.view.fragment;
 
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -98,6 +100,24 @@ public class AddCardFragment extends Fragment {
                 return true;
             }
         });
+
+        view.findViewById(R.id.btBuscarEnInternet).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String busqueda = "Imágenes de animales";
+
+                if (!(nombreEt.getText().toString().compareToIgnoreCase("") == 0)){
+                    busqueda = "Imágenes de " + nombreEt.getText().toString();
+                }
+
+                Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+                intent.putExtra(SearchManager.QUERY, busqueda);
+                if (intent.resolveActivity(getActivity().getPackageManager()) != null) {
+                    startActivity(intent);
+                }
+            }
+        });
+
 
         viewAddCarta2.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -294,5 +314,7 @@ public class AddCardFragment extends Fragment {
         longitudSp = view.findViewById(R.id.longitudsp);
 
     }
+
+
 
 }
