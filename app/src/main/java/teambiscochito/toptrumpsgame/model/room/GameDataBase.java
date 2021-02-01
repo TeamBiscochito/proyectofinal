@@ -70,7 +70,7 @@ public abstract class GameDataBase extends RoomDatabase {
                 questionDao.insertToName("Oso","Velocidad", 42.0, "km/h");
                 questionDao.insertToName("Oso","Poder", 9.0);
 
-                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9022/Github-Web/img/tortuga.jpg",
+                cardDao.insert( new Card("https://informatica.ieszaidinvergeles.org:9022/Github-Web/img/TortugaMarina.jpg",
                         "Tortuga m.",
                         "Las tortugas son un tipo de reptiles caracterizados por el sólido caparazón que protege sus órganos vitales del que emergen la cabeza, las patas y la cola. Son animales ovíparos que cavan sus nidos en la tierra, donde llevan a cabo la incubación de los huevos."));
                 questionDao.insertToName("Tortuga m.","Altura", 30.0, "cm");
