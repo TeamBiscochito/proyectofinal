@@ -21,6 +21,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +46,7 @@ public class ImportFragment extends Fragment {
     ArrayList<Question> questionArrayList = new ArrayList<>();
     View viewBackImport, viewImport;
     Animation animScaleUp, animScaleDown;
-    TextView tvImport;
+    TextView tvImport, textviewImportVacio;
 
     public ImportFragment() {
 
@@ -121,7 +124,7 @@ public class ImportFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ArrayList<Question>> call, Throwable t) {
-
+                textviewImportVacio.setText("Parece que no tienes conexión a internet, compruebala y vuelve a intentarlo");
             }
 
         });
@@ -150,18 +153,25 @@ public class ImportFragment extends Fragment {
     private void initRecycler(View view) {
 
         try {
-
+            List<Card> newCardList = new ArrayList<>();
             for (Card c : cardList) {
 
-                String url = c.getPicUrl();
-                c.setPicUrl("https://informatica.ieszaidinvergeles.org:9022/Github-Web/img/" + url);
-
+                viewModel.getNameFromNameCarta(c.getName());
+                int num = viewModel.getRepeatedNameCarta();
+                if(num == 0){
+                    String url = c.getPicUrl();
+                    c.setPicUrl("https://informatica.ieszaidinvergeles.org:9022/Github-Web/img/" + url);
+                    newCardList.add(c);
+                }
             }
 
-            RecyclerImportAdapter adapter = new RecyclerImportAdapter(cardList, getContext(), getActivity());
+            RecyclerImportAdapter adapter = new RecyclerImportAdapter(newCardList, getContext(), getActivity());
             recyclerView.setAdapter(adapter);
             recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+            if(adapter.getItemCount() == 0){
+                textviewImportVacio.setText("No se ha encontrado ninguna carta o ya posees todas las disponibles");
+            }
 
             viewImport.setOnTouchListener(new View.OnTouchListener() {
                 @Override
@@ -175,7 +185,7 @@ public class ImportFragment extends Fragment {
 
                             if (checkBox.isChecked()) {
 
-                                Card card = cardList.get(adapter.getCheckBoxes().indexOf(checkBox));
+                                Card card = newCardList.get(adapter.getCheckBoxes().indexOf(checkBox));
                                 long cardid = card.getId();
 
                                 // Obtener sus preguntas
@@ -221,9 +231,11 @@ public class ImportFragment extends Fragment {
                                 }
 
                                 viewModel.insertAll(questionsFromCard);
+                                try{
+                                    navController.navigate(R.id.action_importFragment_to_adminCartasFragment);
+                                }catch (IllegalArgumentException exception){
 
-                                navController.navigate(R.id.action_importFragment_to_adminCartasFragment);
-
+                                }
                             }
                         }
 
@@ -253,6 +265,7 @@ public class ImportFragment extends Fragment {
         viewImport = view.findViewById(R.id.viewImport);
         recyclerView = view.findViewById(R.id.recyclerImport);
         tvImport = view.findViewById(R.id.tvImportCard);
+        textviewImportVacio = view.findViewById(R.id.textviewImportVacio);
 
     }
 

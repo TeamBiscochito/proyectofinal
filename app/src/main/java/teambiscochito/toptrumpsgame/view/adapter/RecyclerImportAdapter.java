@@ -2,6 +2,7 @@ package teambiscochito.toptrumpsgame.view.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.bumptech.glide.request.RequestOptions;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
@@ -56,7 +58,6 @@ public class RecyclerImportAdapter extends RecyclerView.Adapter<RecyclerImportAd
         View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_import, parent,false);
         RecyclerImportAdapter.ViewHolder holder = new RecyclerImportAdapter.ViewHolder(vista);
         return holder;
-
     }
 
     @Override
@@ -80,9 +81,7 @@ public class RecyclerImportAdapter extends RecyclerView.Adapter<RecyclerImportAd
         Card c  = viewModel.getCardByName(cardList.get(position).getName());
 
         if( c != null) {
-
             holder.cbImport.setEnabled(false);
-
         }
 
     }
