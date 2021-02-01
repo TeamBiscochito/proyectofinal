@@ -76,7 +76,7 @@
             android:rotation="-7"
             android:text="@string/btCartas"
             android:textColor="#472C06"
-            android:textSize="36sp"
+            android:textSize="40sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline106"
             app:layout_constraintStart_toStartOf="@+id/guideline105"
@@ -87,9 +87,7 @@
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginStart="16dp"
-            android:layout_marginBottom="32dp"
             android:background="@drawable/cerrar"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/guideline104" />
 
@@ -148,7 +146,6 @@
             android:id="@+id/textView44"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
             android:fontFamily="@font/schoolbell"
             android:text="@string/textPinchaNombreParaInfoCarta"
             android:textAlignment="center"
@@ -156,9 +153,9 @@
             android:textSize="26sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/guideline108"
-            app:layout_constraintEnd_toStartOf="@+id/guideline106"
+            app:layout_constraintEnd_toStartOf="@+id/viewDownloadCartasWeb"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/guideline105"
+            app:layout_constraintStart_toEndOf="@+id/viewCerrarAdminCartas"
             app:layout_constraintTop_toTopOf="@+id/guideline107" />
 
         <androidx.constraintlayout.widget.Guideline
@@ -174,6 +171,15 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.965" />
+
+        <View
+            android:id="@+id/viewDownloadCartasWeb"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/bajar_web_bt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline104" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
