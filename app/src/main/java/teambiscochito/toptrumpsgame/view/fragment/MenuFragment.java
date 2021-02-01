@@ -34,6 +34,7 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -99,6 +100,7 @@ public class MenuFragment extends Fragment {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vCartas.startAnimation(animScaleDown);
                     tvCartas.startAnimation(animScaleDown);
+
                 }
 
                 return true;
@@ -137,6 +139,7 @@ public class MenuFragment extends Fragment {
                     vPlay.startAnimation(animScaleUp);
 
                     mp_menu.stop();
+
                     viewModel.setUser(userActual);
                     navController.navigate(R.id.action_menuFragment_to_juegoFragment);
 
@@ -216,6 +219,7 @@ public class MenuFragment extends Fragment {
                     ivCerrarSesion.startAnimation(animScaleUp);
 
                     mp_menu.stop();
+
                     navController.navigate(R.id.action_menuFragment_to_chooseUserFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -235,6 +239,7 @@ public class MenuFragment extends Fragment {
                     viewVerDialogCreditos.startAnimation(animScaleUp);
 
                     mp_menu.pause();
+
                     creditosDialog();
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -309,8 +314,10 @@ public class MenuFragment extends Fragment {
             public void onClick(View v) {
                 dialogCreditos.dismiss();
                 estoyEnCreditos = false;
+
                 mp_creditos.stop();
                 mp_menu.start();
+
             }
         });
 
@@ -433,7 +440,9 @@ public class MenuFragment extends Fragment {
         imgAtrasPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialogPerfil.dismiss();
+
             }
         });
 
@@ -480,6 +489,7 @@ public class MenuFragment extends Fragment {
                     ivPerfilEnviarCorreo.startAnimation(animScaleUp);
 
                     mp_menu.stop();
+
                     dialogPerfil.dismiss();
                     navController.navigate(R.id.action_menuFragment_to_correoFragment);
 
@@ -510,7 +520,9 @@ public class MenuFragment extends Fragment {
         imgAtrasAjustesDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialogAjustes.dismiss();
+
             }
         });
 

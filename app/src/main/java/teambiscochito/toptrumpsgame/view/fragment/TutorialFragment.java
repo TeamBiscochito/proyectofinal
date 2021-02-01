@@ -192,6 +192,7 @@ public class TutorialFragment extends Fragment {
                     } else {
 
                         mp_tutorial.stop();
+
                         navController.navigate(R.id.action_tutorialFragment_to_menuFragment);
 
                     }
@@ -243,6 +244,7 @@ public class TutorialFragment extends Fragment {
             public void onClick(View v) {
 
                 mp_tutorial.stop();
+
                 tutorialDialog.dismiss();
 
                 navController.navigate(R.id.action_tutorialFragment_to_chooseUserFragment);

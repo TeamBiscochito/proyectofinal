@@ -24,14 +24,14 @@ public class Card {
     private String name;
 
     @NonNull
-    @ColumnInfo(name = "desc")
-    private String desc;
+    @ColumnInfo(name = "description")
+    private String description;
 
 
-    public Card(@NonNull String picUrl, @NonNull String name, @NonNull String desc) {
+    public Card(@NonNull String picUrl, @NonNull String name, @NonNull String description) {
         this.picUrl = picUrl;
         this.name = name;
-        this.desc = desc;
+        this.description = description;
     }
 
     public Card() {
@@ -64,11 +64,21 @@ public class Card {
     }
 
     @NonNull
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(@NonNull String desc) {
-        this.desc = desc;
+    public void setDescription(@NonNull String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "id=" + id +
+                ", picUrl='" + picUrl + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 }

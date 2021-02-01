@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,7 +38,7 @@ public class AdminCartasFragment extends Fragment {
 
     RecyclerView recyclerView;
     ViewModel viewModel;
-    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta;
+    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb, btgoimportar;
     ImageView imgAddCarta;
     TextView tvAddCarta;
     Animation animScaleUp, animScaleDown;
@@ -62,8 +63,9 @@ public class AdminCartasFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        btgoimportar = view.findViewById(R.id.viewDownloadCartasWeb);
         init(view);
+
         navController = Navigation.findNavController(view);
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
@@ -94,6 +96,24 @@ public class AdminCartasFragment extends Fragment {
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     viewBackAdminCartas.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
+
+        viewDownloadCartasWeb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewDownloadCartasWeb.startAnimation(animScaleUp);
+
+                    navController.navigate(R.id.action_adminCartasFragment_to_importFragment);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewDownloadCartasWeb.startAnimation(animScaleDown);
 
                 }
 
@@ -151,6 +171,7 @@ public class AdminCartasFragment extends Fragment {
         viewBackAdminCartas = view.findViewById(R.id.viewBackAdminCartas);
         viewCerrarAdminCartas = view.findViewById(R.id.viewCerrarAdminCartas);
         viewAddCarta = view.findViewById(R.id.viewAddCarta);
+        viewDownloadCartasWeb = view.findViewById(R.id.viewDownloadCartasWeb);
         imgAddCarta = view.findViewById(R.id.imgAddCarta);
         tvAddCarta = view.findViewById(R.id.tvAddCarta);
 

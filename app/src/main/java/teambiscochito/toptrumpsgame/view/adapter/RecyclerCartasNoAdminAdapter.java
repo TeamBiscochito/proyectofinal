@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.text.LineBreaker;
 import android.os.Build;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -76,10 +75,9 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
                 .into(holder.imgFotoCartaNoAdmin);
 
         holder.tvNombreCartaNoAdmin.setText(cardList.get(position).getName());
-        holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDesc());
+        holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDescription());
 
         try{
-
             List<Question> questionList = viewModel.getQuestionListByCardId(cardList.get(position).getId());
             holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
             holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
@@ -96,7 +94,6 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
             holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
 
         } catch (Exception ex){
-            Log.v("xyz", ex.getLocalizedMessage());
         }
 
         holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {

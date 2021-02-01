@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,7 +24,6 @@ import teambiscochito.toptrumpsgame.R;
 
 public class CrearAdminFragment extends Fragment {
 
-    SharedPreferences sharedPreferences;
     EditText etClave;
     Animation animScaleUp, animScaleDown;
     TextView tvAdminEntrar;
@@ -61,15 +59,6 @@ public class CrearAdminFragment extends Fragment {
         final NavController navController = Navigation.findNavController(view);
 
         etClave = view.findViewById(R.id.claveEt);
-        /*sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
-        String random = cadenaAleatoria();
-        String claveAdmin = sharedPreferences.getString("clave_admin", random);
-        if (claveAdmin != random){
-            Log.v("XYZ", claveAdmin);
-
-            mp_intro.stop();
-            navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
-        }*/
 
         vAdminEntrar.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -88,12 +77,13 @@ public class CrearAdminFragment extends Fragment {
                         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPref.edit();
                         editor.putString("clave_admin", clave);
-                        editor.commit();
+                        editor.apply();
+
                     }catch (Exception e){
-                        Log.v("xyz", e.getMessage() );
                     }
 
                     mp_intro.stop();
+
                     navController.navigate(R.id.action_crearAdminFragment_to_chooseUserFragment);
 
 
@@ -124,15 +114,6 @@ public class CrearAdminFragment extends Fragment {
         mp_intro.start();
 
     }
-
-    /*public String cadenaAleatoria(){
-        String lista = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890";
-        String s="";
-        for(int i = 0; i < 20; i++){
-            s+= lista.charAt((int) (Math.random() *61)+1);
-        }
-        return s;
-    }*/
 
     @Override
     public void onResume() {
