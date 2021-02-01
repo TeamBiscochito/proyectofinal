@@ -57,7 +57,7 @@
             android:rotation="-7"
             android:text="@string/tvAddCarta"
             android:textColor="#472C06"
-            android:textSize="28sp"
+            android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline112"
             app:layout_constraintStart_toStartOf="@+id/guideline111"
@@ -65,8 +65,8 @@
 
         <View
             android:id="@+id/viewBackAdminAddCarta"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/back_2"
@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.72" />
+            app:layout_constraintGuide_percent="0.74" />
 
         <View
             android:id="@+id/view30"
@@ -101,8 +101,8 @@
 
         <View
             android:id="@+id/viewAddCarta2"
-            android:layout_width="180dp"
-            android:layout_height="60dp"
+            android:layout_width="230dp"
+            android:layout_height="80dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/tablero_2"
             app:layout_constraintBottom_toBottomOf="@+id/view30"
@@ -117,7 +117,7 @@
             android:text="@string/contAdd"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="24sp"
+            android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/viewAddCarta2"
             app:layout_constraintEnd_toEndOf="@+id/viewAddCarta2"
@@ -133,7 +133,7 @@
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textColor="#D3443A"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/viewAddCarta2"
             app:layout_constraintEnd_toEndOf="@+id/view30"
@@ -167,7 +167,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.45" />
+                    app:layout_constraintGuide_percent="0.65" />
 
                 <TextView
                     android:id="@+id/textView49"
@@ -180,7 +180,7 @@
                     android:text="@string/tvNombreDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
@@ -201,6 +201,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     android:padding="8dp"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView49" />
@@ -216,7 +217,7 @@
                     android:text="@string/tvDescripcionDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
@@ -237,6 +238,7 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     android:padding="8dp"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView50" />
@@ -252,7 +254,7 @@
                     android:text="@string/tvUrlImagenDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
@@ -273,37 +275,27 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     android:padding="8dp"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView51" />
-
-                <Button
-                    android:id="@+id/btBuscarEnInternet"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Buscar en internet "
-                    app:layout_constraintBottom_toTopOf="@+id/textView52"
-                    app:layout_constraintEnd_toEndOf="@+id/urlEt"
-                    app:layout_constraintStart_toStartOf="@+id/urlEt"
-                    app:layout_constraintTop_toBottomOf="@+id/urlEt" />
 
                 <TextView
                     android:id="@+id/textView52"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
                     android:text="@string/tvAlturaDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/btBuscarEnInternet" />
+                    app:layout_constraintTop_toBottomOf="@+id/urlEt" />
 
                 <EditText
                     android:id="@+id/alturaEtAddCard"
@@ -321,6 +313,7 @@
                     android:inputType="number|numberDecimal"
                     android:maxLength="6"
                     android:padding="8dp"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toStartOf="@+id/guideline121"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView52" />
@@ -336,7 +329,7 @@
                     android:text="@string/tvPesoDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
@@ -358,6 +351,7 @@
                     android:inputType="number|numberDecimal"
                     android:maxLength="6"
                     android:padding="8dp"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toStartOf="@+id/guideline121"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView53" />
@@ -373,7 +367,7 @@
                     android:text="@string/tvLongitudDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
@@ -395,6 +389,7 @@
                     android:inputType="number|numberDecimal"
                     android:maxLength="6"
                     android:padding="8dp"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toStartOf="@+id/guideline121"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView54" />
@@ -410,7 +405,7 @@
                     android:text="@string/tvVelocidadDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
@@ -432,6 +427,7 @@
                     android:inputType="number|numberDecimal"
                     android:maxLength="6"
                     android:padding="8dp"
+                    android:textSize="24sp"
                     app:layout_constraintEnd_toStartOf="@+id/guideline121"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView55" />
@@ -447,7 +443,7 @@
                     android:text="@string/tvPoderDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
@@ -470,6 +466,7 @@
                     android:inputType="number"
                     android:maxLength="2"
                     android:padding="8dp"
+                    android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="@id/consSvCrearCarta"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
@@ -478,7 +475,7 @@
                 <Spinner
                     android:id="@+id/alturasp"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/alturaEtAddCard"
@@ -489,7 +486,7 @@
                 <Spinner
                     android:id="@+id/pesosp"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/pesoEtAddCard"
@@ -500,7 +497,7 @@
                 <Spinner
                     android:id="@+id/longitudsp"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/longitudEtAddCard"
@@ -511,7 +508,7 @@
                 <Spinner
                     android:id="@+id/velocidadsp"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/velocidadEtAddCard"

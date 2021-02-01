@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B97A57"
-    tools:context=".view.fragment.AddCardFragment"
+    tools:context=".view.fragment.EditCardFragment"
     android:focusable="true"
     android:focusableInTouchMode="true">
 
@@ -13,119 +13,121 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/admin_bg"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline109"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.04" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline110"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.152" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline111"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.145" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline112"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.847" />
-
-        <TextView
-            android:id="@+id/textView48"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/schoolbell"
-            android:rotation="-7"
-            android:text="@string/tvAddCarta"
-            android:textColor="#472C06"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline112"
-            app:layout_constraintStart_toStartOf="@+id/guideline111"
-            app:layout_constraintTop_toTopOf="@+id/guideline109" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <View
-            android:id="@+id/viewBackAdminAddCarta"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:id="@+id/viewBackAdminEditCarta"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/back_2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline109" />
+            app:layout_constraintTop_toTopOf="@+id/guideline116" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline113"
+            android:id="@+id/guideline114"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.91" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline119"
+            android:id="@+id/guideline115"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.72" />
+            app:layout_constraintGuide_percent="0.152" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline116"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline117"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.145" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline118"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.847" />
+
+        <TextView
+            android:id="@+id/textView47"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/schoolbell"
+            android:rotation="-7"
+            android:text="@string/tvEditarCarta"
+            android:textColor="#472C06"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline118"
+            app:layout_constraintStart_toStartOf="@+id/guideline117"
+            app:layout_constraintTop_toTopOf="@+id/guideline116" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline120"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.74" />
 
         <View
-            android:id="@+id/view30"
+            android:id="@+id/view31"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/borde_top_crear_carta"
-            app:layout_constraintBottom_toTopOf="@+id/guideline113"
-            app:layout_constraintEnd_toStartOf="@+id/guideline112"
-            app:layout_constraintStart_toStartOf="@+id/guideline111"
-            app:layout_constraintTop_toTopOf="@+id/guideline119" />
+            app:layout_constraintBottom_toTopOf="@+id/guideline114"
+            app:layout_constraintEnd_toStartOf="@+id/guideline118"
+            app:layout_constraintStart_toStartOf="@+id/guideline117"
+            app:layout_constraintTop_toTopOf="@+id/guideline120" />
 
         <View
-            android:id="@+id/viewAddCarta2"
-            android:layout_width="180dp"
-            android:layout_height="60dp"
+            android:id="@+id/viewEditCarta2"
+            android:layout_width="230dp"
+            android:layout_height="80dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/tablero_2"
-            app:layout_constraintBottom_toBottomOf="@+id/view30"
-            app:layout_constraintEnd_toEndOf="@+id/view30"
-            app:layout_constraintStart_toStartOf="@+id/view30" />
+            app:layout_constraintBottom_toBottomOf="@+id/view31"
+            app:layout_constraintEnd_toEndOf="@+id/view31"
+            app:layout_constraintStart_toStartOf="@+id/view31" />
 
         <TextView
-            android:id="@+id/tvAddCarta2"
+            android:id="@+id/tvEditCarta2"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
-            android:text="@string/contAdd"
+            android:text="@string/tvEditar"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="24sp"
+            android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewAddCarta2"
-            app:layout_constraintEnd_toEndOf="@+id/viewAddCarta2"
-            app:layout_constraintStart_toStartOf="@+id/viewAddCarta2"
-            app:layout_constraintTop_toTopOf="@+id/viewAddCarta2" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewEditCarta2"
+            app:layout_constraintEnd_toEndOf="@+id/viewEditCarta2"
+            app:layout_constraintStart_toStartOf="@+id/viewEditCarta2"
+            app:layout_constraintTop_toTopOf="@+id/viewEditCarta2" />
 
         <TextView
-            android:id="@+id/tvAlertaAddCarta"
+            android:id="@+id/tvAlertaEditCarta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -133,41 +135,32 @@
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textColor="#D3443A"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/viewAddCarta2"
-            app:layout_constraintEnd_toEndOf="@+id/view30"
-            app:layout_constraintStart_toStartOf="@+id/view30"
-            app:layout_constraintTop_toTopOf="@+id/view30" />
+            app:layout_constraintBottom_toTopOf="@+id/viewEditCarta2"
+            app:layout_constraintEnd_toEndOf="@+id/view31"
+            app:layout_constraintStart_toStartOf="@+id/view31"
+            app:layout_constraintTop_toTopOf="@+id/view31" />
 
         <ScrollView
-            android:id="@+id/svCrearCarta"
+            android:id="@+id/svEditarCarta"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
             android:scrollbarSize="10dp"
             android:scrollbarThumbVertical="@drawable/brown_scrollbarthumb"
-            app:layout_constraintBottom_toTopOf="@+id/guideline119"
-            app:layout_constraintEnd_toEndOf="@id/guideline112"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@id/guideline111"
-            app:layout_constraintTop_toTopOf="@id/guideline110"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintBottom_toTopOf="@+id/guideline120"
+            app:layout_constraintEnd_toStartOf="@+id/guideline118"
+            app:layout_constraintStart_toStartOf="@+id/guideline117"
+            app:layout_constraintTop_toTopOf="@+id/guideline115"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/consSvCrearCarta"
+                android:id="@+id/consSvEditarCarta"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusable="true"
                 android:focusableInTouchMode="true">
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline121"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.45" />
 
                 <TextView
                     android:id="@+id/textView49"
@@ -177,17 +170,17 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
-                    android:text="@string/tvNombreDosPuntos"
+                    android:text="@string/tvNuevoNombreDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toTopOf="@+id/consSvCrearCarta" />
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
+                    app:layout_constraintTop_toTopOf="@+id/consSvEditarCarta" />
 
                 <EditText
-                    android:id="@+id/nombreEtAddCard"
+                    android:id="@+id/nombreEtEditCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -201,8 +194,9 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView49" />
 
                 <TextView
@@ -213,17 +207,17 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
-                    android:text="@string/tvDescripcionDosPuntos"
+                    android:text="@string/tvNuevaDescripcionDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/nombreEtAddCard" />
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
+                    app:layout_constraintTop_toBottomOf="@+id/nombreEtEditCard" />
 
                 <EditText
-                    android:id="@+id/descriptionEtAddCard"
+                    android:id="@+id/descriptionEtEditCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -237,8 +231,9 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView50" />
 
                 <TextView
@@ -249,17 +244,17 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
-                    android:text="@string/tvUrlImagenDosPuntos"
+                    android:text="@string/tvNuevaUrlImagenDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/descriptionEtAddCard" />
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
+                    app:layout_constraintTop_toBottomOf="@+id/descriptionEtEditCard" />
 
                 <EditText
-                    android:id="@+id/urlEt"
+                    android:id="@+id/urlEtEditCarta"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -273,40 +268,30 @@
                     android:imeOptions="actionDone"
                     android:inputType="textPersonName"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView51" />
-
-                <Button
-                    android:id="@+id/btBuscarEnInternet"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="Buscar en internet "
-                    app:layout_constraintBottom_toTopOf="@+id/textView52"
-                    app:layout_constraintEnd_toEndOf="@+id/urlEt"
-                    app:layout_constraintStart_toStartOf="@+id/urlEt"
-                    app:layout_constraintTop_toBottomOf="@+id/urlEt" />
 
                 <TextView
                     android:id="@+id/textView52"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
-                    android:text="@string/tvAlturaDosPuntos"
+                    android:text="@string/tvNuevaAlturaDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/btBuscarEnInternet" />
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
+                    app:layout_constraintTop_toBottomOf="@+id/urlEtEditCarta" />
 
                 <EditText
-                    android:id="@+id/alturaEtAddCard"
+                    android:id="@+id/alturaEtEditCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -321,8 +306,9 @@
                     android:inputType="number|numberDecimal"
                     android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline121"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline122"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView52" />
 
                 <TextView
@@ -333,17 +319,17 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
-                    android:text="@string/tvPesoDosPuntos"
+                    android:text="@string/tvNuevoPesoDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/alturaEtAddCard" />
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
+                    app:layout_constraintTop_toBottomOf="@+id/alturaEtEditCard" />
 
                 <EditText
-                    android:id="@+id/pesoEtAddCard"
+                    android:id="@+id/pesoEtEditCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -358,8 +344,9 @@
                     android:inputType="number|numberDecimal"
                     android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline121"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline122"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView53" />
 
                 <TextView
@@ -370,17 +357,17 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
-                    android:text="@string/tvLongitudDosPuntos"
+                    android:text="@string/tvNuevaLongitudDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/pesoEtAddCard" />
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
+                    app:layout_constraintTop_toBottomOf="@+id/pesoEtEditCard" />
 
                 <EditText
-                    android:id="@+id/longitudEtAddCard"
+                    android:id="@+id/longitudEtEditCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -395,8 +382,9 @@
                     android:inputType="number|numberDecimal"
                     android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline121"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline122"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView54" />
 
                 <TextView
@@ -407,17 +395,17 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
-                    android:text="@string/tvVelocidadDosPuntos"
+                    android:text="@string/tvNuevaVelocidadDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/longitudEtAddCard" />
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
+                    app:layout_constraintTop_toBottomOf="@+id/longitudEtEditCard" />
 
                 <EditText
-                    android:id="@+id/velocidadEtAddCard"
+                    android:id="@+id/velocidadEtEditCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -432,8 +420,9 @@
                     android:inputType="number|numberDecimal"
                     android:maxLength="6"
                     android:padding="8dp"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline121"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline122"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView55" />
 
                 <TextView
@@ -444,17 +433,17 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
-                    android:text="@string/tvPoderDosPuntos"
+                    android:text="@string/tvNuevoPoderDosPuntos"
                     android:textAlignment="viewStart"
                     android:textColor="#472C06"
-                    android:textSize="18sp"
+                    android:textSize="30sp"
                     android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/velocidadEtAddCard" />
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
+                    app:layout_constraintTop_toBottomOf="@+id/velocidadEtEditCard" />
 
                 <EditText
-                    android:id="@+id/poderEtAddCard"
+                    android:id="@+id/poderEtEditCard"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
@@ -470,54 +459,62 @@
                     android:inputType="number"
                     android:maxLength="2"
                     android:padding="8dp"
-                    app:layout_constraintBottom_toBottomOf="@id/consSvCrearCarta"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/consSvEditarCarta"
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/consSvEditarCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView56" />
 
                 <Spinner
-                    android:id="@+id/alturasp"
+                    android:id="@+id/alturaspEdit"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
-                    app:layout_constraintBottom_toBottomOf="@+id/alturaEtAddCard"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/guideline121"
-                    app:layout_constraintTop_toTopOf="@+id/alturaEtAddCard" />
+                    app:layout_constraintBottom_toBottomOf="@+id/alturaEtEditCard"
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline122"
+                    app:layout_constraintTop_toTopOf="@+id/alturaEtEditCard" />
 
                 <Spinner
-                    android:id="@+id/pesosp"
+                    android:id="@+id/pesospEdit"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
-                    app:layout_constraintBottom_toBottomOf="@+id/pesoEtAddCard"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/guideline121"
-                    app:layout_constraintTop_toTopOf="@+id/pesoEtAddCard" />
+                    app:layout_constraintBottom_toBottomOf="@+id/pesoEtEditCard"
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline122"
+                    app:layout_constraintTop_toTopOf="@+id/pesoEtEditCard" />
 
                 <Spinner
-                    android:id="@+id/longitudsp"
+                    android:id="@+id/longitudspEdit"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
-                    app:layout_constraintBottom_toBottomOf="@+id/longitudEtAddCard"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/guideline121"
-                    app:layout_constraintTop_toTopOf="@+id/longitudEtAddCard" />
+                    app:layout_constraintBottom_toBottomOf="@+id/longitudEtEditCard"
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline122"
+                    app:layout_constraintTop_toTopOf="@+id/longitudEtEditCard" />
 
                 <Spinner
-                    android:id="@+id/velocidadsp"
+                    android:id="@+id/velocidadspEdit"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
-                    app:layout_constraintBottom_toBottomOf="@+id/velocidadEtAddCard"
-                    app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
-                    app:layout_constraintStart_toStartOf="@+id/guideline121"
-                    app:layout_constraintTop_toTopOf="@+id/velocidadEtAddCard" />
+                    app:layout_constraintBottom_toBottomOf="@+id/velocidadEtEditCard"
+                    app:layout_constraintEnd_toEndOf="@+id/consSvEditarCarta"
+                    app:layout_constraintStart_toStartOf="@+id/guideline122"
+                    app:layout_constraintTop_toTopOf="@+id/velocidadEtEditCard" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline122"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
