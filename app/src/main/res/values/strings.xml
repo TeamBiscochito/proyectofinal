@@ -120,6 +120,8 @@
     <string name="alertPoderNoValido">Poder no válido (1 - 10)</string>
     <string name="textImpotar">Importar</string>
     <string name="btBuscaEnInternet">Buscar en internet</string>
+    <string name="variableDeJuego">Variable</string>
+    <string name="item_vp_avatar_descripcion">Avatar</string>
 
     <array name="magnitudesAltura">
         <item>m</item>

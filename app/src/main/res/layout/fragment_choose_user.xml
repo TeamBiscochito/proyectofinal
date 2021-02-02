@@ -7,7 +7,7 @@
     tools:context=".view.fragment.ChooseUserFragment">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline11"
+        android:id="@+id/gdChooseUser1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -18,73 +18,73 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/view"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
+        app:layout_constraintBottom_toTopOf="@+id/viewChooseUser_BGAjustes"
+        app:layout_constraintEnd_toStartOf="@+id/gdChooseUser5"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline14"
-        app:layout_constraintTop_toTopOf="@+id/guideline12"
+        app:layout_constraintStart_toStartOf="@+id/gdChooseUser4"
+        app:layout_constraintTop_toTopOf="@+id/gdChooseUser2"
         tools:listitem="@layout/item_recycler_elegir_player" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline12"
+        android:id="@+id/gdChooseUser2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline13"
+        android:id="@+id/gdChooseUser3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.91" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline14"
+        android:id="@+id/gdChooseUser4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.15" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline15"
+        android:id="@+id/gdChooseUser5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.843" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/viewChooseUser_BGAjustes"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/iradmin_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline25" />
+        app:layout_constraintTop_toTopOf="@+id/gdChooseUser6" />
 
     <View
-        android:id="@+id/imgAjustesChooseUser"
+        android:id="@+id/viewChooseUser_Ajustes"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/ic_settings"
         android:contentDescription="@string/textAjustes"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintBottom_toTopOf="@+id/gdChooseUser3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view" />
+        app:layout_constraintTop_toTopOf="@+id/viewChooseUser_BGAjustes" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline25"
+        android:id="@+id/gdChooseUser6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.86" />
 
     <View
-        android:id="@+id/view9"
+        android:id="@+id/viewChooseUser_BG"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bg_tres"
@@ -94,7 +94,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvRvVacioChooseUser"
+        android:id="@+id/tvChooseUser_ErrorInfo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -110,18 +110,18 @@
         app:layout_constraintTop_toTopOf="@+id/rvJugadoresSeleccion" />
 
     <View
-        android:id="@+id/view4"
+        android:id="@+id/viewChooseUser_Cartel"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/perg"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintStart_toStartOf="@+id/guideline14"
+        app:layout_constraintBottom_toTopOf="@+id/gdChooseUser1"
+        app:layout_constraintEnd_toStartOf="@+id/gdChooseUser5"
+        app:layout_constraintStart_toStartOf="@+id/gdChooseUser4"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvEligeTuJugador"
+        android:id="@+id/tvChooseUser_Cartel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -130,13 +130,13 @@
         android:textColor="#472C06"
         android:textSize="26sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline11"
-        app:layout_constraintEnd_toStartOf="@+id/guideline15"
-        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintBottom_toTopOf="@+id/gdChooseUser1"
+        app:layout_constraintEnd_toStartOf="@+id/gdChooseUser5"
+        app:layout_constraintStart_toStartOf="@+id/viewChooseUser_Cartel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/viewCerrarAppChooseUser"
+        android:id="@+id/viewChooseUser_Close"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="2dp"

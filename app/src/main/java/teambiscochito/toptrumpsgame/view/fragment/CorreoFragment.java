@@ -190,15 +190,15 @@ public class CorreoFragment extends Fragment {
 
         initMediaPlayerCorreo();
 
-        viewBackCorreo = view.findViewById(R.id.viewBackCorreo);
-        viewCorreoBorrar = view.findViewById(R.id.viewCorreoBorrar);
-        viewCorreoEnviar = view.findViewById(R.id.viewCorreoEnviar);
-        tvCorreoBorrar = view.findViewById(R.id.tvCorreoBorrar);
-        tvCorreoEnviar = view.findViewById(R.id.tvCorreoEnviar);
-        tvAlertaCorreo = view.findViewById(R.id.tvAlertaCorreo);
-        imgCaraLeonCorreo = view.findViewById(R.id.imgCaraLeonCorreo);
+        viewBackCorreo = view.findViewById(R.id.viewCorreo_Back);
+        viewCorreoBorrar = view.findViewById(R.id.viewCorreo_Borrar);
+        viewCorreoEnviar = view.findViewById(R.id.viewCorreo_Enviar);
+        tvCorreoBorrar = view.findViewById(R.id.tvCorreo_Borrar);
+        tvCorreoEnviar = view.findViewById(R.id.tvCorreo_Enviar);
+        tvAlertaCorreo = view.findViewById(R.id.tvCorreo_Alerta);
+        imgCaraLeonCorreo = view.findViewById(R.id.imgCorreo_Leon);
 
-        etCorreo = view.findViewById(R.id.etCorreo);
+        etCorreo = view.findViewById(R.id.etCorreo_Correo);
 
     }
 
@@ -213,7 +213,7 @@ public class CorreoFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewBackCorreoDialog = dialogCorreo.findViewById(R.id.viewBackCorreoDialog);
+        viewBackCorreoDialog = dialogCorreo.findViewById(R.id.viewDialogCorreoBack);
 
         viewBackCorreoDialog.setOnClickListener(new View.OnClickListener() {
             @Override

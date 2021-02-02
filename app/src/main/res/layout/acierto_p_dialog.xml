@@ -6,7 +6,6 @@
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout6"
         android:layout_width="350dp"
         android:layout_height="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -15,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:id="@+id/view24"
+            android:id="@+id/viewCorrectoLeon"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/p_correcta_bg"
@@ -35,20 +34,20 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <View
-                android:id="@+id/view20"
+                android:id="@+id/viewCorrectoBG"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#FFDFAA"
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <View
-                android:id="@+id/view21"
+                android:id="@+id/viewCorrectoBorde"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/marco_jugar_bg" />
 
             <TextView
-                android:id="@+id/textView45"
+                android:id="@+id/tvCorrecto"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fontFamily="@font/schoolbell"

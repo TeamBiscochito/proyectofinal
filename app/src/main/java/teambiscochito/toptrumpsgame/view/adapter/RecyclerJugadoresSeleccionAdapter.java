@@ -84,8 +84,8 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
         ConstraintLayout parent;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            avatarRecycler = itemView.findViewById(R.id.avatarRecycler);
-            nombreJugadorRecycler = itemView.findViewById(R.id.nombreJugadorRecycler);
+            avatarRecycler = itemView.findViewById(R.id.civRecyclerElegirPlayer_Avatar);
+            nombreJugadorRecycler = itemView.findViewById(R.id.tvRecyclerElegirPlayer_Nombre);
             parent = itemView.findViewById(R.id.consRecyclerJugadores);
         }
     }

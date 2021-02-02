@@ -15,7 +15,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout4"
             android:layout_width="450dp"
             android:layout_height="450dp"
             android:background="@drawable/red_borders"
@@ -25,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/tvConfirmarBorrarMsg"
+                android:id="@+id/tvDialogBorrarConfirmText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -44,7 +43,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/imgDialogBorrarConfirmWarning"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:contentDescription="@string/alertCuidado"
@@ -54,7 +53,7 @@
             app:srcCompat="@drawable/imgalerta" />
 
         <View
-            android:id="@+id/viewCancelarBorrarJugador"
+            android:id="@+id/viewDialogBorrarConfirmCancel"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_marginStart="64dp"
@@ -64,7 +63,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <View
-            android:id="@+id/viewAceptarBorrarJugador"
+            android:id="@+id/viewDialogBorrarConfirmAccept"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_marginEnd="64dp"

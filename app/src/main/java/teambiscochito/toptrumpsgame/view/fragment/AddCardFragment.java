@@ -101,7 +101,7 @@ public class AddCardFragment extends Fragment {
             }
         });
 
-        view.findViewById(R.id.btBuscarEnInternet).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.btAddCard_BuscarInternet).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String busqueda = "Imágenes de animales";
@@ -294,24 +294,24 @@ public class AddCardFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        viewBackAdminAddCarta = view.findViewById(R.id.viewBackAdminAddCarta);
-        viewAddCarta2 = view.findViewById(R.id.viewAddCarta2);
-        tvAddCarta2 = view.findViewById(R.id.tvAddCarta2);
-        tvAlertaAddCarta = view.findViewById(R.id.tvAlertaAddCarta);
+        viewBackAdminAddCarta = view.findViewById(R.id.viewAddCard_Back);
+        viewAddCarta2 = view.findViewById(R.id.viewAddCard_AddCard);
+        tvAddCarta2 = view.findViewById(R.id.tvAddCard_AddCard);
+        tvAlertaAddCarta = view.findViewById(R.id.tvAddCard_AlertaError);
 
-        urlEt = view.findViewById(R.id.urlEt);
-        nombreEt = view.findViewById(R.id.nombreEtAddCard);
-        descripcionEt = view.findViewById(R.id.descriptionEtAddCard);
-        alturaEt = view.findViewById(R.id.alturaEtAddCard);
-        pesoEt = view.findViewById(R.id.pesoEtAddCard);
-        velocidadEt = view.findViewById(R.id.velocidadEtAddCard);
-        longitudEt = view.findViewById(R.id.longitudEtAddCard);
-        poderEt = view.findViewById(R.id.poderEtAddCard);
+        urlEt = view.findViewById(R.id.etAddCard_URL);
+        nombreEt = view.findViewById(R.id.etAddCard_Nombre);
+        descripcionEt = view.findViewById(R.id.etAddCard_Descripcion);
+        alturaEt = view.findViewById(R.id.etAddCard_Altura);
+        pesoEt = view.findViewById(R.id.etAddCard_Peso);
+        velocidadEt = view.findViewById(R.id.etAddCard_Velocidad);
+        longitudEt = view.findViewById(R.id.etAddCard_Longitud);
+        poderEt = view.findViewById(R.id.etAddCard_Poder);
 
-        alturaSp = view.findViewById(R.id.alturasp);
-        pesoSp = view.findViewById(R.id.pesosp);
-        velocidadSp = view.findViewById(R.id.velocidadsp);
-        longitudSp = view.findViewById(R.id.longitudsp);
+        alturaSp = view.findViewById(R.id.chkAddCard_Altura);
+        pesoSp = view.findViewById(R.id.chkAddCard_Peso);
+        velocidadSp = view.findViewById(R.id.chkAddCard_Velocidad);
+        longitudSp = view.findViewById(R.id.chkAddCard_Longitud);
 
     }
 

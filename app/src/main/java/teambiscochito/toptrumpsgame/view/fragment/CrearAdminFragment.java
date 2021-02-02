@@ -52,13 +52,13 @@ public class CrearAdminFragment extends Fragment {
 
         initAnim();
 
-        tvAdminEntrar = view.findViewById(R.id.tvAdminEntrar);
-        vAdminEntrar = view.findViewById(R.id.viewBtAdminEntrar);
-        tvAlertaCrearAdmin = view.findViewById(R.id.tvAlertaCrearAdmin);
+        tvAdminEntrar = view.findViewById(R.id.tvCrearAdmin_Entrar);
+        vAdminEntrar = view.findViewById(R.id.viewCrearAdmin_Entrar);
+        tvAlertaCrearAdmin = view.findViewById(R.id.tvCrearAdmin_Error);
 
         final NavController navController = Navigation.findNavController(view);
 
-        etClave = view.findViewById(R.id.claveEt);
+        etClave = view.findViewById(R.id.etCrearAdmin_Clave);
 
         vAdminEntrar.setOnTouchListener(new View.OnTouchListener() {
             @Override

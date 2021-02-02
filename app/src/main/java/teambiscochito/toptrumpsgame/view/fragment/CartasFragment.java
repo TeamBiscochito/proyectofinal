@@ -64,9 +64,9 @@ public class CartasFragment extends Fragment {
 
         initAnim();
 
-        viewBackCartasNoAdmin = view.findViewById(R.id.viewBackCartasNoAdmin);
+        viewBackCartasNoAdmin = view.findViewById(R.id.viewCartas_Back);
 
-        tvRvVacioCartasNoAdmin = view.findViewById(R.id.tvRvVacioCartasNoAdmin);
+        tvRvVacioCartasNoAdmin = view.findViewById(R.id.tvartas_ErrorInfo);
 
         viewBackCartasNoAdmin.setOnTouchListener(new View.OnTouchListener() {
             @Override

@@ -351,24 +351,24 @@ public class EditCardFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        viewBackAdminEditCarta = view.findViewById(R.id.viewBackAdminEditCarta);
-        viewEditCarta2 = view.findViewById(R.id.viewEditCarta2);
-        tvEditCarta2 = view.findViewById(R.id.tvEditCarta2);
-        tvAlertaEditCarta = view.findViewById(R.id.tvAlertaEditCarta);
+        viewBackAdminEditCarta = view.findViewById(R.id.viewEditCard_Back);
+        viewEditCarta2 = view.findViewById(R.id.viewEditCard_Editar);
+        tvEditCarta2 = view.findViewById(R.id.tvEditCard_Editar);
+        tvAlertaEditCarta = view.findViewById(R.id.tvEditCard_Alerta);
 
-        alturaSp = view.findViewById(R.id.alturaspEdit);
-        pesoSp = view.findViewById(R.id.pesospEdit);
-        velocidadSp = view.findViewById(R.id.velocidadspEdit);
-        longitudSp = view.findViewById(R.id.longitudspEdit);
+        alturaSp = view.findViewById(R.id.chkEditCard_Altura);
+        pesoSp = view.findViewById(R.id.chkEditCard_Peso);
+        velocidadSp = view.findViewById(R.id.chkEditCard_Velocidad);
+        longitudSp = view.findViewById(R.id.chkEditCard_Longitud);
 
-        nombreEt = view.findViewById(R.id.nombreEtEditCard);
-        descripcionEt = view.findViewById(R.id.descriptionEtEditCard);
-        urlEt = view.findViewById(R.id.urlEtEditCarta);
-        alturaEt = view.findViewById(R.id.alturaEtEditCard);
-        longitudEt = view.findViewById(R.id.longitudEtEditCard);
-        pesoEt = view.findViewById(R.id.pesoEtEditCard);
-        velocidadEt = view.findViewById(R.id.velocidadEtEditCard);
-        poderEt = view.findViewById(R.id.poderEtEditCard);
+        nombreEt = view.findViewById(R.id.etEditCard_Nombre);
+        descripcionEt = view.findViewById(R.id.etEditCard_Descripcion);
+        urlEt = view.findViewById(R.id.etEditCard_URL);
+        alturaEt = view.findViewById(R.id.etEditCard_Altura);
+        longitudEt = view.findViewById(R.id.etEditCard_Longitud);
+        pesoEt = view.findViewById(R.id.etEditCard_Peso);
+        velocidadEt = view.findViewById(R.id.etEditCard_Velocidad);
+        poderEt = view.findViewById(R.id.etEditCard_Poder);
 
     }
 

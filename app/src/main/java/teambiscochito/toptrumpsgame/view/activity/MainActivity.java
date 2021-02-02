@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarSalirDialog = salirDialog.findViewById(R.id.viewCancelarSalirDialog);
-        viewAceptarSalirDialog = salirDialog.findViewById(R.id.viewAceptarSalirDialog);
+        viewCancelarSalirDialog = salirDialog.findViewById(R.id.viewSalirDialogApp_Cancel);
+        viewAceptarSalirDialog = salirDialog.findViewById(R.id.viewSalirDialogApp_Accept);
 
         viewCancelarSalirDialog.setOnClickListener(new View.OnClickListener() {
             @Override

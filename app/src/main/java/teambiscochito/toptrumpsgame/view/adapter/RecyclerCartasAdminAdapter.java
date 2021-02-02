@@ -177,14 +177,14 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                     window.setGravity(Gravity.CENTER);
                     window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgInfoAdminCartas);
-                    TextView tvNombre = dialogCartas.findViewById(R.id.tvNombreInfoAdminCartas);
-                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvBorrarInfoAdminCartas);
-                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvEstaCartaNoSeModifica);
-                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewBackInfoAdminCartas);
-                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewBorrarInfoAdminCartas);
-                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewEditarInfoAdminCartas);
-                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvEditarInfoAdminCartas);
+                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgDialogCartasPerfil);
+                    TextView tvNombre = dialogCartas.findViewById(R.id.tvDialogCartasNombre);
+                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasBorrar);
+                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvDialogCartasNoModifica);
+                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBack);
+                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBorrar);
+                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasEditar);
+                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasEditar);
 
                     tvEstaCartaNoSeModifica.setVisibility(View.GONE);
 
@@ -233,9 +233,9 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                                 window.setGravity(Gravity.CENTER);
                                 window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-                                TextView tvConfirmarBorrarMsg = dialogConfirmarBorrar.findViewById(R.id.tvConfirmarBorrarMsg);
-                                View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewCancelarBorrarJugador);
-                                View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewAceptarBorrarJugador);
+                                TextView tvConfirmarBorrarMsg = dialogConfirmarBorrar.findViewById(R.id.tvDialogBorrarConfirmText);
+                                View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmCancel);
+                                View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmAccept);
 
                                 tvConfirmarBorrarMsg.setText(R.string.tvConfirmarBorrarCarta);
 
@@ -304,14 +304,14 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                     window.setGravity(Gravity.CENTER);
                     window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgInfoAdminCartas);
-                    TextView tvNombre = dialogCartas.findViewById(R.id.tvNombreInfoAdminCartas);
-                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvBorrarInfoAdminCartas);
-                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvEstaCartaNoSeModifica);
-                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewBackInfoAdminCartas);
-                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewBorrarInfoAdminCartas);
-                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewEditarInfoAdminCartas);
-                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvEditarInfoAdminCartas);
+                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgDialogCartasPerfil);
+                    TextView tvNombre = dialogCartas.findViewById(R.id.tvDialogCartasNombre);
+                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasBorrar);
+                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvDialogCartasNoModifica);
+                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBack);
+                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBorrar);
+                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasEditar);
+                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasEditar);
 
                     viewBackInfoAdminCartas.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -373,23 +373,23 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgFotoCartaNoAdmin = itemView.findViewById(R.id.imgFotoCartaNoAdmin);
-            tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvNombreCartaNoAdmin);
-            tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvDescCartasNoAdminBack);
-            easyFlipView = itemView.findViewById(R.id.easyflipview);
-            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvClicParaHacerFlipCarta);
-            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewClicParaHacerFlipCarta);
+            imgFotoCartaNoAdmin = itemView.findViewById(R.id.civCartaNoAdmin_Foto);
+            tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvCartasNoAdmin_Nombre);
+            tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvCartasNoAdmin_Descripcion);
+            easyFlipView = itemView.findViewById(R.id.efvCartasNoAdmin_FlipCarta);
+            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvCartasNoAdmin_Flip);
+            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewCartasNoAdmin_Flip);
 
-            tvAltura = itemView.findViewById(R.id.tvValorAlturaMediaNoAdmin);
-            tvPeso = itemView.findViewById(R.id.tvPesoMedioNoAdmin);
-            tvLongitud = itemView.findViewById(R.id.tvLongitudMediaNoAdmin);
-            tvVelocidad = itemView.findViewById(R.id.tvVelocidadMediaNoAdmin);
-            tvPoder = itemView.findViewById(R.id.tvPoderMortiferoNoAdmin);
+            tvAltura = itemView.findViewById(R.id.tvCartasNoAdmin_ValorAltura);
+            tvPeso = itemView.findViewById(R.id.tvCartasNoAdmin_ValorPeso);
+            tvLongitud = itemView.findViewById(R.id.tvCartasNoAdmin_ValorLongitud);
+            tvVelocidad = itemView.findViewById(R.id.tvCartasNoAdmin_ValorVelocidad);
+            tvPoder = itemView.findViewById(R.id.tvCartasNoAdmin_ValorPoder);
 
-            tvAlturaUnidad = itemView.findViewById(R.id.tvUnidadAlturaMediaNoAdmin);
-            tvPesoUnidad = itemView.findViewById(R.id.tvUnidadPesoMedioNoAdmin);
-            tvLongitudUnidad = itemView.findViewById(R.id.tvUnidadLongitudMediaNoAdmin);
-            tvVelocidadUnidad = itemView.findViewById(R.id.tvUnidadVelocidadMediaNoAdmin);
+            tvAlturaUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadAltura);
+            tvPesoUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadPeso);
+            tvLongitudUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadLongitud);
+            tvVelocidadUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadVelocidad);
 
             // Poner texto de la carta justificado
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

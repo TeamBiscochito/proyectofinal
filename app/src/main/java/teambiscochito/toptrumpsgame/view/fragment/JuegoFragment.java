@@ -12,7 +12,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -139,27 +138,27 @@ public class JuegoFragment extends Fragment {
         animTableroNombre = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
         animFade = AnimationUtils.loadAnimation(getContext(), R.anim.fade_birds);
 
-        viewCloseJuego = view.findViewById(R.id.viewCloseJuego);
-        viewBotonJuego1 = view.findViewById(R.id.viewBotonJuego1);
-        viewBotonJuego2 = view.findViewById(R.id.viewBotonJuego2);
-        viewBotonJuego3 = view.findViewById(R.id.viewBotonJuego3);
-        viewBotonJuego4 = view.findViewById(R.id.viewBotonJuego4);
-        viewPergaminoPreguntaJugar = view.findViewById(R.id.viewPergaminoPreguntaJugar);
-        viewNombreAnimalJuego = view.findViewById(R.id.viewNombreAnimalJuego);
-        imgAnimalJuego = view.findViewById(R.id.imgAnimalJuego);
-        bird1 = view.findViewById(R.id.bird1);
-        bird2 = view.findViewById(R.id.bird2);
-        bird3 = view.findViewById(R.id.bird3);
-        bird4 = view.findViewById(R.id.bird4);
+        viewCloseJuego = view.findViewById(R.id.viewJuego_Close);
+        viewBotonJuego1 = view.findViewById(R.id.viewJuego_Respuesta1);
+        viewBotonJuego2 = view.findViewById(R.id.viewJuego_Respuesta2);
+        viewBotonJuego3 = view.findViewById(R.id.viewJuego_Respuesta3);
+        viewBotonJuego4 = view.findViewById(R.id.viewJuego_Respuesta4);
+        viewPergaminoPreguntaJugar = view.findViewById(R.id.viewJuego_PreguntaPergamino);
+        viewNombreAnimalJuego = view.findViewById(R.id.viewJuego_Nombre);
+        imgAnimalJuego = view.findViewById(R.id.civJuego_Animal);
+        bird1 = view.findViewById(R.id.viewJuego_Bird1);
+        bird2 = view.findViewById(R.id.viewJuego_Bird2);
+        bird3 = view.findViewById(R.id.viewJuego_Bird3);
+        bird4 = view.findViewById(R.id.viewJuego_Bird4);
 
-        tvBotonJuego1 = view.findViewById(R.id.tvBotonJuego1);
-        tvBotonJuego2 = view.findViewById(R.id.tvBotonJuego2);
-        tvBotonJuego3 = view.findViewById(R.id.tvBotonJuego3);
-        tvBotonJuego4 = view.findViewById(R.id.tvBotonJuego4);
+        tvBotonJuego1 = view.findViewById(R.id.tvJuego_Respuesta1);
+        tvBotonJuego2 = view.findViewById(R.id.tvJuego_Respuesta2);
+        tvBotonJuego3 = view.findViewById(R.id.tvJuego_Respuesta3);
+        tvBotonJuego4 = view.findViewById(R.id.tvJuego_Respuesta4);
 
-        tvPreguntaJuegoDeterminante = view.findViewById(R.id.tvPreguntaJuegoDeterminante);
-        tvPreguntaJuegoTema = view.findViewById(R.id.tvPreguntaJuegoTema);
-        tvNombreAnimalJuego = view.findViewById(R.id.tvNombreAnimalJuego);
+        tvPreguntaJuegoDeterminante = view.findViewById(R.id.tvJuego_Pregunta1);
+        tvPreguntaJuegoTema = view.findViewById(R.id.tvJuego_Pregunta);
+        tvNombreAnimalJuego = view.findViewById(R.id.tvJuego_Nombre);
 
     }
 
@@ -175,9 +174,9 @@ public class JuegoFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarSalirAlMenuDialog = salirJugarDialog.findViewById(R.id.viewCancelarSalirAlMenuDialog);
-        viewAceptarSalirAlMenuDialog = salirJugarDialog.findViewById(R.id.viewAceptarSalirAlMenuDialog);
-        tvPuntosJuegoDialog = salirJugarDialog.findViewById(R.id.tvPuntosJuegoDialog);
+        viewCancelarSalirAlMenuDialog = salirJugarDialog.findViewById(R.id.viewSalirJugarDialog_Cancel);
+        viewAceptarSalirAlMenuDialog = salirJugarDialog.findViewById(R.id.viewSalirJugarDialog_Accept);
+        tvPuntosJuegoDialog = salirJugarDialog.findViewById(R.id.tvSalirJugarDialog_Puntos);
 
         tvPuntosJuegoDialog.setText("" + respuestasHastaElMomentoAcertadas);
 

@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:id="@+id/viewAdminEntrarCartas"
+            android:id="@+id/viewAdmin_Cartas"
             android:layout_width="0dp"
             android:layout_height="70dp"
             android:layout_marginStart="32dp"
@@ -25,50 +25,50 @@
             android:layout_marginEnd="32dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bt_enviar_correo"
-            app:layout_constraintBottom_toTopOf="@+id/viewAdminEntrarJugadores"
-            app:layout_constraintEnd_toEndOf="@+id/viewAdminEntrarJugadores"
-            app:layout_constraintStart_toStartOf="@+id/viewAdminEntrarJugadores"
-            app:layout_constraintTop_toBottomOf="@+id/imgCaraLeonAdmin" />
+            app:layout_constraintBottom_toTopOf="@+id/viewAdmin_Jugadores"
+            app:layout_constraintEnd_toEndOf="@+id/viewAdmin_Jugadores"
+            app:layout_constraintStart_toStartOf="@+id/viewAdmin_Jugadores"
+            app:layout_constraintTop_toBottomOf="@+id/imgAdmin_Leon" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline37"
+            android:id="@+id/gdAdmin1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.15" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline36"
+            android:id="@+id/gdAdmin2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.16" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline35"
+            android:id="@+id/gdAdmin3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.965" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline32"
+            android:id="@+id/gdAdmin4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.04" />
 
         <View
-            android:id="@+id/viewCerrarAdminScreen"
+            android:id="@+id/viewAdmin_Close"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginStart="16dp"
             android:background="@drawable/cerrar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline32" />
+            app:layout_constraintTop_toTopOf="@+id/gdAdmin4" />
 
         <TextView
-            android:id="@+id/textView19"
+            android:id="@+id/tvAdmin_Titulo"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -80,38 +80,38 @@
             android:textColor="#472C06"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/view2"
-            app:layout_constraintEnd_toStartOf="@+id/guideline38"
-            app:layout_constraintStart_toStartOf="@+id/guideline37"
-            app:layout_constraintTop_toTopOf="@+id/guideline32" />
+            app:layout_constraintBottom_toTopOf="@+id/viewAdmin_Bocadillo"
+            app:layout_constraintEnd_toStartOf="@+id/gdAdmin5"
+            app:layout_constraintStart_toStartOf="@+id/gdAdmin1"
+            app:layout_constraintTop_toTopOf="@+id/gdAdmin4" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline38"
+            android:id="@+id/gdAdmin5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.838" />
 
         <View
-            android:id="@+id/viewAdminEntrarJugadores"
+            android:id="@+id/viewAdmin_Jugadores"
             android:layout_width="350dp"
             android:layout_height="70dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/bt_enviar_correo"
-            app:layout_constraintBottom_toTopOf="@+id/guideline39"
-            app:layout_constraintEnd_toStartOf="@+id/guideline38"
-            app:layout_constraintStart_toStartOf="@+id/guideline37"
-            app:layout_constraintTop_toBottomOf="@+id/viewAdminEntrarCartas" />
+            app:layout_constraintBottom_toTopOf="@+id/gdAdmin6"
+            app:layout_constraintEnd_toStartOf="@+id/gdAdmin5"
+            app:layout_constraintStart_toStartOf="@+id/gdAdmin1"
+            app:layout_constraintTop_toBottomOf="@+id/viewAdmin_Cartas" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline39"
+            android:id="@+id/gdAdmin6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.91" />
 
         <TextView
-            android:id="@+id/tvAdminEntrarJugadores"
+            android:id="@+id/tvAdmin_Jugadores"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -121,13 +121,13 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewAdminEntrarJugadores"
-            app:layout_constraintEnd_toEndOf="@+id/viewAdminEntrarJugadores"
-            app:layout_constraintStart_toStartOf="@+id/viewAdminEntrarJugadores"
-            app:layout_constraintTop_toTopOf="@+id/viewAdminEntrarJugadores" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdmin_Jugadores"
+            app:layout_constraintEnd_toEndOf="@+id/viewAdmin_Jugadores"
+            app:layout_constraintStart_toStartOf="@+id/viewAdmin_Jugadores"
+            app:layout_constraintTop_toTopOf="@+id/viewAdmin_Jugadores" />
 
         <TextView
-            android:id="@+id/tvAdminEntrarCartas"
+            android:id="@+id/tvAdmin_Cartas"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -136,36 +136,36 @@
             android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewAdminEntrarCartas"
-            app:layout_constraintEnd_toEndOf="@+id/viewAdminEntrarCartas"
-            app:layout_constraintStart_toStartOf="@+id/viewAdminEntrarCartas"
-            app:layout_constraintTop_toTopOf="@+id/viewAdminEntrarCartas" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdmin_Cartas"
+            app:layout_constraintEnd_toEndOf="@+id/viewAdmin_Cartas"
+            app:layout_constraintStart_toStartOf="@+id/viewAdmin_Cartas"
+            app:layout_constraintTop_toTopOf="@+id/viewAdmin_Cartas" />
 
         <ImageView
-            android:id="@+id/imgCaraLeonAdmin"
+            android:id="@+id/imgAdmin_Leon"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:layout_marginStart="8dp"
             android:contentDescription="@string/contLeon"
             android:src="@drawable/leon_tutorial_cara"
-            app:layout_constraintBottom_toTopOf="@+id/viewAdminEntrarCartas"
-            app:layout_constraintStart_toStartOf="@+id/guideline37"
-            app:layout_constraintTop_toTopOf="@+id/guideline89" />
+            app:layout_constraintBottom_toTopOf="@+id/viewAdmin_Cartas"
+            app:layout_constraintStart_toStartOf="@+id/gdAdmin1"
+            app:layout_constraintTop_toTopOf="@+id/gdAdmin7" />
 
         <View
-            android:id="@+id/view2"
+            android:id="@+id/viewAdmin_Bocadillo"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/bocadillo_admin"
-            app:layout_constraintBottom_toTopOf="@+id/guideline89"
-            app:layout_constraintEnd_toStartOf="@+id/guideline38"
-            app:layout_constraintStart_toStartOf="@+id/guideline37"
-            app:layout_constraintTop_toTopOf="@+id/guideline36" />
+            app:layout_constraintBottom_toTopOf="@+id/gdAdmin7"
+            app:layout_constraintEnd_toStartOf="@+id/gdAdmin5"
+            app:layout_constraintStart_toStartOf="@+id/gdAdmin1"
+            app:layout_constraintTop_toTopOf="@+id/gdAdmin2" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline89"
+            android:id="@+id/gdAdmin7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

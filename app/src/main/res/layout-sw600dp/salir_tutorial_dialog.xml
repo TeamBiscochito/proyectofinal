@@ -9,13 +9,13 @@
         android:layout_width="500dp"
         android:layout_height="500dp"
         android:background="@drawable/correo_dialog_bg"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout4"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout4"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout4">
+        app:layout_constraintBottom_toBottomOf="@+id/clSalirDialogTutorial_ConsLayout"
+        app:layout_constraintEnd_toEndOf="@+id/clSalirDialogTutorial_ConsLayout"
+        app:layout_constraintStart_toStartOf="@+id/clSalirDialogTutorial_ConsLayout"
+        app:layout_constraintTop_toTopOf="@+id/clSalirDialogTutorial_ConsLayout">
 
         <TextView
-            android:id="@+id/textViewotro2"
+            android:id="@+id/tvSalirDialogTutorial_Titutlo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
@@ -26,14 +26,14 @@
             android:textColor="#472C06"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textViewotro3"
+            app:layout_constraintBottom_toTopOf="@+id/tvSalirDialogTutorial_Info"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textViewotro3"
+            android:id="@+id/tvSalirDialogTutorial_Info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -49,13 +49,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewotro2" />
+            app:layout_constraintTop_toBottomOf="@+id/tvSalirDialogTutorial_Titutlo" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout4"
+        android:id="@+id/clSalirDialogTutorial_ConsLayout"
         android:layout_width="550dp"
         android:layout_height="600dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,31 +64,31 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineotra2"
+            android:id="@+id/gdSalirDialogTutorial1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.50" />
 
         <View
-            android:id="@+id/viewCancelarSalirTutorialDialog"
+            android:id="@+id/viewSalirDialogTutorial_Cancel"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/cerrar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineotra2" />
+            app:layout_constraintEnd_toStartOf="@+id/gdSalirDialogTutorial1" />
 
         <View
-            android:id="@+id/viewAceptarSalirTutorialDialog"
+            android:id="@+id/viewSalirDialogTutorial_Accept"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="24dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/aceptar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guidelineotra2" />
+            app:layout_constraintStart_toStartOf="@+id/gdSalirDialogTutorial1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -9,89 +9,89 @@
 
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imgTutorial_LeonCuerpo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/contLeon"
         android:src="@drawable/leon_tutorial_cuerpo"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline76"
+        app:layout_constraintEnd_toStartOf="@+id/gdTutorial1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline80"
+        app:layout_constraintTop_toTopOf="@+id/gdTutorial2"
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline76"
+        android:id="@+id/gdTutorial1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.67" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline80"
+        android:id="@+id/gdTutorial2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.83" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline52"
+        android:id="@+id/gdTutorial3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.69" />
 
     <ImageView
-        android:id="@+id/imgCaraLeonTutorial"
+        android:id="@+id/imgTutorial_LeonCara"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/contLeon"
         android:src="@drawable/leon_tutorial_cara"
-        app:layout_constraintBottom_toTopOf="@+id/guideline82"
-        app:layout_constraintEnd_toStartOf="@+id/guideline76"
-        app:layout_constraintStart_toStartOf="@+id/guideline83"
-        app:layout_constraintTop_toTopOf="@+id/guideline84" />
+        app:layout_constraintBottom_toTopOf="@+id/gdTutorial4"
+        app:layout_constraintEnd_toStartOf="@+id/gdTutorial1"
+        app:layout_constraintStart_toStartOf="@+id/gdTutorial5"
+        app:layout_constraintTop_toTopOf="@+id/gdTutorial6" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline82"
+        android:id="@+id/gdTutorial4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline83"
+        android:id="@+id/gdTutorial5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.17" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline84"
+        android:id="@+id/gdTutorial6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.60" />
 
     <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/vp_bocadillos"
+        android:id="@+id/vpTutorial_Bocadillo"
         android:layout_width="260dp"
         android:layout_height="260dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/guideline84"
-        app:layout_constraintEnd_toStartOf="@+id/guideline81" />
+        app:layout_constraintBottom_toTopOf="@+id/gdTutorial6"
+        app:layout_constraintEnd_toStartOf="@+id/gdTutorial7" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline81"
+        android:id="@+id/gdTutorial7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.90" />
 
     <View
-        android:id="@+id/view11"
+        android:id="@+id/viewTutorial_BGBordes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/marco_tutorial_bg"
@@ -101,35 +101,35 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/viewNextTutorial"
+        android:id="@+id/viewTutorial_Next"
         android:layout_width="65dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="32dp"
         android:background="@drawable/next"
-        app:layout_constraintBottom_toTopOf="@+id/viewPreviousTutorial"
+        app:layout_constraintBottom_toTopOf="@+id/viewTutorial_Previous"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline76"
-        app:layout_constraintTop_toTopOf="@+id/guideline52" />
+        app:layout_constraintStart_toStartOf="@+id/gdTutorial1"
+        app:layout_constraintTop_toTopOf="@+id/gdTutorial3" />
 
     <View
-        android:id="@+id/viewPreviousTutorial"
+        android:id="@+id/viewTutorial_Previous"
         android:layout_width="65dp"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/previous"
-        app:layout_constraintBottom_toTopOf="@+id/guideline82"
+        app:layout_constraintBottom_toTopOf="@+id/gdTutorial4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="@+id/guideline76"
-        app:layout_constraintTop_toBottomOf="@+id/viewNextTutorial"
+        app:layout_constraintStart_toStartOf="@+id/gdTutorial1"
+        app:layout_constraintTop_toBottomOf="@+id/viewTutorial_Next"
         app:layout_constraintVertical_bias="0.848" />
 
     <View
-        android:id="@+id/view16"
+        android:id="@+id/viewTutorial_Cartel"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -137,43 +137,44 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/tablero_cartas_tutorial"
-        app:layout_constraintBottom_toTopOf="@+id/guideline85"
-        app:layout_constraintEnd_toStartOf="@+id/guideline87"
-        app:layout_constraintStart_toStartOf="@+id/guideline86"
+        app:layout_constraintBottom_toTopOf="@+id/gdTutorial8"
+        app:layout_constraintEnd_toStartOf="@+id/gdTutorial10"
+        app:layout_constraintStart_toStartOf="@+id/gdTutorial9"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline85"
+        android:id="@+id/gdTutorial8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.22" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline86"
+        android:id="@+id/gdTutorial9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.14" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline87"
+        android:id="@+id/gdTutorial10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.855" />
 
     <View
-        android:id="@+id/viewBackTutorial"
+        android:id="@+id/viewTutorial_Back"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="6dp"
+        android:background="@drawable/back_2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView38"
+        android:id="@+id/tvTutorial_Titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/schoolbell"
@@ -181,9 +182,9 @@
         android:textColor="#472C06"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@id/view16"
-        app:layout_constraintEnd_toEndOf="@id/view16"
-        app:layout_constraintStart_toStartOf="@id/view16"
-        app:layout_constraintTop_toTopOf="@id/view16" />
+        app:layout_constraintBottom_toBottomOf="@id/viewTutorial_Cartel"
+        app:layout_constraintEnd_toEndOf="@id/viewTutorial_Cartel"
+        app:layout_constraintStart_toStartOf="@id/viewTutorial_Cartel"
+        app:layout_constraintTop_toTopOf="@id/viewTutorial_Cartel" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

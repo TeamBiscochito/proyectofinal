@@ -7,26 +7,26 @@
     android:background="@drawable/bg">
 
     <View
-        android:id="@+id/viewTuto"
+        android:id="@+id/viewMenu_Tutorial"
         android:layout_width="150dp"
         android:layout_height="80dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:background="@drawable/tablero_ct"
-        app:layout_constraintBottom_toTopOf="@+id/view8"
+        app:layout_constraintBottom_toTopOf="@+id/viewMenu_Madera"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/gdMenu1" />
 
     <View
-        android:id="@+id/viewCartas"
+        android:id="@+id/viewMenu_Cartas"
         android:layout_width="160dp"
         android:layout_height="80dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/tablero_ct"
-        app:layout_constraintBottom_toTopOf="@+id/view8"
+        app:layout_constraintBottom_toTopOf="@+id/viewMenu_Madera"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/gdMenu1" />
 
     <TextView
         android:id="@+id/tvMenuCartas"
@@ -38,10 +38,10 @@
         android:textColor="#FFFFFF"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewCartas"
-        app:layout_constraintEnd_toEndOf="@+id/viewCartas"
-        app:layout_constraintStart_toStartOf="@+id/viewCartas"
-        app:layout_constraintTop_toTopOf="@+id/viewCartas" />
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_Cartas"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenu_Cartas"
+        app:layout_constraintStart_toStartOf="@+id/viewMenu_Cartas"
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_Cartas" />
 
     <TextView
         android:id="@+id/tvMenuTuto"
@@ -54,13 +54,13 @@
         android:textColor="#FFFFFF"
         android:textSize="28sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewTuto"
-        app:layout_constraintEnd_toEndOf="@+id/viewTuto"
-        app:layout_constraintStart_toStartOf="@+id/viewTuto"
-        app:layout_constraintTop_toTopOf="@+id/viewTuto" />
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_Tutorial"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenu_Tutorial"
+        app:layout_constraintStart_toStartOf="@+id/viewMenu_Tutorial"
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_Tutorial" />
 
     <View
-        android:id="@+id/viewTablero"
+        android:id="@+id/viewMenu_Tablero"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -68,120 +68,122 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/tablero"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintBottom_toTopOf="@+id/gdMenu1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
+        android:id="@+id/gdMenu1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.35" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/gdMenu2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.86" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
+        android:id="@+id/gdMenu3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.235" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
+        android:id="@+id/gdMenu4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.159" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline8"
+        android:id="@+id/gdMenu5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.30506155" />
 
     <TextView
-        android:id="@+id/tvTitulo1"
+        android:id="@+id/viewMenu_Animales"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:fontFamily="@font/amadeus"
         android:paddingStart="50dp"
+        android:paddingEnd="50dp"
         android:text="@string/tvTitulo1"
         android:textAlignment="viewStart"
         android:textColor="#472C06"
         android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        app:layout_constraintEnd_toEndOf="@+id/viewTablero"
-        app:layout_constraintStart_toStartOf="@+id/viewTablero"
-        app:layout_constraintTop_toTopOf="@+id/guideline7" />
+        app:layout_constraintBottom_toTopOf="@+id/gdMenu3"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenu_Tablero"
+        app:layout_constraintStart_toStartOf="@+id/viewMenu_Tablero"
+        app:layout_constraintTop_toTopOf="@+id/gdMenu4" />
 
     <TextView
-        android:id="@+id/tvTitulo2"
+        android:id="@+id/viewMenu_Salvajes"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/amadeus"
+        android:paddingStart="40dp"
         android:paddingEnd="40dp"
         android:text="@string/tvTitulo2"
         android:textAlignment="viewEnd"
         android:textColor="#472C06"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toEndOf="@+id/tvTitulo1"
-        app:layout_constraintStart_toStartOf="@+id/tvTitulo1"
-        app:layout_constraintTop_toTopOf="@+id/guideline6" />
+        app:layout_constraintBottom_toTopOf="@+id/gdMenu5"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenu_Animales"
+        app:layout_constraintStart_toStartOf="@+id/viewMenu_Animales"
+        app:layout_constraintTop_toTopOf="@+id/gdMenu3" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
+        android:id="@+id/gdMenu6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.57" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/gdMenu7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.72" />
 
     <View
-        android:id="@+id/view3"
+        android:id="@+id/viewMenu_BGMarron"
         android:layout_width="70dp"
         android:layout_height="0dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/brown_bg"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@+id/gdMenu7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintTop_toTopOf="@+id/gdMenu6"
         app:layout_constraintVertical_bias="0.0" />
 
     <View
-        android:id="@+id/viewPlayButton"
+        android:id="@+id/viewMenu_BGGradient"
         android:layout_width="80dp"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/play_bt_gradient_list"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@+id/gdMenu7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/gdMenu6" />
 
     <View
-        android:id="@+id/view8"
+        android:id="@+id/viewMenu_Madera"
         android:layout_width="400dp"
         android:layout_height="250dp"
         android:layout_marginBottom="16dp"
@@ -189,110 +191,110 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintTop_toTopOf="@+id/gdMenu1" />
 
     <View
-        android:id="@+id/viewMenuPlay"
+        android:id="@+id/viewMenu_Play"
         android:layout_width="70dp"
         android:layout_height="85dp"
         android:layout_marginStart="14dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/imgplay"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintBottom_toTopOf="@+id/gdMenu7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline" />
+        app:layout_constraintTop_toTopOf="@+id/gdMenu6" />
 
     <View
-        android:id="@+id/viewMenuWeb"
+        android:id="@+id/viewMenu_Web"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/imgcredit"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_Admin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuSettings"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuSettings" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenu_Admin"
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_Admin" />
 
     <ImageView
-        android:id="@+id/ivMenuWeb"
+        android:id="@+id/imgMenu_Web"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/imgMusica"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuWeb"
-        app:layout_constraintEnd_toEndOf="@+id/viewMenuWeb"
-        app:layout_constraintStart_toStartOf="@+id/viewMenuWeb"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuWeb"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_Web"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenu_Web"
+        app:layout_constraintStart_toStartOf="@+id/viewMenu_Web"
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_Web"
         app:srcCompat="@drawable/ic_web" />
 
     <View
-        android:id="@+id/viewMenuSettings"
+        android:id="@+id/viewMenu_Admin"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/imgcredit"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
-        app:layout_constraintEnd_toStartOf="@+id/viewMenuWeb"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_Perfil"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenu_Web"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuUser"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuUser" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenu_Perfil"
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_Perfil" />
 
     <ImageView
-        android:id="@+id/ivMenuSettings"
+        android:id="@+id/imgMenu_Admin"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/imgMusica"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuSettings"
-        app:layout_constraintEnd_toEndOf="@+id/viewMenuSettings"
-        app:layout_constraintStart_toStartOf="@+id/viewMenuSettings"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuSettings"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_Admin"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenu_Admin"
+        app:layout_constraintStart_toStartOf="@+id/viewMenu_Admin"
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_Admin"
         app:srcCompat="@drawable/ic_settings" />
 
     <View
-        android:id="@+id/viewMenuUser"
+        android:id="@+id/viewMenu_Perfil"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/imgcredit"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/viewMenuSettings"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenu_Admin"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/viewMenuCerrarSesion"
-        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+        app:layout_constraintStart_toEndOf="@+id/viewMenu_CerrarSesion"
+        app:layout_constraintTop_toTopOf="@+id/gdMenu2" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ivMenuUser"
+        android:id="@+id/civMenu_Perfil"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/imgUser"
         android:foregroundGravity="center|center_horizontal"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
-        app:layout_constraintEnd_toEndOf="@+id/viewMenuUser"
-        app:layout_constraintStart_toStartOf="@+id/viewMenuUser"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuUser" />
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_Perfil"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenu_Perfil"
+        app:layout_constraintStart_toStartOf="@+id/viewMenu_Perfil"
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_Perfil" />
 
     <View
-        android:id="@+id/viewMenuCerrarSesion"
+        android:id="@+id/viewMenu_CerrarSesion"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:background="@drawable/imgcredit"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuUser"
-        app:layout_constraintEnd_toStartOf="@+id/viewMenuUser"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_Perfil"
+        app:layout_constraintEnd_toStartOf="@+id/viewMenu_Perfil"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuUser" />
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_Perfil" />
 
     <ImageView
-        android:id="@+id/ivMenuCerrarSesion"
+        android:id="@+id/imgMenu_CerrarSesion"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:contentDescription="@string/imgMusica"
-        app:layout_constraintBottom_toBottomOf="@+id/viewMenuCerrarSesion"
-        app:layout_constraintEnd_toEndOf="@+id/viewMenuCerrarSesion"
-        app:layout_constraintStart_toStartOf="@+id/viewMenuCerrarSesion"
-        app:layout_constraintTop_toTopOf="@+id/viewMenuCerrarSesion"
+        app:layout_constraintBottom_toBottomOf="@+id/viewMenu_CerrarSesion"
+        app:layout_constraintEnd_toEndOf="@+id/viewMenu_CerrarSesion"
+        app:layout_constraintStart_toStartOf="@+id/viewMenu_CerrarSesion"
+        app:layout_constraintTop_toTopOf="@+id/viewMenu_CerrarSesion"
         app:srcCompat="@drawable/ic_cerrarsesion" />
 
     <View
-        android:id="@+id/viewVerDialogCreditos"
+        android:id="@+id/viewMenu_Creditos"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginTop="16dp"

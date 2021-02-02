@@ -18,33 +18,33 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline47"
+            android:id="@+id/gdAdminJugador1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.824" />
 
         <View
-            android:id="@+id/viewCerrarAdminJugadores"
+            android:id="@+id/viewAdminJugador_Close"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/cerrar"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline43" />
+            app:layout_constraintTop_toTopOf="@+id/gdAdminJugador4" />
 
         <View
-            android:id="@+id/viewBackAdminJugadores"
+            android:id="@+id/viewAdminJugador_Back"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/back_2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline41" />
+            app:layout_constraintTop_toTopOf="@+id/gdAdminJugador2" />
 
         <TextView
-            android:id="@+id/textView22"
+            android:id="@+id/viewAdminJugador_Titulo"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginTop="4dp"
@@ -54,57 +54,57 @@
             android:textColor="#472C06"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline45"
-            app:layout_constraintStart_toStartOf="@+id/guideline44"
-            app:layout_constraintTop_toTopOf="@+id/guideline41" />
+            app:layout_constraintEnd_toStartOf="@+id/gdAdminJugador6"
+            app:layout_constraintStart_toStartOf="@+id/gdAdminJugador5"
+            app:layout_constraintTop_toTopOf="@+id/gdAdminJugador2" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline41"
+            android:id="@+id/gdAdminJugador2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.04" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline42"
+            android:id="@+id/gdAdminJugador3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.152" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline43"
+            android:id="@+id/gdAdminJugador4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.90" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline44"
+            android:id="@+id/gdAdminJugador5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.145" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline45"
+            android:id="@+id/gdAdminJugador6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.847" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvJugadoresAdmin"
+            android:id="@+id/rvAdminJugador"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline47"
-            app:layout_constraintEnd_toStartOf="@+id/guideline45"
-            app:layout_constraintStart_toStartOf="@+id/guideline44"
-            app:layout_constraintTop_toTopOf="@+id/guideline42"
+            app:layout_constraintBottom_toTopOf="@+id/gdAdminJugador1"
+            app:layout_constraintEnd_toStartOf="@+id/gdAdminJugador6"
+            app:layout_constraintStart_toStartOf="@+id/gdAdminJugador5"
+            app:layout_constraintTop_toTopOf="@+id/gdAdminJugador3"
             tools:listitem="@layout/item_recycler_elegir_player" />
 
         <View
-            android:id="@+id/viewAddJugador"
+            android:id="@+id/viewAdminJugadores_Add"
             android:layout_width="220dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -112,13 +112,13 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="16dp"
             android:background="@drawable/bt_add_jugador_bg"
-            app:layout_constraintBottom_toTopOf="@+id/guideline43"
-            app:layout_constraintEnd_toStartOf="@+id/guideline45"
-            app:layout_constraintStart_toStartOf="@+id/guideline44"
-            app:layout_constraintTop_toTopOf="@+id/guideline47" />
+            app:layout_constraintBottom_toTopOf="@+id/gdAdminJugador4"
+            app:layout_constraintEnd_toStartOf="@+id/gdAdminJugador6"
+            app:layout_constraintStart_toStartOf="@+id/gdAdminJugador5"
+            app:layout_constraintTop_toTopOf="@+id/gdAdminJugador1" />
 
         <TextView
-            android:id="@+id/tvAddJugador"
+            android:id="@+id/tvAdminJugadores_Add"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -129,21 +129,21 @@
             android:textColor="#472C06"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewAddJugador"
-            app:layout_constraintEnd_toEndOf="@+id/viewAddJugador"
-            app:layout_constraintStart_toEndOf="@+id/imgAddJugador"
-            app:layout_constraintTop_toTopOf="@+id/viewAddJugador" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdminJugadores_Add"
+            app:layout_constraintEnd_toEndOf="@+id/viewAdminJugadores_Add"
+            app:layout_constraintStart_toEndOf="@+id/imgAdminJugadores_Add"
+            app:layout_constraintTop_toTopOf="@+id/viewAdminJugadores_Add" />
 
         <ImageView
-            android:id="@+id/imgAddJugador"
+            android:id="@+id/imgAdminJugadores_Add"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginStart="16dp"
             android:contentDescription="@string/contAdd"
             android:src="@drawable/ic_adduser"
-            app:layout_constraintBottom_toBottomOf="@+id/viewAddJugador"
-            app:layout_constraintStart_toStartOf="@+id/viewAddJugador"
-            app:layout_constraintTop_toTopOf="@+id/viewAddJugador" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewAdminJugadores_Add"
+            app:layout_constraintStart_toStartOf="@+id/viewAdminJugadores_Add"
+            app:layout_constraintTop_toTopOf="@+id/viewAdminJugadores_Add" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

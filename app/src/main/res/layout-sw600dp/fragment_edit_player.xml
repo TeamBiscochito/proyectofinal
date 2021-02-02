@@ -20,7 +20,7 @@
 
 
         <TextView
-            android:id="@+id/tvAlertaEditJugador"
+            android:id="@+id/tvEditPlayer_Alerta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -33,34 +33,34 @@
             android:textColor="#D3443A"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/viewEditJugador2"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
+            app:layout_constraintBottom_toTopOf="@+id/viewEditPlayer_Editar"
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
             app:layout_constraintTop_toTopOf="@+id/guideline59" />
 
         <View
-            android:id="@+id/viewEditJugador2"
+            android:id="@+id/viewEditPlayer_Editar"
             android:layout_width="240dp"
             android:layout_height="80dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/tablero_2"
-            app:layout_constraintBottom_toTopOf="@+id/guideline60"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toBottomOf="@+id/tvAlertaEditJugador" />
+            app:layout_constraintBottom_toTopOf="@+id/gdEditPlayer3"
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
+            app:layout_constraintTop_toBottomOf="@+id/tvEditPlayer_Alerta" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vp_avatar_edit"
+            android:id="@+id/vpEditPlayer_Avatar"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toTopOf="@+id/guideline59"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toBottomOf="@+id/viewSeleccionarAvatarActual" />
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
+            app:layout_constraintTop_toBottomOf="@+id/viewEditPlayer_Selecciona" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/tvEditPlayer_Selecciona"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -72,12 +72,12 @@
             android:textColor="#472C06"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toBottomOf="@+id/etNombreJugadorEditar" />
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
+            app:layout_constraintTop_toBottomOf="@+id/etEditPlayer_Nombre" />
 
         <EditText
-            android:id="@+id/etNombreJugadorEditar"
+            android:id="@+id/etEditPlayer_Nombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -92,12 +92,12 @@
             android:padding="8dp"
             android:textAlignment="center"
             android:textSize="28sp"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
+            app:layout_constraintTop_toBottomOf="@+id/tvEditPlayer_Nombre" />
 
         <TextView
-            android:id="@+id/textView28"
+            android:id="@+id/tvEditPlayer_Nombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -109,22 +109,22 @@
             android:textColor="#472C06"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toTopOf="@+id/guideline57" />
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
+            app:layout_constraintTop_toTopOf="@+id/gdEditPlayer2" />
 
         <View
-            android:id="@+id/viewBackAdminEditPlayer"
+            android:id="@+id/viewEditPlayer_Back"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="@drawable/back_2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline56" />
+            app:layout_constraintTop_toTopOf="@+id/gdEditPlayer1" />
 
         <TextView
-            android:id="@+id/textView24"
+            android:id="@+id/tvEditPlayer_Titulo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -135,21 +135,21 @@
             android:textColor="#472C06"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView28"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toTopOf="@+id/guideline56"
+            app:layout_constraintBottom_toTopOf="@+id/tvEditPlayer_Nombre"
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
+            app:layout_constraintTop_toTopOf="@+id/gdEditPlayer1"
             app:layout_constraintVertical_bias="0.20" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline56"
+            android:id="@+id/gdEditPlayer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.02" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline57"
+            android:id="@+id/gdEditPlayer2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -170,28 +170,28 @@
             app:layout_constraintGuide_percent="0.75" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline60"
+            android:id="@+id/gdEditPlayer3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.91" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline61"
+            android:id="@+id/gdEditPlayer4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.15" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline62"
+            android:id="@+id/gdEditPlayer5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.84" />
 
         <TextView
-            android:id="@+id/tvEditJugador2"
+            android:id="@+id/tvEditPlayer_Editar"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -200,23 +200,23 @@
             android:textColor="#472C06"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewEditJugador2"
-            app:layout_constraintEnd_toEndOf="@+id/viewEditJugador2"
-            app:layout_constraintStart_toStartOf="@+id/viewEditJugador2"
-            app:layout_constraintTop_toTopOf="@+id/viewEditJugador2" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewEditPlayer_Editar"
+            app:layout_constraintEnd_toEndOf="@+id/viewEditPlayer_Editar"
+            app:layout_constraintStart_toStartOf="@+id/viewEditPlayer_Editar"
+            app:layout_constraintTop_toTopOf="@+id/viewEditPlayer_Editar" />
 
         <View
-            android:id="@+id/viewSeleccionarAvatarActual"
+            android:id="@+id/viewEditPlayer_Selecciona"
             android:layout_width="300dp"
             android:layout_height="80dp"
             android:background="@drawable/bt_enviar_correo"
-            app:layout_constraintBottom_toTopOf="@+id/vp_avatar_edit"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toBottomOf="@+id/textView29" />
+            app:layout_constraintBottom_toTopOf="@+id/vpEditPlayer_Avatar"
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
+            app:layout_constraintTop_toBottomOf="@+id/tvEditPlayer_Selecciona" />
 
         <TextView
-            android:id="@+id/tvSeleccionarAvatarActual"
+            android:id="@+id/tvEditPlayer_SeleccionaActual"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -225,34 +225,34 @@
             android:textColor="#FFFFFF"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewSeleccionarAvatarActual"
-            app:layout_constraintEnd_toEndOf="@+id/viewSeleccionarAvatarActual"
-            app:layout_constraintStart_toStartOf="@+id/viewSeleccionarAvatarActual"
-            app:layout_constraintTop_toTopOf="@+id/viewSeleccionarAvatarActual" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewEditPlayer_Selecciona"
+            app:layout_constraintEnd_toEndOf="@+id/viewEditPlayer_Selecciona"
+            app:layout_constraintStart_toStartOf="@+id/viewEditPlayer_Selecciona"
+            app:layout_constraintTop_toTopOf="@+id/viewEditPlayer_Selecciona" />
 
         <View
-            android:id="@+id/viewPreviousAvatarEdit"
+            android:id="@+id/viewEditPlayer_Previous"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="2dp"
             android:layout_marginEnd="16dp"
             android:background="@drawable/previous"
-            app:layout_constraintBottom_toBottomOf="@+id/vp_avatar_edit"
-            app:layout_constraintEnd_toStartOf="@+id/vp_avatar_edit"
-            app:layout_constraintStart_toStartOf="@+id/guideline61"
-            app:layout_constraintTop_toTopOf="@+id/vp_avatar_edit" />
+            app:layout_constraintBottom_toBottomOf="@+id/vpEditPlayer_Avatar"
+            app:layout_constraintEnd_toStartOf="@+id/vpEditPlayer_Avatar"
+            app:layout_constraintStart_toStartOf="@+id/gdEditPlayer4"
+            app:layout_constraintTop_toTopOf="@+id/vpEditPlayer_Avatar" />
 
         <View
-            android:id="@+id/viewNextAvatarEdit"
+            android:id="@+id/viewEditPlayer_Next"
             android:layout_width="80dp"
             android:layout_height="70dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="2dp"
             android:background="@drawable/next"
-            app:layout_constraintBottom_toBottomOf="@+id/vp_avatar_edit"
-            app:layout_constraintEnd_toStartOf="@+id/guideline62"
-            app:layout_constraintStart_toEndOf="@+id/vp_avatar_edit"
-            app:layout_constraintTop_toTopOf="@+id/vp_avatar_edit" />
+            app:layout_constraintBottom_toBottomOf="@+id/vpEditPlayer_Avatar"
+            app:layout_constraintEnd_toStartOf="@+id/gdEditPlayer5"
+            app:layout_constraintStart_toEndOf="@+id/vpEditPlayer_Avatar"
+            app:layout_constraintTop_toTopOf="@+id/vpEditPlayer_Avatar" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@
     android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/tvImportItem"
+        android:id="@+id/tvItemImport_Nombre"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -18,12 +18,12 @@
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivImportItem"
-        app:layout_constraintTop_toTopOf="@+id/ivImportItem"
+        app:layout_constraintStart_toEndOf="@+id/civItemImport_Item"
+        app:layout_constraintTop_toTopOf="@+id/civItemImport_Item"
         tools:text="Nombre" />
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/ivImportItem"
+        android:id="@+id/civItemImport_Item"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginStart="16dp"
@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/cbImport"
+        android:id="@+id/chkItemImport_Importar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -44,7 +44,7 @@
         android:text="@string/textImpotar"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/ivImportItem"
+        app:layout_constraintBottom_toBottomOf="@+id/civItemImport_Item"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/ivImportItem" />
+        app:layout_constraintStart_toEndOf="@+id/civItemImport_Item" />
 </androidx.constraintlayout.widget.ConstraintLayout>

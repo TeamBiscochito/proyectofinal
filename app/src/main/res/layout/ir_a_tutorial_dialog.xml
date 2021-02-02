@@ -9,13 +9,13 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:background="@drawable/correo_dialog_bg"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout3"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayout3"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout3"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout3">
+        app:layout_constraintBottom_toBottomOf="@+id/clDialogIrTutorial_Fuera"
+        app:layout_constraintEnd_toEndOf="@+id/clDialogIrTutorial_Fuera"
+        app:layout_constraintStart_toStartOf="@+id/clDialogIrTutorial_Fuera"
+        app:layout_constraintTop_toTopOf="@+id/clDialogIrTutorial_Fuera">
 
         <TextView
-            android:id="@+id/textViewotro"
+            android:id="@+id/tvDialogIrTutorial_Info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -26,14 +26,14 @@
             android:textColor="#472C06"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView20"
+            app:layout_constraintBottom_toTopOf="@+id/tvDialogIrTutorial_Alerta"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView20"
+            android:id="@+id/tvDialogIrTutorial_Alerta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -49,13 +49,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewotro" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDialogIrTutorial_Info" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+        android:id="@+id/clDialogIrTutorial_Fuera"
         android:layout_width="350dp"
         android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -64,29 +64,29 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guidelineotra"
+            android:id="@+id/gdDialogIrTutorial1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.50" />
 
         <View
-            android:id="@+id/viewCancelarTutorialDialog"
+            android:id="@+id/viewDialogIrTutorial_Cancel"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginEnd="24dp"
             android:background="@drawable/cerrar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/guidelineotra" />
+            app:layout_constraintEnd_toStartOf="@+id/gdDialogIrTutorial1" />
 
         <View
-            android:id="@+id/viewAceptarTutorialDialog"
+            android:id="@+id/viewDialogIrTutorial_Accept"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="24dp"
             android:background="@drawable/aceptar"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guidelineotra" />
+            app:layout_constraintStart_toStartOf="@+id/gdDialogIrTutorial1" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

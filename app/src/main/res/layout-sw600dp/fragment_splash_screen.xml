@@ -8,7 +8,7 @@
     tools:context=".view.fragment.SplashScreenFragment">
 
     <ImageView
-        android:id="@+id/imgLogoTeam"
+        android:id="@+id/imgSplashScreen_Logo"
         android:layout_width="600dp"
         android:layout_height="500dp"
         android:contentDescription="@string/textLogo"

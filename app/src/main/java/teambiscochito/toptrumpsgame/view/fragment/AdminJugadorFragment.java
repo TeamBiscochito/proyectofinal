@@ -68,7 +68,7 @@ public class AdminJugadorFragment extends Fragment {
         navController = Navigation.findNavController(view);
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
-        recyclerView = getView().findViewById(R.id.rvJugadoresAdmin);
+        recyclerView = getView().findViewById(R.id.rvAdminJugador);
 
         LiveData<List<User>> userList = viewModel.getUserList();
         userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
@@ -147,11 +147,11 @@ public class AdminJugadorFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        viewBackAdminJugadores = view.findViewById(R.id.viewBackAdminJugadores);
-        viewCerrarAdminJugadores = view.findViewById(R.id.viewCerrarAdminJugadores);
-        viewAddJugador = view.findViewById(R.id.viewAddJugador);
-        imgAddJugador = view.findViewById(R.id.imgAddJugador);
-        tvAddJugador = view.findViewById(R.id.tvAddJugador);
+        viewBackAdminJugadores = view.findViewById(R.id.viewAdminJugador_Back);
+        viewCerrarAdminJugadores = view.findViewById(R.id.viewAdminJugador_Close);
+        viewAddJugador = view.findViewById(R.id.viewAdminJugadores_Add);
+        imgAddJugador = view.findViewById(R.id.imgAdminJugadores_Add);
+        tvAddJugador = view.findViewById(R.id.tvAdminJugadores_Add);
 
     }
 
@@ -166,8 +166,8 @@ public class AdminJugadorFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewCancelarAdminDialog);
-        viewAceptarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewAceptarAdminDialog);
+        viewCancelarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewSalirDialogAdmin_Cancel);
+        viewAceptarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewSalirDialogAdmin_Accept);
 
         viewCancelarAdminDialog.setOnClickListener(new View.OnClickListener() {
             @Override

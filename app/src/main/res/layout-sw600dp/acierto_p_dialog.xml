@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:id="@+id/view20"
+            android:id="@+id/viewCorrectoBG"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="80dp"
@@ -25,10 +25,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView45" />
+            app:layout_constraintTop_toTopOf="@+id/tvCorrecto" />
 
         <TextView
-            android:id="@+id/textView45"
+            android:id="@+id/tvCorrecto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="52dp"
@@ -45,21 +45,21 @@
             android:textSize="48sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/view20"
-            app:layout_constraintStart_toStartOf="@+id/view20" />
+            app:layout_constraintEnd_toEndOf="@+id/viewCorrectoBG"
+            app:layout_constraintStart_toStartOf="@+id/viewCorrectoBG" />
 
         <View
-            android:id="@+id/view21"
+            android:id="@+id/viewCorrectoBorde"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/marco_jugar_bg"
-            app:layout_constraintBottom_toBottomOf="@+id/view20"
-            app:layout_constraintEnd_toEndOf="@+id/view20"
-            app:layout_constraintStart_toStartOf="@+id/view20"
-            app:layout_constraintTop_toTopOf="@+id/view20" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewCorrectoBG"
+            app:layout_constraintEnd_toEndOf="@+id/viewCorrectoBG"
+            app:layout_constraintStart_toStartOf="@+id/viewCorrectoBG"
+            app:layout_constraintTop_toTopOf="@+id/viewCorrectoBG" />
 
         <View
-            android:id="@+id/view24"
+            android:id="@+id/viewCorrectoLeon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/p_correcta_bg"

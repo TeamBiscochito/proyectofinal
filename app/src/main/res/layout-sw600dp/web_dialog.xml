@@ -25,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                android:id="@+id/textView42"
+                android:id="@+id/tvWebDialog_Titulo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -36,30 +36,30 @@
                 android:textColor="#472C06"
                 android:textSize="32sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/viewEntrarEnlaceWeb"
+                app:layout_constraintBottom_toTopOf="@+id/viewWebDialog_Entrar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <View
-                android:id="@+id/viewCopiarEnlaceWeb"
+                android:id="@+id/viewWebDialog_Copiar"
                 android:layout_width="0dp"
                 android:layout_height="70dp"
                 android:layout_marginBottom="32dp"
                 android:background="@drawable/bt_enviar_correo"
-                app:layout_constraintBottom_toTopOf="@+id/guideline100"
-                app:layout_constraintEnd_toEndOf="@+id/viewEntrarEnlaceWeb"
-                app:layout_constraintStart_toStartOf="@+id/viewEntrarEnlaceWeb" />
+                app:layout_constraintBottom_toTopOf="@+id/gdWebDialog1"
+                app:layout_constraintEnd_toEndOf="@+id/viewWebDialog_Entrar"
+                app:layout_constraintStart_toStartOf="@+id/viewWebDialog_Entrar" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline100"
+                android:id="@+id/gdWebDialog1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.87" />
 
             <TextView
-                android:id="@+id/tvCopiarEnlaceWeb"
+                android:id="@+id/tvWebDialog_Copiar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
@@ -68,23 +68,23 @@
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/viewCopiarEnlaceWeb"
-                app:layout_constraintEnd_toEndOf="@+id/viewCopiarEnlaceWeb"
-                app:layout_constraintStart_toStartOf="@+id/viewCopiarEnlaceWeb"
-                app:layout_constraintTop_toTopOf="@+id/viewCopiarEnlaceWeb" />
+                app:layout_constraintBottom_toBottomOf="@+id/viewWebDialog_Copiar"
+                app:layout_constraintEnd_toEndOf="@+id/viewWebDialog_Copiar"
+                app:layout_constraintStart_toStartOf="@+id/viewWebDialog_Copiar"
+                app:layout_constraintTop_toTopOf="@+id/viewWebDialog_Copiar" />
 
             <View
-                android:id="@+id/viewEntrarEnlaceWeb"
+                android:id="@+id/viewWebDialog_Entrar"
                 android:layout_width="300dp"
                 android:layout_height="70dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/bt_enviar_correo"
-                app:layout_constraintBottom_toTopOf="@+id/viewCopiarEnlaceWeb"
+                app:layout_constraintBottom_toTopOf="@+id/viewWebDialog_Copiar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/tvEntrarEnlaceWeb"
+                android:id="@+id/tvWebDialog_Entrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
@@ -93,14 +93,14 @@
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/viewEntrarEnlaceWeb"
-                app:layout_constraintEnd_toEndOf="@+id/viewEntrarEnlaceWeb"
-                app:layout_constraintStart_toStartOf="@+id/viewEntrarEnlaceWeb"
-                app:layout_constraintTop_toTopOf="@+id/viewEntrarEnlaceWeb" />
+                app:layout_constraintBottom_toBottomOf="@+id/viewWebDialog_Entrar"
+                app:layout_constraintEnd_toEndOf="@+id/viewWebDialog_Entrar"
+                app:layout_constraintStart_toStartOf="@+id/viewWebDialog_Entrar"
+                app:layout_constraintTop_toTopOf="@+id/viewWebDialog_Entrar" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
-            android:id="@+id/viewCerrarWebDialog"
+            android:id="@+id/viewWebDialog_Cancel"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginBottom="32dp"

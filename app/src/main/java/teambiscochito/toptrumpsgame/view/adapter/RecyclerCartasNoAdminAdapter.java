@@ -160,23 +160,23 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgFotoCartaNoAdmin = itemView.findViewById(R.id.imgFotoCartaNoAdmin);
-            tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvNombreCartaNoAdmin);
-            tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvDescCartasNoAdminBack);
-            easyFlipView = itemView.findViewById(R.id.easyflipview);
-            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvClicParaHacerFlipCarta);
-            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewClicParaHacerFlipCarta);
+            imgFotoCartaNoAdmin = itemView.findViewById(R.id.civCartaNoAdmin_Foto);
+            tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvCartasNoAdmin_Nombre);
+            tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvCartasNoAdmin_Descripcion);
+            easyFlipView = itemView.findViewById(R.id.efvCartasNoAdmin_FlipCarta);
+            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvCartasNoAdmin_Flip);
+            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewCartasNoAdmin_Flip);
 
-            tvAltura = itemView.findViewById(R.id.tvValorAlturaMediaNoAdmin);
-            tvPeso = itemView.findViewById(R.id.tvPesoMedioNoAdmin);
-            tvLongitud = itemView.findViewById(R.id.tvLongitudMediaNoAdmin);
-            tvVelocidad = itemView.findViewById(R.id.tvVelocidadMediaNoAdmin);
-            tvPoder = itemView.findViewById(R.id.tvPoderMortiferoNoAdmin);
+            tvAltura = itemView.findViewById(R.id.tvCartasNoAdmin_ValorAltura);
+            tvPeso = itemView.findViewById(R.id.tvCartasNoAdmin_ValorPeso);
+            tvLongitud = itemView.findViewById(R.id.tvCartasNoAdmin_ValorLongitud);
+            tvVelocidad = itemView.findViewById(R.id.tvCartasNoAdmin_ValorVelocidad);
+            tvPoder = itemView.findViewById(R.id.tvCartasNoAdmin_ValorPoder);
 
-            tvAlturaUnidad = itemView.findViewById(R.id.tvUnidadAlturaMediaNoAdmin);
-            tvPesoUnidad = itemView.findViewById(R.id.tvUnidadPesoMedioNoAdmin);
-            tvLongitudUnidad = itemView.findViewById(R.id.tvUnidadLongitudMediaNoAdmin);
-            tvVelocidadUnidad = itemView.findViewById(R.id.tvUnidadVelocidadMediaNoAdmin);
+            tvAlturaUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadAltura);
+            tvPesoUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadPeso);
+            tvLongitudUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadLongitud);
+            tvVelocidadUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadVelocidad);
 
             // Poner texto de la carta justificado
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

@@ -18,12 +18,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -261,11 +257,11 @@ public class ImportFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        viewBackImport = view.findViewById(R.id.viewBackImportFragment);
-        viewImport = view.findViewById(R.id.viewImport);
-        recyclerView = view.findViewById(R.id.recyclerImport);
-        tvImport = view.findViewById(R.id.tvImportCard);
-        textviewImportVacio = view.findViewById(R.id.textviewImportVacio);
+        viewBackImport = view.findViewById(R.id.viewImport_Back);
+        viewImport = view.findViewById(R.id.viewImport_Importar);
+        recyclerView = view.findViewById(R.id.rvImport_Importar);
+        tvImport = view.findViewById(R.id.tvImport_Importar);
+        textviewImportVacio = view.findViewById(R.id.viewImport_ErrorInfo);
 
     }
 
