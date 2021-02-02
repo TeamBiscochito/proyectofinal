@@ -129,6 +129,22 @@
             app:layout_constraintStart_toStartOf="@+id/viewImport"
             app:layout_constraintTop_toTopOf="@+id/viewImport" />
 
+        <TextView
+            android:id="@+id/textviewImportVacio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#472C06"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline128"
+            app:layout_constraintEnd_toStartOf="@+id/guideline124"
+            app:layout_constraintStart_toStartOf="@+id/guideline123"
+            app:layout_constraintTop_toTopOf="@+id/guideline125" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

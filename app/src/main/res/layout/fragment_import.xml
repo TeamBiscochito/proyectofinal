@@ -90,7 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.72" />
+            app:layout_constraintGuide_percent="0.78" />
 
         <View
             android:id="@+id/view34"
@@ -138,7 +138,7 @@
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textColor="#472C06"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/guideline128"
             app:layout_constraintEnd_toStartOf="@+id/guideline124"

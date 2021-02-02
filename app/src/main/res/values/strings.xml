@@ -38,7 +38,7 @@
     <string name="tvCorreoEnviar">Enviar</string>
     <string name="textIntroduceCorreo">Introduce un correo electrónico</string>
     <string name="textCorreoNoValido">El correo electrónico no es válido</string>
-    <string name="textCorreoSubject">Animales Salvajes. Puntuación acumulada</string>
+    <string name="textCorreoSubject">Animales Salvajes - Puntuación acumulada</string>
     <string name="textNoSePudoEnviarCorreo">No se pudo enviar el correo electrónico</string>
     <string name="tvEmailEnviadoExito">Si finalmente has decidido mandar el mensaje, comprueba tu correo</string>
     <string name="alertBateriaAgotarse">La batería del dispositivo está a punto de agotarse</string>
@@ -119,6 +119,7 @@
     <string name="alertVelocidadNoValida">Velocidad no válida (máx. 9999)</string>
     <string name="alertPoderNoValido">Poder no válido (1 - 10)</string>
     <string name="textImpotar">Importar</string>
+    <string name="btBuscaEnInternet">Buscar en internet</string>
 
     <array name="magnitudesAltura">
         <item>m</item>

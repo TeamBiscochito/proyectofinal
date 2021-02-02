@@ -27,6 +27,8 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
@@ -114,12 +116,30 @@ public class CorreoFragment extends Fragment {
                     viewCorreoEnviar.startAnimation(animScaleUp);
                     tvCorreoEnviar.startAnimation(animScaleUp);
 
+                    DecimalFormat formateador = new DecimalFormat("##.#");
+                    String porcentajeAciertos = formateador.format(((Double.parseDouble(String.valueOf(userActual.getTrueAnswer()))) / (Double.parseDouble(String.valueOf(userActual.getAnswer()))) * 100)) + " %";
+
+                    String preguntas, mensaje;
+
                     String correo = etCorreo.getText().toString();
                     String subject = getString(R.string.textCorreoSubject);
-                    String mensaje = "¡Hola, " + userActual.getName() + "!\n" +
-                            "La puntuación acumulada que llevas en Animales Salvajes es de " + userActual.getTrueAnswer() + "." + "\n" +
-                            "¡Que sigas disfrutando del juego!" + "\n" +
-                            "Team Biscochito © 2021";
+
+                    if (userActual.getAnswer() == 0) {
+                        mensaje = "Hola, 🦁 " + userActual.getName() + " 🦁\n\n" +
+                                "La puntuación total que llevas en nuestro juego, Animales Salvajes es de:\n" +
+                                "\n❗No has respondido ninguna pregunta❗\n" +
+                                "\n¡Empieza a jugar para tener una puntuación!" + "\n" +
+                                "\nTeam Biscochito © 2021 - 💯";
+                    } else {
+                        preguntas = " - Preguntas respondidas: ❗" + userActual.getAnswer();
+                        mensaje = "Hola, 🦁 " + userActual.getName() + " 🦁\n\n" +
+                                "La puntuación total que llevas en nuestro juego, Animales Salvajes es de:\n" +
+                                "\n" + preguntas + " ❗" + "\n" +
+                                "\n - Preguntas acertadas: ✔ " + userActual.getTrueAnswer() + " ✔" + "\n" +
+                                "\n - Media de preguntas acertadas: ✔ " + porcentajeAciertos + " ✔" + "\n" +
+                                "\n¡Que sigas disfrutando del juego!" + "\n" +
+                                "\nTeam Biscochito © 2021 - 💯";
+                    }
 
                     if(correo.isEmpty()) {
                         tvAlertaCorreo.setText(R.string.textIntroduceCorreo);

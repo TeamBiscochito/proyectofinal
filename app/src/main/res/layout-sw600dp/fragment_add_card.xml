@@ -85,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.74" />
+            app:layout_constraintGuide_percent="0.75" />
 
         <View
             android:id="@+id/view30"
@@ -98,6 +98,22 @@
             app:layout_constraintEnd_toStartOf="@+id/guideline112"
             app:layout_constraintStart_toStartOf="@+id/guideline111"
             app:layout_constraintTop_toTopOf="@+id/guideline119" />
+
+        <TextView
+            android:id="@+id/tvAlertaAddCarta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#D3443A"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/viewAddCarta2"
+            app:layout_constraintEnd_toEndOf="@+id/view30"
+            app:layout_constraintStart_toStartOf="@+id/view30"
+            app:layout_constraintTop_toTopOf="@+id/view30" />
 
         <View
             android:id="@+id/viewAddCarta2"
@@ -123,22 +139,6 @@
             app:layout_constraintEnd_toEndOf="@+id/viewAddCarta2"
             app:layout_constraintStart_toStartOf="@+id/viewAddCarta2"
             app:layout_constraintTop_toTopOf="@+id/viewAddCarta2" />
-
-        <TextView
-            android:id="@+id/tvAlertaAddCarta"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="8dp"
-            android:fontFamily="@font/schoolbell"
-            android:textAlignment="center"
-            android:textColor="#D3443A"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/viewAddCarta2"
-            app:layout_constraintEnd_toEndOf="@+id/view30"
-            app:layout_constraintStart_toStartOf="@+id/view30"
-            app:layout_constraintTop_toTopOf="@+id/view30" />
 
         <ScrollView
             android:id="@+id/svCrearCarta"
@@ -167,7 +167,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.65" />
+                    app:layout_constraintGuide_percent="0.60" />
 
                 <TextView
                     android:id="@+id/textView49"
@@ -273,19 +273,31 @@
                     android:fontFamily="@font/schoolbell"
                     android:hint="@string/tvURL"
                     android:imeOptions="actionDone"
-                    android:inputType="textPersonName"
+                    android:inputType="textUri|textPersonName"
                     android:padding="8dp"
                     android:textSize="24sp"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
                     app:layout_constraintTop_toBottomOf="@+id/textView51" />
 
+                <Button
+                    android:id="@+id/btBuscarEnInternet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/btBuscaEnInternet"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView52"
+                    app:layout_constraintEnd_toEndOf="@+id/urlEt"
+                    app:layout_constraintStart_toStartOf="@+id/urlEt"
+                    app:layout_constraintTop_toBottomOf="@+id/urlEt" />
+
                 <TextView
                     android:id="@+id/textView52"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
                     android:layout_marginEnd="16dp"
                     android:fontFamily="@font/schoolbell"
                     android:text="@string/tvAlturaDosPuntos"
@@ -295,7 +307,7 @@
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="@+id/consSvCrearCarta"
                     app:layout_constraintStart_toStartOf="@+id/consSvCrearCarta"
-                    app:layout_constraintTop_toBottomOf="@+id/urlEt" />
+                    app:layout_constraintTop_toBottomOf="@+id/btBuscarEnInternet" />
 
                 <EditText
                     android:id="@+id/alturaEtAddCard"
@@ -475,7 +487,7 @@
                 <Spinner
                     android:id="@+id/alturasp"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/alturaEtAddCard"
@@ -486,7 +498,7 @@
                 <Spinner
                     android:id="@+id/pesosp"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/pesoEtAddCard"
@@ -497,7 +509,7 @@
                 <Spinner
                     android:id="@+id/longitudsp"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/longitudEtAddCard"
@@ -508,7 +520,7 @@
                 <Spinner
                     android:id="@+id/velocidadsp"
                     android:layout_width="0dp"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="16dp"
                     android:background="@drawable/style_spinner"
                     app:layout_constraintBottom_toBottomOf="@+id/velocidadEtAddCard"

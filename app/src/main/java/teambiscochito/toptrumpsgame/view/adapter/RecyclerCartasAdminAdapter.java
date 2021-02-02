@@ -395,7 +395,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 tvDescCartasNoAdminBack.setJustificationMode(LineBreaker.JUSTIFICATION_MODE_INTER_WORD);
             } else {
-                tvNombreCartaNoAdmin.setGravity(Gravity.CENTER);
+                tvDescCartasNoAdminBack.setGravity(Gravity.CENTER);
             }
         }
     }
