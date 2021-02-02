@@ -15,7 +15,6 @@
         app:layout_constraintTop_toTopOf="@+id/clSalirDialogAdmin_ConsLayout">
 
         <TextView
-            android:id="@+id/tvSalirDialogAdmin_Info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"

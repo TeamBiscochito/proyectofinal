@@ -45,7 +45,6 @@
             app:layout_constraintGuide_percent="0.15" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/gdAdmin3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -69,7 +68,6 @@
             app:layout_constraintTop_toTopOf="@+id/gdAdmin4" />
 
         <TextView
-            android:id="@+id/tvAdmin_Titulo"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"

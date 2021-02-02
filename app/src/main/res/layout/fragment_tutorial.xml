@@ -9,7 +9,6 @@
 
 
     <ImageView
-        android:id="@+id/imgTutorial_LeonCuerpo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:contentDescription="@string/contLeon"
@@ -91,7 +90,6 @@
         app:layout_constraintGuide_percent="0.90" />
 
     <View
-        android:id="@+id/viewTutorial_BGBordes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/marco_tutorial_bg"
@@ -174,7 +172,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvTutorial_Titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/schoolbell"

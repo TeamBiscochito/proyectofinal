@@ -83,7 +83,6 @@
         app:layout_constraintGuide_percent="0.59" />
 
     <View
-        android:id="@+id/viewJuego_BGRespuestas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -98,7 +97,6 @@
         app:layout_constraintTop_toTopOf="@+id/gdJuego2" />
 
     <View
-        android:id="@+id/viewJuego_BGBordeRespuestas"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="32dp"
@@ -288,7 +286,6 @@
         tools:text="¿Cuál es la" />
 
     <View
-        android:id="@+id/viewJuego_BGBordeAnimal"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/brown_bg_jugar_redondo_frame"
@@ -336,7 +333,6 @@
         app:layout_constraintStart_toEndOf="@+id/viewJuego_BGMarron" />
 
     <View
-        android:id="@+id/viewJuego_Bird5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/marco_jugar_bg"

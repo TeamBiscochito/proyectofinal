@@ -42,7 +42,6 @@
         app:layout_constraintGuide_percent="0.93" />
 
     <View
-        android:id="@+id/viewCartas_BGCarta"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bg"
@@ -65,7 +64,6 @@
         tools:listitem="@layout/item_recycler_cartas_no_admin" />
 
     <View
-        android:id="@+id/viewCartas_BGCartaBordes"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bg_cuatro"
@@ -75,7 +73,6 @@
         app:layout_constraintTop_toTopOf="@+id/gdCartas1" />
 
     <View
-        android:id="@+id/viewCartas_BGTitulo"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/choose_user_other_bg"
@@ -99,7 +96,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvCartas_Cartel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/schoolbell"
@@ -123,7 +119,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tvCartas_Info"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"

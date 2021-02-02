@@ -84,7 +84,6 @@
         app:layout_constraintGuide_percent="0.86" />
 
     <View
-        android:id="@+id/viewChooseUser_BG"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@drawable/bg_tres"

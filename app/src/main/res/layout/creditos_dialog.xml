@@ -136,7 +136,6 @@
             app:layout_constraintGuide_percent="0.918" />
 
         <TextView
-            android:id="@+id/tvDialogCreditosCopyright"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"

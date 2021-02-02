@@ -69,7 +69,6 @@
             app:layout_constraintGuide_percent="0.846" />
 
         <TextView
-            android:id="@+id/tvAdminCartas_Titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -145,7 +144,6 @@
             app:layout_constraintTop_toTopOf="@+id/viewAdminCartas_AddCarta" />
 
         <TextView
-            android:id="@+id/tvdminCartas_Info"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"

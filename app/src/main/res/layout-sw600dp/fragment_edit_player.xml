@@ -124,7 +124,6 @@
             app:layout_constraintTop_toTopOf="@+id/gdEditPlayer1" />
 
         <TextView
-            android:id="@+id/tvEditPlayer_Titulo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
@@ -156,7 +155,6 @@
             app:layout_constraintGuide_percent="0.18" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline58"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

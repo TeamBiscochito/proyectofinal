@@ -19,7 +19,6 @@
         android:focusableInTouchMode="true">
 
         <TextView
-            android:id="@+id/tvAddPlayer_Titulo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

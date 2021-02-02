@@ -68,7 +68,6 @@
             app:layout_constraintGuide_percent="0.847" />
 
         <TextView
-            android:id="@+id/tvEditCard_Titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -143,7 +142,6 @@
             app:layout_constraintTop_toTopOf="@+id/viewEditCard_BGEditar" />
 
         <ScrollView
-            android:id="@+id/svEditCard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:scrollbarSize="10dp"

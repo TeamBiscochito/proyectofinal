@@ -49,7 +49,6 @@
             app:layout_constraintStart_toStartOf="@+id/viewCorrectoBG" />
 
         <View
-            android:id="@+id/viewCorrectoBorde"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/marco_jugar_bg"
@@ -59,7 +58,6 @@
             app:layout_constraintTop_toTopOf="@+id/viewCorrectoBG" />
 
         <View
-            android:id="@+id/viewCorrectoLeon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/p_correcta_bg"
