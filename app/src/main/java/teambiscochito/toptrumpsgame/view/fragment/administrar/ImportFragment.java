@@ -69,6 +69,7 @@ public class ImportFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
 
+        // TODO - Método conexión con el servidor?
         Call<ArrayList<Card>> cartaCall = viewModel.getCardClient().getAllCards();
         cartaCall.enqueue(new Callback<ArrayList<Card>>() {
 
@@ -89,6 +90,7 @@ public class ImportFragment extends Fragment {
             }
         });
 
+        // TODO - Obtiene las preguntas del servidor?
         Call<ArrayList<Question>> call = viewModel.getCardClient().getAllQuestions();
 
         try {
@@ -97,16 +99,17 @@ public class ImportFragment extends Fragment {
             e.printStackTrace();
         }
 
+        // TODO - Método conexión con el servidor?
         call.enqueue(new Callback<ArrayList<Question>>() {
 
             @Override
             public void onResponse(@NonNull Call<ArrayList<Question>> call, @NonNull Response<ArrayList<Question>> response) {
 
                 try {
-//                    for (Question q : Objects.requireNonNull(response.body())) {
-//                        questionArrayList.add(q);
-//                    }
-                    questionArrayList.addAll(Objects.requireNonNull(response.body()));
+                    for (Question q : Objects.requireNonNull(response.body())) {
+                        questionArrayList.add(q);
+                    }
+//                    questionArrayList.addAll(Objects.requireNonNull(response.body()));
                 } catch (NullPointerException ignored) {
                 }
             }

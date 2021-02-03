@@ -4,13 +4,6 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +11,20 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
 import teambiscochito.toptrumpsgame.R;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase para establecer una pantalla de inicio (nuestro logo), una SplashScreen. Tiene sonido incluido.
+ */
 public class SplashScreenFragment extends Fragment {
-
     ImageView imgLogoTeam;
     Animation animLogo;
 
@@ -31,7 +34,6 @@ public class SplashScreenFragment extends Fragment {
     private MediaPlayer mp_sound;
 
     public SplashScreenFragment() {
-
     }
 
     @Override
@@ -54,7 +56,7 @@ public class SplashScreenFragment extends Fragment {
         animLogo = AnimationUtils.loadAnimation(getContext(), R.anim.fade_logo_team);
         imgLogoTeam = view.findViewById(R.id.imgSplashScreen_Logo);
 
-        sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
+        sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE);
 
         String random = cadenaAleatoria();
         String claveAdmin = sharedPreferences.getString("clave_admin", random);
@@ -67,52 +69,39 @@ public class SplashScreenFragment extends Fragment {
 
             @Override
             public void run() {
-
                 try {
-
                     sleep(3000);
-
-                    if (claveAdmin != random){
-
+                    if (!claveAdmin.equals(random)) {
                         navController.navigate(R.id.action_fragmentSplashScreen_to_chooseUserFragment);
-
                     } else {
-
                         navController.navigate(R.id.action_fragmentSplashScreen_to_crearAdminFragment);
-
                     }
-
-                } catch (InterruptedException e) {
-
+                } catch (InterruptedException ignored) {
                 }
             }
         };
         thread.start();
     }
 
-    public String cadenaAleatoria(){
-
+    public String cadenaAleatoria() {
         String lista = "qwertyuioplkjhgfdsazxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM1234567890";
-        String s = "";
-        for(int i = 0; i < 20; i++){
-            s += lista.charAt((int) (Math.random() * 61) + 1);
+        StringBuilder s = new StringBuilder();
+        for (int i = 0; i < 20; i++) {
+            s.append(lista.charAt((int) (Math.random() * 61) + 1));
         }
-        return s;
-
+        return s.toString();
     }
 
     @Override
     public void onResume() {
         super.onResume();
         mp_sound.start();
-
     }
 
     @Override
     public void onPause() {
         super.onPause();
         mp_sound.pause();
-
     }
 
     @Override
@@ -120,6 +109,5 @@ public class SplashScreenFragment extends Fragment {
         super.onDestroy();
         mp_sound.stop();
         mp_sound.release();
-
     }
 }
