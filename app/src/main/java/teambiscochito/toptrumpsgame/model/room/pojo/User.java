@@ -6,28 +6,35 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase pojo de usuario: id, nombre, avatar, número de respuestas, número de respuestas correctas.
+ * Contiene varios constructores para para crear la pregunta. Creamos la tabla con sus campos y
+ * consultas correspondientes.
+ */
 @Entity(tableName = "user", indices = {@Index(value = {"name"}, unique = true)})
 public class User {
-
-    //Usuario: id, nombre, avatar, número de respuestas, número de respuestas correctas
 
     @PrimaryKey(autoGenerate = true)
     private long id;
 
-    @NonNull
     @ColumnInfo(name = "name")
     private String name;
 
-    @NonNull
     @ColumnInfo(name = "avatar")
     private int avatar;
 
-    @NonNull
-    @ColumnInfo(name = "answer") //numero de respuestas, por defecto 0
+    /**
+     * Número de respuestas, por defecto 0
+     */
+    @ColumnInfo(name = "answer")
     private int answer;
 
-    @NonNull
-    @ColumnInfo(name = "TrueAnswer") //numero de ACIERTOS, por defecto 0
+    /**
+     * Número de aciertos, por defecto 0
+     */
+    @ColumnInfo(name = "TrueAnswer")
     private int TrueAnswer;
 
     public User(@NonNull String name, int avatar, int answer, int trueAnswer) {
@@ -37,7 +44,7 @@ public class User {
         TrueAnswer = trueAnswer;
     }
 
-    public User(@NonNull String name, int avatar){
+    public User(@NonNull String name, int avatar) {
         this.name = name;
         this.avatar = avatar;
         this.answer = 0;

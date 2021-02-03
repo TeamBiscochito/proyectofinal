@@ -26,42 +26,39 @@ import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase Recycler para el fragmento de importación de cartas.
+ */
 public class RecyclerImportAdapter extends RecyclerView.Adapter<RecyclerImportAdapter.ViewHolder> {
 
-    private List<Card> cardList;
-    private ViewModel viewModel;
-    private Context context;
-    private Activity activity;
-    private ArrayList<CheckBox> checkBoxes;
+    private final List<Card> cardList;
+    private final Context context;
+    private final Activity activity;
+    private final ArrayList<CheckBox> checkBoxes;
 
     public RecyclerImportAdapter(List<Card> cardList, Context context, Activity activity) {
-
         this.cardList = cardList;
         this.context = context;
         this.activity = activity;
         checkBoxes = new ArrayList<>();
-
     }
 
     public ArrayList<CheckBox> getCheckBoxes() {
-
         return checkBoxes;
-
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_import, parent,false);
-        RecyclerImportAdapter.ViewHolder holder = new RecyclerImportAdapter.ViewHolder(vista);
-        return holder;
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_import, parent, false);
+        return new ViewHolder(vista);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
+        ViewModel viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
         checkBoxes.add(holder.cbImport);
         holder.tvImport.setText(cardList.get(position).getName());
 
@@ -76,36 +73,28 @@ public class RecyclerImportAdapter extends RecyclerView.Adapter<RecyclerImportAd
                 .apply(options)
                 .into(holder.ivImport);
 
-        Card c  = viewModel.getCardByName(cardList.get(position).getName());
+        Card c = viewModel.getCardByName(cardList.get(position).getName());
 
-        if( c != null) {
+        if (c != null) {
             holder.cbImport.setEnabled(false);
         }
-
     }
 
     @Override
     public int getItemCount() {
-
         return cardList.size();
-
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         CheckBox cbImport;
         ImageView ivImport;
         TextView tvImport;
 
         public ViewHolder(@NonNull View itemView) {
-
             super(itemView);
             cbImport = itemView.findViewById(R.id.chkItemImport_Importar);
             ivImport = itemView.findViewById(R.id.civItemImport_Item);
             tvImport = itemView.findViewById(R.id.tvItemImport_Nombre);
-
         }
-
     }
-
 }

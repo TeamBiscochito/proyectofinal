@@ -38,8 +38,14 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 import teambiscochito.toptrumpsgame.model.room.pojo.Question;
+import teambiscochito.toptrumpsgame.view.fragment.administrar.EditCardFragment;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase Recycler para el fragmento de administración de cartas.
+ */
 public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCartasAdminAdapter.ViewHolder> {
 
     List<Card> cardList;
@@ -53,28 +59,22 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
     NavController navController;
     private MediaPlayer mp_borrar;
 
-    public RecyclerCartasAdminAdapter(List<Card> cardList, View view, Activity activity, Context context){
+    public RecyclerCartasAdminAdapter(List<Card> cardList, View view, Activity activity, Context context) {
         this.cardList = cardList;
         this.view = view;
         this.activity = activity;
         this.context = context;
-
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_cartas_no_admin, parent,false);
-        ViewHolder holder = new ViewHolder(vista);
-        return holder;
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_cartas_no_admin, parent, false);
+        return new ViewHolder(vista);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
-        NumberFormat numberFormat = NumberFormat.getInstance();
-        numberFormat.setMaximumFractionDigits(0);
-
         viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
@@ -82,7 +82,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
         mp_borrar = MediaPlayer.create(context, R.raw.borrar_sound);
 
-        Card card = viewModel.cards.get(position);
+        Card card = ViewModel.cards.get(position);
 
         navController = Navigation.findNavController(view);
 
@@ -93,280 +93,358 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .priority(Priority.HIGH);
 
-        Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
+        Glide.with(context).load(ViewModel.cards.get(position).getPicUrl())
                 .apply(options)
                 .into(holder.imgFotoCartaNoAdmin);
 
-        holder.tvNombreCartaNoAdmin.setText(viewModel.cards.get(position).getName());
-        holder.tvDescCartasNoAdminBack.setText(viewModel.cards.get(position).getDescription());
+        holder.tvNombreCartaNoAdmin.setText(ViewModel.cards.get(position).getName());
+        holder.tvDescCartasNoAdminBack.setText(ViewModel.cards.get(position).getDescription());
 
-        try{
-
-            List<Question> questionList = viewModel.getQuestionsForCurrentCard(viewModel.cards.get(position));
-
-            if (questionList.get(0).getAnswer() % 1 == 0) {
-                holder.tvAltura.setText(numberFormat.format(questionList.get(0).getAnswer()));
-            } else {
-                holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
-            }
-
-            if (questionList.get(1).getAnswer() % 1 == 0) {
-                holder.tvPeso.setText(numberFormat.format(questionList.get(1).getAnswer()));
-            } else {
-                holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
-            }
-
-            if (questionList.get(2).getAnswer() % 1 == 0) {
-                holder.tvLongitud.setText(numberFormat.format(questionList.get(2).getAnswer()));
-            } else {
-                holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
-            }
-
-            if (questionList.get(3).getAnswer() % 1 == 0) {
-                holder.tvVelocidad.setText(numberFormat.format(questionList.get(3).getAnswer()));
-            } else {
-                holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
-            }
-
-
-
-            double valorPoderDouble = Double.parseDouble(questionList.get(4).getAnswer().toString());
-            int valorPoderInt = (int) valorPoderDouble;
-            holder.tvPoder.setText("" + valorPoderInt);
-
-            holder.tvAlturaUnidad.setText(questionList.get(0).getMagnitude());
-            holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
-            holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());
-            holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
-
-        } catch (Exception ex){
-
+        try {
+            getDatos(holder, position);
+        } catch (Exception ignored) {
         }
 
-        holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
+        flipCarta(holder);
 
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    holder.viewClicParaHacerFlipCarta.startAnimation(animScaleUp);
-                    holder.tvClicParaHacerFlipCarta.startAnimation(animScaleUp);
+        modificarCartaSiNo(holder, position, card);
+    }
 
-                    holder.easyFlipView.flipTheView();
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    holder.viewClicParaHacerFlipCarta.startAnimation(animScaleDown);
-                    holder.tvClicParaHacerFlipCarta.startAnimation(animScaleDown);
-                }
-
-                return true;
-            }
-        });
-
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método para decir si la carta se tiene que modifcar o no. Establece las primeras 5 cartas
+     * generadas por defecto a la instalación del juego que no se puedan modificar ni editar que
+     * estén completamente bloqueadas.
+     * <br>
+     * Método implementado en: {@link #onBindViewHolder(ViewHolder, int)}
+     *
+     * @param holder   pasamos el item.
+     * @param position pasamos la posicioón.
+     * @param card     pasamos la carta.
+     */
+    private void modificarCartaSiNo(@NonNull ViewHolder holder, int position, Card card) {
         holder.tvNombreCartaNoAdmin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 viewModel.setCard(card);
 
-                if(!((card.getId() == 1) || (card.getId() == 2) || (card.getId() == 3) || (card.getId() == 4) || (card.getId() == 5))) {
-
-                    dialogCartas = new Dialog(context);
-                    dialogCartas.setContentView(R.layout.cartas_dialog);
-                    dialogCartas.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                    Window window = dialogCartas.getWindow();
-                    window.setGravity(Gravity.CENTER);
-                    window.getAttributes().windowAnimations = R.style.DialogAnimation;
-
-                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgDialogCartasPerfil);
-                    TextView tvNombre = dialogCartas.findViewById(R.id.tvDialogCartasNombre);
-                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasBorrar);
-                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvDialogCartasNoModifica);
-                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBack);
-                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBorrar);
-                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasEditar);
-                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasEditar);
-
-                    tvEstaCartaNoSeModifica.setVisibility(View.GONE);
-
-                    viewBackInfoAdminCartas.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            dialogCartas.dismiss();
-
-                        }
-                    });
-
-                    viewEditarInfoAdminCartas.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-
-                            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                                viewEditarInfoAdminCartas.startAnimation(animScaleUp);
-                                tvEditarInfoAdminCartas.startAnimation(animScaleUp);
-
-                                dialogCartas.dismiss();
-                                navController.navigate(R.id.action_adminCartasFragment_to_editCardFragment);
-
-
-                            } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                                viewEditarInfoAdminCartas.startAnimation(animScaleDown);
-                                tvEditarInfoAdminCartas.startAnimation(animScaleDown);
-                            }
-
-                            return true;
-                        }
-                    });
-
-                    viewBorrarInfoAdminCartas.setOnTouchListener(new View.OnTouchListener() {
-                        @Override
-                        public boolean onTouch(View v, MotionEvent event) {
-
-                            if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                                viewBorrarInfoAdminCartas.startAnimation(animScaleUp);
-                                tvBorrarInfoAdminCartas.startAnimation(animScaleUp);
-
-                                dialogConfirmarBorrar = new Dialog(context);
-                                dialogConfirmarBorrar.setContentView(R.layout.borrar_confirmation_dialog);
-                                dialogConfirmarBorrar.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                                Window window = dialogConfirmarBorrar.getWindow();
-                                window.setGravity(Gravity.CENTER);
-                                window.getAttributes().windowAnimations = R.style.DialogAnimation;
-
-                                TextView tvConfirmarBorrarMsg = dialogConfirmarBorrar.findViewById(R.id.tvDialogBorrarConfirmText);
-                                View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmCancel);
-                                View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmAccept);
-
-                                tvConfirmarBorrarMsg.setText(R.string.tvConfirmarBorrarCarta);
-
-                                viewCancelarBorrarJugador.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-
-                                        dialogConfirmarBorrar.dismiss();
-
-                                    }
-                                });
-
-                                viewAceptarBorrarJugador.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View v) {
-
-                                        dialogConfirmarBorrar.dismiss();
-                                        dialogCartas.dismiss();
-                                        mp_borrar.start();
-
-                                        long idBorrar = cardList.get(position).getId();
-                                        viewModel.deleteCardById(idBorrar);
-
-                                    }
-                                });
-
-                                dialogConfirmarBorrar.setCancelable(true);
-                                dialogConfirmarBorrar.setCanceledOnTouchOutside(false);
-                                window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
-                                dialogConfirmarBorrar.show();
-
-                            } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                                viewBorrarInfoAdminCartas.startAnimation(animScaleDown);
-                                tvBorrarInfoAdminCartas.startAnimation(animScaleDown);
-
-                            }
-
-                            return true;
-                        }
-                    });
-
-                    RequestOptions options = new RequestOptions()
-                            .centerCrop()
-                            .placeholder(R.drawable.cargando)
-                            .error(R.drawable.cerdi)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .priority(Priority.HIGH);
-
-                    Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
-                    .apply(options)
-                    .into(imgAnimal);
-
-                    tvNombre.setText(viewModel.cards.get(position).getName());
-
-                    dialogCartas.setCancelable(true);
-                    dialogCartas.setCanceledOnTouchOutside(false);
-                    window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
-                    dialogCartas.show();
-
+                if (!((card.getId() == 1) || (card.getId() == 2) || (card.getId() == 3)
+                        || (card.getId() == 4) || (card.getId() == 5))) {
+                    modificarCarta(position);
                 } else {
-
-                    dialogCartas = new Dialog(context);
-                    dialogCartas.setContentView(R.layout.cartas_dialog);
-                    dialogCartas.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-                    Window window = dialogCartas.getWindow();
-                    window.setGravity(Gravity.CENTER);
-                    window.getAttributes().windowAnimations = R.style.DialogAnimation;
-
-                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgDialogCartasPerfil);
-                    TextView tvNombre = dialogCartas.findViewById(R.id.tvDialogCartasNombre);
-                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasBorrar);
-                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvDialogCartasNoModifica);
-                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBack);
-                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBorrar);
-                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasEditar);
-                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasEditar);
-
-                    viewBackInfoAdminCartas.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-
-                            dialogCartas.dismiss();
-
-                        }
-                    });
-
-                    viewBorrarInfoAdminCartas.setVisibility(View.GONE);
-                    tvBorrarInfoAdminCartas.setVisibility(View.GONE);
-                    viewEditarInfoAdminCartas.setVisibility(View.GONE);
-                    tvEditarInfoAdminCartas.setVisibility(View.GONE);
-
-                    RequestOptions options = new RequestOptions()
-                            .centerCrop()
-                            .placeholder(R.drawable.cargando)
-                            .error(R.drawable.cerdi)
-                            .diskCacheStrategy(DiskCacheStrategy.ALL)
-                            .priority(Priority.HIGH);
-
-                    Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
-                            .apply(options)
-                            .into(imgAnimal);
-
-                    tvNombre.setText(viewModel.cards.get(position).getName());
-                    tvEstaCartaNoSeModifica.setText("Esta carta no se puede modificar");
-
-                    dialogCartas.setCancelable(true);
-                    dialogCartas.setCanceledOnTouchOutside(false);
-                    window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
-                    dialogCartas.show();
-
+                    cartasNoModificar(position);
                 }
-
             }
         });
+    }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método con el que hacemos que la carta gire para que muestre la descripción de la carta una
+     * vez que esté girada.
+     * <br>
+     * Método implementado en: {@link #onBindViewHolder(ViewHolder, int)}
+     *
+     * @param holder item que pasamos del ViewHolder.
+     */
+    private void flipCarta(@NonNull ViewHolder holder) {
+        holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        holder.viewClicParaHacerFlipCarta.startAnimation(animScaleUp);
+                        holder.tvClicParaHacerFlipCarta.startAnimation(animScaleUp);
+
+                        holder.easyFlipView.flipTheView();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        holder.viewClicParaHacerFlipCarta.startAnimation(animScaleDown);
+                        holder.tvClicParaHacerFlipCarta.startAnimation(animScaleDown);
+                        v.performClick();
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        try{
-            return viewModel.cards.size();
-        } catch (Exception exception){
+        try {
+            return ViewModel.cards.size();
+        } catch (Exception exception) {
             return -1;
         }
-
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método para obtener las cartas con sus respectivos datos, este método es llamado
+     * por {@link #onBindViewHolder(ViewHolder, int)}
+     *
+     * @param holder   pasamos el holder del recyclcer.
+     * @param position posición del recycler.
+     */
+    public void getDatos(ViewHolder holder, int position) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(0);
 
+        List<Question> questionList = viewModel.getQuestionsForCurrentCard(ViewModel.cards.get(position));
+
+        if (questionList.get(0).getAnswer() % 1 == 0) {
+            holder.tvAltura.setText(numberFormat.format(questionList.get(0).getAnswer()));
+        } else {
+            holder.tvAltura.setText(String.format("%s", questionList.get(0).getAnswer().toString()));
+        }
+
+        if (questionList.get(1).getAnswer() % 1 == 0) {
+            holder.tvPeso.setText(numberFormat.format(questionList.get(1).getAnswer()));
+        } else {
+            holder.tvPeso.setText(String.format("%s", questionList.get(1).getAnswer().toString()));
+        }
+
+        if (questionList.get(2).getAnswer() % 1 == 0) {
+            holder.tvLongitud.setText(numberFormat.format(questionList.get(2).getAnswer()));
+        } else {
+            holder.tvLongitud.setText(String.format("%s", questionList.get(2).getAnswer().toString()));
+        }
+
+        if (questionList.get(3).getAnswer() % 1 == 0) {
+            holder.tvVelocidad.setText(numberFormat.format(questionList.get(3).getAnswer()));
+        } else {
+            holder.tvVelocidad.setText(String.format("%s", questionList.get(3).getAnswer().toString()));
+        }
+
+        double valorPoderDouble = Double.parseDouble(questionList.get(4).getAnswer().toString());
+        int valorPoderInt = (int) valorPoderDouble;
+        holder.tvPoder.setText(String.valueOf(valorPoderInt));
+
+        holder.tvAlturaUnidad.setText(questionList.get(0).getMagnitude());
+        holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
+        holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());
+        holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método específico para las cartas que no se pueden modificar en este caso son las 5 primeras,
+     * que se controla en el {@link #onBindViewHolder(ViewHolder, int)}
+     * <br><br>
+     * Este método es usado específicamente en {@link #modificarCartaSiNo}
+     *
+     * @param position posición actual del recycler.
+     */
+    public void cartasNoModificar(int position) {
+        dialogCartas = new Dialog(context);
+        dialogCartas.setContentView(R.layout.cartas_dialog);
+        dialogCartas.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogCartas.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgDialogCartasPerfil);
+        TextView tvNombre = dialogCartas.findViewById(R.id.tvDialogCartasNombre);
+        TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasBorrar);
+        TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvDialogCartasNoModifica);
+        View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBack);
+        View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBorrar);
+        View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasEditar);
+        TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasEditar);
+
+        viewBackInfoAdminCartas.setOnClickListener(v12 -> dialogCartas.dismiss());
+
+        viewBorrarInfoAdminCartas.setVisibility(View.GONE);
+        tvBorrarInfoAdminCartas.setVisibility(View.GONE);
+        viewEditarInfoAdminCartas.setVisibility(View.GONE);
+        tvEditarInfoAdminCartas.setVisibility(View.GONE);
+
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.cargando)
+                .error(R.drawable.cerdi)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH);
+
+        Glide.with(context).load(ViewModel.cards.get(position).getPicUrl())
+                .apply(options)
+                .into(imgAnimal);
+
+        tvNombre.setText(ViewModel.cards.get(position).getName());
+        tvEstaCartaNoSeModifica.setText(R.string.cartaNoSePuedeModificar);
+
+        dialogCartas.setCancelable(true);
+        dialogCartas.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogCartas.show();
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método específico para las cartas que si se pueden modificar en este caso son las que
+     * importaremos de internet. Referencia en {@link #onBindViewHolder(ViewHolder, int)}
+     * <br><br>
+     * Este método es usado específicamente en {@link #modificarCartaSiNo}
+     *
+     * @param position posición actual del recycler.
+     */
+    public void modificarCarta(int position) {
+        dialogCartas = new Dialog(context);
+        dialogCartas.setContentView(R.layout.cartas_dialog);
+        dialogCartas.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogCartas.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+        CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgDialogCartasPerfil);
+        TextView tvNombre = dialogCartas.findViewById(R.id.tvDialogCartasNombre);
+        TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasBorrar);
+        TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvDialogCartasNoModifica);
+        View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBack);
+        View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBorrar);
+        View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasEditar);
+        TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasEditar);
+
+        tvEstaCartaNoSeModifica.setVisibility(View.GONE);
+
+        viewBackInfoAdminCartas.setOnClickListener(v1 -> dialogCartas.dismiss());
+
+        editInfoAdmin(viewEditarInfoAdminCartas, tvEditarInfoAdminCartas);
+
+        borrarInfoAdmin(position, tvBorrarInfoAdminCartas, viewBorrarInfoAdminCartas);
+
+        RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.cargando)
+                .error(R.drawable.cerdi)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH);
+
+        Glide.with(context).load(ViewModel.cards.get(position).getPicUrl())
+                .apply(options)
+                .into(imgAnimal);
+
+        tvNombre.setText(ViewModel.cards.get(position).getName());
+
+        dialogCartas.setCancelable(true);
+        dialogCartas.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogCartas.show();
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que actúa cuando pulsamos borrar, es decir borramos la carta que tendríamos en nuestra
+     * base de datos.
+     *
+     * @param position                  posición de la carta seleccionada.
+     * @param tvBorrarInfoAdminCartas   TextView que esta en la parte del {@link #modificarCarta(int)}
+     *                                  donde instanciamos el contenido del diálogo.
+     * @param viewBorrarInfoAdminCartas View que está {@link #modificarCarta(int)}, donde hacemos el
+     *                                  evento al hacer click en la vista.
+     */
+    private void borrarInfoAdmin(int position, TextView tvBorrarInfoAdminCartas, View viewBorrarInfoAdminCartas) {
+        viewBorrarInfoAdminCartas.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        viewBorrarInfoAdminCartas.startAnimation(animScaleUp);
+                        tvBorrarInfoAdminCartas.startAnimation(animScaleUp);
+
+                        dialogConfirmarBorrar = new Dialog(context);
+                        dialogConfirmarBorrar.setContentView(R.layout.borrar_confirmation_dialog);
+                        dialogConfirmarBorrar.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+                        Window window = dialogConfirmarBorrar.getWindow();
+                        window.setGravity(Gravity.CENTER);
+                        window.getAttributes().windowAnimations = R.style.DialogAnimation;
+
+                        TextView tvConfirmarBorrarMsg = dialogConfirmarBorrar.findViewById(R.id.tvDialogBorrarConfirmText);
+                        View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmCancel);
+                        View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmAccept);
+
+                        tvConfirmarBorrarMsg.setText(R.string.tvConfirmarBorrarCarta);
+
+                        viewCancelarBorrarJugador.setOnClickListener(v13 -> dialogConfirmarBorrar.dismiss());
+
+                        viewAceptarBorrarJugador.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialogConfirmarBorrar.dismiss();
+                                dialogCartas.dismiss();
+                                mp_borrar.start();
+
+                                long idBorrar = cardList.get(position).getId();
+                                viewModel.deleteCardById(idBorrar);
+                            }
+                        });
+
+                        dialogConfirmarBorrar.setCancelable(true);
+                        dialogConfirmarBorrar.setCanceledOnTouchOutside(false);
+                        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+                        dialogConfirmarBorrar.show();
+                    case MotionEvent.ACTION_UP:
+                        viewBorrarInfoAdminCartas.startAnimation(animScaleDown);
+                        tvBorrarInfoAdminCartas.startAnimation(animScaleDown);
+                        v.performClick();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que actúa cuando pulsamos en editar, en este caso se redirige a un nuevo fragmento que
+     * es específico para editar nuestra carta seleccionada.
+     * <br><br>
+     * Fragmento al que redirecciona el navController: {@link EditCardFragment}
+     *
+     * @param viewEditarInfoAdminCartas View que está {@link #modificarCarta(int)}, donde hacemos el
+     *                                  evento al hacer click en la vista.
+     * @param tvEditarInfoAdminCartas   TextView que esta en la parte del {@link #modificarCarta(int)}
+     *                                  donde instanciamos el contenido del diálogo.
+     */
+    private void editInfoAdmin(View viewEditarInfoAdminCartas, TextView tvEditarInfoAdminCartas) {
+        viewEditarInfoAdminCartas.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        viewEditarInfoAdminCartas.startAnimation(animScaleUp);
+                        tvEditarInfoAdminCartas.startAnimation(animScaleUp);
+
+                        dialogCartas.dismiss();
+                        navController.navigate(R.id.action_adminCartasFragment_to_editCardFragment);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        viewEditarInfoAdminCartas.startAnimation(animScaleDown);
+                        tvEditarInfoAdminCartas.startAnimation(animScaleDown);
+                        v.performClick();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgFotoCartaNoAdmin;
-        TextView tvNombreCartaNoAdmin, tvDescCartasNoAdminBack, tvAltura, tvPeso, tvLongitud, tvVelocidad, tvPoder, tvAlturaUnidad, tvPesoUnidad, tvLongitudUnidad, tvVelocidadUnidad;
+        TextView tvNombreCartaNoAdmin, tvDescCartasNoAdminBack, tvAltura, tvPeso, tvLongitud, tvVelocidad,
+                tvPoder, tvAlturaUnidad, tvPesoUnidad, tvLongitudUnidad, tvVelocidadUnidad;
         EasyFlipView easyFlipView;
         TextView tvClicParaHacerFlipCarta;
         View viewClicParaHacerFlipCarta;

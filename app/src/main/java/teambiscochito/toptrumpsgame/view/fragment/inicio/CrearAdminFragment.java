@@ -1,4 +1,4 @@
-package teambiscochito.toptrumpsgame.view.fragment;
+package teambiscochito.toptrumpsgame.view.fragment.inicio;
 
 import android.content.Context;
 import android.content.SharedPreferences;

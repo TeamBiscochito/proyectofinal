@@ -7,7 +7,7 @@
     android:background="@drawable/bg_correo"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".view.fragment.CorreoFragment">
+    tools:context=".view.fragment.jugar.CorreoFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gdCorreo1"

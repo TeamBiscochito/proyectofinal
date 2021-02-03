@@ -10,6 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import teambiscochito.toptrumpsgame.R;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase Recycler para el fragmento TODO Funcionamiento??
+ */
 public class VpAvatarAdapter extends RecyclerView.Adapter<VpAvatarAdapter.ViewHolder> {
 
     int[] avatares;
@@ -22,15 +27,12 @@ public class VpAvatarAdapter extends RecyclerView.Adapter<VpAvatarAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_vp_avatar, parent, false);
-
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         holder.imgAvatar.setBackgroundResource(avatares[position]);
-
     }
 
     @Override
@@ -38,16 +40,12 @@ public class VpAvatarAdapter extends RecyclerView.Adapter<VpAvatarAdapter.ViewHo
         return avatares.length;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgAvatar;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
             imgAvatar = itemView.findViewById(R.id.iv_vp_avatar);
         }
-
     }
-
 }

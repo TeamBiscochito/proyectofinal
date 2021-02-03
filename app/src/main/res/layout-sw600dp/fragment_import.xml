@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#B97A57"
-    tools:context=".view.fragment.ImportFragment">
+    tools:context=".view.fragment.administrar.ImportFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

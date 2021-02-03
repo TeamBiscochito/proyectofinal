@@ -11,6 +11,11 @@ import java.util.List;
 
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Interfaz room para manejar los usuarios, donde generamos la tabla y las consultas pertinentes.
+ */
 @Dao
 public interface UserDao {
 
@@ -21,7 +26,7 @@ public interface UserDao {
     long insert(User user);
 
     @Update
-    int update(User user);
+    void update(User user);
 
     @Query("delete from user where id = :id")
     int deleteId(long id);
@@ -32,7 +37,9 @@ public interface UserDao {
     @Query("select * from user where id = :id")
     User getUserById(long id);
 
-    //returs ALL questions about a card
+    /**
+     * @return all questions about the card
+     */
     @Query("select * from user")
     LiveData<List<User>> getAllUser();
 }

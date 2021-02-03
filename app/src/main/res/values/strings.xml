@@ -110,11 +110,14 @@
     <string name="alertPesoNoValido">Peso no válido (máx. 9999)</string>
     <string name="alertLongitudNoValida">Longitud no válida (máx. 9999)</string>
     <string name="alertVelocidadNoValida">Velocidad no válida (máx. 9999)</string>
-    <string name="alertPoderNoValido">Poder no válido (1 - 10)</string>
+    <string name="alertPoderNoValido">Poder no válido (1 – 10)</string>
     <string name="textImpotar">Importar</string>
     <string name="btBuscaEnInternet">Buscar en internet</string>
     <string name="variableDeJuego">Variable</string>
     <string name="item_vp_avatar_descripcion">Avatar</string>
+    <string name="cartaNoSePuedeModificar">Esta carta no se puede modificar</string>
+    <string name="InternetDesconectado">Parece que no tienes conexión a internet, comprueba la conexión y vuelve a intentarlo</string>
+    <string name="TienesTodasLasCartas">No se ha encontrado ninguna carta o ya posees todas las cartas disponibles</string>
 
     <array name="magnitudesAltura">
         <item>m</item>

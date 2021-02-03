@@ -1,4 +1,4 @@
-package teambiscochito.toptrumpsgame.view.fragment;
+package teambiscochito.toptrumpsgame.view.fragment.jugar;
 
 import android.app.ActionBar;
 import android.app.Dialog;

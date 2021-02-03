@@ -2,7 +2,6 @@ package teambiscochito.toptrumpsgame.view.adapter;
 
 
 import android.app.Activity;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +23,12 @@ import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase Recycler para el fragmento de la selección de los jugadores donde podremos elegir a nuestro
+ * jugador y entrar al menú principal.
+ */
 public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<RecyclerJugadoresSeleccionAdapter.ViewHolder> {
 
     List<User> userList;
@@ -32,7 +37,7 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
     Activity activity;
     Context context;
 
-    public RecyclerJugadoresSeleccionAdapter(List<User> userList, View view, Activity activity, Context context){
+    public RecyclerJugadoresSeleccionAdapter(List<User> userList, View view, Activity activity, Context context) {
         this.userList = userList;
         this.view = view;
         this.activity = activity;
@@ -42,46 +47,43 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_elegir_player, parent,false);
-        ViewHolder holder = new ViewHolder(vista);
-        return holder;
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_elegir_player, parent, false);
+        return new ViewHolder(vista);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         holder.avatarRecycler.setImageResource(userList.get(position).getAvatar());
         holder.nombreJugadorRecycler.setText(userList.get(position).getName());
         holder.parent.setOnClickListener(new View.OnClickListener() {
             final NavController navController = Navigation.findNavController(view);
+
             @Override
             public void onClick(View v) {
                 viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
 
-                viewModel.userActual = userList.get(position);
+                ViewModel.userActual = userList.get(position);
 
                 navController.navigate(R.id.action_chooseUserFragment_to_menuFragment);
-
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        try{
+        try {
             return userList.size();
-        } catch (Exception exception){
+        } catch (Exception exception) {
             return -1;
         }
-
     }
 
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
-
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView avatarRecycler;
         TextView nombreJugadorRecycler;
         ConstraintLayout parent;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             avatarRecycler = itemView.findViewById(R.id.civRecyclerElegirPlayer_Avatar);

@@ -33,6 +33,12 @@ import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 import teambiscochito.toptrumpsgame.model.room.pojo.Question;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase Recycler para el fragmento posicionado del menú en el cual se puede echar un ojo a las cartas
+ * con las que se va a jugar en el juego. No se puede editar ni hacer nada de administración.
+ */
 public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerCartasNoAdminAdapter.ViewHolder> {
 
     List<Card> cardList;
@@ -42,20 +48,18 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
     Animation animScaleUp, animScaleDown;
     ViewModel viewModel;
 
-    public RecyclerCartasNoAdminAdapter(List<Card> cardList, View view, Activity activity, Context context){
+    public RecyclerCartasNoAdminAdapter(List<Card> cardList, View view, Activity activity, Context context) {
         this.cardList = cardList;
         this.view = view;
         this.activity = activity;
         this.context = context;
-
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_cartas_no_admin, parent,false);
-        ViewHolder holder = new ViewHolder(vista);
-        return holder;
+        View vista = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_cartas_no_admin, parent, false);
+        return new ViewHolder(vista);
     }
 
     @Override
@@ -81,76 +85,102 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
         holder.tvNombreCartaNoAdmin.setText(cardList.get(position).getName());
         holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDescription());
 
-        try{
-            List<Question> questionList = viewModel.getQuestionListByCardId(cardList.get(position).getId());
-            if (questionList.get(0).getAnswer() % 1 == 0) {
-                holder.tvAltura.setText(numberFormat.format(questionList.get(0).getAnswer()));
-            } else {
-                holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
-            }
-
-            if (questionList.get(1).getAnswer() % 1 == 0) {
-                holder.tvPeso.setText(numberFormat.format(questionList.get(1).getAnswer()));
-            } else {
-                holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
-            }
-
-            if (questionList.get(2).getAnswer() % 1 == 0) {
-                holder.tvLongitud.setText(numberFormat.format(questionList.get(2).getAnswer()));
-            } else {
-                holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
-            }
-
-            if (questionList.get(3).getAnswer() % 1 == 0) {
-                holder.tvVelocidad.setText(numberFormat.format(questionList.get(3).getAnswer()));
-            } else {
-                holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
-            }
-
-            double valorPoderDouble = Double.parseDouble(questionList.get(4).getAnswer().toString());
-            int valorPoderInt = (int) valorPoderDouble;
-            holder.tvPoder.setText("" + valorPoderInt);
-
-            holder.tvAlturaUnidad.setText(questionList.get(0).getMagnitude());
-            holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
-            holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());
-            holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
-
-        } catch (Exception ex){
+        try {
+            getDatos(holder, position);
+        } catch (Exception ignored) {
         }
-
-        holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    holder.viewClicParaHacerFlipCarta.startAnimation(animScaleUp);
-                    holder.tvClicParaHacerFlipCarta.startAnimation(animScaleUp);
-
-                    holder.easyFlipView.flipTheView();
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    holder.viewClicParaHacerFlipCarta.startAnimation(animScaleDown);
-                    holder.tvClicParaHacerFlipCarta.startAnimation(animScaleDown);
-                }
-
-                return true;
-            }
-        });
-
+        flipCartas(holder);
     }
 
     @Override
     public int getItemCount() {
-        try{
+        try {
             return cardList.size();
-        } catch (Exception exception){
+        } catch (Exception exception) {
             return -1;
         }
-
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método para hacer el efecto de flip en la carta, referencia {@link #onBindViewHolder(ViewHolder, int)}
+     *
+     * @param holder pasamos el holder el item por parámetro.
+     */
+    private void flipCartas(ViewHolder holder) {
+        holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        holder.viewClicParaHacerFlipCarta.startAnimation(animScaleUp);
+                        holder.tvClicParaHacerFlipCarta.startAnimation(animScaleUp);
+
+                        holder.easyFlipView.flipTheView();
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        holder.viewClicParaHacerFlipCarta.startAnimation(animScaleDown);
+                        holder.tvClicParaHacerFlipCarta.startAnimation(animScaleDown);
+                        v.performClick();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método para obtener las cartas con sus respectivos datos, este método es llamado
+     * por {@link #onBindViewHolder(ViewHolder, int)}
+     *
+     * @param holder   pasamos el holder del reyclcer (item).
+     * @param position posición del recycler.
+     */
+    private void getDatos(ViewHolder holder, int position) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(0);
+
+        List<Question> questionList = viewModel.getQuestionListByCardId(cardList.get(position).getId());
+        if (questionList.get(0).getAnswer() % 1 == 0) {
+            holder.tvAltura.setText(numberFormat.format(questionList.get(0).getAnswer()));
+        } else {
+            holder.tvAltura.setText(String.format("%s", questionList.get(0).getAnswer().toString()));
+        }
+
+        if (questionList.get(1).getAnswer() % 1 == 0) {
+            holder.tvPeso.setText(numberFormat.format(questionList.get(1).getAnswer()));
+        } else {
+            holder.tvPeso.setText(String.format("%s", questionList.get(1).getAnswer().toString()));
+        }
+
+        if (questionList.get(2).getAnswer() % 1 == 0) {
+            holder.tvLongitud.setText(numberFormat.format(questionList.get(2).getAnswer()));
+        } else {
+            holder.tvLongitud.setText(String.format("%s", questionList.get(2).getAnswer().toString()));
+        }
+
+        if (questionList.get(3).getAnswer() % 1 == 0) {
+            holder.tvVelocidad.setText(numberFormat.format(questionList.get(3).getAnswer()));
+        } else {
+            holder.tvVelocidad.setText(String.format("%s", questionList.get(3).getAnswer().toString()));
+        }
+
+        double valorPoderDouble = Double.parseDouble(questionList.get(4).getAnswer().toString());
+        int valorPoderInt = (int) valorPoderDouble;
+        holder.tvPoder.setText(String.valueOf(valorPoderInt));
+
+        holder.tvAlturaUnidad.setText(questionList.get(0).getMagnitude());
+        holder.tvPesoUnidad.setText(questionList.get(1).getMagnitude());
+        holder.tvLongitudUnidad.setText(questionList.get(2).getMagnitude());
+        holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imgFotoCartaNoAdmin;
         TextView tvNombreCartaNoAdmin, tvDescCartasNoAdminBack, tvAltura, tvPeso, tvLongitud, tvVelocidad, tvPoder, tvAlturaUnidad, tvPesoUnidad, tvLongitudUnidad, tvVelocidadUnidad;

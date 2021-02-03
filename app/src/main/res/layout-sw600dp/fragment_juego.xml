@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_jugar"
-    tools:context=".view.fragment.JuegoFragment">
+    tools:context=".view.fragment.jugar.JuegoFragment">
 
     <View
         android:id="@+id/viewJuego_Nombre"
