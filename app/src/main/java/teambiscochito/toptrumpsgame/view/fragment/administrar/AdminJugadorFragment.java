@@ -83,6 +83,9 @@ public class AdminJugadorFragment extends Fragment {
 
         DialogosGenerales.volverAtrasDialog(R.id.action_adminJugadorFragment_to_adminFragment,
                 getContext(), view, viewBackAdminJugadores);
+
+        DialogosGenerales.salirDialogAdmin(R.id.action_adminJugadorFragment_to_chooseUserFragment,
+                getContext(), view, viewCerrarAdminJugadores);
     }
 
     /**

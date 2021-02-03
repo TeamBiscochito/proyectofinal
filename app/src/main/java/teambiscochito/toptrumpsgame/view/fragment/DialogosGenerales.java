@@ -33,7 +33,7 @@ public class DialogosGenerales {
      * @param cerrarView    vista del "botón" de cerrar (X).
      * @param onViewCreated le pasamos la vista principal al la hora de crear el fragmento.
      */
-    public static void salirDialog(int irID, Context context, View onViewCreated, View cerrarView) {
+    public static void salirDialogAdmin(int irID, Context context, View onViewCreated, View cerrarView) {
         Animation animScaleUp, animScaleDown;
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
@@ -43,7 +43,7 @@ public class DialogosGenerales {
             switch (event.getAction()) {
                 case MotionEvent.ACTION_DOWN:
                     cerrarView.startAnimation(animScaleUp);
-                    dialogCerrar(context, irID, onViewCreated);
+                    dialogoCerrarAdmin(context, irID, onViewCreated);
                     break;
                 case MotionEvent.ACTION_UP:
                     cerrarView.startAnimation(animScaleDown);
@@ -59,12 +59,12 @@ public class DialogosGenerales {
      * <p>
      * Método estático genérico para volver al fragmento anterior.
      *
-     * @param irID dirección del fragmento al que queremos ir.
-     * @param context contexto del fragmento.
+     * @param irID            dirección del fragmento al que queremos ir.
+     * @param context         contexto del fragmento.
      * @param volverAtrasView vista del "volver" de ir al fragmento anterior.
-     * @param onViewCreated le pasamos la vista principal al la hora de crear el fragmento.
+     * @param onViewCreated   le pasamos la vista principal al la hora de crear el fragmento.
      */
-    public static void volverAtrasDialog (int irID, Context context, View onViewCreated, View volverAtrasView) {
+    public static void volverAtrasDialog(int irID, Context context, View onViewCreated, View volverAtrasView) {
         Animation animScaleUp, animScaleDown;
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
@@ -98,7 +98,7 @@ public class DialogosGenerales {
      * @param irID          fragmento al que deseamos ir (al modo administrador supuestamente siempre el mismo).
      * @param onViewCreated le pasamos la vista principal al la hora de crear el fragmento.
      */
-    private static void dialogCerrar(Context context, int irID, View onViewCreated) {
+    private static void dialogoCerrarAdmin(Context context, int irID, View onViewCreated) {
         Dialog dialogSalirAdmin = new Dialog(context);
 
         dialogSalirAdmin.setContentView(R.layout.salir_admin_dialog);

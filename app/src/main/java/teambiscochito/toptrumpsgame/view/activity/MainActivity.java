@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         intentFilter = new IntentFilter();
         intentFilter.addAction(Intent.ACTION_BATTERY_LOW);
 
+        /* Establecer sistema de navegación con un color predefinido */
         getWindow().setNavigationBarColor(Color.parseColor("#4B2C20"));
 
         decorView = getWindow().getDecorView();
@@ -106,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void salirDialog() {
-
         View viewCancelarSalirDialog, viewAceptarSalirDialog;
 
         salirDialog = new Dialog(MainActivity.this);

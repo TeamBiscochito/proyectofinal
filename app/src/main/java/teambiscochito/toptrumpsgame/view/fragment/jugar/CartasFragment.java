@@ -1,7 +1,15 @@
 package teambiscochito.toptrumpsgame.view.fragment.jugar;
 
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -14,14 +22,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.TextView;
-
 import java.util.List;
 
 import teambiscochito.toptrumpsgame.R;
@@ -29,19 +29,23 @@ import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 import teambiscochito.toptrumpsgame.view.adapter.RecyclerCartasNoAdminAdapter;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase para ver las cartas una vez que hayamos iniciado sesión. No se podrán modificar, solo ver
+ * la descripción de dicha carta.
+ */
 public class CartasFragment extends Fragment {
-
     RecyclerView recyclerView;
     ViewModel viewModel;
 
     Animation animScaleUp, animScaleDown;
     NavController navController;
     View viewBackCartasNoAdmin;
-    private MediaPlayer mp_cards;
     TextView tvRvVacioCartasNoAdmin;
+    private MediaPlayer mp_cards;
 
     public CartasFragment() {
-
     }
 
     @Override
@@ -65,63 +69,68 @@ public class CartasFragment extends Fragment {
         initAnim();
 
         viewBackCartasNoAdmin = view.findViewById(R.id.viewCartas_Back);
-
         tvRvVacioCartasNoAdmin = view.findViewById(R.id.tvartas_ErrorInfo);
 
-        viewBackCartasNoAdmin.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
+        backViewBoton();
 
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewBackCartasNoAdmin.startAnimation(animScaleUp);
-
-                    mp_cards.stop();
-
-                    navController.navigate(R.id.action_cartasFragment_to_menuFragment);
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewBackCartasNoAdmin.startAnimation(animScaleDown);
-
-                }
-
-                return true;
-            }
-        });
-
-        viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
-        recyclerView = getView().findViewById(R.id.rvCartasNoAdmin);
-
-
+        viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
+        recyclerView = requireView().findViewById(R.id.rvCartasNoAdmin);
 
         LiveData<List<Card>> cardList = viewModel.getCardList();
         cardList.observe(getViewLifecycleOwner(), new Observer<List<Card>>() {
             @Override
             public void onChanged(List<Card> cards) {
-
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
                 RecyclerCartasNoAdminAdapter adapter = new RecyclerCartasNoAdminAdapter(cards, view, getActivity(), getContext());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(layoutManager);
-
             }
         });
+    }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método para ir hacia atrás, con este método especial y no el general de
+     * {@link teambiscochito.toptrumpsgame.view.fragment.DialogosGenerales#volverAtrasDialog(int, Context, View, View)}
+     * Paremos la música a la hora de cambiar de fragmento (ir al menú).
+     * <br><br>
+     * Referencia del método en: {@link CartasFragment#onViewCreated(View, Bundle)}
+     **/
+    private void backViewBoton() {
+        viewBackCartasNoAdmin.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        viewBackCartasNoAdmin.startAnimation(animScaleUp);
+
+                        mp_cards.stop();
+
+                        navController.navigate(R.id.action_cartasFragment_to_menuFragment);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        viewBackCartasNoAdmin.startAnimation(animScaleDown);
+                        v.performClick();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     public void initAnim() {
-
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
-
     }
 
     public void initMediaPlayerCards() {
-
         mp_cards = MediaPlayer.create(getContext(), R.raw.card_music);
         mp_cards.setLooping(true);
         mp_cards.start();
-
     }
 
     @Override

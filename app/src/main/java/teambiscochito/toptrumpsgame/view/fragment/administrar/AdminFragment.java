@@ -58,8 +58,8 @@ public class AdminFragment extends Fragment {
         viewMoveOver(viewAdminEntrarJugadores, tvAdminEntrarJugadores, R.id.action_adminFragment_to_adminJugadorFragment);
         viewMoveOver(viewAdminEntrarCartas, tvAdminEntrarCartas, R.id.action_adminFragment_to_adminCartasFragment);
 
-        DialogosGenerales.salirDialog(
-                R.id.action_adminCartasFragment_to_chooseUserFragment,
+        DialogosGenerales.salirDialogAdmin(
+                R.id.action_adminFragment_to_chooseUserFragment,
                 getContext(),
                 view,
                 viewCerrarAdmin);

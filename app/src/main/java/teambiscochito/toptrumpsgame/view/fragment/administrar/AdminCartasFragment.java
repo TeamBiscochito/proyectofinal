@@ -89,7 +89,7 @@ public class AdminCartasFragment extends Fragment {
 
         viewMoveOver(viewAddCarta, R.id.action_adminCartasFragment_to_addCardFragment);
 
-        DialogosGenerales.salirDialog(R.id.action_adminCartasFragment_to_chooseUserFragment,
+        DialogosGenerales.salirDialogAdmin(R.id.action_adminCartasFragment_to_chooseUserFragment,
                 getContext(),
                 view,
                 viewCerrarAdminCartas);

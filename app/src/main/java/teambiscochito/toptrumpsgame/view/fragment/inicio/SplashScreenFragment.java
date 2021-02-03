@@ -66,7 +66,6 @@ public class SplashScreenFragment extends Fragment {
         mp_sound.start();
 
         Thread thread = new Thread() {
-
             @Override
             public void run() {
                 try {
