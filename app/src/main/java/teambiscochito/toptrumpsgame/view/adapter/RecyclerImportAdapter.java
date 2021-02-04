@@ -32,7 +32,6 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * Clase Recycler para el fragmento de importación de cartas.
  */
 public class RecyclerImportAdapter extends RecyclerView.Adapter<RecyclerImportAdapter.ViewHolder> {
-
     private final List<Card> cardList;
     private final Context context;
     private final Activity activity;

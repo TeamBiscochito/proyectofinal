@@ -40,8 +40,9 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * Clase para importar nuestras nuevas cartas mediante el servidor alojado en Cloud9:
  * <a href="https://informatica.ieszaidinvergeles.org:9022/LaravelFinal/">Link de Cloud9</a>
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class ImportFragment extends Fragment {
-
     RecyclerView recyclerView;
     ViewModel viewModel;
     List<Card> cardList;
@@ -99,17 +100,16 @@ public class ImportFragment extends Fragment {
             e.printStackTrace();
         }
 
-        // TODO - Método conexión con el servidor?
         call.enqueue(new Callback<ArrayList<Question>>() {
 
             @Override
             public void onResponse(@NonNull Call<ArrayList<Question>> call, @NonNull Response<ArrayList<Question>> response) {
 
                 try {
-                    for (Question q : Objects.requireNonNull(response.body())) {
-                        questionArrayList.add(q);
-                    }
-//                    questionArrayList.addAll(Objects.requireNonNull(response.body()));
+//                    for (Question q : Objects.requireNonNull(response.body())) {
+//                        questionArrayList.add(q);
+//                    }
+                    questionArrayList.addAll(Objects.requireNonNull(response.body()));
                 } catch (NullPointerException ignored) {
                 }
             }

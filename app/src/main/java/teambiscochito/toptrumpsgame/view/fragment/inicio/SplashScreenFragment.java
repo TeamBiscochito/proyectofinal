@@ -22,7 +22,8 @@ import teambiscochito.toptrumpsgame.R;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase para establecer una pantalla de inicio (nuestro logo), una SplashScreen. Tiene sonido incluido.
+ * Clase para establecer una pantalla de inicio (nuestro logo), una SplashScreen.
+ * Contiene sonido incluido.
  */
 public class SplashScreenFragment extends Fragment {
     ImageView imgLogoTeam;

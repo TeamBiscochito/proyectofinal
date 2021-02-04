@@ -45,11 +45,12 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * <p>
  * Clase en la que iniciamos el juego al presionar el botón play de {@link MenuFragment}
  * <p>
- * Este generará una serie de preguntas totalmente aleatorias al igual que las respuesta, donde podremos
- * elegir entre una serie de respuesta (solo una es la correcta).
+ * Este generará una serie de preguntas totalmente aleatorias al igual que la respuesta, donde
+ * podremos elegir entre una serie de respuestas (solo una es la correcta).
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class JuegoFragment extends Fragment {
-
     private static ViewModel viewModel;
     private static User currentUser;
     private final ArrayList<TextView> tvRespuestas = new ArrayList<>();
@@ -121,8 +122,8 @@ public class JuegoFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método que se ejecuta al darle a la X para cerrar el fragmento del juego. Posteriormente llama
-     * a un nuevo diálogo para ver unas estadísticas. {@link #salirJugarDialog()}
+     * Método que se ejecuta al darle a la X para cerrar el fragmento del juego. Posteriormente
+     * llama a un nuevo diálogo para ver unas estadísticas. {@link #salirJugarDialog()}
      * <br><br>
      * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
      */

@@ -32,11 +32,12 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase para ver a los jugadores disponibles o que tenemos creado. Desde aqui podemos editar a los
- * jugadores como también poder eliminarlos.
+ * Clase para ver a los jugadores disponibles o que tenemos creados. Desde este fragmento tendremos
+ * la posibilidad de editar a los jugadores como también poder eliminarlos y añadirlos.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AdminJugadorFragment extends Fragment {
-
     RecyclerView recyclerView;
     ViewModel viewModel;
     View viewBackAdminJugadores, viewCerrarAdminJugadores, viewAddJugador;
@@ -94,7 +95,7 @@ public class AdminJugadorFragment extends Fragment {
      * Método para añadir jugador y crear un nuevo perfil para el juego. Al hacer clic iremos al
      * fragmento de añadir jugador.
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link AdminJugadorFragment#onViewCreated(View, Bundle)}
      */
     private void addJugador() {
         viewAddJugador.setOnTouchListener(new View.OnTouchListener() {

@@ -4,7 +4,7 @@ package teambiscochito.toptrumpsgame.validar;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase generalizada para tener un mejor control de errores y más organizado, donde implementamos
- * validaciones tanto de perfil de jugador como de cartas.
+ * validaciones tanto de perfil de jugador como de las cartas.
  */
 public class ValidarDatos {
 

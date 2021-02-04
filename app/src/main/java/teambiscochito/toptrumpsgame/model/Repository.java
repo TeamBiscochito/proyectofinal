@@ -27,10 +27,12 @@ import teambiscochito.toptrumpsgame.util.UtilThread;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase repositorio, hacemos uso de retrofit, iniciamos todos los métodos en las hebras para no
- * solopar la hebra principal.
+ * sobrecargar la hebra principal.
  * <br>
  * Haciendo referencia a: {@link UtilThread#threadExecutorPool}
  */
+@SuppressWarnings({"unchecked", "StatementWithEmptyBody", "CatchMayIgnoreException"})
+// Comente la línea de arriba para ver los warnings, o mira los TO DO
 public class Repository {
 
     public CardDao cardDao;
@@ -57,7 +59,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 cardDao.insert(card);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -66,7 +68,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 cardDao.update(card);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -75,7 +77,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 cardDao.delete(card);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -90,7 +92,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 userDao.insert(user);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -99,7 +101,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 userDao.update(user);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -108,7 +110,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 userDao.delete(user);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -117,7 +119,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 userDao.deleteId(id);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -141,7 +143,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 questionDao.insert(question);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -150,7 +152,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 questionDao.update(question);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -159,7 +161,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 questionDao.delete(question);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }
@@ -171,7 +173,7 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 questions[0] = questionDao.getQuestionByCardId(cardId);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
         try {
@@ -190,13 +192,13 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 repeatedName = userDao.getNameFromName(name);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
 
         try {
             Thread.sleep(30);
-        } catch (InterruptedException ignored) {
+        } catch (InterruptedException e) {
         }
     }
 
@@ -208,13 +210,13 @@ public class Repository {
         UtilThread.threadExecutorPool.execute(() -> {
             try {
                 repeatedNameCarta = cardDao.getNameFromNameCarta(name);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
 
         try {
             Thread.sleep(30);
-        } catch (InterruptedException ignored) {
+        } catch (InterruptedException e) {
         }
     }
 
@@ -238,8 +240,8 @@ public class Repository {
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
-                    //noinspection StatementWithEmptyBody
-                    for (Card c : cardArrayList[0]) {
+                    // TODO for empty replace
+                    for (Card ignored : cardArrayList[0]) {
                     }
                 }
 
@@ -250,9 +252,9 @@ public class Repository {
         });
         return cardArrayList[0];
     }
-
-    public void saveCards(Card Carta) {
-    }
+//    TODO método sin uso - en un futuro?¿
+//    public void saveCards(Card Carta) {
+//    }
 
     public Long getIdByName(String name) {
         final long[] id = new long[1];
@@ -289,7 +291,7 @@ public class Repository {
             try {
                 cardDao.deleteById(id);
                 questionDao.deleteById(id);
-            } catch (Exception ignored) {
+            } catch (Exception e) {
             }
         });
     }

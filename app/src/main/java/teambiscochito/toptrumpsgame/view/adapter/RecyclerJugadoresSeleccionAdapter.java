@@ -30,7 +30,6 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * jugador y entrar al menú principal.
  */
 public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<RecyclerJugadoresSeleccionAdapter.ViewHolder> {
-
     List<User> userList;
     View view;
     ViewModel viewModel;
@@ -77,7 +76,6 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
             return -1;
         }
     }
-
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView avatarRecycler;

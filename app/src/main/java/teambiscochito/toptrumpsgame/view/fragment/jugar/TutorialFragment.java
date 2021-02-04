@@ -30,9 +30,11 @@ import teambiscochito.toptrumpsgame.view.adapter.VpAvatarAdapter;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase en la que iniciamos el menú de nuestra aplicación, podremos acceder a todas las opciones
- * disponibles de la App desde este fragmento. Tanto sea como para la parte de usuario como la parte
- * de administración.
+ * disponibles de la App desde este fragmento. Tanto sea como para la parte de usuario como la
+ * parte de administración.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class TutorialFragment extends Fragment {
     ViewPager2 vp_bocadillos;
     int[] bocadillos = {R.drawable.bocadillo_uno, R.drawable.bocadillo_dos, R.drawable.bocadillo_tres,
@@ -158,8 +160,9 @@ public class TutorialFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método que se ejecuta al presionar sobre la vista de volver hacia adelante pero de los los botones
-     * de los bocadillos, este es el "Next". Iremos una posición hacia delante de nuestro ViewPager2.
+     * Método que se ejecuta al presionar sobre la vista de volver hacia adelante pero de los los
+     * botones de los bocadillos, este es el "Next". Iremos una posición hacia delante de nuestro
+     * ViewPager2.
      * <br><br>
      * Referencia del método en: {@link TutorialFragment#onViewCreated(View, Bundle)}
      */
@@ -248,9 +251,9 @@ public class TutorialFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método que genera el cuadro de diálogo al salir del modo tutorial. Este diálogo oslo se produce
-     * si es la primera vez que entramos e instalamos la aplicación ya que cuando salgamos nos redirige
-     * a la selección de usuario {@link ChooseUserFragment}
+     * Método que genera el cuadro de diálogo al salir del modo tutorial. Este diálogo oslo se
+     * produce si es la primera vez que entramos e instalamos la aplicación ya que cuando salgamos
+     * nos redirige a la selección de usuario {@link ChooseUserFragment}
      * <br><br>
      * Referencia del método en: {@link TutorialFragment#viewBackTutorial()}
      */

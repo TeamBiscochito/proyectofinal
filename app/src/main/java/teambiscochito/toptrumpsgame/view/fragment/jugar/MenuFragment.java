@@ -45,11 +45,12 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase en la que iniciamos el menú de nuestra aplicación, podremos acceder a todas las opciones
- * disponibles de la App desde este fragmento. Tanto sea como para la parte de usuario como la parte
+ * disponibles de la App desde este fragmento. Tanto sea para la parte de usuario como para la parte
  * de administración.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class MenuFragment extends Fragment {
-
     private final String linkWeb = "https://teambiscochito.github.io/animales-salvajes-web/";
     Animation animTablero, animScaleUp, animScaleDown;
     TextView tvAnimales, tvSalvajes, tvCartas, tvTuto;

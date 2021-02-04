@@ -32,12 +32,13 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase para ver y poder administrar las cartas. Hay un recycler para ver todas las cartas que poseemos
- * tanto las que tengamos ya predefinidas como las nuevas importadas. Desde este fragmento también podemos
- * ver las cartas que vienen desde la página web (mysql).
+ * Clase para ver y poder administrar las cartas. Hay un recycler para ver todas las cartas que
+ * poseemos tanto las que tengamos ya predefinidas como las nuevas importadas. Desde este fragmento
+ * también podemos ver las cartas que vienen desde la página Web.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AdminCartasFragment extends Fragment {
-
     RecyclerView recyclerView;
     ViewModel viewModel;
     View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb, btGoImportar;
@@ -101,7 +102,7 @@ public class AdminCartasFragment extends Fragment {
      * Método para recoger las transiciones de las vistas (botones) para navegar a los diferentes
      * fragmentos disponibles.
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link AdminCartasFragment#onViewCreated(View, Bundle)}
      *
      * @param viewMoveOver    vista que le pasamos a nuestro método dependiendo del "botón" que pinchemos.
      * @param fragmentDestino ponemos la ID del fragmento del destino al pinchar sobre la vista.

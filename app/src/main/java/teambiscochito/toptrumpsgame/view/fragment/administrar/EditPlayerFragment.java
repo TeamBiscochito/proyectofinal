@@ -30,11 +30,12 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase para editar el jugador seleccionado en {@link AdminJugadorFragment} donde tendremos todas las
- * propiedades de nuestro perfil que podemos modificar a nuestro antojo.
+ * Clase para editar al jugador seleccionado en {@link AdminJugadorFragment} donde tendremos todas
+ * las propiedades de nuestro perfil que podemos modificar a nuestro antojo.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class EditPlayerFragment extends Fragment {
-
     ViewPager2 vp_avatar;
     int[] avatares = {R.drawable.av_tigre, R.drawable.av_hipo, R.drawable.av_tucan, R.drawable.av_cerdo, R.drawable.av_gato, R.drawable.av_gallina};
     VpAvatarAdapter adapter;
@@ -132,9 +133,11 @@ public class EditPlayerFragment extends Fragment {
      * <p>
      * Método para verificar los datos a la hora de editar el jugador.
      * <br><br>
+     * Referencia del método en: {@link EditPlayerFragment#onViewCreated(View, Bundle)}
      *
      * @param nombre nombre que usa el jugador.
-     * @param num    número identificativo del jugador por si ya existe el nombre en la base de datos.
+     * @param num    número identificativo del jugador por si ya existe el nombre en la base de
+     *               datos.
      * @param user   pasamos el perfil del jugador
      */
     private void verificarJugador(String nombre, int num, User user) {
@@ -173,10 +176,10 @@ public class EditPlayerFragment extends Fragment {
      * <p>
      * Método para actualizar la imagen de perfil en caso de que el nombre se exactamente el mismo.
      * <br><br>
+     * Referencia del método en: {@link #verificarJugador(String, int, User)}
      *
      * @param user pasamos el perfil del jugador.
      */
-
     private void getDatosAvatar(User user) {
         int avatar = avatares[vp_avatar.getCurrentItem()];
 
@@ -282,7 +285,7 @@ public class EditPlayerFragment extends Fragment {
      * <p>
      * Método método para retornar la instancia del {@link CompositePageTransformer}
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link EditPlayerFragment#onViewCreated(View, Bundle)}
      *
      * @return ViewPager para luego instanciarlo en {@link #onViewCreated(View, Bundle)}
      */
@@ -304,7 +307,7 @@ public class EditPlayerFragment extends Fragment {
      * <p>
      * Método para cargar los diferentes avatares que tenemos disponibles mediante un array de recursos.
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link EditPlayerFragment#onViewCreated(View, Bundle)}
      *
      * @param user pasamos un usuario, el seleccionado.
      */

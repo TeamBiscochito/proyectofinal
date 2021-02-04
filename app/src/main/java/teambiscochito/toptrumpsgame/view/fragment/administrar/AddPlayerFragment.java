@@ -30,11 +30,12 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase para añadir nuevos jugadores a nuestra base de datos. Podremos escoger un nombre, una foto
- * dentro de un viewPager. El nombre no se puede dejar en blanco.
+ * Clase para añadir nuevos jugadores a nuestra base de datos. Podremos escoger un nombre y una foto
+ * dentro de un ViewPager2. El nombre no se puede dejar en blanco.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AddPlayerFragment extends Fragment {
-
     ViewPager2 vp_avatar;
     int[] avatares = {R.drawable.av_tigre, R.drawable.av_hipo, R.drawable.av_tucan, R.drawable.av_cerdo, R.drawable.av_gato, R.drawable.av_gallina};
     VpAvatarAdapter adapter;
@@ -109,10 +110,10 @@ public class AddPlayerFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método que hace referencia al ViewPager2 cuando le damos a la vista irá hacia adelante para ver
-     * los diferentes avatares disponibles.
+     * Método que hace referencia al ViewPager2 cuando le damos a la vista irá hacia adelante para
+     * ver los diferentes avatares disponibles.
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link AddPlayerFragment#onViewCreated(View, Bundle)}
      */
     private void nextAvatar() {
         viewNextAvatar.setOnTouchListener(new View.OnTouchListener() {
@@ -175,7 +176,7 @@ public class AddPlayerFragment extends Fragment {
      * Este método pasa una serie de verificaciones para un nombre correcto y cuando se añade vuelve
      * al fragmento anterior.
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link AddPlayerFragment#onViewCreated(View, Bundle)}
      */
     private void addJugador() {
         viewAddJugador.setOnTouchListener(new View.OnTouchListener() {

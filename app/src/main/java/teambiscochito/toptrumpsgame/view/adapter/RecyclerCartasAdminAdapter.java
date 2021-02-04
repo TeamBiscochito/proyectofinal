@@ -46,6 +46,8 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * <p>
  * Clase Recycler para el fragmento de administración de cartas.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCartasAdminAdapter.ViewHolder> {
 
     List<Card> cardList;
@@ -114,10 +116,10 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
      * Método para decir si la carta se tiene que modifcar o no. Establece las primeras 5 cartas
-     * generadas por defecto a la instalación del juego que no se puedan modificar ni editar que
+     * generadas por defecto a la instalación del juego que no se puedan modificar ni editar, que
      * estén completamente bloqueadas.
      * <br>
-     * Método implementado en: {@link #onBindViewHolder(ViewHolder, int)}
+     * Método implementado en: {@link RecyclerCartasAdminAdapter#onBindViewHolder(ViewHolder, int)}
      *
      * @param holder   pasamos el item.
      * @param position pasamos la posicioón.
@@ -145,7 +147,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
      * Método con el que hacemos que la carta gire para que muestre la descripción de la carta una
      * vez que esté girada.
      * <br>
-     * Método implementado en: {@link #onBindViewHolder(ViewHolder, int)}
+     * Método implementado en: {@link RecyclerCartasAdminAdapter#onBindViewHolder(ViewHolder, int)}
      *
      * @param holder item que pasamos del ViewHolder.
      */
@@ -185,9 +187,9 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
      * Método para obtener las cartas con sus respectivos datos, este método es llamado
-     * por {@link #onBindViewHolder(ViewHolder, int)}
+     * por {@link RecyclerCartasAdminAdapter#onBindViewHolder(ViewHolder, int)}
      *
-     * @param holder   pasamos el holder del recyclcer.
+     * @param holder   pasamos el holder del recycler.
      * @param position posición del recycler.
      */
     public void getDatos(ViewHolder holder, int position) {
@@ -233,10 +235,9 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método específico para las cartas que no se pueden modificar en este caso son las 5 primeras,
-     * que se controla en el {@link #onBindViewHolder(ViewHolder, int)}
+     * Método específico para las cartas que no se pueden modificar en este caso son las 5 primeras.
      * <br><br>
-     * Este método es usado específicamente en {@link #modificarCartaSiNo}
+     * Referencia del método en {@link #modificarCartaSiNo}
      *
      * @param position posición actual del recycler.
      */
@@ -288,7 +289,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
      * Método específico para las cartas que si se pueden modificar en este caso son las que
-     * importaremos de internet. Referencia en {@link #onBindViewHolder(ViewHolder, int)}
+     * importaremos de internet.
      * <br><br>
      * Este método es usado específicamente en {@link #modificarCartaSiNo}
      *
@@ -343,6 +344,8 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
      * <p>
      * Método que actúa cuando pulsamos borrar, es decir borramos la carta que tendríamos en nuestra
      * base de datos.
+     * <br><br>
+     * Referencia del método en: {@link #modificarCarta}
      *
      * @param position                  posición de la carta seleccionada.
      * @param tvBorrarInfoAdminCartas   TextView que esta en la parte del {@link #modificarCarta(int)}
@@ -407,9 +410,10 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
      * Método que actúa cuando pulsamos en editar, en este caso se redirige a un nuevo fragmento que
-     * es específico para editar nuestra carta seleccionada.
+     * es específico para editar nuestra carta seleccionada. Fragmento al que redirecciona el
+     * navController: {@link EditCardFragment}
      * <br><br>
-     * Fragmento al que redirecciona el navController: {@link EditCardFragment}
+     * Referencia del método en: {@link #modificarCarta}
      *
      * @param viewEditarInfoAdminCartas View que está {@link #modificarCarta(int)}, donde hacemos el
      *                                  evento al hacer click en la vista.

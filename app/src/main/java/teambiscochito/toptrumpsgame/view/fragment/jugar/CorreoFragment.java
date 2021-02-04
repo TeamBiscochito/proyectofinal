@@ -39,8 +39,9 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * Clase para que el usuario pueda enviar su puntuación conseguida por correo para que la pueda
  * guardar.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class CorreoFragment extends Fragment {
-
     ViewModel viewModel;
     User userActual;
     View viewBackCorreo, viewCorreoBorrar, viewCorreoEnviar;
@@ -157,10 +158,10 @@ public class CorreoFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método que se ejecuta para validar el correo por si el EditText del correo está vacío o es un
-     * correo inválido. También tiene en cuanta que si no hemos respondida ninguna pregunta la plantilla
-     * del correo a enviar cambia. Una vez hecho esto se mostrará un diálogo para verificar:
-     * {@link #correoDialogConfirmar()}
+     * Método que se ejecuta para validar el correo por si el EditText del correo está vacío o es
+     * un correo inválido. También tiene en cuanta que si no hemos respondida ninguna pregunta la
+     * plantilla del correo a enviar cambia. Una vez hecho esto se mostrará un diálogo para
+     * verificar: {@link #correoDialogConfirmar()}
      * <br><br>
      * Referencia del método en: {@link CorreoFragment#viewCorreoEnviar()}
      *
@@ -220,7 +221,8 @@ public class CorreoFragment extends Fragment {
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
      * Método que se ejecuta después de la validación de correo y abierta una vez el Gmail mediante
-     * el intent. Sirve para recordar que revises tu correo en caso de que finalmente lo hayas enviado.
+     * el intent. Sirve para recordar que revises tu correo en caso de que finalmente lo hayas
+     * enviado.
      * <br><br>
      * Referencia del método en: {@link CorreoFragment#validarCorreo(String, String, String)}
      */

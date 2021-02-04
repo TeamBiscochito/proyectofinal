@@ -13,10 +13,10 @@ import teambiscochito.toptrumpsgame.R;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase Recycler para el fragmento TODO Funcionamiento??
+ * Clase Recycler para el funcionamiento de los ViewPager2, y así instanciarlo donde lo necesitemos,
+ * en este caso en los iconos de los avatares y los bocadillos.
  */
 public class VpAvatarAdapter extends RecyclerView.Adapter<VpAvatarAdapter.ViewHolder> {
-
     int[] avatares;
 
     public VpAvatarAdapter(int[] avatares) {

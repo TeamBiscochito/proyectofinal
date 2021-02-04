@@ -36,11 +36,13 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase Recycler para el fragmento posicionado del menú en el cual se puede echar un ojo a las cartas
- * con las que se va a jugar en el juego. No se puede editar ni hacer nada de administración.
+ * Clase Recycler para el fragmento posicionado en el menú en el cual se puede echar un ojo a las
+ * cartas con las que se va a jugar en el juego. No se pueden editar ni hacer nada relacionado con
+ * la administración.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerCartasNoAdminAdapter.ViewHolder> {
-
     List<Card> cardList;
     View view;
     Activity activity;
@@ -104,7 +106,9 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método para hacer el efecto de flip en la carta, referencia {@link #onBindViewHolder(ViewHolder, int)}
+     * Método para hacer el efecto del flip en la carta.
+     * <br><br>
+     * Referencia del método en: {@link RecyclerCartasNoAdminAdapter#onBindViewHolder(ViewHolder, int)}
      *
      * @param holder pasamos el holder el item por parámetro.
      */
@@ -135,8 +139,9 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método para obtener las cartas con sus respectivos datos, este método es llamado
-     * por {@link #onBindViewHolder(ViewHolder, int)}
+     * Método para obtener las cartas con sus respectivos datos.
+     * <br><br>
+     * Referencia del método en: {@link RecyclerCartasNoAdminAdapter#onBindViewHolder(ViewHolder, int)}
      *
      * @param holder   pasamos el holder del reyclcer (item).
      * @param position posición del recycler.
@@ -181,7 +186,6 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-
         ImageView imgFotoCartaNoAdmin;
         TextView tvNombreCartaNoAdmin, tvDescCartasNoAdminBack, tvAltura, tvPeso, tvLongitud, tvVelocidad, tvPoder, tvAlturaUnidad, tvPesoUnidad, tvLongitudUnidad, tvVelocidadUnidad;
         EasyFlipView easyFlipView;

@@ -21,8 +21,10 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
  * <p>
  * Clase que contiene el ViewModel, con el fin de almacenar y administrar datos relacionados con la
  * IU de manera optimizada para los ciclos de vida. La clase ViewModel permite que se conserven los
- * datos luego de cambios de configuración...
+ * datos luego de cambios de configuración.
  */
+@SuppressWarnings({"Convert2Lambda", "unused", "RedundantSuppression"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir, y los métodos que no se usan
 public class ViewModel extends AndroidViewModel {
 
     public static User userActual;

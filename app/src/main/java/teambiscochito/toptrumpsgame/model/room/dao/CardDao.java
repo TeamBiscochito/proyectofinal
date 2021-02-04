@@ -17,6 +17,8 @@ import teambiscochito.toptrumpsgame.model.room.pojo.Card;
  * <p>
  * Interfaz room para la carta, donde generamos la tabla y las consultas pertinentes.
  */
+@SuppressWarnings("UnusedReturnValue")
+// Comente la línea de arriba para ver los métodos que no usen su retorno de valor
 @Dao
 public interface CardDao {
 

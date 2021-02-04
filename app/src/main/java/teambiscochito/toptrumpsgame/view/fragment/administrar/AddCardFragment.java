@@ -37,10 +37,11 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase para añadir una nueva carta con valores nuestros donde se mostraran y recogeremos todos los
- * valores para después añadirlas al conjunto de cartas de la base de datos.
+ * valores para después añadirlos al conjunto de cartas de la base de datos.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AddCardFragment extends Fragment {
-
     NavController navController;
     View viewBackAdminAddCarta, viewAddCarta2;
     TextView tvAddCarta2, tvAlertaAddCarta;
@@ -86,14 +87,14 @@ public class AddCardFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método para recoger los valores del formulario al insertar la carta, iniciamos unos nuevos valores
-     * para después hacer un check de que los valores no estén vacíos. Los metemos en un try catch y
-     * obtenemos los valores de los editText.
+     * Método para recoger los valores del formulario al insertar la carta, iniciamos unos nuevos
+     * valores para después hacer un check de que los valores no estén vacíos. Los metemos en un
+     * try catch y obtenemos los valores de los editText.
      * <br><br>
      * Ocurre cuando hacemos click en la vista de añadir carta, en el otro método controlamos los
      * valores metidos en las diferentes opciones.
      * <br><br>
-     * Método llamado en {@link #onViewCreated(View, Bundle)}
+     * Método llamado en {@link AddCardFragment#onViewCreated(View, Bundle)}
      * <br>
      * Método de inserta carta:
      * {@link #insertarCarta(String, int, String, String, String, String, String, String, double,
@@ -180,7 +181,7 @@ public class AddCardFragment extends Fragment {
      * para añadir una nueva carta, creando un nuevo intent y abriendo Google Imágenes con el texto
      * que hayamos puesto en "nombre de carta".
      * <br><br>
-     * Implementado en {@link #onViewCreated(View, Bundle)}
+     * Implementado en {@link AddCardFragment#onViewCreated(View, Bundle)}
      *
      * @param view pasamos la vista del viewHolder.
      */
@@ -210,7 +211,7 @@ public class AddCardFragment extends Fragment {
      * Método para los spinners de los campos altura, peso, velocidad y longitud. Le damos estilos y
      * agregamos el array de las magnitudes al checkbox.
      * <br><br>
-     * Implementado en {@link #onViewCreated(View, Bundle)}
+     * Implementado en {@link AddCardFragment#onViewCreated(View, Bundle)}
      */
     private void spinnersMagnitudesCarta() {
         ArrayAdapter<CharSequence> alturaAdapter = ArrayAdapter.createFromResource(getContext(), R.array.magnitudesAltura, R.layout.style_spinner);
@@ -233,12 +234,12 @@ public class AddCardFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método que recoge todos los datos de {@link #insertarCarta()} carta, lo dividimos en dos métodos
-     * para que no se haga muy tedioso ala hora de leer el código. Por lo tanto en este método, le
-     * pasamos todos los parámetro de hemos obtenido en el método {@link #insertarCarta()}
+     * Método que recoge todos los datos de {@link #insertarCarta()} carta, lo dividimos en dos
+     * métodos para que no se haga muy tedioso a la hora de leer el código. Por lo tanto en este
+     * método, le pasamos todos los parámetro que hemos obtenido en el método {@link #insertarCarta()}
      * <p>
-     * Ingresamos todos los valores para posteriormente agregarlos a un ArrayList e insertarlas en la
-     * base de datos. Referencia al método {@link #insertarCarta()}
+     * Ingresamos todos los valores para posteriormente agregarlos a un ArrayList e insertarlas en
+     * la base de datos.
      * <br><br>
      * Link de referencia: {@link ViewModel#insertAll(ArrayList)}
      *
@@ -339,10 +340,14 @@ public class AddCardFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método para agregar las propiedades de las cartas antes de agregarlas a nuestro ViewModel y después
-     * al repositorio. (Altura, Peso, Longitud, Velocidad, Poder, con sus respectivas magnitudes).
+     * Método para agregar las propiedades de las cartas antes de agregarlas a nuestro ViewModel y
+     * después al repositorio. (Altura, Peso, Longitud, Velocidad, Poder, con sus respectivas
+     * magnitudes).
      * <br>
      * Link de referencia: {@link ViewModel#insertAll(ArrayList)}
+     *
+     * Método referenciado en: {@link #insertarCarta(String, int, String, String, String, String,
+     * String, String, double, double, double, double, double, double, double, double, double)}
      *
      * @param alturaMag    la magnitud de la altura.
      * @param pesoMag      la magnitud del peso.
@@ -359,7 +364,6 @@ public class AddCardFragment extends Fragment {
      */
     private ArrayList<Question> getQuestions(String alturaMag, String pesoMag, String longitudMag, String velocidadMag,
                                              double poder, double altd, double pesd, double veld, double lond, long idcard) {
-
         ArrayList<Question> questionArrayList = new ArrayList<>();
 
         Question q1 = new Question(idcard, "Altura", altd, alturaMag);

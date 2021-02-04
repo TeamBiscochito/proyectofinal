@@ -4,14 +4,13 @@ package teambiscochito.toptrumpsgame.model.room.pojo;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase pojo de carta: id, url foto, nombre animal, descripción. Contiene varios constructores para
- * para crear la carta. Creamos la tabla con sus campos y consultas correspondientes.
+ * crear la carta. Creamos la tabla con sus campos y consultas correspondientes.
  */
 
 @Entity(tableName = "card")
@@ -30,7 +29,7 @@ public class Card {
     private String description;
 
     /**
-     * @param picUrl      url de la página que contiene la foto (tiene que tener extensión)
+     * @param picUrl      url de la página que contiene la foto
      * @param name        nombre de animal / carta
      * @param description descripción del animal
      */

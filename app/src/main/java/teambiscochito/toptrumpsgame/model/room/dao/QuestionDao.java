@@ -16,6 +16,8 @@ import teambiscochito.toptrumpsgame.model.room.pojo.Question;
  * <p>
  * Interfaz room para la preguntas, donde generamos la tabla y las consultas pertinentes.
  */
+@SuppressWarnings("UnusedReturnValue")
+// Comente la línea de arriba para ver los métodos que no se usen su retorno de valor
 @Dao
 public interface QuestionDao {
 

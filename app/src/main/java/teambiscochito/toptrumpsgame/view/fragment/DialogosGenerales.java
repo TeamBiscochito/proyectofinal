@@ -19,8 +19,8 @@ import teambiscochito.toptrumpsgame.view.fragment.jugar.JuegoFragment;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase que contiene un método generalizado para todas las clases en este caso es el botón/view que
- * ejercemos como si fuera un botón para salir de la aplicación.
+ * Clase que contiene método estáticos para un uso generalizado. Como por ejemplo en caso de los
+ * botón/view que ejercemos como si fuera un botón para salir de la aplicación.
  */
 public class DialogosGenerales {
     /**
@@ -93,12 +93,12 @@ public class DialogosGenerales {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método estático que se encarga de generar el diálogo cuando se acierta una pregunta o se falla
-     * la pregunta.
+     * Método estático que se encarga de generar el diálogo cuando se acierta una pregunta o se
+     * falla la pregunta.
      * <br><br>
      * Referencia del método en: {@link JuegoFragment#viewCerrarJuego()}
      *
-     * @param context contexto del fragmento.
+     * @param context   contexto del fragmento.
      * @param respuesta pasamos el layout del diálogo a mostrar.
      */
     public static void dialogoRespuesta(Context context, int respuesta) {
@@ -133,7 +133,8 @@ public class DialogosGenerales {
      * Método privado estático para separar los diferentes métodos. Crea el diálogo y lo muestra.
      *
      * @param context       contexto del fragmento.
-     * @param irID          fragmento al que deseamos ir (al modo administrador supuestamente siempre el mismo).
+     * @param irID          fragmento al que deseamos ir (al modo administrador supuestamente
+     *                      siempre el mismo).
      * @param onViewCreated le pasamos la vista principal al la hora de crear el fragmento.
      */
     private static void dialogoCerrarAdmin(Context context, int irID, View onViewCreated) {

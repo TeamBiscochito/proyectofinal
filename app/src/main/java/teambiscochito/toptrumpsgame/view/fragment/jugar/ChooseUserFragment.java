@@ -39,10 +39,11 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase para elegir el usuario al entrar al menú de la aplicación.
+ * Clase para elegir al usuario al entrar, que por lo tanto se convierte en la pantalla "inicial".
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class ChooseUserFragment extends Fragment {
-
     RecyclerView recyclerView;
     ViewModel viewModel;
 
@@ -293,9 +294,9 @@ public class ChooseUserFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método para iniciar el cuadro de diálogo del tutorial el cual se mostrara solo cuando se instale
-     * la aplicación. Gracias a la preferencia compartida. Este redirecciona al fragmento del tutorial
-     * si aceptamos. {@link TutorialFragment}
+     * Método para iniciar el cuadro de diálogo del tutorial el cual se mostrara solo cuando se
+     * instale la aplicación. Gracias a la preferencia compartida. Este redirecciona al fragmento
+     * del tutorial si aceptamos. {@link TutorialFragment}
      * <br><br>
      * Referencia del método en: {@link ChooseUserFragment#onViewCreated(View, Bundle)}
      **/

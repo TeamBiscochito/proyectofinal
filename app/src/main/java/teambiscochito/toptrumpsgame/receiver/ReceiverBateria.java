@@ -1,6 +1,5 @@
 package teambiscochito.toptrumpsgame.receiver;
 
-import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +17,8 @@ import teambiscochito.toptrumpsgame.R;
  * la batería esté por debajo del 15% (en este caso es una variable llamada ACTION_BATTERY_LOW,
  * que hace referencia a Android cuando llega al 15%).
  */
+@SuppressWarnings({"deprecation", "InflateParams"})
+// Comente esta la línea de arriba para ver los métodos deprecated y parámetro inflate (null)
 public class ReceiverBateria extends BroadcastReceiver {
 
     /**
@@ -31,7 +32,7 @@ public class ReceiverBateria extends BroadcastReceiver {
 
             LayoutInflater inflater = LayoutInflater.from(context);
 
-            @SuppressLint("InflateParams") View layout = inflater.inflate(R.layout.toast_bateria, null);
+            View layout = inflater.inflate(R.layout.toast_bateria, null);
             final Toast toast = new Toast(context);
 
             toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);

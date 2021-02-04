@@ -24,9 +24,10 @@ import teambiscochito.toptrumpsgame.R;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase para importar nuestras nuevas cartas mediante el servidor alojado en Cloud9:
- * <a href="https://informatica.ieszaidinvergeles.org:9022/LaravelFinal/">Link de Cloud9</a>
+ * Clase para la creación de administrador de inicio al instalar la aplicación por primera vez.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class CrearAdminFragment extends Fragment {
     EditText etClave;
     Animation animScaleUp, animScaleDown;
@@ -97,7 +98,7 @@ public class CrearAdminFragment extends Fragment {
      * <br><br>
      * Referencia del método en: {@link CrearAdminFragment#onViewCreated(View, Bundle)}
      *
-     * @return booleana para saber si la persona ha ingresado una clave o no
+     * @return booleana para saber si la persona ha ingresado una clave o no.
      */
     private boolean guardarClave() {
         try {
@@ -119,7 +120,7 @@ public class CrearAdminFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método para iniciar la animación
+     * Método para iniciar la animación.
      * <br><br>
      * Referencia del método en: {@link CrearAdminFragment#onViewCreated(View, Bundle)}
      */

@@ -35,10 +35,11 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase Recycler para el fragmento de la administración de los jugadores donde podremos editar el
- * jugador como también podemos borrar el jugador.
+ * jugador como también podemos borrar al jugador.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<RecyclerJugadoresAdminAdapter.ViewHolder> {
-
     List<User> userList;
     View view;
     ViewModel viewModel;
@@ -87,10 +88,12 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
      * <p>
      * Método que recoge el item seleccionado del RecyclerView, por el cual podremos hacer las
      * diferentes opciones de administración como editar o borrar al jugador.
+     * <br<<br>
+     * Referencia del método en: {@link RecyclerJugadoresAdminAdapter#onBindViewHolder(ViewHolder, int)}
      *
      * @param holder   item contenedor del recycler.
      * @param position posición del recycler.
-     * @param user     usuario que coge en la posición en {@link #onBindViewHolder(ViewHolder, int)}
+     * @param user     usuario que recoge la posición.
      */
     private void itemRecycler(@NonNull ViewHolder holder, int position, User user) {
         holder.parent.setOnClickListener(new View.OnClickListener() {
@@ -127,15 +130,6 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
                 dialogJugadores.show();
             }
         });
-    }
-
-    @Override
-    public int getItemCount() {
-        try {
-            return userList.size();
-        } catch (Exception exception) {
-            return -1;
-        }
     }
 
     /**
@@ -237,8 +231,16 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
         });
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    @Override
+    public int getItemCount() {
+        try {
+            return userList.size();
+        } catch (Exception exception) {
+            return -1;
+        }
+    }
 
+    public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView avatarRecycler;
         TextView nombreJugadorRecycler;
         ConstraintLayout parent;

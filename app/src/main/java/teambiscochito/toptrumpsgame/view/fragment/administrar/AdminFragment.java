@@ -23,10 +23,11 @@ import teambiscochito.toptrumpsgame.view.fragment.DialogosGenerales;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase principal del modo administrador, en este fragmento tenemos dos bifurcaciones a la hora de
- * administrar las cartas o administrar jugadores.
+ * administrar las cartas o administrar a los jugadores.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AdminFragment extends Fragment {
-
     View viewCerrarAdmin, viewAdminEntrarJugadores, viewAdminEntrarCartas;
     Animation animScaleUp, animScaleDown, animCaraLeon;
     TextView tvAdminEntrarJugadores, tvAdminEntrarCartas;
@@ -71,9 +72,10 @@ public class AdminFragment extends Fragment {
      * Método para recoger las transiciones de las vistas (botones) para navegar a los diferentes
      * fragmentos disponibles. En este caso se comparte con EntrarJugadores y Entrar Cartas.
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link AdminFragment#onViewCreated(View, Bundle)}
      *
-     * @param viewMoveOver     vista que le pasamos a nuestro método dependiendo del "botón" que pinchemos.
+     * @param viewMoveOver     vista que le pasamos a nuestro método dependiendo del "botón" que
+     *                         pinchemos.
      * @param textViewMoveOver TextView que le pasamos a nuestro método para darle una animación.
      * @param fragmentDestino  ponemos la ID del fragmento del destino al pinchar sobre la vista.
      */

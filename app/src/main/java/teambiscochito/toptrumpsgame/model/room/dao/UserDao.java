@@ -16,6 +16,8 @@ import teambiscochito.toptrumpsgame.model.room.pojo.User;
  * <p>
  * Interfaz room para manejar los usuarios, donde generamos la tabla y las consultas pertinentes.
  */
+@SuppressWarnings("UnusedReturnValue")
+// Comente la línea de arriba para ver los métodos que no usen su retorno de valor
 @Dao
 public interface UserDao {
 

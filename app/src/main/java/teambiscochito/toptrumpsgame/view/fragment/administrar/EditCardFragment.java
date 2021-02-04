@@ -37,6 +37,8 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * Clase para editar la carta seleccionada en {@link AdminCartasFragment} donde tendremos todas las
  * propiedades de la carta que podemos editar a nuestro antojo.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class EditCardFragment extends Fragment {
 
     NavController navController;
@@ -92,11 +94,11 @@ public class EditCardFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método de viewEditCarta donde meteremos los datos y al hacer clic en editar obtendremos los valores
-     * y después pasara una validación para ver si los datos insertados están correctos o ya existen
-     * en la base de datos por ejemplo.
+     * Método de viewEditCarta donde meteremos los datos y al hacer clic en editar obtendremos los
+     * valores y después pasara una validación para ver si los datos insertados están correctos o ya
+     * existen en la base de datos por ejemplo.
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link EditCardFragment#onViewCreated(View, Bundle)}
      *
      * @param formatter    aplicar el formato de los número en este caso con un decimal solamente.
      * @param questionList pasamos la lista de Question.
@@ -128,8 +130,8 @@ public class EditCardFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método para obtener los nuevos datos de los edit text, donde posteriormente pasamos a su validación
-     * para ver si están correcto los datos.
+     * Método para obtener los nuevos datos de los edit text, donde posteriormente pasamos a su
+     * validación para ver si están correcto los datos.
      * <br><br>
      * Referencia del método en: {@link #viewEditCarta(DecimalFormat, List)}
      *
@@ -172,8 +174,8 @@ public class EditCardFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método para obtener los nuevos datos de los edit text, donde posteriormente pasamos a su validación
-     * para ver si están correcto los datos.
+     * Método para obtener los nuevos datos de los edit text, donde posteriormente pasamos a su
+     * validación para ver si están correcto los datos.
      * <br><br>
      * Referencia del método en: {@link #obtenerDatosNuevos(DecimalFormat, List)}
      *
@@ -398,7 +400,7 @@ public class EditCardFragment extends Fragment {
      * carta. Así podremos saber que datos tiene la carta como la URL y todas las propiedades para
      * después poder modificarlas a nuestro antojo.
      * <br><br>
-     * Referencia del método en: {@link #onViewCreated(View, Bundle)}
+     * Referencia del método en: {@link EditCardFragment#onViewCreated(View, Bundle)}
      *
      * @param questionList pasamos la lista de Question.
      */

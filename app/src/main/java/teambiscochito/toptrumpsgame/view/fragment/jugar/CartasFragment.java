@@ -35,6 +35,8 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * Clase para ver las cartas una vez que hayamos iniciado sesión. No se podrán modificar, solo ver
  * la descripción de dicha carta.
  */
+@SuppressWarnings({"Convert2Lambda"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class CartasFragment extends Fragment {
     RecyclerView recyclerView;
     ViewModel viewModel;

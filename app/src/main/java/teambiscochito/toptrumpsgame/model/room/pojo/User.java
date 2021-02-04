@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase pojo de usuario: id, nombre, avatar, número de respuestas, número de respuestas correctas.
- * Contiene varios constructores para para crear la pregunta. Creamos la tabla con sus campos y
+ * Contiene varios constructores para para crear al usuario. Creamos la tabla con sus campos y
  * consultas correspondientes.
  */
 @Entity(tableName = "user", indices = {@Index(value = {"name"}, unique = true)})

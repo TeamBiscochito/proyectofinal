@@ -10,7 +10,8 @@ import androidx.room.PrimaryKey;
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
  * Clase pojo de pregunta: id, id de la carta, pregunta, respuesta, magnitud. Contiene varios
- * constructores para para crear la pregunta. Creamos la tabla con sus campos y consultas correspondientes.
+ * constructores para para crear la pregunta. Creamos la tabla con sus campos y consultas
+ * correspondientes.
  */
 @Entity(tableName = "question")
 public class Question {

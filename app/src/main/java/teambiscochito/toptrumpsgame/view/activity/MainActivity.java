@@ -19,12 +19,13 @@ import teambiscochito.toptrumpsgame.receiver.ReceiverBateria;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase principal (MainActivity) donde empieza el juego y se ponen algunas propiedades básica para
- * el correcto funcionamiento. Registramos el receiver, habilitamos pantalla completa y animamos el
- * diálogo para salir de la aplicación.
+ * Clase principal {@link MainActivity}) donde empieza el juego y se ponen algunas propiedades básicas
+ * para el correcto funcionamiento. Registramos el receiver, habilitamos pantalla completa y animamos
+ * el diálogo para salir de la aplicación entre otras.
  */
+@SuppressWarnings({"deprecation", "Convert2Lambda"})
+// Comente la línea de arriba para ver los métodos deprecated y para ver los posibles Lambdas a convertir
 public class MainActivity extends AppCompatActivity {
-
     ReceiverBateria receiver;
     IntentFilter intentFilter;
     Dialog salirDialog;
@@ -45,12 +46,10 @@ public class MainActivity extends AppCompatActivity {
 
         decorView = getWindow().getDecorView();
 
-        //noinspection deprecation
         decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
             @Override
             public void onSystemUiVisibilityChange(int visibility) {
                 if (visibility == 0) {
-                    //noinspection deprecation
                     decorView.setSystemUiVisibility(hideBars());
                 }
             }
@@ -61,13 +60,11 @@ public class MainActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
-            //noinspection deprecation
             decorView.setSystemUiVisibility(hideBars());
         }
     }
 
     private int hideBars() {
-        //noinspection deprecation
         return View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
                 View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY |
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
@@ -83,9 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         View decorView = getWindow().getDecorView();
 
-        //noinspection deprecation
         int uiOptions = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN;
-        //noinspection deprecation
         decorView.setSystemUiVisibility(uiOptions);
     }
 
@@ -106,6 +101,9 @@ public class MainActivity extends AppCompatActivity {
         backPressedTime = System.currentTimeMillis();
     }
 
+    /**
+     * Cuadro de diálogo para salir de la aplicación
+     */
     public void salirDialog() {
         View viewCancelarSalirDialog, viewAceptarSalirDialog;
 
