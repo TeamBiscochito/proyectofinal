@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.graphics.text.LineBreaker;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -30,6 +31,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -49,6 +51,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
     Dialog dialogCartas, dialogConfirmarBorrar;
 
     NavController navController;
+    private MediaPlayer mp_borrar;
 
     public RecyclerCartasAdminAdapter(List<Card> cardList, View view, Activity activity, Context context){
         this.cardList = cardList;
@@ -69,12 +72,17 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(0);
+
         viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
 
-        Card card = cardList.get(position);
+        mp_borrar = MediaPlayer.create(context, R.raw.borrar_sound);
+
+        Card card = viewModel.cards.get(position);
 
         navController = Navigation.findNavController(view);
 
@@ -85,20 +93,42 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .priority(Priority.HIGH);
 
-        Glide.with(context).load(cardList.get(position).getPicUrl())
+        Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
                 .apply(options)
                 .into(holder.imgFotoCartaNoAdmin);
 
-        holder.tvNombreCartaNoAdmin.setText(cardList.get(position).getName());
-        holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDesc());
+        holder.tvNombreCartaNoAdmin.setText(viewModel.cards.get(position).getName());
+        holder.tvDescCartasNoAdminBack.setText(viewModel.cards.get(position).getDescription());
 
         try{
 
-            List<Question> questionList = viewModel.getQuestionListByCardId(cardList.get(position).getId());
-            holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
-            holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
-            holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
-            holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
+            List<Question> questionList = viewModel.getQuestionsForCurrentCard(viewModel.cards.get(position));
+
+            if (questionList.get(0).getAnswer() % 1 == 0) {
+                holder.tvAltura.setText(numberFormat.format(questionList.get(0).getAnswer()));
+            } else {
+                holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
+            }
+
+            if (questionList.get(1).getAnswer() % 1 == 0) {
+                holder.tvPeso.setText(numberFormat.format(questionList.get(1).getAnswer()));
+            } else {
+                holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
+            }
+
+            if (questionList.get(2).getAnswer() % 1 == 0) {
+                holder.tvLongitud.setText(numberFormat.format(questionList.get(2).getAnswer()));
+            } else {
+                holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
+            }
+
+            if (questionList.get(3).getAnswer() % 1 == 0) {
+                holder.tvVelocidad.setText(numberFormat.format(questionList.get(3).getAnswer()));
+            } else {
+                holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
+            }
+
+
 
             double valorPoderDouble = Double.parseDouble(questionList.get(4).getAnswer().toString());
             int valorPoderInt = (int) valorPoderDouble;
@@ -147,14 +177,14 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                     window.setGravity(Gravity.CENTER);
                     window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgInfoAdminCartas);
-                    TextView tvNombre = dialogCartas.findViewById(R.id.tvNombreInfoAdminCartas);
-                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvBorrarInfoAdminCartas);
-                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvEstaCartaNoSeModifica);
-                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewBackInfoAdminCartas);
-                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewBorrarInfoAdminCartas);
-                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewEditarInfoAdminCartas);
-                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvEditarInfoAdminCartas);
+                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgDialogCartasPerfil);
+                    TextView tvNombre = dialogCartas.findViewById(R.id.tvDialogCartasNombre);
+                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasBorrar);
+                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvDialogCartasNoModifica);
+                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBack);
+                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBorrar);
+                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasEditar);
+                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasEditar);
 
                     tvEstaCartaNoSeModifica.setVisibility(View.GONE);
 
@@ -177,6 +207,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
                                 dialogCartas.dismiss();
                                 navController.navigate(R.id.action_adminCartasFragment_to_editCardFragment);
+
 
                             } else if (event.getAction() == MotionEvent.ACTION_UP) {
                                 viewEditarInfoAdminCartas.startAnimation(animScaleDown);
@@ -202,8 +233,11 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                                 window.setGravity(Gravity.CENTER);
                                 window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-                                View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewCancelarBorrarJugador);
-                                View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewAceptarBorrarJugador);
+                                TextView tvConfirmarBorrarMsg = dialogConfirmarBorrar.findViewById(R.id.tvDialogBorrarConfirmText);
+                                View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmCancel);
+                                View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmAccept);
+
+                                tvConfirmarBorrarMsg.setText(R.string.tvConfirmarBorrarCarta);
 
                                 viewCancelarBorrarJugador.setOnClickListener(new View.OnClickListener() {
                                     @Override
@@ -220,9 +254,10 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
                                         dialogConfirmarBorrar.dismiss();
                                         dialogCartas.dismiss();
+                                        mp_borrar.start();
 
-                                        //long idBorrar = userList.get(position).getId();
-                                        //viewModel.deleteUserById(idBorrar);
+                                        long idBorrar = cardList.get(position).getId();
+                                        viewModel.deleteCardById(idBorrar);
 
                                     }
                                 });
@@ -249,11 +284,11 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .priority(Priority.HIGH);
 
-                    Glide.with(context).load(cardList.get(position).getPicUrl())
-                            .apply(options)
-                            .into(imgAnimal);
+                    Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
+                    .apply(options)
+                    .into(imgAnimal);
 
-                    tvNombre.setText(cardList.get(position).getName());
+                    tvNombre.setText(viewModel.cards.get(position).getName());
 
                     dialogCartas.setCancelable(true);
                     dialogCartas.setCanceledOnTouchOutside(false);
@@ -269,14 +304,14 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                     window.setGravity(Gravity.CENTER);
                     window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgInfoAdminCartas);
-                    TextView tvNombre = dialogCartas.findViewById(R.id.tvNombreInfoAdminCartas);
-                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvBorrarInfoAdminCartas);
-                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvEstaCartaNoSeModifica);
-                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewBackInfoAdminCartas);
-                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewBorrarInfoAdminCartas);
-                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewEditarInfoAdminCartas);
-                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvEditarInfoAdminCartas);
+                    CircleImageView imgAnimal = dialogCartas.findViewById(R.id.imgDialogCartasPerfil);
+                    TextView tvNombre = dialogCartas.findViewById(R.id.tvDialogCartasNombre);
+                    TextView tvBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasBorrar);
+                    TextView tvEstaCartaNoSeModifica = dialogCartas.findViewById(R.id.tvDialogCartasNoModifica);
+                    View viewBackInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBack);
+                    View viewBorrarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasBorrar);
+                    View viewEditarInfoAdminCartas = dialogCartas.findViewById(R.id.viewDialogCartasEditar);
+                    TextView tvEditarInfoAdminCartas = dialogCartas.findViewById(R.id.tvDialogCartasEditar);
 
                     viewBackInfoAdminCartas.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -299,11 +334,11 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
                             .diskCacheStrategy(DiskCacheStrategy.ALL)
                             .priority(Priority.HIGH);
 
-                    Glide.with(context).load(cardList.get(position).getPicUrl())
+                    Glide.with(context).load(viewModel.cards.get(position).getPicUrl())
                             .apply(options)
                             .into(imgAnimal);
 
-                    tvNombre.setText(cardList.get(position).getName());
+                    tvNombre.setText(viewModel.cards.get(position).getName());
                     tvEstaCartaNoSeModifica.setText("Esta carta no se puede modificar");
 
                     dialogCartas.setCancelable(true);
@@ -321,7 +356,7 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
     @Override
     public int getItemCount() {
         try{
-            return cardList.size();
+            return viewModel.cards.size();
         } catch (Exception exception){
             return -1;
         }
@@ -338,29 +373,29 @@ public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCar
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgFotoCartaNoAdmin = itemView.findViewById(R.id.imgFotoCartaNoAdmin);
-            tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvNombreCartaNoAdmin);
-            tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvDescCartasNoAdminBack);
-            easyFlipView = itemView.findViewById(R.id.easyflipview);
-            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvClicParaHacerFlipCarta);
-            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewClicParaHacerFlipCarta);
+            imgFotoCartaNoAdmin = itemView.findViewById(R.id.civCartaNoAdmin_Foto);
+            tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvCartasNoAdmin_Nombre);
+            tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvCartasNoAdmin_Descripcion);
+            easyFlipView = itemView.findViewById(R.id.efvCartasNoAdmin_FlipCarta);
+            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvCartasNoAdmin_Flip);
+            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewCartasNoAdmin_Flip);
 
-            tvAltura = itemView.findViewById(R.id.tvValorAlturaMediaNoAdmin);
-            tvPeso = itemView.findViewById(R.id.tvPesoMedioNoAdmin);
-            tvLongitud = itemView.findViewById(R.id.tvLongitudMediaNoAdmin);
-            tvVelocidad = itemView.findViewById(R.id.tvVelocidadMediaNoAdmin);
-            tvPoder = itemView.findViewById(R.id.tvPoderMortiferoNoAdmin);
+            tvAltura = itemView.findViewById(R.id.tvCartasNoAdmin_ValorAltura);
+            tvPeso = itemView.findViewById(R.id.tvCartasNoAdmin_ValorPeso);
+            tvLongitud = itemView.findViewById(R.id.tvCartasNoAdmin_ValorLongitud);
+            tvVelocidad = itemView.findViewById(R.id.tvCartasNoAdmin_ValorVelocidad);
+            tvPoder = itemView.findViewById(R.id.tvCartasNoAdmin_ValorPoder);
 
-            tvAlturaUnidad = itemView.findViewById(R.id.tvUnidadAlturaMediaNoAdmin);
-            tvPesoUnidad = itemView.findViewById(R.id.tvUnidadPesoMedioNoAdmin);
-            tvLongitudUnidad = itemView.findViewById(R.id.tvUnidadLongitudMediaNoAdmin);
-            tvVelocidadUnidad = itemView.findViewById(R.id.tvUnidadVelocidadMediaNoAdmin);
+            tvAlturaUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadAltura);
+            tvPesoUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadPeso);
+            tvLongitudUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadLongitud);
+            tvVelocidadUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadVelocidad);
 
             // Poner texto de la carta justificado
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 tvDescCartasNoAdminBack.setJustificationMode(LineBreaker.JUSTIFICATION_MODE_INTER_WORD);
             } else {
-                tvNombreCartaNoAdmin.setGravity(Gravity.CENTER);
+                tvDescCartasNoAdminBack.setGravity(Gravity.CENTER);
             }
         }
     }

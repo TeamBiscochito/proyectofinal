@@ -99,6 +99,7 @@ public class MenuFragment extends Fragment {
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     vCartas.startAnimation(animScaleDown);
                     tvCartas.startAnimation(animScaleDown);
+
                 }
 
                 return true;
@@ -137,6 +138,7 @@ public class MenuFragment extends Fragment {
                     vPlay.startAnimation(animScaleUp);
 
                     mp_menu.stop();
+
                     viewModel.setUser(userActual);
                     navController.navigate(R.id.action_menuFragment_to_juegoFragment);
 
@@ -216,6 +218,7 @@ public class MenuFragment extends Fragment {
                     ivCerrarSesion.startAnimation(animScaleUp);
 
                     mp_menu.stop();
+
                     navController.navigate(R.id.action_menuFragment_to_chooseUserFragment);
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -235,6 +238,7 @@ public class MenuFragment extends Fragment {
                     viewVerDialogCreditos.startAnimation(animScaleUp);
 
                     mp_menu.pause();
+
                     creditosDialog();
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
@@ -255,26 +259,26 @@ public class MenuFragment extends Fragment {
 
         initMediaPlayerMenu();
 
-        tvAnimales = view.findViewById(R.id.tvTitulo1);
-        tvSalvajes = view.findViewById(R.id.tvTitulo2);
+        tvAnimales = view.findViewById(R.id.viewMenu_Animales);
+        tvSalvajes = view.findViewById(R.id.viewMenu_Salvajes);
         tvCartas = view.findViewById(R.id.tvMenuCartas);
         tvTuto = view.findViewById(R.id.tvMenuTuto);
-        ivWeb = view.findViewById(R.id.ivMenuWeb);
-        ivCerrarSesion = view.findViewById(R.id.ivMenuCerrarSesion);
+        ivWeb = view.findViewById(R.id.imgMenu_Web);
+        ivCerrarSesion = view.findViewById(R.id.imgMenu_CerrarSesion);
 
-        v = view.findViewById(R.id.viewTablero);
-        vp = view.findViewById(R.id.viewPlayButton);
-        vCartas = view.findViewById(R.id.viewCartas);
-        vTuto = view.findViewById(R.id.viewTuto);
-        vWeb = view.findViewById(R.id.viewMenuWeb);
-        vSettings = view.findViewById(R.id.viewMenuSettings);
-        vUser = view.findViewById(R.id.viewMenuUser);
-        vPlay = view.findViewById(R.id.viewMenuPlay);
-        vCerrarSesion = view.findViewById(R.id.viewMenuCerrarSesion);
-        viewVerDialogCreditos = view.findViewById(R.id.viewVerDialogCreditos);
+        v = view.findViewById(R.id.viewMenu_Tablero);
+        vp = view.findViewById(R.id.viewMenu_BGGradient);
+        vCartas = view.findViewById(R.id.viewMenu_Cartas);
+        vTuto = view.findViewById(R.id.viewMenu_Tutorial);
+        vWeb = view.findViewById(R.id.viewMenu_Web);
+        vSettings = view.findViewById(R.id.viewMenu_Admin);
+        vUser = view.findViewById(R.id.viewMenu_Perfil);
+        vPlay = view.findViewById(R.id.viewMenu_Play);
+        vCerrarSesion = view.findViewById(R.id.viewMenu_CerrarSesion);
+        viewVerDialogCreditos = view.findViewById(R.id.viewMenu_Creditos);
 
-        ivSettings = view.findViewById(R.id.ivMenuSettings);
-        ivUser = view.findViewById(R.id.ivMenuUser);
+        ivSettings = view.findViewById(R.id.imgMenu_Admin);
+        ivUser = view.findViewById(R.id.civMenu_Perfil);
 
         AnimationDrawable animDrawable = (AnimationDrawable) vp.getBackground();
 
@@ -302,15 +306,17 @@ public class MenuFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        imgAtrasCreditos = dialogCreditos.findViewById(R.id.imgBackCreditos);
+        imgAtrasCreditos = dialogCreditos.findViewById(R.id.imgDialogCreditosBack);
 
         imgAtrasCreditos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialogCreditos.dismiss();
                 estoyEnCreditos = false;
+
                 mp_creditos.stop();
                 mp_menu.start();
+
             }
         });
 
@@ -333,12 +339,12 @@ public class MenuFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCerrarWebDialog = dialogWeb.findViewById(R.id.viewCerrarWebDialog);
-        viewCopiarEnlaceWeb = dialogWeb.findViewById(R.id.viewCopiarEnlaceWeb);
-        tvCopiarEnlaceWeb = dialogWeb.findViewById(R.id.tvCopiarEnlaceWeb);
+        viewCerrarWebDialog = dialogWeb.findViewById(R.id.viewWebDialog_Cancel);
+        viewCopiarEnlaceWeb = dialogWeb.findViewById(R.id.viewWebDialog_Copiar);
+        tvCopiarEnlaceWeb = dialogWeb.findViewById(R.id.tvWebDialog_Copiar);
 
-        viewEntrarEnlaceWeb = dialogWeb.findViewById(R.id.viewEntrarEnlaceWeb);
-        tvEntrarEnlaceWeb = dialogWeb.findViewById(R.id.tvEntrarEnlaceWeb);
+        viewEntrarEnlaceWeb = dialogWeb.findViewById(R.id.viewWebDialog_Entrar);
+        tvEntrarEnlaceWeb = dialogWeb.findViewById(R.id.tvWebDialog_Entrar);
 
         viewCerrarWebDialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -428,12 +434,14 @@ public class MenuFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        imgAtrasPerfil = dialogPerfil.findViewById(R.id.imgBackPerfil);
+        imgAtrasPerfil = dialogPerfil.findViewById(R.id.imgDialogPerfil_Back);
 
         imgAtrasPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialogPerfil.dismiss();
+
             }
         });
 
@@ -442,13 +450,13 @@ public class MenuFragment extends Fragment {
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogPerfil.show();
 
-        TextView tvNumeroRespuestasAcertadas = dialogPerfil.findViewById(R.id.tvTotalScoreVerPerfil);
+        TextView tvNumeroRespuestasAcertadas = dialogPerfil.findViewById(R.id.tvDialogPerfil_NumeroAcertadas);
         tvNumeroRespuestasAcertadas.setText("" + userActual.getTrueAnswer());
 
-        TextView tvNumeroRespuestas = dialogPerfil.findViewById(R.id.tvNumeroRespuestasVerPerfil);
+        TextView tvNumeroRespuestas = dialogPerfil.findViewById(R.id.tvDialogPerfil_NumeroContestadas);
         tvNumeroRespuestas.setText("" + userActual.getAnswer());
 
-        TextView tvPorcentajeAciertos = dialogPerfil.findViewById(R.id.tvPorcentajeAciertosVerPerfil);
+        TextView tvPorcentajeAciertos = dialogPerfil.findViewById(R.id.tvDialogPerfil_NumeroPorcentaje);
 
         if(userActual.getAnswer() == 0) {
 
@@ -462,14 +470,14 @@ public class MenuFragment extends Fragment {
 
         }
 
-        TextView tvNombreVerPerfil =  dialogPerfil.findViewById(R.id.tvNombreVerPerfil);
+        TextView tvNombreVerPerfil =  dialogPerfil.findViewById(R.id.tvDialogPerfil_Nombre);
         tvNombreVerPerfil.setText(userActual.getName());
 
-        CircleImageView imgAvatarPerfil = dialogPerfil.findViewById(R.id.imgAvatarVerPerfil);
+        CircleImageView imgAvatarPerfil = dialogPerfil.findViewById(R.id.civDialogPerfil_Avatar);
         imgAvatarPerfil.setImageDrawable(getResources().getDrawable(userActual.getAvatar()));
 
-        View viewPerfilEnviarCorreo = dialogPerfil.findViewById(R.id.viewPerfilEnviarCorreo);
-        ImageView ivPerfilEnviarCorreo = dialogPerfil.findViewById(R.id.ivPerfilEnviarCorreo);
+        View viewPerfilEnviarCorreo = dialogPerfil.findViewById(R.id.viewDialogPerfil_Correo);
+        ImageView ivPerfilEnviarCorreo = dialogPerfil.findViewById(R.id.imgDialogPerfil_Correo);
 
         viewPerfilEnviarCorreo.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -480,6 +488,7 @@ public class MenuFragment extends Fragment {
                     ivPerfilEnviarCorreo.startAnimation(animScaleUp);
 
                     mp_menu.stop();
+
                     dialogPerfil.dismiss();
                     navController.navigate(R.id.action_menuFragment_to_correoFragment);
 
@@ -505,12 +514,14 @@ public class MenuFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        imgAtrasAjustesDialog = dialogAjustes.findViewById(R.id.imgBackAjustesDialog);
+        imgAtrasAjustesDialog = dialogAjustes.findViewById(R.id.imgDialogAjustesBack);
 
         imgAtrasAjustesDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialogAjustes.dismiss();
+
             }
         });
 
@@ -519,10 +530,10 @@ public class MenuFragment extends Fragment {
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogAjustes.show();
 
-        EditText claveEtAjustes = dialogAjustes.findViewById(R.id.claveEtAjustes);
-        View viewBtAccederAjustesDialog = dialogAjustes.findViewById(R.id.viewBtAccederAjustesDialog);
-        TextView tvAccederAjustesDialog = dialogAjustes.findViewById(R.id.tvAccederAjustesDialog);
-        TextView tvAlertaAjustesDialog = dialogAjustes.findViewById(R.id.tvAlertaAjustesDialog);
+        EditText claveEtAjustes = dialogAjustes.findViewById(R.id.etDialogAjustesClave);
+        View viewBtAccederAjustesDialog = dialogAjustes.findViewById(R.id.viewDialogAjustesBT);
+        TextView tvAccederAjustesDialog = dialogAjustes.findViewById(R.id.tvDialogAjustesTextBT);
+        TextView tvAlertaAjustesDialog = dialogAjustes.findViewById(R.id.tvDialogAjustesError);
 
         String claveAdmin = sharedPreferences.getString("clave_admin", "");
 

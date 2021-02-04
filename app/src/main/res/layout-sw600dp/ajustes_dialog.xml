@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/tvDialogAjustesInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -29,12 +29,12 @@
             android:textColor="#472C06"
             android:textSize="26sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline29"
-            app:layout_constraintStart_toStartOf="@+id/guideline28"
-            app:layout_constraintTop_toTopOf="@+id/guideline30" />
+            app:layout_constraintEnd_toStartOf="@+id/gdDialogAjustes2"
+            app:layout_constraintStart_toStartOf="@+id/gdDialogAjustes1"
+            app:layout_constraintTop_toTopOf="@+id/gdDialogAjustes3" />
 
         <EditText
-            android:id="@+id/claveEtAjustes"
+            android:id="@+id/etDialogAjustesClave"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -50,46 +50,46 @@
             android:padding="8dp"
             android:textAlignment="center"
             android:textSize="28sp"
-            app:layout_constraintBottom_toTopOf="@+id/viewBtAccederAjustesDialog"
-            app:layout_constraintEnd_toStartOf="@+id/guideline29"
-            app:layout_constraintStart_toStartOf="@+id/guideline28"
-            app:layout_constraintTop_toBottomOf="@+id/textView12" />
+            app:layout_constraintBottom_toTopOf="@+id/viewDialogAjustesBT"
+            app:layout_constraintEnd_toStartOf="@+id/gdDialogAjustes2"
+            app:layout_constraintStart_toStartOf="@+id/gdDialogAjustes1"
+            app:layout_constraintTop_toBottomOf="@+id/tvDialogAjustesInfo" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline28"
+            android:id="@+id/gdDialogAjustes1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.11" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline29"
+            android:id="@+id/gdDialogAjustes2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.875" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline30"
+            android:id="@+id/gdDialogAjustes3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.2" />
 
         <View
-            android:id="@+id/viewBtAccederAjustesDialog"
+            android:id="@+id/viewDialogAjustesBT"
             android:layout_width="280dp"
             android:layout_height="110dp"
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/bt_acceder_ajustes"
-            app:layout_constraintBottom_toTopOf="@+id/tvAlertaAjustesDialog"
-            app:layout_constraintEnd_toStartOf="@+id/guideline29"
-            app:layout_constraintStart_toStartOf="@+id/guideline28"
-            app:layout_constraintTop_toBottomOf="@+id/claveEtAjustes" />
+            app:layout_constraintBottom_toTopOf="@+id/tvDialogAjustesError"
+            app:layout_constraintEnd_toStartOf="@+id/gdDialogAjustes2"
+            app:layout_constraintStart_toStartOf="@+id/gdDialogAjustes1"
+            app:layout_constraintTop_toBottomOf="@+id/etDialogAjustesClave" />
 
         <TextView
-            android:id="@+id/tvAccederAjustesDialog"
+            android:id="@+id/tvDialogAjustesTextBT"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -98,13 +98,13 @@
             android:textColor="#FFFFFF"
             android:textSize="36sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewBtAccederAjustesDialog"
-            app:layout_constraintEnd_toEndOf="@+id/viewBtAccederAjustesDialog"
-            app:layout_constraintStart_toStartOf="@+id/viewBtAccederAjustesDialog"
-            app:layout_constraintTop_toTopOf="@+id/viewBtAccederAjustesDialog" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewDialogAjustesBT"
+            app:layout_constraintEnd_toEndOf="@+id/viewDialogAjustesBT"
+            app:layout_constraintStart_toStartOf="@+id/viewDialogAjustesBT"
+            app:layout_constraintTop_toTopOf="@+id/viewDialogAjustesBT" />
 
         <TextView
-            android:id="@+id/tvAlertaAjustesDialog"
+            android:id="@+id/tvDialogAjustesError"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -114,20 +114,20 @@
             android:textColor="#D3443A"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/imgBackAjustesDialog"
-            app:layout_constraintEnd_toStartOf="@+id/guideline29"
-            app:layout_constraintStart_toStartOf="@+id/guideline28"
-            app:layout_constraintTop_toBottomOf="@+id/viewBtAccederAjustesDialog" />
+            app:layout_constraintBottom_toTopOf="@+id/imgDialogAjustesBack"
+            app:layout_constraintEnd_toStartOf="@+id/gdDialogAjustes2"
+            app:layout_constraintStart_toStartOf="@+id/gdDialogAjustes1"
+            app:layout_constraintTop_toBottomOf="@+id/viewDialogAjustesBT" />
 
         <ImageView
-            android:id="@+id/imgBackAjustesDialog"
+            android:id="@+id/imgDialogAjustesBack"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginStart="2dp"
             android:layout_marginBottom="32dp"
             android:contentDescription="@string/contAtras"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/guideline28"
+            app:layout_constraintStart_toEndOf="@+id/gdDialogAjustes1"
             app:srcCompat="@drawable/back" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

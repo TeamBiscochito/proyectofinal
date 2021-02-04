@@ -1,12 +1,9 @@
 <resources>
     <string name="app_name">Animales Salvajes</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="btJugar">JUGAR</string>
     <string name="btCartas">Cartas</string>
     <string name="btTutorial">Tutorial</string>
     <string name="tvTitulo1">ANIMALES</string>
     <string name="tvTitulo2">SALVAJES</string>
-    <string name="tvCreditos">Créditos</string>
     <string name="tvCreditosMayus">CRÉDITOS</string>
     <string name="imgMusica">Música</string>
     <string name="imgUser">Perfil</string>
@@ -16,7 +13,6 @@
     <string name="tvNombreOleg">Oleg Fernández-Llebrez Rodríguez</string>
     <string name="tvNombrePablo">Pablo Javier Jáimez Cobos</string>
     <string name="tvElegirJugador">Elige tu jugador</string>
-    <string name="tvPuntuacionAcumulada">Puntuación acumulada</string>
     <string name="tvAnimalesSalvajes">Animales Salvajes</string>
     <string name="tvTopTrump">Top Trump - El videojuego</string>
     <string name="tvIntroduceClave">Introduce la clave que se usará para administrar el juego</string>
@@ -30,15 +26,13 @@
     <string name="tvParaAccederAAdmin">Para acceder a las opciones avanzadas, es necesaria la clave de administrador</string>
     <string name="btAcceder">Acceder</string>
     <string name="textAccesoDenegado">Acceso denegado</string>
-    <string name="tvCerrarSesion">Cerrar sesión</string>
     <string name="contCorreo">Correo</string>
-    <string name="tvCorreoElectronico">Correo electrónico:</string>
     <string name="tvCorreoElectronicoSinPuntos">Correo electrónico</string>
     <string name="tvBorrarCorreo">Borrar</string>
     <string name="tvCorreoEnviar">Enviar</string>
     <string name="textIntroduceCorreo">Introduce un correo electrónico</string>
     <string name="textCorreoNoValido">El correo electrónico no es válido</string>
-    <string name="textCorreoSubject">Animales Salvajes. Puntuación acumulada</string>
+    <string name="textCorreoSubject">Animales Salvajes - Puntuación acumulada</string>
     <string name="textNoSePudoEnviarCorreo">No se pudo enviar el correo electrónico</string>
     <string name="tvEmailEnviadoExito">Si finalmente has decidido mandar el mensaje, comprueba tu correo</string>
     <string name="alertBateriaAgotarse">La batería del dispositivo está a punto de agotarse</string>
@@ -51,6 +45,7 @@
     <string name="tvAddJugador">Añadir jugador</string>
     <string name="alertCuidado">Cuidado</string>
     <string name="tvConfirmarBorrarJugador">¿Seguro que quieres borrar a este jugador?</string>
+    <string name="tvConfirmarBorrarCarta">¿Seguro que quieres borrar esta carta?</string>
     <string name="tvSeleccionaAvatar">Selecciona un avatar:</string>
     <string name="tvIntroduceNombre">Introduce un nombre:</string>
     <string name="tvIntroduceNombreSinPuntos">Introduce un nombre</string>
@@ -70,7 +65,6 @@
     <string name="textVelocidadMedia">Velocidad</string>
     <string name="textPoderMortifero">Poder</string>
     <string name="textVasASalirDeLaApp">¿Seguro que quieres salir de Animales Salvajes?</string>
-    <string name="infoClicaEnImagenParaDesc">Pulsa la imagen para leer la descripción</string>
     <string name="textGirarCarta">Girar</string>
     <string name="infoDeslizaParaVerCartas">Desliza ↔ para ver todas las cartas</string>
     <string name="contLeon">León</string>
@@ -89,4 +83,56 @@
     <string name="textPinchaNombreParaInfoCarta">Pulsa en el nombre para + info</string>
     <string name="textPreguntaCorrecta">¡Correcto!</string>
     <string name="textPreguntaErronea">¡Has fallado!</string>
+    <string name="tvEditarCarta">Editar carta</string>
+    <string name="tvNombreDemasiadoLargo">Nombre demasiado largo</string>
+    <string name="tvNombreDosPuntos">Nombre:</string>
+    <string name="tvDescripcionDosPuntos">Descripción:</string>
+    <string name="tvDesc">Descripción</string>
+    <string name="tvUrlImagenDosPuntos">URL de la imagen:</string>
+    <string name="tvURL">URL</string>
+    <string name="tvAlturaDosPuntos">Altura:</string>
+    <string name="tvPesoDosPuntos">Peso:</string>
+    <string name="tvLongitudDosPuntos">Longitud:</string>
+    <string name="tvVelocidadDosPuntos">Velocidad:</string>
+    <string name="tvPoderDosPuntos">Poder:</string>
+    <string name="tvNuevoNombreDosPuntos">Nuevo nombre:</string>
+    <string name="tvNuevaDescripcionDosPuntos">Nueva descripción:</string>
+    <string name="tvNuevaUrlImagenDosPuntos">Nueva URL de la imagen:</string>
+    <string name="tvNuevaAlturaDosPuntos">Nueva altura:</string>
+    <string name="tvNuevoPesoDosPuntos">Nuevo peso:</string>
+    <string name="tvNuevaLongitudDosPuntos">Nueva longitud:</string>
+    <string name="tvNuevaVelocidadDosPuntos">Nueva velocidad:</string>
+    <string name="tvNuevoPoderDosPuntos">Nuevo poder:</string>
+    <string name="alertAlgunCampoEstaVacio">Algún campo está vacío</string>
+    <string name="alertNombreNoValido">Nombre no válido</string>
+    <string name="alertDescDemasiadoLarga">Descripción demasiado larga</string>
+    <string name="alertAlturaNoValida">Altura no válida (máx. 9999)</string>
+    <string name="alertPesoNoValido">Peso no válido (máx. 9999)</string>
+    <string name="alertLongitudNoValida">Longitud no válida (máx. 9999)</string>
+    <string name="alertVelocidadNoValida">Velocidad no válida (máx. 9999)</string>
+    <string name="alertPoderNoValido">Poder no válido (1 - 10)</string>
+    <string name="textImpotar">Importar</string>
+    <string name="btBuscaEnInternet">Buscar en internet</string>
+    <string name="variableDeJuego">Variable</string>
+    <string name="item_vp_avatar_descripcion">Avatar</string>
+
+    <array name="magnitudesAltura">
+        <item>m</item>
+        <item>cm</item>
+    </array>
+
+    <array name="magnitudesVelocidad">
+        <item>km/h</item>
+    </array>
+
+    <array name="magnitudesPeso">
+        <item>kg</item>
+        <item>g</item>
+        <item>T</item>
+    </array>
+
+    <array name="magnitudesLongitud">
+        <item>m</item>
+        <item>cm</item>
+    </array>
 </resources>

@@ -118,12 +118,12 @@ public class AdminFragment extends Fragment {
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
         animCaraLeon = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
 
-        viewCerrarAdmin = view.findViewById(R.id.viewCerrarAdminScreen);
-        viewAdminEntrarJugadores = view.findViewById(R.id.viewAdminEntrarJugadores);
-        viewAdminEntrarCartas = view.findViewById(R.id.viewAdminEntrarCartas);
-        tvAdminEntrarJugadores = view.findViewById(R.id.tvAdminEntrarJugadores);
-        tvAdminEntrarCartas = view.findViewById(R.id.tvAdminEntrarCartas);
-        imgCaraLeonAdmin = view.findViewById(R.id.imgCaraLeonAdmin);
+        viewCerrarAdmin = view.findViewById(R.id.viewAdmin_Close);
+        viewAdminEntrarJugadores = view.findViewById(R.id.viewAdmin_Jugadores);
+        viewAdminEntrarCartas = view.findViewById(R.id.viewAdmin_Cartas);
+        tvAdminEntrarJugadores = view.findViewById(R.id.tvAdmin_Jugadores);
+        tvAdminEntrarCartas = view.findViewById(R.id.tvAdmin_Cartas);
+        imgCaraLeonAdmin = view.findViewById(R.id.imgAdmin_Leon);
 
     }
 
@@ -138,8 +138,8 @@ public class AdminFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewCancelarAdminDialog);
-        viewAceptarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewAceptarAdminDialog);
+        viewCancelarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewSalirDialogAdmin_Cancel);
+        viewAceptarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewSalirDialogAdmin_Accept);
 
         viewCancelarAdminDialog.setOnClickListener(new View.OnClickListener() {
             @Override

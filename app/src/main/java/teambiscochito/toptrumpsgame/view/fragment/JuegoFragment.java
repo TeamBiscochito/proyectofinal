@@ -49,7 +49,6 @@ public class JuegoFragment extends Fragment {
     private ArrayList<View> btRespuestas = new ArrayList<>();
 
     private int respuestasHastaElMomentoAcertadas = 0;
-    private String determinante;
 
     private MediaPlayer mp_juego, mp_acierto, mp_fallo;
     View viewCloseJuego, viewBotonJuego1, viewBotonJuego2, viewBotonJuego3, viewBotonJuego4, viewPergaminoPreguntaJugar, viewNombreAnimalJuego, bird1, bird2, bird3, bird4;
@@ -139,27 +138,27 @@ public class JuegoFragment extends Fragment {
         animTableroNombre = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
         animFade = AnimationUtils.loadAnimation(getContext(), R.anim.fade_birds);
 
-        viewCloseJuego = view.findViewById(R.id.viewCloseJuego);
-        viewBotonJuego1 = view.findViewById(R.id.viewBotonJuego1);
-        viewBotonJuego2 = view.findViewById(R.id.viewBotonJuego2);
-        viewBotonJuego3 = view.findViewById(R.id.viewBotonJuego3);
-        viewBotonJuego4 = view.findViewById(R.id.viewBotonJuego4);
-        viewPergaminoPreguntaJugar = view.findViewById(R.id.viewPergaminoPreguntaJugar);
-        viewNombreAnimalJuego = view.findViewById(R.id.viewNombreAnimalJuego);
-        imgAnimalJuego = view.findViewById(R.id.imgAnimalJuego);
-        bird1 = view.findViewById(R.id.bird1);
-        bird2 = view.findViewById(R.id.bird2);
-        bird3 = view.findViewById(R.id.bird3);
-        bird4 = view.findViewById(R.id.bird4);
+        viewCloseJuego = view.findViewById(R.id.viewJuego_Close);
+        viewBotonJuego1 = view.findViewById(R.id.viewJuego_Respuesta1);
+        viewBotonJuego2 = view.findViewById(R.id.viewJuego_Respuesta2);
+        viewBotonJuego3 = view.findViewById(R.id.viewJuego_Respuesta3);
+        viewBotonJuego4 = view.findViewById(R.id.viewJuego_Respuesta4);
+        viewPergaminoPreguntaJugar = view.findViewById(R.id.viewJuego_PreguntaPergamino);
+        viewNombreAnimalJuego = view.findViewById(R.id.viewJuego_Nombre);
+        imgAnimalJuego = view.findViewById(R.id.civJuego_Animal);
+        bird1 = view.findViewById(R.id.viewJuego_Bird1);
+        bird2 = view.findViewById(R.id.viewJuego_Bird2);
+        bird3 = view.findViewById(R.id.viewJuego_Bird3);
+        bird4 = view.findViewById(R.id.viewJuego_Bird4);
 
-        tvBotonJuego1 = view.findViewById(R.id.tvBotonJuego1);
-        tvBotonJuego2 = view.findViewById(R.id.tvBotonJuego2);
-        tvBotonJuego3 = view.findViewById(R.id.tvBotonJuego3);
-        tvBotonJuego4 = view.findViewById(R.id.tvBotonJuego4);
+        tvBotonJuego1 = view.findViewById(R.id.tvJuego_Respuesta1);
+        tvBotonJuego2 = view.findViewById(R.id.tvJuego_Respuesta2);
+        tvBotonJuego3 = view.findViewById(R.id.tvJuego_Respuesta3);
+        tvBotonJuego4 = view.findViewById(R.id.tvJuego_Respuesta4);
 
-        tvPreguntaJuegoDeterminante = view.findViewById(R.id.tvPreguntaJuegoDeterminante);
-        tvPreguntaJuegoTema = view.findViewById(R.id.tvPreguntaJuegoTema);
-        tvNombreAnimalJuego = view.findViewById(R.id.tvNombreAnimalJuego);
+        tvPreguntaJuegoDeterminante = view.findViewById(R.id.tvJuego_Pregunta1);
+        tvPreguntaJuegoTema = view.findViewById(R.id.tvJuego_Pregunta);
+        tvNombreAnimalJuego = view.findViewById(R.id.tvJuego_Nombre);
 
     }
 
@@ -175,9 +174,9 @@ public class JuegoFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarSalirAlMenuDialog = salirJugarDialog.findViewById(R.id.viewCancelarSalirAlMenuDialog);
-        viewAceptarSalirAlMenuDialog = salirJugarDialog.findViewById(R.id.viewAceptarSalirAlMenuDialog);
-        tvPuntosJuegoDialog = salirJugarDialog.findViewById(R.id.tvPuntosJuegoDialog);
+        viewCancelarSalirAlMenuDialog = salirJugarDialog.findViewById(R.id.viewSalirJugarDialog_Cancel);
+        viewAceptarSalirAlMenuDialog = salirJugarDialog.findViewById(R.id.viewSalirJugarDialog_Accept);
+        tvPuntosJuegoDialog = salirJugarDialog.findViewById(R.id.tvSalirJugarDialog_Puntos);
 
         tvPuntosJuegoDialog.setText("" + respuestasHastaElMomentoAcertadas);
 
@@ -314,6 +313,7 @@ public class JuegoFragment extends Fragment {
     /*-------- MÉTODOS DEL JUEGO ---------*/
 
     public void initJuego() {
+        String determinante;
 
         // Seleccionamos la carta aleatoria
         currentCard = getRandomCard(viewModel.cards);
@@ -327,7 +327,6 @@ public class JuegoFragment extends Fragment {
         ArrayList<Double> respuestas = getPosiblesRespuestas(currentQuestion);
 
         // Finalmente mostramos la carta, sus preguntas y las posibles respuestas que salgan de una de las preguntas
-
         tvNombreAnimalJuego.setText(currentCard.getName());
 
         RequestOptions options = new RequestOptions()
@@ -360,15 +359,13 @@ public class JuegoFragment extends Fragment {
             case "PODER":
                 determinante = "el";
                 break;
+            default:
+                determinante = "";
+                break;
 
         }
 
         tvPreguntaJuegoDeterminante.setText("¿Cuál es " + determinante);
-
-        tvBotonJuego1.setText(respuestas.get(0) + "");
-        tvBotonJuego2.setText(respuestas.get(1) + "");
-        tvBotonJuego3.setText(respuestas.get(2) + "");
-        tvBotonJuego4.setText(respuestas.get(3) + "");
 
         // Muestro las posibles respuestas en forma de botón
         bindButtons(respuestas);
@@ -379,7 +376,6 @@ public class JuegoFragment extends Fragment {
 
         mp_acierto.start();
         mostrarDialogPAcierto();
-        initJuego();
 
         respuestasHastaElMomentoAcertadas = respuestasHastaElMomentoAcertadas + 1;
         currentUser.setAnswer(currentUser.getAnswer() + 1);
@@ -387,17 +383,21 @@ public class JuegoFragment extends Fragment {
 
         viewModel.updateUser(currentUser);
 
+        initJuego();
+
     }
 
     private void preguntaFallada() {
 
+
         mp_fallo.start();
         mostrarDialogPFallo();
-        initJuego();
 
         currentUser.setAnswer(currentUser.getAnswer() + 1);
 
         viewModel.updateUser(currentUser);
+
+        initJuego();
 
     }
 
@@ -406,11 +406,9 @@ public class JuegoFragment extends Fragment {
         Card result = null;
 
         if (!cards.isEmpty()) {
-
             result = cards.get(new Random().nextInt(cards.size()));
 
         }
-
 
         if ((currentCard != null && currentCard == result) || result == null ) {
 
@@ -425,64 +423,132 @@ public class JuegoFragment extends Fragment {
     }
 
     public Question getRandomQuestion(List<Question> preguntas) {
-
         Question result;
 
         result = preguntas.get(new Random().nextInt(preguntas.size()));
 
         return result;
-
     }
 
-    public ArrayList<Double> getPosiblesRespuestas(Question incognita) {
-
+    public ArrayList<Double> getPosiblesRespuestas(Question incognita){
         ArrayList<Double> respuestas = new ArrayList<>();
 
         // Rellenamos el array sin la respuesta válida
         while (respuestas.size() < 3) {
 
-            Double respuestaAleatoria = generaRespuesta(incognita.getAnswer());
+            Double respuestaAleatoria;
 
-            // Comprobamos que no hay dos iguales
+            if( incognita.getQuestion().compareToIgnoreCase("PODER") == 0 ) {
+                respuestaAleatoria = (double) new Random().nextInt(8) + 2;
+            } else {
+                respuestaAleatoria = generaRespuesta(incognita.getAnswer());
+            }
+
+            // Comprobamos que no hay dos iguales o numero inválido
             Boolean iguales = false;
             for (Double respuesta:respuestas) {
 
-                if(respuestaAleatoria == respuesta || respuestaAleatoria == incognita.getAnswer()) {
+                if(respuestaAleatoria - respuesta == 0) {
 
                     iguales = true;
 
                 }
+            }
+
+            if(respuestaAleatoria - incognita.getAnswer() == 0 || respuestaAleatoria < 0.0 || respuestaAleatoria > 9999) {
+
+                iguales = true;
 
             }
 
-            if (!iguales) {
 
+            if (!iguales){
                 respuestas.add(respuestaAleatoria);
-
             }
 
         }
 
         // Ordenar aleatoriamente las respuestas:
-        // Como todas las respuestas están generadas aleatoriamente, sólo tenemos que poner la respuesta correcta en una posición del array aleatoria
-
+        // Como todas las respuestas están generadas aleatorias, solo tenemos que poner la respuesta correcta en una posicion del array aleatoria
         respuestas.add(new Random().nextInt(4), incognita.getAnswer());
 
         return respuestas;
-
     }
 
-    private double generaRespuesta(Double respuestaInicial) {
 
-        double min = respuestaInicial - (respuestaInicial / 100 * 15);
-        double max = respuestaInicial + (respuestaInicial / 100 * 15);
+
+    private double generaRespuesta(Double respuestaInicial) {
+        double min, max, numero;
+
+        NumberFormat numberFormat = NumberFormat.getInstance();
 
         Random r = new Random();
 
-        double numero = ((max - min) * r.nextDouble()) + min;
+        if (respuestaInicial <= 1) {
+
+            numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(10) - 5) * 0.2)));
+
+        }else if (respuestaInicial <= 5) {
+
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+            }
+
+            numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(12) - 3) * 0.5)));
+
+        }else if(respuestaInicial <= 10) {
+
+            min = respuestaInicial - (respuestaInicial / 100 * 35);
+            max = respuestaInicial + (respuestaInicial / 100 * 35);
+
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+            }
+
+            numero = Double.parseDouble(numberFormat.format((max - min) * r.nextDouble() + min ));
+
+        } else if (respuestaInicial <= 25) {
+
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+                numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(6) - 2) * 5)));
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+                numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(60) - 30) * 0.5)));
+            }
+
+        } else if (respuestaInicial <= 100) {
+
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+                numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(7) - 3) * 5) ));
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+                numero = Double.parseDouble(numberFormat.format( respuestaInicial + ((r.nextInt(70) - 30) * 0.5)));
+            }
+
+        } else if(respuestaInicial <= 1000) {
+
+            if (respuestaInicial % 1 == 0) {
+                numberFormat.setMaximumFractionDigits(0);
+            } else {
+                numberFormat.setMaximumFractionDigits(1);
+            }
+
+            numero = (double) respuestaInicial + ((r.nextInt(8) - 3) * 50);
+
+        } else {
+
+            numberFormat.setMaximumFractionDigits(0);
+            numero = (double) respuestaInicial + ((r.nextInt(6) - 3) * 500);
+
+        }
 
         return numero;
-
     }
 
     private ArrayList<Question> getQuestionsForCurrentCard() {
@@ -505,9 +571,6 @@ public class JuegoFragment extends Fragment {
 
     private void bindButtons(ArrayList<Double> respuestas) {
 
-        NumberFormat numberFormat = NumberFormat.getInstance();
-        numberFormat.setMaximumFractionDigits(1);
-
         for (int i = 0; i < respuestas.size(); i++) {
 
             View vBt = btRespuestas.get(i);
@@ -519,11 +582,20 @@ public class JuegoFragment extends Fragment {
 
                 int valorPoderInt = (int) d;
 
-                tv.setText(valorPoderInt + "");
+                tv.setText("" + valorPoderInt);
+
+            } else if(respuestas.get(i) % 1 == 0 ) {
+
+                double d = respuestas.get(i);
+
+                int valorPoderInt = (int) d;
+
+                tv.setText("" + valorPoderInt + " " + currentQuestion.getMagnitude());
 
             } else {
 
-                tv.setText(numberFormat.format(respuestas.get(i)) + " " + currentQuestion.getMagnitude());
+                tv.setText(respuestas.get(i) + " " + currentQuestion.getMagnitude());
+
 
             }
 
@@ -533,29 +605,29 @@ public class JuegoFragment extends Fragment {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
 
-                        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
 
-                            vBt.startAnimation(animScaleUp);
-                            tv.startAnimation(animScaleUp);
+                        vBt.startAnimation(animScaleUp);
+                        tv.startAnimation(animScaleUp);
 
-                            if (valori == currentQuestion.getAnswer()) {
+                        if (valori == currentQuestion.getAnswer()) {
 
-                                preguntaAcertada();
+                            preguntaAcertada();
 
-                            } else {
+                        } else {
 
-                                preguntaFallada();
-
-                            }
-
-                        } else if (event.getAction() == MotionEvent.ACTION_UP) {
-
-                            vBt.startAnimation(animScaleDown);
-                            tv.startAnimation(animScaleDown);
+                            preguntaFallada();
 
                         }
 
-                        return true;
+                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
+
+                        vBt.startAnimation(animScaleDown);
+                        tv.startAnimation(animScaleDown);
+
+                    }
+
+                    return true;
 
                 }
 

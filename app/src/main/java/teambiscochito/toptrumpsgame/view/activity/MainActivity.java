@@ -6,7 +6,7 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Color;
+
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarSalirDialog = salirDialog.findViewById(R.id.viewCancelarSalirDialog);
-        viewAceptarSalirDialog = salirDialog.findViewById(R.id.viewAceptarSalirDialog);
+        viewCancelarSalirDialog = salirDialog.findViewById(R.id.viewSalirDialogApp_Cancel);
+        viewAceptarSalirDialog = salirDialog.findViewById(R.id.viewSalirDialogApp_Accept);
 
         viewCancelarSalirDialog.setOnClickListener(new View.OnClickListener() {
             @Override

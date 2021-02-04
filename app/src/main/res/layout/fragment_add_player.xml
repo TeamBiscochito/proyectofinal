@@ -21,7 +21,6 @@
         android:focusableInTouchMode="true">
 
         <TextView
-            android:id="@+id/textView23"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="8dp"
@@ -32,101 +31,101 @@
             android:textColor="#472C06"
             android:textSize="28sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/textView27"
-            app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintStart_toStartOf="@+id/guideline54"
-            app:layout_constraintTop_toTopOf="@+id/guideline50" />
+            app:layout_constraintBottom_toTopOf="@+id/gdAddPlayer4"
+            app:layout_constraintEnd_toStartOf="@+id/gdAddPlayer1"
+            app:layout_constraintStart_toStartOf="@+id/gdAddPlayer2"
+            app:layout_constraintTop_toTopOf="@+id/gdAddPlayer5" />
 
         <View
-            android:id="@+id/viewBackAdminAddPlayer"
+            android:id="@+id/viewAddPlayer_Back"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/back_2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline50" />
+            app:layout_constraintTop_toTopOf="@+id/gdAddPlayer5" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline55"
+            android:id="@+id/gdAddPlayer1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.84" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline54"
+            android:id="@+id/gdAddPlayer2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.148" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline53"
+            android:id="@+id/gdAddPlayer3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.91" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline51"
+            android:id="@+id/gdAddPlayer4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.17" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline50"
+            android:id="@+id/gdAddPlayer5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.04" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vp_avatar"
+            android:id="@+id/vpAddPlayer_Avatar"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:orientation="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/tvAlertaAddJugador"
-            app:layout_constraintEnd_toStartOf="@+id/viewNextAvatar"
-            app:layout_constraintStart_toEndOf="@+id/viewPreviousAvatar"
-            app:layout_constraintTop_toBottomOf="@+id/textView26" />
+            app:layout_constraintBottom_toTopOf="@+id/tvAddPlayer_Alerta"
+            app:layout_constraintEnd_toStartOf="@+id/viewAddPlayer_Next"
+            app:layout_constraintStart_toEndOf="@+id/gdAddPlayer_Previous"
+            app:layout_constraintTop_toBottomOf="@+id/tvAddPlayer_Selecciona" />
 
         <View
-            android:id="@+id/viewNextAvatar"
+            android:id="@+id/viewAddPlayer_Next"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
             android:background="@drawable/next"
-            app:layout_constraintBottom_toBottomOf="@+id/vp_avatar"
-            app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintStart_toEndOf="@+id/vp_avatar"
-            app:layout_constraintTop_toTopOf="@+id/vp_avatar" />
+            app:layout_constraintBottom_toBottomOf="@+id/vpAddPlayer_Avatar"
+            app:layout_constraintEnd_toStartOf="@+id/gdAddPlayer1"
+            app:layout_constraintStart_toEndOf="@+id/vpAddPlayer_Avatar"
+            app:layout_constraintTop_toTopOf="@+id/vpAddPlayer_Avatar" />
 
         <View
-            android:id="@+id/viewPreviousAvatar"
+            android:id="@+id/gdAddPlayer_Previous"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/previous"
-            app:layout_constraintBottom_toBottomOf="@+id/vp_avatar"
-            app:layout_constraintEnd_toStartOf="@+id/vp_avatar"
-            app:layout_constraintStart_toStartOf="@+id/guideline54"
-            app:layout_constraintTop_toTopOf="@+id/vp_avatar" />
+            app:layout_constraintBottom_toBottomOf="@+id/vpAddPlayer_Avatar"
+            app:layout_constraintEnd_toStartOf="@+id/vpAddPlayer_Avatar"
+            app:layout_constraintStart_toStartOf="@+id/gdAddPlayer2"
+            app:layout_constraintTop_toTopOf="@+id/vpAddPlayer_Avatar" />
 
         <View
-            android:id="@+id/viewAddJugador2"
+            android:id="@+id/viewAddPlayer_AddJugador"
             android:layout_width="180dp"
             android:layout_height="60dp"
             android:layout_marginBottom="8dp"
             android:background="@drawable/tablero_2"
-            app:layout_constraintBottom_toTopOf="@+id/guideline53"
-            app:layout_constraintEnd_toStartOf="@+id/guideline55"
+            app:layout_constraintBottom_toTopOf="@+id/gdAddPlayer3"
+            app:layout_constraintEnd_toStartOf="@+id/gdAddPlayer1"
             app:layout_constraintHorizontal_bias="0.514"
-            app:layout_constraintStart_toStartOf="@+id/guideline54" />
+            app:layout_constraintStart_toStartOf="@+id/gdAddPlayer2" />
 
         <TextView
-            android:id="@+id/tvAddJugador2"
+            android:id="@+id/tvAddPlayer_AddJugador"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -135,13 +134,13 @@
             android:textColor="#472C06"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewAddJugador2"
-            app:layout_constraintEnd_toEndOf="@+id/viewAddJugador2"
-            app:layout_constraintStart_toStartOf="@+id/viewAddJugador2"
-            app:layout_constraintTop_toTopOf="@+id/viewAddJugador2" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewAddPlayer_AddJugador"
+            app:layout_constraintEnd_toEndOf="@+id/viewAddPlayer_AddJugador"
+            app:layout_constraintStart_toStartOf="@+id/viewAddPlayer_AddJugador"
+            app:layout_constraintTop_toTopOf="@+id/viewAddPlayer_AddJugador" />
 
         <TextView
-            android:id="@+id/textView26"
+            android:id="@+id/tvAddPlayer_Selecciona"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -153,13 +152,13 @@
             android:textColor="#472C06"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/vp_avatar"
-            app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintStart_toStartOf="@+id/guideline54"
-            app:layout_constraintTop_toBottomOf="@+id/etNombreJugador" />
+            app:layout_constraintBottom_toTopOf="@+id/vpAddPlayer_Avatar"
+            app:layout_constraintEnd_toStartOf="@+id/gdAddPlayer1"
+            app:layout_constraintStart_toStartOf="@+id/gdAddPlayer2"
+            app:layout_constraintTop_toBottomOf="@+id/etAddPlayer_NombreJugador" />
 
         <TextView
-            android:id="@+id/textView27"
+            android:id="@+id/gdAddPlayer_Nombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -171,12 +170,12 @@
             android:textColor="#472C06"
             android:textSize="20sp"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintStart_toStartOf="@+id/guideline54"
-            app:layout_constraintTop_toTopOf="@+id/guideline51" />
+            app:layout_constraintEnd_toStartOf="@+id/gdAddPlayer1"
+            app:layout_constraintStart_toStartOf="@+id/gdAddPlayer2"
+            app:layout_constraintTop_toTopOf="@+id/gdAddPlayer4" />
 
         <EditText
-            android:id="@+id/etNombreJugador"
+            android:id="@+id/etAddPlayer_NombreJugador"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -191,13 +190,13 @@
             android:padding="8dp"
             android:textAlignment="center"
             android:textSize="20sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView26"
-            app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintStart_toStartOf="@+id/guideline54"
-            app:layout_constraintTop_toBottomOf="@+id/textView27" />
+            app:layout_constraintBottom_toTopOf="@+id/tvAddPlayer_Selecciona"
+            app:layout_constraintEnd_toStartOf="@+id/gdAddPlayer1"
+            app:layout_constraintStart_toStartOf="@+id/gdAddPlayer2"
+            app:layout_constraintTop_toBottomOf="@+id/gdAddPlayer_Nombre" />
 
         <TextView
-            android:id="@+id/tvAlertaAddJugador"
+            android:id="@+id/tvAddPlayer_Alerta"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -207,10 +206,10 @@
             android:textColor="#D3443A"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/viewAddJugador2"
-            app:layout_constraintEnd_toStartOf="@+id/guideline55"
-            app:layout_constraintStart_toStartOf="@+id/guideline54"
-            app:layout_constraintTop_toBottomOf="@+id/vp_avatar" />
+            app:layout_constraintBottom_toTopOf="@+id/viewAddPlayer_AddJugador"
+            app:layout_constraintEnd_toStartOf="@+id/gdAddPlayer1"
+            app:layout_constraintStart_toStartOf="@+id/gdAddPlayer2"
+            app:layout_constraintTop_toBottomOf="@+id/vpAddPlayer_Avatar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -69,6 +69,7 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
 
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
+
         mp_borrar = MediaPlayer.create(context, R.raw.borrar_sound);
 
         User user = userList.get(position);
@@ -89,13 +90,13 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
                 window.setGravity(Gravity.CENTER);
                 window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-                CircleImageView imgAvatar = dialogJugadores.findViewById(R.id.imgAvatarInfoAdminJ);
-                TextView tvNombre = dialogJugadores.findViewById(R.id.tvNombreInfoAdminJ);
-                TextView tvBorrarInfoAdminJ = dialogJugadores.findViewById(R.id.tvBorrarInfoAdminJ);
-                View viewBackInfoAdminJ = dialogJugadores.findViewById(R.id.viewBackInfoAdminJ);
-                View viewBorrarInfoAdminJ = dialogJugadores.findViewById(R.id.viewBorrarInfoAdminJ);
-                View viewEditarInfoAdminJ = dialogJugadores.findViewById(R.id.viewEditarInfoAdminJ);
-                TextView tvEditarInfoAdminJ = dialogJugadores.findViewById(R.id.tvEditarInfoAdminJ);
+                CircleImageView imgAvatar = dialogJugadores.findViewById(R.id.civDialogJugadores_Avatar);
+                TextView tvNombre = dialogJugadores.findViewById(R.id.tvDialogJugadores_Nombre);
+                TextView tvBorrarInfoAdminJ = dialogJugadores.findViewById(R.id.tvDialogJugadores_Borrar);
+                View viewBackInfoAdminJ = dialogJugadores.findViewById(R.id.viewDialogJugadores_Back);
+                View viewBorrarInfoAdminJ = dialogJugadores.findViewById(R.id.viewDialogJugadores_Borrar);
+                View viewEditarInfoAdminJ = dialogJugadores.findViewById(R.id.viewDialogJugadores_Editar);
+                TextView tvEditarInfoAdminJ = dialogJugadores.findViewById(R.id.tvDialogJugadores_Editar);
 
                 viewBackInfoAdminJ.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -141,8 +142,11 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
                             window.setGravity(Gravity.CENTER);
                             window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-                            View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewCancelarBorrarJugador);
-                            View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewAceptarBorrarJugador);
+                            TextView tvConfirmarBorrarMsg = dialogConfirmarBorrar.findViewById(R.id.tvDialogBorrarConfirmText);
+                            View viewCancelarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmCancel);
+                            View viewAceptarBorrarJugador = dialogConfirmarBorrar.findViewById(R.id.viewDialogBorrarConfirmAccept);
+
+                            tvConfirmarBorrarMsg.setText(R.string.tvConfirmarBorrarJugador);
 
                             viewCancelarBorrarJugador.setOnClickListener(new View.OnClickListener() {
                                 @Override
@@ -211,8 +215,8 @@ public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<Recycler
         ConstraintLayout parent;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            avatarRecycler = itemView.findViewById(R.id.avatarRecycler);
-            nombreJugadorRecycler = itemView.findViewById(R.id.nombreJugadorRecycler);
+            avatarRecycler = itemView.findViewById(R.id.civRecyclerElegirPlayer_Avatar);
+            nombreJugadorRecycler = itemView.findViewById(R.id.tvRecyclerElegirPlayer_Nombre);
             parent = itemView.findViewById(R.id.consRecyclerJugadores);
         }
     }

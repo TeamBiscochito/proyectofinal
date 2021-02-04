@@ -2,12 +2,11 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cvCartasNoAdmin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginStart="30dp"
+    android:layout_marginStart="20dp"
     android:layout_marginTop="20dp"
-    android:layout_marginEnd="30dp"
+    android:layout_marginEnd="20dp"
     android:layout_marginBottom="20dp"
     android:background="#6A3403"
     android:backgroundTint="#6A3403"
@@ -20,17 +19,18 @@
         android:background="@drawable/carta_bg_dos">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline46"
+            android:id="@+id/gdCartasNoAdmin1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.25" />
 
         <com.wajahatkarim3.easyflipview.EasyFlipView
-            android:id="@+id/easyflipview"
+            android:id="@+id/efvCartasNoAdmin_FlipCarta"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="9dp"
+            android:layout_marginTop="1dp"
             android:layout_marginEnd="11dp"
             app:autoFlipBack="false"
             app:flipDuration="400"
@@ -38,25 +38,29 @@
             app:flipFrom="right"
             app:flipOnTouch="false"
             app:flipType="horizontal"
-            app:layout_constraintBottom_toTopOf="@+id/guideline72"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin13"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline73">
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin14">
 
             <!-- Back Layout Goes Here -->
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:scrollbarSize="5dp"
+                android:scrollbarThumbVertical="@drawable/brown_scrollbarthumb">
 
                 <TextView
-                    android:id="@+id/tvDescCartasNoAdminBack"
+                    android:id="@+id/tvCartasNoAdmin_Descripcion"
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:background="#ACE1EE"
                     android:fontFamily="@font/schoolbell"
                     android:gravity="center"
-                    android:padding="10dp"
+                    android:paddingStart="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingEnd="10dp"
                     android:textColor="#2470B1"
                     android:textSize="16sp"
                     android:textStyle="bold"
@@ -70,7 +74,7 @@
             <!-- Front Layout Goes Here -->
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgFotoCartaNoAdmin"
+                android:id="@+id/civCartaNoAdmin_Foto"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center"
@@ -83,44 +87,44 @@
         </com.wajahatkarim3.easyflipview.EasyFlipView>
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline49"
+            android:id="@+id/gdCartasNoAdmin2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.42" />
 
         <TextView
-            android:id="@+id/tvNombreCartaNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_Nombre"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
-            android:textSize="26sp"
+            android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline63"
-            app:layout_constraintEnd_toStartOf="@+id/guideline26"
-            app:layout_constraintStart_toStartOf="@+id/guideline46"
-            app:layout_constraintTop_toTopOf="@+id/guideline49"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin3"
+            app:layout_constraintEnd_toStartOf="@+id/gdCartasNoAdmin7"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin1"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin2"
             tools:text="Nombre" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline63"
+            android:id="@+id/gdCartasNoAdmin3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.53" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline66"
+            android:id="@+id/gdCartasNoAdmin4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.635" />
 
         <TextView
-            android:id="@+id/textView15"
+            android:id="@+id/tvCartasNoAdmin_Altura"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -129,12 +133,12 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline66"
-            app:layout_constraintStart_toStartOf="@+id/guideline64"
-            app:layout_constraintTop_toTopOf="@+id/guideline71" />
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin4"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin5"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin12" />
 
         <TextView
-            android:id="@+id/textView34"
+            android:id="@+id/tvCartasNoAdmin_Longitud"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -143,12 +147,12 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline68"
-            app:layout_constraintStart_toStartOf="@+id/guideline64"
-            app:layout_constraintTop_toTopOf="@+id/guideline67" />
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin9"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin5"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin8" />
 
         <TextView
-            android:id="@+id/textView37"
+            android:id="@+id/tvCartasNoAdmin_Poder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -157,12 +161,12 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline70"
-            app:layout_constraintStart_toStartOf="@+id/guideline64"
-            app:layout_constraintTop_toTopOf="@+id/guideline69" />
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin11"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin5"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin10" />
 
         <TextView
-            android:id="@+id/textView36"
+            android:id="@+id/tvCartasNoAdmin_Velocidad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -171,12 +175,12 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline69"
-            app:layout_constraintStart_toStartOf="@+id/guideline64"
-            app:layout_constraintTop_toTopOf="@+id/guideline68" />
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin10"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin5"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin9" />
 
         <TextView
-            android:id="@+id/textView33"
+            android:id="@+id/tvCartasNoAdmin_Peso"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -185,12 +189,12 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline67"
-            app:layout_constraintStart_toStartOf="@+id/guideline64"
-            app:layout_constraintTop_toTopOf="@+id/guideline66" />
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin8"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin5"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin4" />
 
         <TextView
-            android:id="@+id/tvValorAlturaMediaNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_ValorAltura"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -200,14 +204,14 @@
             android:textColor="#E11367"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline66"
-            app:layout_constraintEnd_toStartOf="@+id/guideline65"
-            app:layout_constraintStart_toEndOf="@+id/textView15"
-            app:layout_constraintTop_toTopOf="@+id/guideline71"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin4"
+            app:layout_constraintEnd_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintStart_toEndOf="@+id/tvCartasNoAdmin_Altura"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin12"
             tools:text="0" />
 
         <TextView
-            android:id="@+id/tvLongitudMediaNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_ValorLongitud"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -217,14 +221,14 @@
             android:textColor="#E11367"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline68"
-            app:layout_constraintEnd_toStartOf="@+id/guideline65"
-            app:layout_constraintStart_toEndOf="@+id/textView34"
-            app:layout_constraintTop_toTopOf="@+id/guideline67"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin9"
+            app:layout_constraintEnd_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintStart_toEndOf="@+id/tvCartasNoAdmin_Longitud"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin8"
             tools:text="0" />
 
         <TextView
-            android:id="@+id/tvPoderMortiferoNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_ValorPoder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -234,14 +238,14 @@
             android:textColor="#E11367"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline70"
-            app:layout_constraintEnd_toStartOf="@+id/guideline65"
-            app:layout_constraintStart_toEndOf="@+id/textView37"
-            app:layout_constraintTop_toTopOf="@+id/guideline69"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin11"
+            app:layout_constraintEnd_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintStart_toEndOf="@+id/tvCartasNoAdmin_Poder"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin10"
             tools:text="0" />
 
         <TextView
-            android:id="@+id/tvVelocidadMediaNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_ValorVelocidad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -251,14 +255,14 @@
             android:textColor="#E11367"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline69"
-            app:layout_constraintEnd_toStartOf="@+id/guideline65"
-            app:layout_constraintStart_toEndOf="@+id/textView36"
-            app:layout_constraintTop_toTopOf="@+id/guideline68"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin10"
+            app:layout_constraintEnd_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintStart_toEndOf="@+id/tvCartasNoAdmin_Velocidad"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin9"
             tools:text="0" />
 
         <TextView
-            android:id="@+id/tvPesoMedioNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_ValorPeso"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -268,14 +272,14 @@
             android:textColor="#E11367"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline67"
-            app:layout_constraintEnd_toStartOf="@+id/guideline65"
-            app:layout_constraintStart_toEndOf="@+id/textView33"
-            app:layout_constraintTop_toTopOf="@+id/guideline66"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin8"
+            app:layout_constraintEnd_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintStart_toEndOf="@+id/tvCartasNoAdmin_Peso"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin4"
             tools:text="0" />
 
         <TextView
-            android:id="@+id/tvUnidadAlturaMediaNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_UnidadAltura"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -283,13 +287,13 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline66"
-            app:layout_constraintStart_toStartOf="@+id/guideline65"
-            app:layout_constraintTop_toTopOf="@+id/guideline71"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin4"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin12"
             tools:text="m" />
 
         <TextView
-            android:id="@+id/tvUnidadLongitudMediaNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_UnidadLongitud"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -297,13 +301,13 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline68"
-            app:layout_constraintStart_toStartOf="@+id/guideline65"
-            app:layout_constraintTop_toTopOf="@+id/guideline67"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin9"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin8"
             tools:text="m" />
 
         <TextView
-            android:id="@+id/tvUnidadVelocidadMediaNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_UnidadVelocidad"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -311,13 +315,13 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline69"
-            app:layout_constraintStart_toStartOf="@+id/guideline65"
-            app:layout_constraintTop_toTopOf="@+id/guideline68"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin10"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin9"
             tools:text="km/h" />
 
         <TextView
-            android:id="@+id/tvUnidadPesoMedioNoAdmin"
+            android:id="@+id/tvCartasNoAdmin_UnidadPeso"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -325,83 +329,83 @@
             android:textColor="#955E0D"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline67"
-            app:layout_constraintStart_toStartOf="@+id/guideline65"
-            app:layout_constraintTop_toTopOf="@+id/guideline66"
+            app:layout_constraintBottom_toTopOf="@+id/gdCartasNoAdmin8"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin6"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin4"
             tools:text="kg" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline64"
+            android:id="@+id/gdCartasNoAdmin5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.18" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline65"
+            android:id="@+id/gdCartasNoAdmin6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.76" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline26"
+            android:id="@+id/gdCartasNoAdmin7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.77" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline67"
+            android:id="@+id/gdCartasNoAdmin8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.71" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline68"
+            android:id="@+id/gdCartasNoAdmin9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.78" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline69"
+            android:id="@+id/gdCartasNoAdmin10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.858" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline70"
+            android:id="@+id/gdCartasNoAdmin11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.93" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline71"
+            android:id="@+id/gdCartasNoAdmin12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.57" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline72"
+            android:id="@+id/gdCartasNoAdmin13"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.285" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline73"
+            android:id="@+id/gdCartasNoAdmin14"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.02" />
 
         <View
-            android:id="@+id/viewClicParaHacerFlipCarta"
+            android:id="@+id/viewCartasNoAdmin_Flip"
             android:layout_width="0dp"
             android:layout_height="25dp"
             android:layout_marginTop="16dp"
@@ -409,12 +413,12 @@
             android:fontFamily="@font/schoolbell"
             android:textAlignment="center"
             android:textStyle="bold"
-            app:layout_constraintEnd_toStartOf="@+id/guideline26"
-            app:layout_constraintStart_toStartOf="@+id/guideline46"
-            app:layout_constraintTop_toTopOf="@+id/guideline72" />
+            app:layout_constraintEnd_toStartOf="@+id/gdCartasNoAdmin7"
+            app:layout_constraintStart_toStartOf="@+id/gdCartasNoAdmin1"
+            app:layout_constraintTop_toTopOf="@+id/gdCartasNoAdmin13" />
 
         <TextView
-            android:id="@+id/tvClicParaHacerFlipCarta"
+            android:id="@+id/tvCartasNoAdmin_Flip"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="2dp"
@@ -423,10 +427,10 @@
             android:textAlignment="center"
             android:textSize="14sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/viewClicParaHacerFlipCarta"
-            app:layout_constraintEnd_toEndOf="@+id/viewClicParaHacerFlipCarta"
-            app:layout_constraintStart_toStartOf="@+id/viewClicParaHacerFlipCarta"
-            app:layout_constraintTop_toTopOf="@+id/viewClicParaHacerFlipCarta" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewCartasNoAdmin_Flip"
+            app:layout_constraintEnd_toEndOf="@+id/viewCartasNoAdmin_Flip"
+            app:layout_constraintStart_toStartOf="@+id/viewCartasNoAdmin_Flip"
+            app:layout_constraintTop_toTopOf="@+id/viewCartasNoAdmin_Flip" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

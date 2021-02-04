@@ -15,7 +15,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:id="@+id/view27"
+            android:id="@+id/viewDialogFalloBG"
             android:layout_width="260dp"
             android:layout_height="60dp"
             android:layout_marginStart="48dp"
@@ -24,10 +24,10 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView46" />
+            app:layout_constraintTop_toTopOf="@+id/tvDialogFallo" />
 
         <TextView
-            android:id="@+id/textView46"
+            android:id="@+id/tvDialogFallo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/schoolbell"
@@ -42,21 +42,19 @@
             android:textSize="36sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/view27"
-            app:layout_constraintStart_toStartOf="@+id/view27" />
+            app:layout_constraintEnd_toEndOf="@+id/viewDialogFalloBG"
+            app:layout_constraintStart_toStartOf="@+id/viewDialogFalloBG" />
 
         <View
-            android:id="@+id/view28"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@drawable/marco_jugar_bg"
-            app:layout_constraintBottom_toBottomOf="@+id/view27"
-            app:layout_constraintEnd_toEndOf="@+id/view27"
-            app:layout_constraintStart_toStartOf="@+id/view27"
-            app:layout_constraintTop_toTopOf="@+id/view27" />
+            app:layout_constraintBottom_toBottomOf="@+id/viewDialogFalloBG"
+            app:layout_constraintEnd_toEndOf="@+id/viewDialogFalloBG"
+            app:layout_constraintStart_toStartOf="@+id/viewDialogFalloBG"
+            app:layout_constraintTop_toTopOf="@+id/viewDialogFalloBG" />
 
         <View
-            android:id="@+id/view29"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/p_erronea_bg"

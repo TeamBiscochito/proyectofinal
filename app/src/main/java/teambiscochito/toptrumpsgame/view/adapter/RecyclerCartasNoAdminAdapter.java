@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.text.LineBreaker;
 import android.os.Build;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -26,6 +25,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.wajahatkarim3.easyflipview.EasyFlipView;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 import teambiscochito.toptrumpsgame.R;
@@ -60,6 +60,9 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        NumberFormat numberFormat = NumberFormat.getInstance();
+        numberFormat.setMaximumFractionDigits(0);
+
         viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
         animScaleUp = AnimationUtils.loadAnimation(context, R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(context, R.anim.scale_down);
@@ -76,15 +79,33 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
                 .into(holder.imgFotoCartaNoAdmin);
 
         holder.tvNombreCartaNoAdmin.setText(cardList.get(position).getName());
-        holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDesc());
+        holder.tvDescCartasNoAdminBack.setText(cardList.get(position).getDescription());
 
         try{
-
             List<Question> questionList = viewModel.getQuestionListByCardId(cardList.get(position).getId());
-            holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
-            holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
-            holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
-            holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
+            if (questionList.get(0).getAnswer() % 1 == 0) {
+                holder.tvAltura.setText(numberFormat.format(questionList.get(0).getAnswer()));
+            } else {
+                holder.tvAltura.setText(questionList.get(0).getAnswer().toString());
+            }
+
+            if (questionList.get(1).getAnswer() % 1 == 0) {
+                holder.tvPeso.setText(numberFormat.format(questionList.get(1).getAnswer()));
+            } else {
+                holder.tvPeso.setText(questionList.get(1).getAnswer().toString());
+            }
+
+            if (questionList.get(2).getAnswer() % 1 == 0) {
+                holder.tvLongitud.setText(numberFormat.format(questionList.get(2).getAnswer()));
+            } else {
+                holder.tvLongitud.setText(questionList.get(2).getAnswer().toString());
+            }
+
+            if (questionList.get(3).getAnswer() % 1 == 0) {
+                holder.tvVelocidad.setText(numberFormat.format(questionList.get(3).getAnswer()));
+            } else {
+                holder.tvVelocidad.setText(questionList.get(3).getAnswer().toString());
+            }
 
             double valorPoderDouble = Double.parseDouble(questionList.get(4).getAnswer().toString());
             int valorPoderInt = (int) valorPoderDouble;
@@ -96,7 +117,6 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
             holder.tvVelocidadUnidad.setText(questionList.get(3).getMagnitude());
 
         } catch (Exception ex){
-            Log.v("xyz", ex.getLocalizedMessage());
         }
 
         holder.viewClicParaHacerFlipCarta.setOnTouchListener(new View.OnTouchListener() {
@@ -140,23 +160,23 @@ public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerC
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgFotoCartaNoAdmin = itemView.findViewById(R.id.imgFotoCartaNoAdmin);
-            tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvNombreCartaNoAdmin);
-            tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvDescCartasNoAdminBack);
-            easyFlipView = itemView.findViewById(R.id.easyflipview);
-            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvClicParaHacerFlipCarta);
-            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewClicParaHacerFlipCarta);
+            imgFotoCartaNoAdmin = itemView.findViewById(R.id.civCartaNoAdmin_Foto);
+            tvNombreCartaNoAdmin = itemView.findViewById(R.id.tvCartasNoAdmin_Nombre);
+            tvDescCartasNoAdminBack = itemView.findViewById(R.id.tvCartasNoAdmin_Descripcion);
+            easyFlipView = itemView.findViewById(R.id.efvCartasNoAdmin_FlipCarta);
+            tvClicParaHacerFlipCarta = itemView.findViewById(R.id.tvCartasNoAdmin_Flip);
+            viewClicParaHacerFlipCarta = itemView.findViewById(R.id.viewCartasNoAdmin_Flip);
 
-            tvAltura = itemView.findViewById(R.id.tvValorAlturaMediaNoAdmin);
-            tvPeso = itemView.findViewById(R.id.tvPesoMedioNoAdmin);
-            tvLongitud = itemView.findViewById(R.id.tvLongitudMediaNoAdmin);
-            tvVelocidad = itemView.findViewById(R.id.tvVelocidadMediaNoAdmin);
-            tvPoder = itemView.findViewById(R.id.tvPoderMortiferoNoAdmin);
+            tvAltura = itemView.findViewById(R.id.tvCartasNoAdmin_ValorAltura);
+            tvPeso = itemView.findViewById(R.id.tvCartasNoAdmin_ValorPeso);
+            tvLongitud = itemView.findViewById(R.id.tvCartasNoAdmin_ValorLongitud);
+            tvVelocidad = itemView.findViewById(R.id.tvCartasNoAdmin_ValorVelocidad);
+            tvPoder = itemView.findViewById(R.id.tvCartasNoAdmin_ValorPoder);
 
-            tvAlturaUnidad = itemView.findViewById(R.id.tvUnidadAlturaMediaNoAdmin);
-            tvPesoUnidad = itemView.findViewById(R.id.tvUnidadPesoMedioNoAdmin);
-            tvLongitudUnidad = itemView.findViewById(R.id.tvUnidadLongitudMediaNoAdmin);
-            tvVelocidadUnidad = itemView.findViewById(R.id.tvUnidadVelocidadMediaNoAdmin);
+            tvAlturaUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadAltura);
+            tvPesoUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadPeso);
+            tvLongitudUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadLongitud);
+            tvVelocidadUnidad = itemView.findViewById(R.id.tvCartasNoAdmin_UnidadVelocidad);
 
             // Poner texto de la carta justificado
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {

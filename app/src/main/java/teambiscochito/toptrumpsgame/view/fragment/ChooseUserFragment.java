@@ -83,12 +83,12 @@ public class ChooseUserFragment extends Fragment {
 
         initAnim();
 
-        tvEligeTuJugador = view.findViewById(R.id.tvEligeTuJugador);
-        tvRvVacioChooseUser = view.findViewById(R.id.tvRvVacioChooseUser);
+        tvEligeTuJugador = view.findViewById(R.id.tvChooseUser_Cartel);
+        tvRvVacioChooseUser = view.findViewById(R.id.tvChooseUser_ErrorInfo);
 
         tvEligeTuJugador.startAnimation(anim);
 
-        View viewCerrarAppChooseUser = view.findViewById(R.id.viewCerrarAppChooseUser);
+        View viewCerrarAppChooseUser = view.findViewById(R.id.viewChooseUser_Close);
 
         viewCerrarAppChooseUser.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -108,7 +108,7 @@ public class ChooseUserFragment extends Fragment {
             }
         });
 
-        View imgAjustesChooseUser = view.findViewById(R.id.imgAjustesChooseUser);
+        View imgAjustesChooseUser = view.findViewById(R.id.viewChooseUser_Ajustes);
 
         imgAjustesChooseUser.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -136,7 +136,7 @@ public class ChooseUserFragment extends Fragment {
             @Override
             public void onChanged(List<User> users) {
 
-                RecyclerJugadoresSeleccionAdapter adapter = new RecyclerJugadoresSeleccionAdapter(users ,view, getActivity());
+                RecyclerJugadoresSeleccionAdapter adapter = new RecyclerJugadoresSeleccionAdapter(users ,view, getActivity(), getContext());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -170,12 +170,14 @@ public class ChooseUserFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        imgAtrasAjustesDialog = dialogAjustes.findViewById(R.id.imgBackAjustesDialog);
+        imgAtrasAjustesDialog = dialogAjustes.findViewById(R.id.imgDialogAjustesBack);
 
         imgAtrasAjustesDialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dialogAjustes.dismiss();
+
             }
         });
 
@@ -184,10 +186,10 @@ public class ChooseUserFragment extends Fragment {
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogAjustes.show();
 
-        EditText claveEtAjustes = dialogAjustes.findViewById(R.id.claveEtAjustes);
-        View viewBtAccederAjustesDialog = dialogAjustes.findViewById(R.id.viewBtAccederAjustesDialog);
-        TextView tvAccederAjustesDialog = dialogAjustes.findViewById(R.id.tvAccederAjustesDialog);
-        TextView tvAlertaAjustesDialog = dialogAjustes.findViewById(R.id.tvAlertaAjustesDialog);
+        EditText claveEtAjustes = dialogAjustes.findViewById(R.id.etDialogAjustesClave);
+        View viewBtAccederAjustesDialog = dialogAjustes.findViewById(R.id.viewDialogAjustesBT);
+        TextView tvAccederAjustesDialog = dialogAjustes.findViewById(R.id.tvDialogAjustesTextBT);
+        TextView tvAlertaAjustesDialog = dialogAjustes.findViewById(R.id.tvDialogAjustesError);
 
         String claveAdmin = sharedPreferences.getString("clave_admin", "");
 
@@ -233,8 +235,8 @@ public class ChooseUserFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarSalirDialog = salirDialog.findViewById(R.id.viewCancelarSalirDialog);
-        viewAceptarSalirDialog = salirDialog.findViewById(R.id.viewAceptarSalirDialog);
+        viewCancelarSalirDialog = salirDialog.findViewById(R.id.viewSalirDialogApp_Cancel);
+        viewAceptarSalirDialog = salirDialog.findViewById(R.id.viewSalirDialogApp_Accept);
 
         viewCancelarSalirDialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -273,8 +275,8 @@ public class ChooseUserFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarTutorialDialog = tutorialDialog.findViewById(R.id.viewCancelarTutorialDialog);
-        viewAceptarTutorialDialog = tutorialDialog.findViewById(R.id.viewAceptarTutorialDialog);
+        viewCancelarTutorialDialog = tutorialDialog.findViewById(R.id.viewDialogIrTutorial_Cancel);
+        viewAceptarTutorialDialog = tutorialDialog.findViewById(R.id.viewDialogIrTutorial_Accept);
 
         viewCancelarTutorialDialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -290,6 +292,7 @@ public class ChooseUserFragment extends Fragment {
             public void onClick(View v) {
 
                 mp_seleccionarJugador.stop();
+
                 tutorialDialog.dismiss();
 
                 Bundle bundle = new Bundle();

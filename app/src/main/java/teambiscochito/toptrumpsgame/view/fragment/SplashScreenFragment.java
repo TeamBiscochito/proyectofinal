@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,7 +52,7 @@ public class SplashScreenFragment extends Fragment {
         mp_sound = MediaPlayer.create(getContext(), R.raw.splash_screen_sound);
 
         animLogo = AnimationUtils.loadAnimation(getContext(), R.anim.fade_logo_team);
-        imgLogoTeam = view.findViewById(R.id.imgLogoTeam);
+        imgLogoTeam = view.findViewById(R.id.imgSplashScreen_Logo);
 
         sharedPreferences = getActivity().getPreferences(Context.MODE_PRIVATE);
 
@@ -75,7 +74,6 @@ public class SplashScreenFragment extends Fragment {
 
                     if (claveAdmin != random){
 
-                        Log.v("XYZ", claveAdmin);
                         navController.navigate(R.id.action_fragmentSplashScreen_to_chooseUserFragment);
 
                     } else {

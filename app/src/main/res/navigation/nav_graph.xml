@@ -2,7 +2,6 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
     app:startDestination="@id/fragmentSplashScreen">
 
     <fragment
@@ -194,6 +193,11 @@
             app:destination="@id/chooseUserFragment"
             app:enterAnim="@anim/fade_entrar_fragment"
             app:exitAnim="@anim/fade_salir_fragment" />
+        <action
+            android:id="@+id/action_adminCartasFragment_to_importFragment"
+            app:destination="@id/importFragment"
+            app:enterAnim="@anim/slide_entrar_fragment"
+            app:exitAnim="@anim/slide_salir_fragment" />
     </fragment>
     <fragment
         android:id="@+id/addPlayerFragment"
@@ -251,6 +255,17 @@
         tools:layout="@layout/fragment_edit_card" >
         <action
             android:id="@+id/action_editCardFragment_to_adminCartasFragment"
+            app:destination="@id/adminCartasFragment"
+            app:enterAnim="@anim/slide_entrar_fragment_2"
+            app:exitAnim="@anim/slide_salir_fragment_2" />
+    </fragment>
+    <fragment
+        android:id="@+id/importFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.ImportFragment"
+        android:label="fragment_import"
+        tools:layout="@layout/fragment_import" >
+        <action
+            android:id="@+id/action_importFragment_to_adminCartasFragment"
             app:destination="@id/adminCartasFragment"
             app:enterAnim="@anim/slide_entrar_fragment_2"
             app:exitAnim="@anim/slide_salir_fragment_2" />

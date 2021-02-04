@@ -1,8 +1,515 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.fragment.EditCardFragment">
+    android:background="#B97A57"
+    tools:context=".view.fragment.EditCardFragment"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/admin_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <View
+            android:id="@+id/viewEditCard_Back"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/back_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gdEditCard3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdEditCard1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.91" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdEditCard2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.152" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdEditCard3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdEditCard4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.145" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdEditCard5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.847" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/schoolbell"
+            android:rotation="-7"
+            android:text="@string/tvEditarCarta"
+            android:textColor="#472C06"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/gdEditCard5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditCard4"
+            app:layout_constraintTop_toTopOf="@+id/gdEditCard3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdEditCard6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.72" />
+
+        <View
+            android:id="@+id/viewEditCard_BGEditar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/borde_top_crear_carta"
+            app:layout_constraintBottom_toTopOf="@+id/gdEditCard1"
+            app:layout_constraintEnd_toStartOf="@+id/gdEditCard5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditCard4"
+            app:layout_constraintTop_toTopOf="@+id/gdEditCard6" />
+
+        <View
+            android:id="@+id/viewEditCard_Editar"
+            android:layout_width="180dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/tablero_2"
+            app:layout_constraintBottom_toBottomOf="@+id/viewEditCard_BGEditar"
+            app:layout_constraintEnd_toEndOf="@+id/viewEditCard_BGEditar"
+            app:layout_constraintStart_toStartOf="@+id/viewEditCard_BGEditar" />
+
+        <TextView
+            android:id="@+id/tvEditCard_Editar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/tvEditar"
+            android:textAlignment="center"
+            android:textColor="#472C06"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/viewEditCard_Editar"
+            app:layout_constraintEnd_toEndOf="@+id/viewEditCard_Editar"
+            app:layout_constraintStart_toStartOf="@+id/viewEditCard_Editar"
+            app:layout_constraintTop_toTopOf="@+id/viewEditCard_Editar" />
+
+        <TextView
+            android:id="@+id/tvEditCard_Alerta"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#D3443A"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/viewEditCard_Editar"
+            app:layout_constraintEnd_toEndOf="@+id/viewEditCard_BGEditar"
+            app:layout_constraintStart_toStartOf="@+id/viewEditCard_BGEditar"
+            app:layout_constraintTop_toTopOf="@+id/viewEditCard_BGEditar" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scrollbarSize="10dp"
+            android:scrollbarThumbVertical="@drawable/brown_scrollbarthumb"
+            app:layout_constraintBottom_toTopOf="@+id/gdEditCard6"
+            app:layout_constraintEnd_toStartOf="@+id/gdEditCard5"
+            app:layout_constraintStart_toStartOf="@+id/gdEditCard4"
+            app:layout_constraintTop_toTopOf="@+id/gdEditCard2"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clEditarCarta_CL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:id="@+id/tvEditCard_Nombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNuevoNombreDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toTopOf="@+id/clEditarCarta_CL" />
+
+                <EditText
+                    android:id="@+id/etEditCard_Nombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/tvNombre"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Nombre" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Descripcion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNuevaDescripcionDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/etEditCard_Nombre" />
+
+                <EditText
+                    android:id="@+id/etEditCard_Descripcion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/tvDesc"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Descripcion" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_URL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNuevaUrlImagenDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/etEditCard_Descripcion" />
+
+                <EditText
+                    android:id="@+id/etEditCard_URL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/tvURL"
+                    android:imeOptions="actionDone"
+                    android:inputType="textUri"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_URL" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Altura"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNuevaAlturaDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/etEditCard_URL" />
+
+                <EditText
+                    android:id="@+id/etEditCard_Altura"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textAlturaMedia"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/gdEditCard7"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Altura" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Peso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNuevoPesoDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/etEditCard_Altura" />
+
+                <EditText
+                    android:id="@+id/etEditCard_Peso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textPesoMedio"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/gdEditCard7"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Peso" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNuevaLongitudDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/etEditCard_Peso" />
+
+                <EditText
+                    android:id="@+id/etEditCard_Longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textLongitudMedia"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/gdEditCard7"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Longitud" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Velocidad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNuevaVelocidadDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/etEditCard_Longitud" />
+
+                <EditText
+                    android:id="@+id/etEditCard_Velocidad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textVelocidadMedia"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/gdEditCard7"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Velocidad" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Poder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNuevoPoderDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/etEditCard_Velocidad" />
+
+                <EditText
+                    android:id="@+id/etEditCard_Poder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textPoderMortifero"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:padding="8dp"
+                    app:layout_constraintBottom_toBottomOf="@id/clEditarCarta_CL"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Poder" />
+
+                <Spinner
+                    android:id="@+id/chkEditCard_Altura"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="@+id/etEditCard_Altura"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/gdEditCard7"
+                    app:layout_constraintTop_toTopOf="@+id/etEditCard_Altura" />
+
+                <Spinner
+                    android:id="@+id/chkEditCard_Peso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="@+id/etEditCard_Peso"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/gdEditCard7"
+                    app:layout_constraintTop_toTopOf="@+id/etEditCard_Peso" />
+
+                <Spinner
+                    android:id="@+id/chkEditCard_Longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="@+id/etEditCard_Longitud"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/gdEditCard7"
+                    app:layout_constraintTop_toTopOf="@+id/etEditCard_Longitud" />
+
+                <Spinner
+                    android:id="@+id/chkEditCard_Velocidad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="@+id/etEditCard_Velocidad"
+                    app:layout_constraintEnd_toEndOf="@+id/clEditarCarta_CL"
+                    app:layout_constraintStart_toStartOf="@+id/gdEditCard7"
+                    app:layout_constraintTop_toTopOf="@+id/etEditCard_Velocidad" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gdEditCard7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

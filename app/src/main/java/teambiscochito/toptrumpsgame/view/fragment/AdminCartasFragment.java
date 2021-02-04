@@ -37,7 +37,7 @@ public class AdminCartasFragment extends Fragment {
 
     RecyclerView recyclerView;
     ViewModel viewModel;
-    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta;
+    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb, btgoimportar;
     ImageView imgAddCarta;
     TextView tvAddCarta;
     Animation animScaleUp, animScaleDown;
@@ -62,12 +62,13 @@ public class AdminCartasFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        btgoimportar = view.findViewById(R.id.viewAdminCartas_CartasWeb);
         init(view);
+
         navController = Navigation.findNavController(view);
 
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
-        recyclerView = getView().findViewById(R.id.rvCartasAdmin);
+        recyclerView = getView().findViewById(R.id.rvAdminCartas);
 
         LiveData<List<Card>> cardList = viewModel.getCardList();
         cardList.observe(getViewLifecycleOwner(), new Observer<List<Card>>() {
@@ -94,6 +95,24 @@ public class AdminCartasFragment extends Fragment {
 
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     viewBackAdminCartas.startAnimation(animScaleDown);
+
+                }
+
+                return true;
+            }
+        });
+
+        viewDownloadCartasWeb.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    viewDownloadCartasWeb.startAnimation(animScaleUp);
+
+                    navController.navigate(R.id.action_adminCartasFragment_to_importFragment);
+
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    viewDownloadCartasWeb.startAnimation(animScaleDown);
 
                 }
 
@@ -148,11 +167,12 @@ public class AdminCartasFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        viewBackAdminCartas = view.findViewById(R.id.viewBackAdminCartas);
-        viewCerrarAdminCartas = view.findViewById(R.id.viewCerrarAdminCartas);
-        viewAddCarta = view.findViewById(R.id.viewAddCarta);
-        imgAddCarta = view.findViewById(R.id.imgAddCarta);
-        tvAddCarta = view.findViewById(R.id.tvAddCarta);
+        viewBackAdminCartas = view.findViewById(R.id.viewAdminCartas_Back);
+        viewCerrarAdminCartas = view.findViewById(R.id.viewAdminCartas_Close);
+        viewAddCarta = view.findViewById(R.id.viewAdminCartas_AddCarta);
+        viewDownloadCartasWeb = view.findViewById(R.id.viewAdminCartas_CartasWeb);
+        imgAddCarta = view.findViewById(R.id.imgAdminCartas_AddCarta);
+        tvAddCarta = view.findViewById(R.id.tvAdminCartas_AddCarta);
 
     }
 
@@ -167,8 +187,8 @@ public class AdminCartasFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewCancelarAdminDialog);
-        viewAceptarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewAceptarAdminDialog);
+        viewCancelarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewSalirDialogAdmin_Cancel);
+        viewAceptarAdminDialog = dialogSalirAdmin.findViewById(R.id.viewSalirDialogAdmin_Accept);
 
         viewCancelarAdminDialog.setOnClickListener(new View.OnClickListener() {
             @Override

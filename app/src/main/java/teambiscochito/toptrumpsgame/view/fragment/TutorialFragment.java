@@ -68,7 +68,7 @@ public class TutorialFragment extends Fragment {
 
         vieneDelFirstStart = getArguments().getBoolean("vieneDelFirstStart");
 
-        viewBackTutorial = view.findViewById(R.id.viewBackTutorial);
+        viewBackTutorial = view.findViewById(R.id.viewTutorial_Back);
 
         if(vieneDelFirstStart) {
 
@@ -80,9 +80,9 @@ public class TutorialFragment extends Fragment {
 
         }
 
-        vp_bocadillos = view.findViewById(R.id.vp_bocadillos);
-        viewNextBocadillo = view.findViewById(R.id.viewNextTutorial);
-        viewPreviousBocadillo = view.findViewById(R.id.viewPreviousTutorial);
+        vp_bocadillos = view.findViewById(R.id.vpTutorial_Bocadillo);
+        viewNextBocadillo = view.findViewById(R.id.viewTutorial_Next);
+        viewPreviousBocadillo = view.findViewById(R.id.viewTutorial_Previous);
 
         vp_bocadillos.setUserInputEnabled(false);
 
@@ -173,7 +173,7 @@ public class TutorialFragment extends Fragment {
             }
         });
 
-        imgCaraLeonTutorial = view.findViewById(R.id.imgCaraLeonTutorial);
+        imgCaraLeonTutorial = view.findViewById(R.id.imgTutorial_LeonCara);
 
         imgCaraLeonTutorial.startAnimation(animArribaAbajo);
         vp_bocadillos.startAnimation(animArribaAbajo);
@@ -192,6 +192,7 @@ public class TutorialFragment extends Fragment {
                     } else {
 
                         mp_tutorial.stop();
+
                         navController.navigate(R.id.action_tutorialFragment_to_menuFragment);
 
                     }
@@ -226,8 +227,8 @@ public class TutorialFragment extends Fragment {
         window.setGravity(Gravity.CENTER);
         window.getAttributes().windowAnimations = R.style.DialogAnimation;
 
-        viewCancelarSalirTutorialDialog = tutorialDialog.findViewById(R.id.viewCancelarSalirTutorialDialog);
-        viewAceptarSalirTutorialDialog = tutorialDialog.findViewById(R.id.viewAceptarSalirTutorialDialog);
+        viewCancelarSalirTutorialDialog = tutorialDialog.findViewById(R.id.viewSalirDialogTutorial_Cancel);
+        viewAceptarSalirTutorialDialog = tutorialDialog.findViewById(R.id.viewSalirDialogTutorial_Accept);
 
         viewCancelarSalirTutorialDialog.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -243,6 +244,7 @@ public class TutorialFragment extends Fragment {
             public void onClick(View v) {
 
                 mp_tutorial.stop();
+
                 tutorialDialog.dismiss();
 
                 navController.navigate(R.id.action_tutorialFragment_to_chooseUserFragment);

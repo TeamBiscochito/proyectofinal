@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B97A57"
+    tools:context=".view.fragment.AddCardFragment"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/admin_bg"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdJuego4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdAddCard2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.152" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdAddCard3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.145" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdAddCard4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.847" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/schoolbell"
+            android:rotation="-7"
+            android:text="@string/tvAddCarta"
+            android:textColor="#472C06"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/gdAddCard4"
+            app:layout_constraintStart_toStartOf="@+id/gdAddCard3"
+            app:layout_constraintTop_toTopOf="@+id/gdJuego4" />
+
+        <View
+            android:id="@+id/viewAddCard_Back"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/back_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gdJuego4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdAddCard5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.91" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gdAddCard6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <View
+            android:id="@+id/viewAddCard_BGBotonAdd"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/borde_top_crear_carta"
+            app:layout_constraintBottom_toTopOf="@+id/gdAddCard5"
+            app:layout_constraintEnd_toStartOf="@+id/gdAddCard4"
+            app:layout_constraintStart_toStartOf="@+id/gdAddCard3"
+            app:layout_constraintTop_toTopOf="@+id/gdAddCard6" />
+
+        <TextView
+            android:id="@+id/tvAddCard_AlertaError"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/schoolbell"
+            android:textAlignment="center"
+            android:textColor="#D3443A"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/viewAddCard_AddCard"
+            app:layout_constraintEnd_toEndOf="@+id/viewAddCard_BGBotonAdd"
+            app:layout_constraintStart_toStartOf="@+id/viewAddCard_BGBotonAdd"
+            app:layout_constraintTop_toTopOf="@+id/viewAddCard_BGBotonAdd" />
+
+        <View
+            android:id="@+id/viewAddCard_AddCard"
+            android:layout_width="230dp"
+            android:layout_height="80dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/tablero_2"
+            app:layout_constraintBottom_toBottomOf="@+id/viewAddCard_BGBotonAdd"
+            app:layout_constraintEnd_toEndOf="@+id/viewAddCard_BGBotonAdd"
+            app:layout_constraintStart_toStartOf="@+id/viewAddCard_BGBotonAdd" />
+
+        <TextView
+            android:id="@+id/tvAddCard_AddCard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/schoolbell"
+            android:text="@string/contAdd"
+            android:textAlignment="center"
+            android:textColor="#472C06"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/viewAddCard_AddCard"
+            app:layout_constraintEnd_toEndOf="@+id/viewAddCard_AddCard"
+            app:layout_constraintStart_toStartOf="@+id/viewAddCard_AddCard"
+            app:layout_constraintTop_toTopOf="@+id/viewAddCard_AddCard" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:scrollbarSize="10dp"
+            android:scrollbarThumbVertical="@drawable/brown_scrollbarthumb"
+            app:layout_constraintBottom_toTopOf="@+id/gdAddCard6"
+            app:layout_constraintEnd_toEndOf="@id/gdAddCard4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@id/gdAddCard3"
+            app:layout_constraintTop_toTopOf="@id/gdAddCard2"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cLAddCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gdAddCard7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.60" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Nombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvNombreDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toTopOf="@+id/cLAddCard" />
+
+                <EditText
+                    android:id="@+id/etAddCard_Nombre"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/tvNombre"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Nombre" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Descripcion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvDescripcionDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddCard_Nombre" />
+
+                <EditText
+                    android:id="@+id/etAddCard_Descripcion"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/tvDesc"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Descripcion" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_URL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvUrlImagenDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddCard_Descripcion" />
+
+                <EditText
+                    android:id="@+id/etAddCard_URL"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/tvURL"
+                    android:imeOptions="actionDone"
+                    android:inputType="textUri|textPersonName"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_URL" />
+
+                <Button
+                    android:id="@+id/btAddCard_BuscarInternet"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/btBuscaEnInternet"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvEditCard_Altura"
+                    app:layout_constraintEnd_toEndOf="@+id/etAddCard_URL"
+                    app:layout_constraintStart_toStartOf="@+id/etAddCard_URL"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddCard_URL" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Altura"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvAlturaDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/btAddCard_BuscarInternet" />
+
+                <EditText
+                    android:id="@+id/etAddCard_Altura"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textAlturaMedia"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/gdAddCard7"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Altura" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Peso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvPesoDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddCard_Altura" />
+
+                <EditText
+                    android:id="@+id/etAddCard_Peso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textPesoMedio"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/gdAddCard7"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Peso" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvLongitudDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddCard_Peso" />
+
+                <EditText
+                    android:id="@+id/etAddCard_Longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textLongitudMedia"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/gdAddCard7"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Longitud" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Velocidad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvVelocidadDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddCard_Longitud" />
+
+                <EditText
+                    android:id="@+id/etAddCard_Velocidad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textVelocidadMedia"
+                    android:imeOptions="actionDone"
+                    android:inputType="number|numberDecimal"
+                    android:maxLength="6"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toStartOf="@+id/gdAddCard7"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Velocidad" />
+
+                <TextView
+                    android:id="@+id/tvEditCard_Poder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/schoolbell"
+                    android:text="@string/tvPoderDosPuntos"
+                    android:textAlignment="viewStart"
+                    android:textColor="#472C06"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/etAddCard_Velocidad" />
+
+                <EditText
+                    android:id="@+id/etAddCard_Poder"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:autofillHints=""
+                    android:background="@drawable/edittext_bg"
+                    android:ems="10"
+                    android:fontFamily="@font/schoolbell"
+                    android:hint="@string/textPoderMortifero"
+                    android:imeOptions="actionDone"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:padding="8dp"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="@id/cLAddCard"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/cLAddCard"
+                    app:layout_constraintTop_toBottomOf="@+id/tvEditCard_Poder" />
+
+                <Spinner
+                    android:id="@+id/chkAddCard_Altura"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="@+id/etAddCard_Altura"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/gdAddCard7"
+                    app:layout_constraintTop_toTopOf="@+id/etAddCard_Altura" />
+
+                <Spinner
+                    android:id="@+id/chkAddCard_Peso"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="@+id/etAddCard_Peso"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/gdAddCard7"
+                    app:layout_constraintTop_toTopOf="@+id/etAddCard_Peso" />
+
+                <Spinner
+                    android:id="@+id/chkAddCard_Longitud"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="@+id/etAddCard_Longitud"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/gdAddCard7"
+                    app:layout_constraintTop_toTopOf="@+id/etAddCard_Longitud" />
+
+                <Spinner
+                    android:id="@+id/chkAddCard_Velocidad"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/style_spinner"
+                    app:layout_constraintBottom_toBottomOf="@+id/etAddCard_Velocidad"
+                    app:layout_constraintEnd_toEndOf="@+id/cLAddCard"
+                    app:layout_constraintStart_toStartOf="@+id/gdAddCard7"
+                    app:layout_constraintTop_toTopOf="@+id/etAddCard_Velocidad" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

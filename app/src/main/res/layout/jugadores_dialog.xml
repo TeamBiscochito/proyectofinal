@@ -15,7 +15,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout3"
             android:layout_width="300dp"
             android:layout_height="400dp"
             android:background="@drawable/jugadores_dialog"
@@ -25,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/imgAvatarInfoAdminJ"
+                android:id="@+id/civDialogJugadores_Avatar"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_marginTop="24dp"
@@ -34,7 +33,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tvNombreInfoAdminJ"
+                android:id="@+id/tvDialogJugadores_Nombre"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
@@ -47,21 +46,21 @@
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imgAvatarInfoAdminJ"
+                app:layout_constraintTop_toBottomOf="@+id/civDialogJugadores_Avatar"
                 tools:text="Nombre" />
 
             <View
-                android:id="@+id/viewEditarInfoAdminJ"
+                android:id="@+id/viewDialogJugadores_Editar"
                 android:layout_width="210dp"
                 android:layout_height="60dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/bt_editar_bg"
-                app:layout_constraintBottom_toTopOf="@+id/viewBorrarInfoAdminJ"
+                app:layout_constraintBottom_toTopOf="@+id/viewDialogJugadores_Borrar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <View
-                android:id="@+id/viewBorrarInfoAdminJ"
+                android:id="@+id/viewDialogJugadores_Borrar"
                 android:layout_width="210dp"
                 android:layout_height="60dp"
                 android:layout_marginBottom="32dp"
@@ -71,7 +70,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
-                android:id="@+id/tvEditarInfoAdminJ"
+                android:id="@+id/tvDialogJugadores_Editar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
@@ -81,13 +80,13 @@
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/viewEditarInfoAdminJ"
-                app:layout_constraintEnd_toEndOf="@+id/viewEditarInfoAdminJ"
-                app:layout_constraintStart_toStartOf="@+id/viewEditarInfoAdminJ"
-                app:layout_constraintTop_toTopOf="@+id/viewEditarInfoAdminJ" />
+                app:layout_constraintBottom_toBottomOf="@+id/viewDialogJugadores_Editar"
+                app:layout_constraintEnd_toEndOf="@+id/viewDialogJugadores_Editar"
+                app:layout_constraintStart_toStartOf="@+id/viewDialogJugadores_Editar"
+                app:layout_constraintTop_toTopOf="@+id/viewDialogJugadores_Editar" />
 
             <TextView
-                android:id="@+id/tvBorrarInfoAdminJ"
+                android:id="@+id/tvDialogJugadores_Borrar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="4dp"
@@ -97,15 +96,15 @@
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/viewBorrarInfoAdminJ"
-                app:layout_constraintEnd_toEndOf="@+id/viewBorrarInfoAdminJ"
-                app:layout_constraintStart_toStartOf="@+id/viewBorrarInfoAdminJ"
-                app:layout_constraintTop_toTopOf="@+id/viewBorrarInfoAdminJ" />
+                app:layout_constraintBottom_toBottomOf="@+id/viewDialogJugadores_Borrar"
+                app:layout_constraintEnd_toEndOf="@+id/viewDialogJugadores_Borrar"
+                app:layout_constraintStart_toStartOf="@+id/viewDialogJugadores_Borrar"
+                app:layout_constraintTop_toTopOf="@+id/viewDialogJugadores_Borrar" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
-            android:id="@+id/viewBackInfoAdminJ"
+            android:id="@+id/viewDialogJugadores_Back"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"

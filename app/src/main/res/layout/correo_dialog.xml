@@ -10,13 +10,12 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:background="@drawable/correo_dialog_bg"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout">
+        app:layout_constraintBottom_toBottomOf="@+id/cLDialogCorreo1"
+        app:layout_constraintEnd_toEndOf="@+id/cLDialogCorreo1"
+        app:layout_constraintStart_toStartOf="@+id/cLDialogCorreo1"
+        app:layout_constraintTop_toTopOf="@+id/cLDialogCorreo1">
 
         <TextView
-            android:id="@+id/textView14"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -36,7 +35,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/cLDialogCorreo1"
         android:layout_width="350dp"
         android:layout_height="350dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +44,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <View
-            android:id="@+id/viewBackCorreoDialog"
+            android:id="@+id/viewDialogCorreoBack"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginStart="8dp"

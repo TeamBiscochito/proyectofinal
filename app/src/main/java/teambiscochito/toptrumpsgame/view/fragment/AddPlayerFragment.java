@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
+import teambiscochito.toptrumpsgame.validar.ValidarDatos;
 import teambiscochito.toptrumpsgame.view.adapter.VpAvatarAdapter;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
@@ -64,7 +65,7 @@ public class AddPlayerFragment extends Fragment {
         viewModel = new ViewModelProvider(getActivity()).get(ViewModel.class);
         navController = Navigation.findNavController(view);
 
-        vp_avatar = view.findViewById(R.id.vp_avatar);
+        vp_avatar = view.findViewById(R.id.vpAddPlayer_Avatar);
 
         vp_avatar.setUserInputEnabled(false);
 
@@ -168,9 +169,13 @@ public class AddPlayerFragment extends Fragment {
 
                         tvAlertaAddJugador.setText(R.string.tvIntroduceNombreSinPuntos);
 
+                    } else if (ValidarDatos.validarNombreJugador(nombre)) {
+
+                        tvAlertaAddJugador.setText(R.string.tvNombreDemasiadoLargo);
+
                     } else if (num != 0) {
 
-                            tvAlertaAddJugador.setText(R.string.tvNombreYaEnUso);
+                        tvAlertaAddJugador.setText(R.string.tvNombreYaEnUso);
 
                     } else {
 
@@ -200,14 +205,14 @@ public class AddPlayerFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        viewNextAvatar = view.findViewById(R.id.viewNextAvatar);
-        viewPreviousAvatar = view.findViewById(R.id.viewPreviousAvatar);
-        viewBackAdminAddPlayer = view.findViewById(R.id.viewBackAdminAddPlayer);
-        viewAddJugador = view.findViewById(R.id.viewAddJugador2);
-        tvAddJugador = view.findViewById(R.id.tvAddJugador2);
-        tvAlertaAddJugador = view.findViewById(R.id.tvAlertaAddJugador);
+        viewNextAvatar = view.findViewById(R.id.viewAddPlayer_Next);
+        viewPreviousAvatar = view.findViewById(R.id.gdAddPlayer_Previous);
+        viewBackAdminAddPlayer = view.findViewById(R.id.viewAddPlayer_Back);
+        viewAddJugador = view.findViewById(R.id.viewAddPlayer_AddJugador);
+        tvAddJugador = view.findViewById(R.id.tvAddPlayer_AddJugador);
+        tvAlertaAddJugador = view.findViewById(R.id.tvAddPlayer_Alerta);
 
-        etNombreJugador = view.findViewById(R.id.etNombreJugador);
+        etNombreJugador = view.findViewById(R.id.etAddPlayer_NombreJugador);
 
     }
 }

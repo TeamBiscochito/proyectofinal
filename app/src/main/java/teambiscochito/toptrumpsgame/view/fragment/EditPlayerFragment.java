@@ -23,6 +23,7 @@ import android.widget.TextView;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
+import teambiscochito.toptrumpsgame.validar.ValidarDatos;
 import teambiscochito.toptrumpsgame.view.adapter.VpAvatarAdapter;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
@@ -65,7 +66,7 @@ public class EditPlayerFragment extends Fragment {
 
         User user = viewModel.getUser();
 
-        vp_avatar = view.findViewById(R.id.vp_avatar_edit);
+        vp_avatar = view.findViewById(R.id.vpEditPlayer_Avatar);
 
         vp_avatar.setUserInputEnabled(false);
 
@@ -216,6 +217,10 @@ public class EditPlayerFragment extends Fragment {
 
                         tvAlertaEditJugador.setText(R.string.tvIntroduceNombreSinPuntos);
 
+                    } else if (ValidarDatos.validarNombreJugador(nombre)) {
+
+                        tvAlertaEditJugador.setText(R.string.tvNombreDemasiadoLargo);
+
                     } else if (nombre.equals(user.getName())) {
 
                         int avatar = avatares[vp_avatar.getCurrentItem()];
@@ -250,8 +255,6 @@ public class EditPlayerFragment extends Fragment {
 
                     }
 
-
-
                 } else if (event.getAction() == MotionEvent.ACTION_UP) {
                     viewEditJugador.startAnimation(animScaleDown);
                     tvEditJugador.startAnimation(animScaleDown);
@@ -269,16 +272,16 @@ public class EditPlayerFragment extends Fragment {
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
-        viewNextAvatar = view.findViewById(R.id.viewNextAvatarEdit);
-        viewPreviousAvatar = view.findViewById(R.id.viewPreviousAvatarEdit);
-        viewBackAdminEditPlayer = view.findViewById(R.id.viewBackAdminEditPlayer);
-        viewEditJugador = view.findViewById(R.id.viewEditJugador2);
-        viewSeleccionarAvatarActual = view.findViewById(R.id.viewSeleccionarAvatarActual);
-        tvEditJugador = view.findViewById(R.id.tvEditJugador2);
-        tvAlertaEditJugador = view.findViewById(R.id.tvAlertaEditJugador);
-        tvSeleccionarAvatarActual = view.findViewById(R.id.tvSeleccionarAvatarActual);
+        viewNextAvatar = view.findViewById(R.id.viewEditPlayer_Next);
+        viewPreviousAvatar = view.findViewById(R.id.viewEditPlayer_Previous);
+        viewBackAdminEditPlayer = view.findViewById(R.id.viewEditPlayer_Back);
+        viewEditJugador = view.findViewById(R.id.viewEditPlayer_Editar);
+        viewSeleccionarAvatarActual = view.findViewById(R.id.viewEditPlayer_Selecciona);
+        tvEditJugador = view.findViewById(R.id.tvEditPlayer_Editar);
+        tvAlertaEditJugador = view.findViewById(R.id.tvEditPlayer_Alerta);
+        tvSeleccionarAvatarActual = view.findViewById(R.id.tvEditPlayer_SeleccionaActual);
 
-        etNombreJugador = view.findViewById(R.id.etNombreJugadorEditar);
+        etNombreJugador = view.findViewById(R.id.etEditPlayer_Nombre);
 
     }
 }
