@@ -39,7 +39,7 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
  * <p>
- * Clase para elegir el usuario al iniciar la aplicación.
+ * Clase para elegir el usuario al entrar al menú de la aplicación.
  */
 public class ChooseUserFragment extends Fragment {
 
@@ -84,8 +84,8 @@ public class ChooseUserFragment extends Fragment {
         initAnim();
 
         tvEligeTuJugador = view.findViewById(R.id.tvChooseUser_Cartel);
-        tvEligeTuJugador.startAnimation(anim);
         tvRvVacioChooseUser = view.findViewById(R.id.tvChooseUser_ErrorInfo);
+        tvEligeTuJugador.startAnimation(anim);
 
         viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
         recyclerView = requireView().findViewById(R.id.rvJugadoresSeleccion);

@@ -14,6 +14,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import teambiscochito.toptrumpsgame.R;
+import teambiscochito.toptrumpsgame.view.fragment.jugar.JuegoFragment;
 
 /**
  * <h2 align="center">Team Biscochito</h2><hr>
@@ -87,6 +88,43 @@ public class DialogosGenerales {
             }
             return true;
         });
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método estático que se encarga de generar el diálogo cuando se acierta una pregunta o se falla
+     * la pregunta.
+     * <br><br>
+     * Referencia del método en: {@link JuegoFragment#viewCerrarJuego()}
+     *
+     * @param context contexto del fragmento.
+     * @param respuesta pasamos el layout del diálogo a mostrar.
+     */
+    public static void dialogoRespuesta(Context context, int respuesta) {
+        Dialog dialogoRespuesta = new Dialog(context);
+        dialogoRespuesta.setContentView(respuesta);
+        dialogoRespuesta.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+        Window window = dialogoRespuesta.getWindow();
+        window.setGravity(Gravity.CENTER);
+        window.getAttributes().windowAnimations = R.style.DialogAnimationJuegoAF;
+
+        dialogoRespuesta.setCancelable(true);
+        dialogoRespuesta.setCanceledOnTouchOutside(false);
+        window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
+        dialogoRespuesta.show();
+
+        Thread threadCerrarPFalloDialog = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(2000);
+                    dialogoRespuesta.dismiss();
+                } catch (InterruptedException ignored) {
+                }
+            }
+        };
+        threadCerrarPFalloDialog.start();
     }
 
     /**
