@@ -41,10 +41,9 @@ public class TutorialFragment extends Fragment {
     private ViewPager2 vp_bocadillos;
     private VpAvatarAdapter adapter;
 
-    private Animation animArribaAbajo, animScaleUp, animScaleDown;
+    private Animation animScaleUp, animScaleDown;
 
     private NavController navController;
-    private ImageView imgCaraLeonTutorial;
     private View viewBackTutorial, viewNextBocadillo, viewPreviousBocadillo;
     private Dialog tutorialDialog;
     private MediaPlayer mp_tutorial;
@@ -290,9 +289,9 @@ public class TutorialFragment extends Fragment {
         vp_bocadillos = view.findViewById(R.id.vpTutorial_Bocadillo);
         viewNextBocadillo = view.findViewById(R.id.viewTutorial_Next);
         viewPreviousBocadillo = view.findViewById(R.id.viewTutorial_Previous);
-        imgCaraLeonTutorial = view.findViewById(R.id.imgTutorial_LeonCara);
+        ImageView imgCaraLeonTutorial = view.findViewById(R.id.imgTutorial_LeonCara);
 
-        animArribaAbajo = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
+        Animation animArribaAbajo = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 

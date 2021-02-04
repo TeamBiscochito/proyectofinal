@@ -40,8 +40,10 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AdminCartasFragment extends Fragment {
     private RecyclerView recyclerView;
-    private ViewModel viewModel;
-    private View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb, btGoImportar;
+    private View viewBackAdminCartas;
+    private View viewCerrarAdminCartas;
+    private View viewAddCarta;
+    private View viewDownloadCartasWeb;
     private ImageView imgAddCarta;
     private TextView tvAddCarta;
     private Animation animScaleUp, animScaleDown;
@@ -64,12 +66,11 @@ public class AdminCartasFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        btGoImportar = view.findViewById(R.id.viewAdminCartas_CartasWeb);
         init(view);
 
         navController = Navigation.findNavController(view);
 
-        viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
+        ViewModel viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
         recyclerView = requireView().findViewById(R.id.rvAdminCartas);
 
         LiveData<List<Card>> cardList = viewModel.getCardList();

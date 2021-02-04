@@ -26,12 +26,7 @@ import teambiscochito.toptrumpsgame.R;
  * Contiene sonido incluido.
  */
 public class SplashScreenFragment extends Fragment {
-    private ImageView imgLogoTeam;
-    private Animation animLogo;
-
-    private SharedPreferences sharedPreferences;
     private NavController navController;
-
     private MediaPlayer mp_sound;
 
     public SplashScreenFragment() {
@@ -54,10 +49,10 @@ public class SplashScreenFragment extends Fragment {
         navController = Navigation.findNavController(view);
         mp_sound = MediaPlayer.create(getContext(), R.raw.splash_screen_sound);
 
-        animLogo = AnimationUtils.loadAnimation(getContext(), R.anim.fade_logo_team);
-        imgLogoTeam = view.findViewById(R.id.imgSplashScreen_Logo);
+        Animation animLogo = AnimationUtils.loadAnimation(getContext(), R.anim.fade_logo_team);
+        ImageView imgLogoTeam = view.findViewById(R.id.imgSplashScreen_Logo);
 
-        sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = requireActivity().getPreferences(Context.MODE_PRIVATE);
 
         String random = cadenaAleatoria();
         String claveAdmin = sharedPreferences.getString("clave_admin", random);

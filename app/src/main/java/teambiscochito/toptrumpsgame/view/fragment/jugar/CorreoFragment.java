@@ -22,9 +22,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 
 import java.text.DecimalFormat;
 
@@ -42,13 +39,11 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class CorreoFragment extends Fragment {
-    private ViewModel viewModel;
     private User userActual;
     private View viewBackCorreo, viewCorreoBorrar, viewCorreoEnviar;
     private Animation animCaraLeon, animScaleUp, animScaleDown;
     private EditText etCorreo;
     private TextView tvCorreoBorrar, tvCorreoEnviar, tvAlertaCorreo;
-    private NavController navController;
     private ImageView imgCaraLeonCorreo;
     private Dialog dialogCorreo;
     private MediaPlayer mp_correo;
@@ -72,8 +67,6 @@ public class CorreoFragment extends Fragment {
 
         init(view);
 
-        navController = Navigation.findNavController(view);
-        viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
         userActual = ViewModel.userActual;
 
         imgCaraLeonCorreo.startAnimation(animCaraLeon);

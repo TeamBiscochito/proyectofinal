@@ -45,9 +45,8 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class ChooseUserFragment extends Fragment {
     private RecyclerView recyclerView;
-    private ViewModel viewModel;
 
-    private TextView tvEligeTuJugador, tvRvVacioChooseUser;
+    private TextView tvRvVacioChooseUser;
     private Dialog dialogAjustes, salirDialog, tutorialDialog;
     private SharedPreferences sharedPreferences;
     private Animation anim, animScaleUp, animScaleDown;
@@ -84,18 +83,18 @@ public class ChooseUserFragment extends Fragment {
 
         initAnim();
 
-        tvEligeTuJugador = view.findViewById(R.id.tvChooseUser_Cartel);
+        TextView tvEligeTuJugador = view.findViewById(R.id.tvChooseUser_Cartel);
         tvRvVacioChooseUser = view.findViewById(R.id.tvChooseUser_ErrorInfo);
         tvEligeTuJugador.startAnimation(anim);
 
-        viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
+        ViewModel viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
         recyclerView = requireView().findViewById(R.id.rvJugadoresSeleccion);
 
         LiveData<List<User>> userList = viewModel.getUserList();
         userList.observe(getViewLifecycleOwner(), new Observer<List<User>>() {
             @Override
             public void onChanged(List<User> users) {
-                RecyclerJugadoresSeleccionAdapter adapter = new RecyclerJugadoresSeleccionAdapter(users, view, getActivity(), getContext());
+                RecyclerJugadoresSeleccionAdapter adapter = new RecyclerJugadoresSeleccionAdapter(users, view, getActivity());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 

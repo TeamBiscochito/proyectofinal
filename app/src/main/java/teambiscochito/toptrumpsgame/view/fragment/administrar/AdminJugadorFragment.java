@@ -39,7 +39,6 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AdminJugadorFragment extends Fragment {
     private RecyclerView recyclerView;
-    private ViewModel viewModel;
     private View viewBackAdminJugadores, viewCerrarAdminJugadores, viewAddJugador;
     private ImageView imgAddJugador;
     private TextView tvAddJugador;
@@ -67,7 +66,7 @@ public class AdminJugadorFragment extends Fragment {
 
         navController = Navigation.findNavController(view);
 
-        viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
+        ViewModel viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
         recyclerView = requireView().findViewById(R.id.rvAdminJugador);
 
         LiveData<List<User>> userList = viewModel.getUserList();

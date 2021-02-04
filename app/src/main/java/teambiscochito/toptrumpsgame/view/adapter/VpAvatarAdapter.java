@@ -17,7 +17,7 @@ import teambiscochito.toptrumpsgame.R;
  * en este caso en los iconos de los avatares y los bocadillos.
  */
 public class VpAvatarAdapter extends RecyclerView.Adapter<VpAvatarAdapter.ViewHolder> {
-    int[] avatares;
+    private final int[] avatares;
 
     public VpAvatarAdapter(int[] avatares) {
         this.avatares = avatares;

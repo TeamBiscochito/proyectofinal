@@ -52,9 +52,9 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class MenuFragment extends Fragment {
     private final String linkWeb = "https://teambiscochito.github.io/animales-salvajes-web/";
-    private Animation animTablero, animScaleUp, animScaleDown;
-    private TextView tvAnimales, tvSalvajes, tvCartas, tvTuto;
-    private View v, vp, vCartas, vTuto, vWeb, vSettings, vUser, vPlay, vCerrarSesion, viewVerDialogCreditos;
+    private Animation animScaleUp, animScaleDown;
+    private TextView tvCartas, tvTuto;
+    private View vCartas, vTuto, vWeb, vSettings, vUser, vPlay, vCerrarSesion, viewVerDialogCreditos;
     private ImageView ivSettings, ivUser, ivCerrarSesion, ivWeb;
     private Dialog dialogCreditos, dialogPerfil, dialogAjustes, dialogWeb;
     private User userActual;
@@ -695,21 +695,21 @@ public class MenuFragment extends Fragment {
     }
 
     private void init(View view) {
-        animTablero = AnimationUtils.loadAnimation(getContext(), R.anim.shake);
+        Animation animTablero = AnimationUtils.loadAnimation(getContext(), R.anim.shake);
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
 
         initMediaPlayerMenu();
 
-        tvAnimales = view.findViewById(R.id.viewMenu_Animales);
-        tvSalvajes = view.findViewById(R.id.viewMenu_Salvajes);
+        TextView tvAnimales = view.findViewById(R.id.viewMenu_Animales);
+        TextView tvSalvajes = view.findViewById(R.id.viewMenu_Salvajes);
         tvCartas = view.findViewById(R.id.tvMenuCartas);
         tvTuto = view.findViewById(R.id.tvMenuTuto);
         ivWeb = view.findViewById(R.id.imgMenu_Web);
         ivCerrarSesion = view.findViewById(R.id.imgMenu_CerrarSesion);
 
-        v = view.findViewById(R.id.viewMenu_Tablero);
-        vp = view.findViewById(R.id.viewMenu_BGGradient);
+        View v = view.findViewById(R.id.viewMenu_Tablero);
+        View vp = view.findViewById(R.id.viewMenu_BGGradient);
         vCartas = view.findViewById(R.id.viewMenu_Cartas);
         vTuto = view.findViewById(R.id.viewMenu_Tutorial);
         vWeb = view.findViewById(R.id.viewMenu_Web);

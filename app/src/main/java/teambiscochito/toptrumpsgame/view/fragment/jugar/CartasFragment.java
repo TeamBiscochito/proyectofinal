@@ -9,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -39,12 +38,10 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class CartasFragment extends Fragment {
     private RecyclerView recyclerView;
-    private ViewModel viewModel;
 
     private Animation animScaleUp, animScaleDown;
     private NavController navController;
     private View viewBackCartasNoAdmin;
-    private TextView tvRvVacioCartasNoAdmin;
     private MediaPlayer mp_cards;
 
     public CartasFragment() {
@@ -71,11 +68,10 @@ public class CartasFragment extends Fragment {
         initAnim();
 
         viewBackCartasNoAdmin = view.findViewById(R.id.viewCartas_Back);
-        tvRvVacioCartasNoAdmin = view.findViewById(R.id.tvartas_ErrorInfo);
 
         backViewBoton();
 
-        viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
+        ViewModel viewModel = new ViewModelProvider(requireActivity()).get(ViewModel.class);
         recyclerView = requireView().findViewById(R.id.rvCartasNoAdmin);
 
         LiveData<List<Card>> cardList = viewModel.getCardList();

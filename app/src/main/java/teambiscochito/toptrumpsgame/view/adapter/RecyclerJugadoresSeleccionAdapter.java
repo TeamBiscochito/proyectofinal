@@ -2,7 +2,6 @@ package teambiscochito.toptrumpsgame.view.adapter;
 
 
 import android.app.Activity;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,14 +32,11 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
     private final List<User> userList;
     private final View view;
     private final Activity activity;
-    private final Context context;
-    private ViewModel viewModel;
 
-    public RecyclerJugadoresSeleccionAdapter(List<User> userList, View view, Activity activity, Context context) {
+    public RecyclerJugadoresSeleccionAdapter(List<User> userList, View view, Activity activity) {
         this.userList = userList;
         this.view = view;
         this.activity = activity;
-        this.context = context;
     }
 
     @NonNull
@@ -59,7 +55,7 @@ public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<Recy
 
             @Override
             public void onClick(View v) {
-                viewModel = new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
+                new ViewModelProvider((ViewModelStoreOwner) activity).get(ViewModel.class);
 
                 ViewModel.userActual = userList.get(position);
 
