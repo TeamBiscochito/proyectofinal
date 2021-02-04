@@ -38,13 +38,13 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class CartasFragment extends Fragment {
-    RecyclerView recyclerView;
-    ViewModel viewModel;
+    private RecyclerView recyclerView;
+    private ViewModel viewModel;
 
-    Animation animScaleUp, animScaleDown;
-    NavController navController;
-    View viewBackCartasNoAdmin;
-    TextView tvRvVacioCartasNoAdmin;
+    private Animation animScaleUp, animScaleDown;
+    private NavController navController;
+    private View viewBackCartasNoAdmin;
+    private TextView tvRvVacioCartasNoAdmin;
     private MediaPlayer mp_cards;
 
     public CartasFragment() {
@@ -84,7 +84,7 @@ public class CartasFragment extends Fragment {
             public void onChanged(List<Card> cards) {
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
 
-                RecyclerCartasNoAdminAdapter adapter = new RecyclerCartasNoAdminAdapter(cards, view, getActivity(), getContext());
+                RecyclerCartasNoAdminAdapter adapter = new RecyclerCartasNoAdminAdapter(cards, getActivity(), getContext());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(layoutManager);
             }

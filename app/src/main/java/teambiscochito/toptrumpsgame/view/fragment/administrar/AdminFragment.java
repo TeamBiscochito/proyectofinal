@@ -28,11 +28,11 @@ import teambiscochito.toptrumpsgame.view.fragment.DialogosGenerales;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AdminFragment extends Fragment {
-    View viewCerrarAdmin, viewAdminEntrarJugadores, viewAdminEntrarCartas;
-    Animation animScaleUp, animScaleDown, animCaraLeon;
-    TextView tvAdminEntrarJugadores, tvAdminEntrarCartas;
-    NavController navController;
-    ImageView imgCaraLeonAdmin;
+    private View viewCerrarAdmin, viewAdminEntrarJugadores, viewAdminEntrarCartas;
+    private Animation animScaleUp, animScaleDown, animCaraLeon;
+    private TextView tvAdminEntrarJugadores, tvAdminEntrarCartas;
+    private NavController navController;
+    private ImageView imgCaraLeonAdmin;
 
     public AdminFragment() {
     }

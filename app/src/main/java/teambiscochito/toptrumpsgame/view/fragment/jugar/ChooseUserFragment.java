@@ -44,14 +44,14 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class ChooseUserFragment extends Fragment {
-    RecyclerView recyclerView;
-    ViewModel viewModel;
+    private RecyclerView recyclerView;
+    private ViewModel viewModel;
 
-    TextView tvEligeTuJugador, tvRvVacioChooseUser;
-    Dialog dialogAjustes, salirDialog, tutorialDialog;
-    SharedPreferences sharedPreferences;
-    Animation anim, animScaleUp, animScaleDown;
-    NavController navController;
+    private TextView tvEligeTuJugador, tvRvVacioChooseUser;
+    private Dialog dialogAjustes, salirDialog, tutorialDialog;
+    private SharedPreferences sharedPreferences;
+    private Animation anim, animScaleUp, animScaleDown;
+    private NavController navController;
 
     private MediaPlayer mp_seleccionarJugador;
 

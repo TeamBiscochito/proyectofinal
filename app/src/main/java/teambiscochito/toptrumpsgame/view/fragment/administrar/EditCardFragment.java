@@ -40,11 +40,10 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class EditCardFragment extends Fragment {
-
-    NavController navController;
-    View viewBackAdminEditCarta, viewEditCarta2;
-    TextView tvEditCarta2, tvAlertaEditCarta;
-    Animation animScaleUp, animScaleDown;
+    private NavController navController;
+    private View viewBackAdminEditCarta, viewEditCarta2;
+    private TextView tvEditCarta2, tvAlertaEditCarta;
+    private Animation animScaleUp, animScaleDown;
 
     private EditText nombreEt, descripcionEt, urlEt, alturaEt, longitudEt, pesoEt, velocidadEt, poderEt;
     private Spinner alturaSp, velocidadSp, pesoSp, longitudSp;

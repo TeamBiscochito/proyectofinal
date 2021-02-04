@@ -30,11 +30,11 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
  * jugador y entrar al menú principal.
  */
 public class RecyclerJugadoresSeleccionAdapter extends RecyclerView.Adapter<RecyclerJugadoresSeleccionAdapter.ViewHolder> {
-    List<User> userList;
-    View view;
-    ViewModel viewModel;
-    Activity activity;
-    Context context;
+    private final List<User> userList;
+    private final View view;
+    private final Activity activity;
+    private final Context context;
+    private ViewModel viewModel;
 
     public RecyclerJugadoresSeleccionAdapter(List<User> userList, View view, Activity activity, Context context) {
         this.userList = userList;

@@ -26,11 +26,11 @@ import teambiscochito.toptrumpsgame.R;
  * Contiene sonido incluido.
  */
 public class SplashScreenFragment extends Fragment {
-    ImageView imgLogoTeam;
-    Animation animLogo;
+    private ImageView imgLogoTeam;
+    private Animation animLogo;
 
-    SharedPreferences sharedPreferences;
-    NavController navController;
+    private SharedPreferences sharedPreferences;
+    private NavController navController;
 
     private MediaPlayer mp_sound;
 

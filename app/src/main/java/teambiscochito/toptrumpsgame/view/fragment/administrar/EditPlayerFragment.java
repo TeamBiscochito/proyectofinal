@@ -36,17 +36,17 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class EditPlayerFragment extends Fragment {
-    ViewPager2 vp_avatar;
-    int[] avatares = {R.drawable.av_tigre, R.drawable.av_hipo, R.drawable.av_tucan, R.drawable.av_cerdo, R.drawable.av_gato, R.drawable.av_gallina};
-    VpAvatarAdapter adapter;
-    Animation animScaleUp, animScaleDown;
-    NavController navController;
-    View viewNextAvatar, viewPreviousAvatar, viewBackAdminEditPlayer, viewEditJugador, viewSeleccionarAvatarActual;
-    TextView tvEditJugador, tvAlertaEditJugador, tvSeleccionarAvatarActual;
+    private final int[] avatares = {R.drawable.av_tigre, R.drawable.av_hipo, R.drawable.av_tucan, R.drawable.av_cerdo, R.drawable.av_gato, R.drawable.av_gallina};
+    private ViewPager2 vp_avatar;
+    private VpAvatarAdapter adapter;
+    private Animation animScaleUp, animScaleDown;
+    private NavController navController;
+    private View viewNextAvatar, viewPreviousAvatar, viewBackAdminEditPlayer, viewEditJugador, viewSeleccionarAvatarActual;
 
-    EditText etNombreJugador;
-    ViewModel viewModel;
-    int numeroAvatarParaCargar;
+    private TextView tvEditJugador, tvAlertaEditJugador, tvSeleccionarAvatarActual;
+    private EditText etNombreJugador;
+    private ViewModel viewModel;
+    private int numeroAvatarParaCargar;
 
     public EditPlayerFragment() {
     }

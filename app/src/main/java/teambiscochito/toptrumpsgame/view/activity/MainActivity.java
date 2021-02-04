@@ -26,9 +26,9 @@ import teambiscochito.toptrumpsgame.receiver.ReceiverBateria;
 @SuppressWarnings({"deprecation", "Convert2Lambda"})
 // Comente la línea de arriba para ver los métodos deprecated y para ver los posibles Lambdas a convertir
 public class MainActivity extends AppCompatActivity {
-    ReceiverBateria receiver;
-    IntentFilter intentFilter;
-    Dialog salirDialog;
+    private ReceiverBateria receiver;
+    private IntentFilter intentFilter;
+    private Dialog salirDialog;
     private long backPressedTime;
     private View decorView;
 

@@ -36,17 +36,17 @@ import teambiscochito.toptrumpsgame.view.adapter.VpAvatarAdapter;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class TutorialFragment extends Fragment {
-    ViewPager2 vp_bocadillos;
-    int[] bocadillos = {R.drawable.bocadillo_uno, R.drawable.bocadillo_dos, R.drawable.bocadillo_tres,
+    private final int[] bocadillos = {R.drawable.bocadillo_uno, R.drawable.bocadillo_dos, R.drawable.bocadillo_tres,
             R.drawable.bocadillo_cuatro, R.drawable.bocadillo_cinco, R.drawable.bocadillo_seis, R.drawable.bocadillo_siete, R.drawable.bocadillo_ocho};
-    VpAvatarAdapter adapter;
+    private ViewPager2 vp_bocadillos;
+    private VpAvatarAdapter adapter;
 
-    Animation animArribaAbajo, animScaleUp, animScaleDown;
+    private Animation animArribaAbajo, animScaleUp, animScaleDown;
 
-    NavController navController;
-    ImageView imgCaraLeonTutorial;
-    View viewBackTutorial, viewNextBocadillo, viewPreviousBocadillo;
-    Dialog tutorialDialog;
+    private NavController navController;
+    private ImageView imgCaraLeonTutorial;
+    private View viewBackTutorial, viewNextBocadillo, viewPreviousBocadillo;
+    private Dialog tutorialDialog;
     private MediaPlayer mp_tutorial;
     private boolean vieneDelFirstStart;
 

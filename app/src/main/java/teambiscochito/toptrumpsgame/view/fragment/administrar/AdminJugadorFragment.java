@@ -38,12 +38,12 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AdminJugadorFragment extends Fragment {
-    RecyclerView recyclerView;
-    ViewModel viewModel;
-    View viewBackAdminJugadores, viewCerrarAdminJugadores, viewAddJugador;
-    ImageView imgAddJugador;
-    TextView tvAddJugador;
-    Animation animScaleUp, animScaleDown;
+    private RecyclerView recyclerView;
+    private ViewModel viewModel;
+    private View viewBackAdminJugadores, viewCerrarAdminJugadores, viewAddJugador;
+    private ImageView imgAddJugador;
+    private TextView tvAddJugador;
+    private Animation animScaleUp, animScaleDown;
 
     NavController navController;
 

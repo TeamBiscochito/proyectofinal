@@ -43,16 +43,14 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class RecyclerCartasNoAdminAdapter extends RecyclerView.Adapter<RecyclerCartasNoAdminAdapter.ViewHolder> {
-    List<Card> cardList;
-    View view;
-    Activity activity;
-    Context context;
-    Animation animScaleUp, animScaleDown;
-    ViewModel viewModel;
+    private final List<Card> cardList;
+    private final Activity activity;
+    private final Context context;
+    private Animation animScaleUp, animScaleDown;
+    private ViewModel viewModel;
 
-    public RecyclerCartasNoAdminAdapter(List<Card> cardList, View view, Activity activity, Context context) {
+    public RecyclerCartasNoAdminAdapter(List<Card> cardList, Activity activity, Context context) {
         this.cardList = cardList;
-        this.view = view;
         this.activity = activity;
         this.context = context;
     }

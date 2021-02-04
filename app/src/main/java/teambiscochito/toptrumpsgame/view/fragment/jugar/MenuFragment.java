@@ -52,15 +52,15 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class MenuFragment extends Fragment {
     private final String linkWeb = "https://teambiscochito.github.io/animales-salvajes-web/";
-    Animation animTablero, animScaleUp, animScaleDown;
-    TextView tvAnimales, tvSalvajes, tvCartas, tvTuto;
-    View v, vp, vCartas, vTuto, vWeb, vSettings, vUser, vPlay, vCerrarSesion, viewVerDialogCreditos;
-    ImageView ivSettings, ivUser, ivCerrarSesion, ivWeb;
-    Dialog dialogCreditos, dialogPerfil, dialogAjustes, dialogWeb;
-    User userActual;
-    ViewModel viewModel;
-    SharedPreferences sharedPreferences;
-    NavController navController;
+    private Animation animTablero, animScaleUp, animScaleDown;
+    private TextView tvAnimales, tvSalvajes, tvCartas, tvTuto;
+    private View v, vp, vCartas, vTuto, vWeb, vSettings, vUser, vPlay, vCerrarSesion, viewVerDialogCreditos;
+    private ImageView ivSettings, ivUser, ivCerrarSesion, ivWeb;
+    private Dialog dialogCreditos, dialogPerfil, dialogAjustes, dialogWeb;
+    private User userActual;
+    private ViewModel viewModel;
+    private SharedPreferences sharedPreferences;
+    private NavController navController;
     private boolean estoyEnCreditos = false;
     private MediaPlayer mp_menu, mp_creditos;
 

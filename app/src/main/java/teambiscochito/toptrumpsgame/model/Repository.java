@@ -38,7 +38,7 @@ public class Repository {
     public CardDao cardDao;
     public QuestionDao questionDao;
     public UserDao userDao;
-    CardClient Cardclient;
+    private final CardClient Cardclient;
     private int repeatedName, repeatedNameCarta;
 
     public Repository(Context context) {

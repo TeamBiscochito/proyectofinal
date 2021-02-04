@@ -43,14 +43,14 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class ImportFragment extends Fragment {
-    RecyclerView recyclerView;
-    ViewModel viewModel;
-    List<Card> cardList;
-    NavController navController;
-    ArrayList<Question> questionArrayList = new ArrayList<>();
-    View viewBackImport, viewImport;
-    Animation animScaleUp, animScaleDown;
-    TextView tvImport, textviewImportVacio;
+    private final ArrayList<Question> questionArrayList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private ViewModel viewModel;
+    private List<Card> cardList;
+    private NavController navController;
+    private View viewBackImport, viewImport;
+    private Animation animScaleUp, animScaleDown;
+    private TextView tvImport, textviewImportVacio;
 
     public ImportFragment() {
     }

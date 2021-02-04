@@ -39,14 +39,14 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class AdminCartasFragment extends Fragment {
-    RecyclerView recyclerView;
-    ViewModel viewModel;
-    View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb, btGoImportar;
-    ImageView imgAddCarta;
-    TextView tvAddCarta;
-    Animation animScaleUp, animScaleDown;
+    private RecyclerView recyclerView;
+    private ViewModel viewModel;
+    private View viewBackAdminCartas, viewCerrarAdminCartas, viewAddCarta, viewDownloadCartasWeb, btGoImportar;
+    private ImageView imgAddCarta;
+    private TextView tvAddCarta;
+    private Animation animScaleUp, animScaleDown;
 
-    NavController navController;
+    private NavController navController;
 
     public AdminCartasFragment() {
     }

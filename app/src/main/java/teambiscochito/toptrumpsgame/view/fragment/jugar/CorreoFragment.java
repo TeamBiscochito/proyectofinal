@@ -42,15 +42,15 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class CorreoFragment extends Fragment {
-    ViewModel viewModel;
-    User userActual;
-    View viewBackCorreo, viewCorreoBorrar, viewCorreoEnviar;
-    Animation animCaraLeon, animScaleUp, animScaleDown;
-    EditText etCorreo;
-    TextView tvCorreoBorrar, tvCorreoEnviar, tvAlertaCorreo;
-    NavController navController;
-    ImageView imgCaraLeonCorreo;
-    Dialog dialogCorreo;
+    private ViewModel viewModel;
+    private User userActual;
+    private View viewBackCorreo, viewCorreoBorrar, viewCorreoEnviar;
+    private Animation animCaraLeon, animScaleUp, animScaleDown;
+    private EditText etCorreo;
+    private TextView tvCorreoBorrar, tvCorreoEnviar, tvAlertaCorreo;
+    private NavController navController;
+    private ImageView imgCaraLeonCorreo;
+    private Dialog dialogCorreo;
     private MediaPlayer mp_correo;
 
     public CorreoFragment() {

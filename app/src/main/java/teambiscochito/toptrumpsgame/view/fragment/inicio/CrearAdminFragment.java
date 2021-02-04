@@ -29,11 +29,11 @@ import teambiscochito.toptrumpsgame.R;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class CrearAdminFragment extends Fragment {
-    EditText etClave;
-    Animation animScaleUp, animScaleDown;
-    TextView tvAdminEntrar;
-    View vAdminEntrar;
-    TextView tvAlertaCrearAdmin;
+    private EditText etClave;
+    private Animation animScaleUp, animScaleDown;
+    private TextView tvAdminEntrar;
+    private View vAdminEntrar;
+    private TextView tvAlertaCrearAdmin;
     private MediaPlayer mp_intro;
 
     public CrearAdminFragment() {

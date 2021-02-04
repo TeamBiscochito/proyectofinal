@@ -40,14 +40,14 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class RecyclerJugadoresAdminAdapter extends RecyclerView.Adapter<RecyclerJugadoresAdminAdapter.ViewHolder> {
-    List<User> userList;
-    View view;
-    ViewModel viewModel;
-    Activity activity;
-    Dialog dialogJugadores, dialogConfirmarBorrar;
-    Context context;
-    Animation animScaleUp, animScaleDown;
-    NavController navController;
+    private final List<User> userList;
+    private final View view;
+    private final Activity activity;
+    private final Context context;
+    private ViewModel viewModel;
+    private Dialog dialogJugadores, dialogConfirmarBorrar;
+    private Animation animScaleUp, animScaleDown;
+    private NavController navController;
     private MediaPlayer mp_borrar;
 
     public RecyclerJugadoresAdminAdapter(List<User> userList, View view, Activity activity, Context context) {

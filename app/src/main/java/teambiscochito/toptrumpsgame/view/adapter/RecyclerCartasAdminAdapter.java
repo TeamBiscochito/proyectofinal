@@ -49,14 +49,13 @@ import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 @SuppressWarnings({"Convert2Lambda"})
 // Comente la línea de arriba para ver los posibles Lambdas a convertir
 public class RecyclerCartasAdminAdapter extends RecyclerView.Adapter<RecyclerCartasAdminAdapter.ViewHolder> {
-
-    List<Card> cardList;
-    View view;
-    Activity activity;
-    Context context;
-    Animation animScaleUp, animScaleDown;
-    ViewModel viewModel;
-    Dialog dialogCartas, dialogConfirmarBorrar;
+    private final List<Card> cardList;
+    private final View view;
+    private final Activity activity;
+    private final Context context;
+    private Animation animScaleUp, animScaleDown;
+    private ViewModel viewModel;
+    private Dialog dialogCartas, dialogConfirmarBorrar;
 
     NavController navController;
     private MediaPlayer mp_borrar;
