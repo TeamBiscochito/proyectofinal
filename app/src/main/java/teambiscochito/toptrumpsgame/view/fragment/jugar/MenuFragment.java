@@ -109,9 +109,7 @@ public class MenuFragment extends Fragment {
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
      * Método que se ejecuta al presionar sobre la vista de cartas, nos redirecciona al fragmento
-     * donde se podrán ver todas las cartas disponibles que tenemos.
-     * <br>
-     * {@link teambiscochito.toptrumpsgame.R.layout#fragment_menu#}
+     * {@link CartasFragment} donde se podrán ver todas las cartas disponibles que tenemos.
      * <br><br>
      * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
      */
@@ -143,7 +141,7 @@ public class MenuFragment extends Fragment {
     /**
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
-     * Método que se ejecuta al presionar sobre la vista de créditos (@link )
+     * Método que se ejecuta al presionar sobre la vista de créditos (I).
      * <br><br>
      * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
      */
@@ -171,6 +169,14 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de la puerta, hará que volvamos al fragmento
+     * de selección de usuario {@link ChooseUserFragment}
+     * <br><br>
+     * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
+     */
     public void viewCerrarSesionButton() {
         vCerrarSesion.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -183,7 +189,6 @@ public class MenuFragment extends Fragment {
                         mp_menu.stop();
 
                         navController.navigate(R.id.action_menuFragment_to_chooseUserFragment);
-
                         break;
                     case MotionEvent.ACTION_UP:
                         vCerrarSesion.startAnimation(animScaleDown);
@@ -198,6 +203,14 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de nuestro icono de perfil. Nos muestra un
+     * diálogo en el que hacemos referencia en este método {@link #perfilDialog()}
+     * <br><br>
+     * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
+     */
     public void viewPerfilButton() {
         vUser.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -222,6 +235,16 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de ajustes, al presionar el icono de la
+     * tuerca. Se nos abre un nuevo cuadro de diálogo {@link #ajustesDialog()} en el que tendremos
+     * que poner la clave administrador para ir al modo administrador
+     * {@link teambiscochito.toptrumpsgame.view.fragment.administrar.AdminFragment}
+     * <br><br>
+     * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
+     */
     public void viewSettingsButton() {
         vSettings.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -246,6 +269,15 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de la lupa. Donde se nos abre un pequeño
+     * cuadro de diálogo {@link #webDialog()} donde podremos copiar el enlace o abrir en una nueva
+     * ventana.
+     * <br><br>
+     * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
+     */
     public void viewWebButton() {
         vWeb.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -271,6 +303,14 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de "Play" el icono. Navegamos directamente
+     * a un nuevo fragmento que es donde está el juego {@link JuegoFragment}
+     * <br><br>
+     * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
+     */
     public void viewPlayButton() {
         vPlay.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -296,6 +336,14 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de "Play" el icono. Navegamos directamente
+     * a un nuevo fragmento que es donde está el juego {@link JuegoFragment}
+     * <br><br>
+     * Referencia del método en: {@link JuegoFragment#onViewCreated(View, Bundle)}
+     */
     public void viewTutorialButton() {
         vTuto.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -325,6 +373,13 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que contiene el diálogo de los créditos.
+     * <br><br>
+     * Referencia del método en: {@link #viewCreditosButton()}
+     */
     public void creditosDialog() {
         ImageView imgAtrasCreditos;
 
@@ -355,6 +410,14 @@ public class MenuFragment extends Fragment {
         dialogCreditos.show();
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que contiene el diálogo de la Web
+     * <a href="https://teambiscochito.github.io/animales-salvajes-web/">Enlace a la página Web</a>.
+     * <br><br>
+     * Referencia del método en: {@link #viewWebButton()}
+     */
     public void webDialog() {
         View viewCerrarWebDialog, viewCopiarEnlaceWeb, viewEntrarEnlaceWeb;
         TextView tvCopiarEnlaceWeb, tvEntrarEnlaceWeb;
@@ -376,14 +439,26 @@ public class MenuFragment extends Fragment {
         viewCerrarWebDialog.setOnClickListener(v -> dialogWeb.dismiss());
 
         viewCopiarEnlaceWeb(viewCopiarEnlaceWeb, tvCopiarEnlaceWeb);
-
         viewEntrarEnlaceWeb(viewEntrarEnlaceWeb, tvEntrarEnlaceWeb);
+
         dialogWeb.setCancelable(true);
         dialogWeb.setCanceledOnTouchOutside(false);
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         dialogWeb.show();
     }
 
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que crea un nuevo intent para abrir el buscador y redirecionar directamente a nuestra
+     * página Web.
+     * <br><br>
+     * Referencia del método en: {@link #webDialog()}
+     *
+     * @param viewEntrarEnlaceWeb pasamos la vista de entrar en la web (botón).
+     * @param tvEntrarEnlaceWeb   pasamos el propio TextView de entrar en la Web.
+     */
     public void viewEntrarEnlaceWeb(View viewEntrarEnlaceWeb, TextView tvEntrarEnlaceWeb) {
         viewEntrarEnlaceWeb.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -409,6 +484,16 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que copia al portapaeles el enlace de la página Web.
+     * <br><br>
+     * Referencia del método en: {@link #webDialog()}
+     *
+     * @param viewCopiarEnlaceWeb pasamos la vista de copiar enlace en la web (botón).
+     * @param tvCopiarEnlaceWeb   pasamos el propio TextView de copiar enlace en la Web.
+     */
     public void viewCopiarEnlaceWeb(View viewCopiarEnlaceWeb, TextView tvCopiarEnlaceWeb) {
         viewCopiarEnlaceWeb.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -426,7 +511,7 @@ public class MenuFragment extends Fragment {
 
                         View mView = mSnackbar.getView();
 
-                        TextView mTextView = (TextView) mView.findViewById(R.id.snackbar_text);
+                        TextView mTextView = mView.findViewById(R.id.snackbar_text);
 
                         mTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
@@ -445,6 +530,14 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que genera el diálogo para ver el perfil, y la puntuación que llevamos en el juego.
+     * También contiene la vista para mandar la puntuación al correo.
+     * <br><br>
+     * Referencia del método en: {@link #viewPerfilButton()}
+     */
     public void perfilDialog() {
         ImageView imgAtrasPerfil;
 
@@ -493,6 +586,17 @@ public class MenuFragment extends Fragment {
         viewPerfilCorreo(viewPerfilEnviarCorreo, ivPerfilEnviarCorreo);
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que hace que cuando presionemos sobre la vista del icono del correo, nos dirijamos al
+     * fragmento {@link CorreoFragment}
+     * <br><br>
+     * Referencia del método en: {@link #perfilDialog()}
+     *
+     * @param viewPerfilEnviarCorreo pasamos la vista del correo.
+     * @param ivPerfilEnviarCorreo   pasamos el ImageView del correo.
+     */
     public void viewPerfilCorreo(View viewPerfilEnviarCorreo, ImageView ivPerfilEnviarCorreo) {
         viewPerfilEnviarCorreo.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -520,6 +624,16 @@ public class MenuFragment extends Fragment {
         });
     }
 
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que genera un nuevo diálogo para poder entrar en el modo administrador, este mismo
+     * método tiene otra vista para validar que la contraseña introducida sea la correcta que
+     * introdujimos en su momento. Si la contraseña es correcta nos redirige al fragmento admin
+     * {@link teambiscochito.toptrumpsgame.view.fragment.administrar.AdminFragment}
+     * <br><br>
+     * Referencia del método en: {@link #viewSettingsButton()}
+     */
     public void ajustesDialog() {
         ImageView imgAtrasAjustesDialog;
 
@@ -580,7 +694,6 @@ public class MenuFragment extends Fragment {
     }
 
     private void init(View view) {
-
         animTablero = AnimationUtils.loadAnimation(getContext(), R.anim.shake);
         animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
         animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);

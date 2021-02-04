@@ -4,16 +4,6 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.viewpager2.widget.CompositePageTransformer;
-import androidx.viewpager2.widget.MarginPageTransformer;
-import androidx.viewpager2.widget.ViewPager2;
-
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -24,13 +14,29 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
+import androidx.viewpager2.widget.ViewPager2;
+
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.view.adapter.VpAvatarAdapter;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase en la que iniciamos el menú de nuestra aplicación, podremos acceder a todas las opciones
+ * disponibles de la App desde este fragmento. Tanto sea como para la parte de usuario como la parte
+ * de administración.
+ */
 public class TutorialFragment extends Fragment {
-
     ViewPager2 vp_bocadillos;
-    int [] bocadillos = {R.drawable.bocadillo_uno, R.drawable.bocadillo_dos, R.drawable.bocadillo_tres, R.drawable.bocadillo_cuatro, R.drawable.bocadillo_cinco, R.drawable.bocadillo_seis, R.drawable.bocadillo_siete, R.drawable.bocadillo_ocho};
+    int[] bocadillos = {R.drawable.bocadillo_uno, R.drawable.bocadillo_dos, R.drawable.bocadillo_tres,
+            R.drawable.bocadillo_cuatro, R.drawable.bocadillo_cinco, R.drawable.bocadillo_seis, R.drawable.bocadillo_siete, R.drawable.bocadillo_ocho};
     VpAvatarAdapter adapter;
 
     Animation animArribaAbajo, animScaleUp, animScaleDown;
@@ -43,7 +49,6 @@ public class TutorialFragment extends Fragment {
     private boolean vieneDelFirstStart;
 
     public TutorialFragment() {
-
     }
 
     @Override
@@ -59,31 +64,140 @@ public class TutorialFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        initAnim();
-
+        initAllAnim(view);
         initMediaPlayerTutorial();
 
         navController = Navigation.findNavController(view);
+        vieneDelFirstStart = requireArguments().getBoolean("vieneDelFirstStart");
 
-        vieneDelFirstStart = getArguments().getBoolean("vieneDelFirstStart");
-
-        viewBackTutorial = view.findViewById(R.id.viewTutorial_Back);
-
-        if(vieneDelFirstStart) {
-
+        if (vieneDelFirstStart) {
             viewBackTutorial.setBackgroundResource(R.drawable.cerrar);
-
         } else {
-
             viewBackTutorial.setBackgroundResource(R.drawable.back_2);
-
         }
 
-        vp_bocadillos = view.findViewById(R.id.vpTutorial_Bocadillo);
-        viewNextBocadillo = view.findViewById(R.id.viewTutorial_Next);
-        viewPreviousBocadillo = view.findViewById(R.id.viewTutorial_Previous);
+        CompositePageTransformer transformer = getCompositePageTransformer();
 
+        vp_bocadillos.setPageTransformer(transformer);
+
+        viewNextBocadillo();
+
+        viewPreviousBocadillo();
+
+        viewBackTutorial();
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de volver hacia atrás, iremos al fragmento
+     * {@link MenuFragment} que es el menú principal de la aplicación. En caso de que vengamos del
+     * FirstStart, nos mandará a un diálogo nuevo {@link #tutorialDialog()}, donde volvemos al menú
+     * de selección de jugador {@link ChooseUserFragment}
+     * <br><br>
+     * Referencia del método en: {@link TutorialFragment#onViewCreated(View, Bundle)}
+     */
+    public void viewBackTutorial() {
+        viewBackTutorial.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        viewBackTutorial.startAnimation(animScaleUp);
+                        if (vieneDelFirstStart) {
+                            tutorialDialog();
+                        } else {
+                            mp_tutorial.stop();
+                            navController.navigate(R.id.action_tutorialFragment_to_menuFragment);
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        viewBackTutorial.startAnimation(animScaleDown);
+                        v.performClick();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de volver hacia atrás pero de los los botones
+     * de los bocadillos, este es el "Previous". Volveremos una posición atrás de nuestro ViewPager2.
+     * <br><br>
+     * Referencia del método en: {@link TutorialFragment#onViewCreated(View, Bundle)}
+     */
+    public void viewPreviousBocadillo() {
+        viewPreviousBocadillo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        viewPreviousBocadillo.startAnimation(animScaleUp);
+
+                        if (vp_bocadillos.getCurrentItem() + 1 > 0) {
+                            vp_bocadillos.setCurrentItem(vp_bocadillos.getCurrentItem() - 1);
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        viewPreviousBocadillo.startAnimation(animScaleDown);
+                        v.performClick();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que se ejecuta al presionar sobre la vista de volver hacia adelante pero de los los botones
+     * de los bocadillos, este es el "Next". Iremos una posición hacia delante de nuestro ViewPager2.
+     * <br><br>
+     * Referencia del método en: {@link TutorialFragment#onViewCreated(View, Bundle)}
+     */
+    public void viewNextBocadillo() {
+        viewNextBocadillo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        viewNextBocadillo.startAnimation(animScaleUp);
+
+                        if (vp_bocadillos.getCurrentItem() + 1 < adapter.getItemCount()) {
+                            vp_bocadillos.setCurrentItem(vp_bocadillos.getCurrentItem() + 1);
+                        }
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        viewNextBocadillo.startAnimation(animScaleDown);
+                        v.performClick();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que genera nuevo ViewPager2para los bocadillos a la manera que nosotros queremos,
+     * asignándole nuestro adaptador.
+     * <br><br>
+     * Referencia del método en: {@link TutorialFragment#onViewCreated(View, Bundle)}
+     *
+     * @return el nuevo ViewPager2 adaptado a lo que necesitamos para el tutorial.
+     */
+    public CompositePageTransformer getCompositePageTransformer() {
         vp_bocadillos.setUserInputEnabled(false);
 
         adapter = new VpAvatarAdapter(bocadillos);
@@ -101,7 +215,6 @@ public class TutorialFragment extends Fragment {
         transformer.addTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
-
                 page.setTranslationX(-position * page.getWidth());
 
                 if (Math.abs(position) < 0.5) {
@@ -114,110 +227,34 @@ public class TutorialFragment extends Fragment {
 
                 if (position < -1) {
                     page.setAlpha(0);
-                }
-                else if (position <= 0) {
-                    page.setAlpha(1);
-                    page.setRotation(36000*(Math.abs(position)*Math.abs(position)*Math.abs(position)*Math.abs(position)*Math.abs(position)*Math.abs(position)*Math.abs(position)));
-
-                } else if (position <= 1) {
-                    page.setAlpha(1);
-                    page.setRotation(-36000 *(Math.abs(position)*Math.abs(position)*Math.abs(position)*Math.abs(position)*Math.abs(position)*Math.abs(position)*Math.abs(position)));
-
-                }
-                else {
-                    page.setAlpha(0);
-                }
-            }
-
-        });
-
-        vp_bocadillos.setPageTransformer(transformer);
-
-        viewNextBocadillo.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewNextBocadillo.startAnimation(animScaleUp);
-
-                    if(vp_bocadillos.getCurrentItem() + 1 < adapter.getItemCount()) {
-                        vp_bocadillos.setCurrentItem(vp_bocadillos.getCurrentItem() + 1);
-                    }
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewNextBocadillo.startAnimation(animScaleDown);
-
-                }
-
-                return true;
-            }
-        });
-
-        viewPreviousBocadillo.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewPreviousBocadillo.startAnimation(animScaleUp);
-
-                    if(vp_bocadillos.getCurrentItem() + 1 > 0) {
-                        vp_bocadillos.setCurrentItem(vp_bocadillos.getCurrentItem() - 1);
-                    }
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewPreviousBocadillo.startAnimation(animScaleDown);
-
-                }
-
-                return true;
-            }
-        });
-
-        imgCaraLeonTutorial = view.findViewById(R.id.imgTutorial_LeonCara);
-
-        imgCaraLeonTutorial.startAnimation(animArribaAbajo);
-        vp_bocadillos.startAnimation(animArribaAbajo);
-
-        viewBackTutorial.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if(event.getAction() == MotionEvent.ACTION_DOWN) {
-                    viewBackTutorial.startAnimation(animScaleUp);
-
-                    if(vieneDelFirstStart) {
-
-                        tutorialDialog();
-
+                } else {
+                    float function = Math.abs(position) * Math.abs(position) * Math.abs(position) *
+                            Math.abs(position) * Math.abs(position) * Math.abs(position) * Math.abs(position);
+                    if (position <= 0) {
+                        page.setAlpha(1);
+                        page.setRotation(36000 * function);
+                    } else if (position <= 1) {
+                        page.setAlpha(1);
+                        page.setRotation(-36000 * function);
                     } else {
-
-                        mp_tutorial.stop();
-
-                        navController.navigate(R.id.action_tutorialFragment_to_menuFragment);
-
+                        page.setAlpha(0);
                     }
-
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    viewBackTutorial.startAnimation(animScaleDown);
-
                 }
-
-                return true;
             }
         });
-
+        return transformer;
     }
 
-    public void initAnim() {
-
-        animArribaAbajo = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
-        animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
-        animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
-
-    }
-
+    /**
+     * <h2 align="center">Team Biscochito</h2><hr>
+     * <p>
+     * Método que genera el cuadro de diálogo al salir del modo tutorial. Este diálogo oslo se produce
+     * si es la primera vez que entramos e instalamos la aplicación ya que cuando salgamos nos redirige
+     * a la selección de usuario {@link ChooseUserFragment}
+     * <br><br>
+     * Referencia del método en: {@link TutorialFragment#viewBackTutorial()}
+     */
     public void tutorialDialog() {
-
         View viewCancelarSalirTutorialDialog, viewAceptarSalirTutorialDialog;
 
         tutorialDialog = new Dialog(getContext());
@@ -230,55 +267,52 @@ public class TutorialFragment extends Fragment {
         viewCancelarSalirTutorialDialog = tutorialDialog.findViewById(R.id.viewSalirDialogTutorial_Cancel);
         viewAceptarSalirTutorialDialog = tutorialDialog.findViewById(R.id.viewSalirDialogTutorial_Accept);
 
-        viewCancelarSalirTutorialDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        viewCancelarSalirTutorialDialog.setOnClickListener(v -> tutorialDialog.dismiss());
 
-                tutorialDialog.dismiss();
+        viewAceptarSalirTutorialDialog.setOnClickListener(v -> {
+            mp_tutorial.stop();
 
-            }
+            tutorialDialog.dismiss();
+
+            navController.navigate(R.id.action_tutorialFragment_to_chooseUserFragment);
         });
-
-        viewAceptarSalirTutorialDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                mp_tutorial.stop();
-
-                tutorialDialog.dismiss();
-
-                navController.navigate(R.id.action_tutorialFragment_to_chooseUserFragment);
-
-            }
-        });
-
         tutorialDialog.setCancelable(true);
         tutorialDialog.setCanceledOnTouchOutside(false);
         window.setLayout(ActionBar.LayoutParams.WRAP_CONTENT, ActionBar.LayoutParams.WRAP_CONTENT);
         tutorialDialog.show();
+    }
 
+    public void initAllAnim(View view) {
+        viewBackTutorial = view.findViewById(R.id.viewTutorial_Back);
+        vp_bocadillos = view.findViewById(R.id.vpTutorial_Bocadillo);
+        viewNextBocadillo = view.findViewById(R.id.viewTutorial_Next);
+        viewPreviousBocadillo = view.findViewById(R.id.viewTutorial_Previous);
+        imgCaraLeonTutorial = view.findViewById(R.id.imgTutorial_LeonCara);
+
+        animArribaAbajo = AnimationUtils.loadAnimation(getContext(), R.anim.slide_tutorial);
+        animScaleUp = AnimationUtils.loadAnimation(getContext(), R.anim.scale_up);
+        animScaleDown = AnimationUtils.loadAnimation(getContext(), R.anim.scale_down);
+
+        imgCaraLeonTutorial.startAnimation(animArribaAbajo);
+        vp_bocadillos.startAnimation(animArribaAbajo);
     }
 
     public void initMediaPlayerTutorial() {
-
         mp_tutorial = MediaPlayer.create(getContext(), R.raw.tutorial_music);
         mp_tutorial.setLooping(true);
         mp_tutorial.start();
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
         mp_tutorial.start();
-
     }
 
     @Override
     public void onPause() {
         super.onPause();
         mp_tutorial.pause();
-
     }
 
     @Override
@@ -286,6 +320,5 @@ public class TutorialFragment extends Fragment {
         super.onDestroy();
         mp_tutorial.stop();
         mp_tutorial.release();
-
     }
 }
