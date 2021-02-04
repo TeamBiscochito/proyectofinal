@@ -1,3 +1,16 @@
+/*
+ * Copyright (c) 2021. Team Biscochito.
+ *
+ * Licensed under the GNU General Public License v3.0
+ *
+ * https://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * Permissions of this strong copyleft license are conditioned on making available complete
+ * source code of licensed works and modifications, which include larger works using a licensed
+ * work, under the same license. Copyright and license notices must be preserved. Contributors
+ * provide an express grant of patent rights.
+ */
+
 package teambiscochito.toptrumpsgame.viewmodel;
 
 import android.app.Application;
@@ -16,21 +29,28 @@ import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 import teambiscochito.toptrumpsgame.model.room.pojo.Question;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase que contiene el ViewModel, con el fin de almacenar y administrar datos relacionados con la
+ * IU de manera optimizada para los ciclos de vida. La clase ViewModel permite que se conserven los
+ * datos luego de cambios de configuración.
+ */
+@SuppressWarnings({"Convert2Lambda", "unused", "RedundantSuppression"})
+// Comente la línea de arriba para ver los posibles Lambdas a convertir, y los métodos que no se usan
 public class ViewModel extends AndroidViewModel {
 
-    private Repository repository;
     public static User userActual;
-    User user;
-    Card card;
     public static List<Card> cards;
     public static List<Question> questions;
-
+    private final Repository repository;
+    private User user;
+    private Card card;
 
     public ViewModel(@NonNull Application application) {
         super(application);
         repository = new Repository(application);
 
-        //repository.getQuestionList()
         repository.getQuestionList().observeForever(new Observer<List<Question>>() {
             @Override
             public void onChanged(List<Question> livequestions) {
@@ -44,6 +64,7 @@ public class ViewModel extends AndroidViewModel {
                 cards = livecards;
             }
         });
+
         repository.getQuestionList().observeForever(new Observer<List<Question>>() {
             @Override
             public void onChanged(List<Question> livequestions) {
@@ -140,15 +161,11 @@ public class ViewModel extends AndroidViewModel {
     }
 
     public int getRepeatedName() {
-
         return repository.getRepeatedName();
-
     }
 
     public int getRepeatedNameCarta() {
-
         return repository.getRepeatedNameCarta();
-
     }
 
     public Long getIdByName(String name) {
@@ -166,12 +183,11 @@ public class ViewModel extends AndroidViewModel {
     public void insertToName(String name, String question, Double answer, String magnitude) {
         repository.insertToName(name, question, answer, magnitude);
     }
+
     public ArrayList<Question> getQuestionsForCurrentCard(Card card) {
-
         ArrayList<Question> result = new ArrayList<>();
-
         for (Question q : questions) {
-            if(q.getCard_id() == card.getId()) {
+            if (q.getCard_id() == card.getId()) {
                 result.add(q);
             }
         }
@@ -186,7 +202,7 @@ public class ViewModel extends AndroidViewModel {
         return repository.getAllCardsFromWeb();
     }
 
-    public CardClient getCardClient(){
+    public CardClient getCardClient() {
         return repository.getCardClient();
     }
 

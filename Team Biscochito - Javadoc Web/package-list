@@ -1,0 +1,16 @@
+teambiscochito.toptrumpsgame
+teambiscochito.toptrumpsgame.model
+teambiscochito.toptrumpsgame.model.laravel
+teambiscochito.toptrumpsgame.model.room
+teambiscochito.toptrumpsgame.model.room.dao
+teambiscochito.toptrumpsgame.model.room.pojo
+teambiscochito.toptrumpsgame.receiver
+teambiscochito.toptrumpsgame.util
+teambiscochito.toptrumpsgame.validar
+teambiscochito.toptrumpsgame.view
+teambiscochito.toptrumpsgame.view.activity
+teambiscochito.toptrumpsgame.view.adapter
+teambiscochito.toptrumpsgame.view.fragment.administrar
+teambiscochito.toptrumpsgame.view.fragment.inicio
+teambiscochito.toptrumpsgame.view.fragment.jugar
+teambiscochito.toptrumpsgame.viewmodel

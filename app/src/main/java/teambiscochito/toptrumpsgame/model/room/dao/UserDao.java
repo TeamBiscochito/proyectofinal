@@ -1,3 +1,16 @@
+/*
+ * Copyright (c) 2021. Team Biscochito.
+ *
+ * Licensed under the GNU General Public License v3.0
+ *
+ * https://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * Permissions of this strong copyleft license are conditioned on making available complete
+ * source code of licensed works and modifications, which include larger works using a licensed
+ * work, under the same license. Copyright and license notices must be preserved. Contributors
+ * provide an express grant of patent rights.
+ */
+
 package teambiscochito.toptrumpsgame.model.room.dao;
 
 import androidx.lifecycle.LiveData;
@@ -11,6 +24,13 @@ import java.util.List;
 
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Interfaz room para manejar los usuarios, donde generamos la tabla y las consultas pertinentes.
+ */
+@SuppressWarnings("UnusedReturnValue")
+// Comente la línea de arriba para ver los métodos que no usen su retorno de valor
 @Dao
 public interface UserDao {
 
@@ -21,7 +41,7 @@ public interface UserDao {
     long insert(User user);
 
     @Update
-    int update(User user);
+    void update(User user);
 
     @Query("delete from user where id = :id")
     int deleteId(long id);
@@ -32,7 +52,9 @@ public interface UserDao {
     @Query("select * from user where id = :id")
     User getUserById(long id);
 
-    //returs ALL questions about a card
+    /**
+     * @return all questions about the card
+     */
     @Query("select * from user")
     LiveData<List<User>> getAllUser();
 }

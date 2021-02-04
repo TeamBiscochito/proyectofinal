@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2021. Team Biscochito.
+  ~
+  ~ Licensed under the GNU General Public License v3.0
+  ~
+  ~ https://www.gnu.org/licenses/gpl-3.0.html
+  ~
+  ~ Permissions of this strong copyleft license are conditioned on making available complete
+  ~ source code of licensed works and modifications, which include larger works using a licensed
+  ~ work, under the same license. Copyright and license notices must be preserved. Contributors
+  ~ provide an express grant of patent rights.
+  -->
+
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -6,7 +18,7 @@
 
     <fragment
         android:id="@+id/crearAdminFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.CrearAdminFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.inicio.CrearAdminFragment"
         android:label="fragment_crear_admin"
         tools:layout="@layout/fragment_crear_admin" >
         <action
@@ -17,7 +29,7 @@
     </fragment>
     <fragment
         android:id="@+id/chooseUserFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.ChooseUserFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.jugar.ChooseUserFragment"
         android:label="fragment_choose_user"
         tools:layout="@layout/fragment_choose_user">
         <action
@@ -38,7 +50,7 @@
     </fragment>
     <fragment
         android:id="@+id/adminFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.AdminFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.administrar.AdminFragment"
         android:label="fragment_admin"
         tools:layout="@layout/fragment_admin" >
         <action
@@ -59,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/cartasFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.CartasFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.jugar.CartasFragment"
         android:label="fragment_cartas"
         tools:layout="@layout/fragment_cartas" >
         <action
@@ -70,7 +82,7 @@
     </fragment>
     <fragment
         android:id="@+id/juegoFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.JuegoFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.jugar.JuegoFragment"
         android:label="fragment_juego"
         tools:layout="@layout/fragment_juego" >
         <action
@@ -81,7 +93,7 @@
     </fragment>
     <fragment
         android:id="@+id/tutorialFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.TutorialFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.jugar.TutorialFragment"
         android:label="fragment_tutorial"
         tools:layout="@layout/fragment_tutorial" >
         <action
@@ -97,7 +109,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.MenuFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.jugar.MenuFragment"
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
@@ -133,7 +145,7 @@
     </fragment>
     <fragment
         android:id="@+id/correoFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.CorreoFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.jugar.CorreoFragment"
         android:label="fragment_correo"
         tools:layout="@layout/fragment_correo">
         <action
@@ -144,7 +156,7 @@
     </fragment>
     <fragment
         android:id="@+id/adminJugadorFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.AdminJugadorFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.administrar.AdminJugadorFragment"
         android:label="fragment_admin_jugador"
         tools:layout="@layout/fragment_admin_jugador" >
         <action
@@ -170,7 +182,7 @@
     </fragment>
     <fragment
         android:id="@+id/adminCartasFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.AdminCartasFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.administrar.AdminCartasFragment"
         android:label="fragment_admin_cartas"
         tools:layout="@layout/fragment_admin_cartas" >
         <action
@@ -201,7 +213,7 @@
     </fragment>
     <fragment
         android:id="@+id/addPlayerFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.AddPlayerFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.administrar.AddPlayerFragment"
         android:label="fragment_add_player"
         tools:layout="@layout/fragment_add_player" >
         <action
@@ -212,7 +224,7 @@
     </fragment>
     <fragment
         android:id="@+id/editPlayerFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.EditPlayerFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.administrar.EditPlayerFragment"
         android:label="fragment_edit_player"
         tools:layout="@layout/fragment_edit_player" >
         <action
@@ -223,7 +235,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentSplashScreen"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.SplashScreenFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.inicio.SplashScreenFragment"
         android:label="fragment_splash_screen"
         tools:layout="@layout/fragment_splash_screen" >
         <action
@@ -239,7 +251,7 @@
     </fragment>
     <fragment
         android:id="@+id/addCardFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.AddCardFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.administrar.AddCardFragment"
         android:label="fragment_add_card"
         tools:layout="@layout/fragment_add_card" >
         <action
@@ -250,7 +262,7 @@
     </fragment>
     <fragment
         android:id="@+id/editCardFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.EditCardFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.administrar.EditCardFragment"
         android:label="fragment_edit_card"
         tools:layout="@layout/fragment_edit_card" >
         <action
@@ -261,7 +273,7 @@
     </fragment>
     <fragment
         android:id="@+id/importFragment"
-        android:name="teambiscochito.toptrumpsgame.view.fragment.ImportFragment"
+        android:name="teambiscochito.toptrumpsgame.view.fragment.administrar.ImportFragment"
         android:label="fragment_import"
         tools:layout="@layout/fragment_import" >
         <action

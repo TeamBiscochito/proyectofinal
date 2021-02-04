@@ -1,33 +1,51 @@
+/*
+ * Copyright (c) 2021. Team Biscochito.
+ *
+ * Licensed under the GNU General Public License v3.0
+ *
+ * https://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * Permissions of this strong copyleft license are conditioned on making available complete
+ * source code of licensed works and modifications, which include larger works using a licensed
+ * work, under the same license. Copyright and license notices must be preserved. Contributors
+ * provide an express grant of patent rights.
+ */
+
 package teambiscochito.toptrumpsgame.model.room.pojo;
 
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.Index;
 import androidx.room.PrimaryKey;
+
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase pojo de carta: id, url foto, nombre animal, descripción. Contiene varios constructores para
+ * crear la carta. Creamos la tabla con sus campos y consultas correspondientes.
+ */
 
 @Entity(tableName = "card")
 public class Card {
 
-    //Carta: id, url foto, nombre animal, descripción
-
     @PrimaryKey(autoGenerate = true)
     private long id;
 
-    @NonNull
     @ColumnInfo(name = "picUrl")
     private String picUrl;
 
-    @NonNull
     @ColumnInfo(name = "name")
     private String name;
 
-    @NonNull
     @ColumnInfo(name = "description")
     private String description;
 
-
+    /**
+     * @param picUrl      url de la página que contiene la foto
+     * @param name        nombre de animal / carta
+     * @param description descripción del animal
+     */
     public Card(@NonNull String picUrl, @NonNull String name, @NonNull String description) {
         this.picUrl = picUrl;
         this.name = name;
@@ -72,6 +90,7 @@ public class Card {
         this.description = description;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return "Card{" +

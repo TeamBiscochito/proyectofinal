@@ -1,3 +1,16 @@
+/*
+ * Copyright (c) 2021. Team Biscochito.
+ *
+ * Licensed under the GNU General Public License v3.0
+ *
+ * https://www.gnu.org/licenses/gpl-3.0.html
+ *
+ * Permissions of this strong copyleft license are conditioned on making available complete
+ * source code of licensed works and modifications, which include larger works using a licensed
+ * work, under the same license. Copyright and license notices must be preserved. Contributors
+ * provide an express grant of patent rights.
+ */
+
 package teambiscochito.toptrumpsgame.model.room.pojo;
 
 import androidx.annotation.NonNull;
@@ -6,28 +19,35 @@ import androidx.room.Entity;
 import androidx.room.Index;
 import androidx.room.PrimaryKey;
 
+/**
+ * <h2 align="center">Team Biscochito</h2><hr>
+ * <p>
+ * Clase pojo de usuario: id, nombre, avatar, número de respuestas, número de respuestas correctas.
+ * Contiene varios constructores para para crear al usuario. Creamos la tabla con sus campos y
+ * consultas correspondientes.
+ */
 @Entity(tableName = "user", indices = {@Index(value = {"name"}, unique = true)})
 public class User {
-
-    //Usuario: id, nombre, avatar, número de respuestas, número de respuestas correctas
 
     @PrimaryKey(autoGenerate = true)
     private long id;
 
-    @NonNull
     @ColumnInfo(name = "name")
     private String name;
 
-    @NonNull
     @ColumnInfo(name = "avatar")
     private int avatar;
 
-    @NonNull
-    @ColumnInfo(name = "answer") //numero de respuestas, por defecto 0
+    /**
+     * Número de respuestas, por defecto 0
+     */
+    @ColumnInfo(name = "answer")
     private int answer;
 
-    @NonNull
-    @ColumnInfo(name = "TrueAnswer") //numero de ACIERTOS, por defecto 0
+    /**
+     * Número de aciertos, por defecto 0
+     */
+    @ColumnInfo(name = "TrueAnswer")
     private int TrueAnswer;
 
     public User(@NonNull String name, int avatar, int answer, int trueAnswer) {
@@ -37,7 +57,7 @@ public class User {
         TrueAnswer = trueAnswer;
     }
 
-    public User(@NonNull String name, int avatar){
+    public User(@NonNull String name, int avatar) {
         this.name = name;
         this.avatar = avatar;
         this.answer = 0;
