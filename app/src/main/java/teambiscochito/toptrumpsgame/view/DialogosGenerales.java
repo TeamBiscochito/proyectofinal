@@ -11,7 +11,7 @@
  * provide an express grant of patent rights.
  */
 
-package teambiscochito.toptrumpsgame.view.fragment;
+package teambiscochito.toptrumpsgame.view;
 
 import android.app.ActionBar;
 import android.app.Dialog;

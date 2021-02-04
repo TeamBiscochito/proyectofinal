@@ -43,8 +43,8 @@ import retrofit2.Response;
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
 import teambiscochito.toptrumpsgame.model.room.pojo.Question;
+import teambiscochito.toptrumpsgame.view.DialogosGenerales;
 import teambiscochito.toptrumpsgame.view.adapter.RecyclerImportAdapter;
-import teambiscochito.toptrumpsgame.view.fragment.DialogosGenerales;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 /**

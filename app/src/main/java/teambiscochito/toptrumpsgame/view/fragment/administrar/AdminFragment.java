@@ -30,7 +30,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import teambiscochito.toptrumpsgame.R;
-import teambiscochito.toptrumpsgame.view.fragment.DialogosGenerales;
+import teambiscochito.toptrumpsgame.view.DialogosGenerales;
 
 /**
  * <h2 align="center">Team Biscochito</h2><hr>

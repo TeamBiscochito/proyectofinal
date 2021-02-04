@@ -40,7 +40,7 @@ import java.text.DecimalFormat;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.User;
-import teambiscochito.toptrumpsgame.view.fragment.DialogosGenerales;
+import teambiscochito.toptrumpsgame.view.DialogosGenerales;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 /**

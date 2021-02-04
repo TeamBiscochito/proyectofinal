@@ -38,8 +38,8 @@ import java.util.List;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
+import teambiscochito.toptrumpsgame.view.DialogosGenerales;
 import teambiscochito.toptrumpsgame.view.adapter.RecyclerCartasAdminAdapter;
-import teambiscochito.toptrumpsgame.view.fragment.DialogosGenerales;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
 /**

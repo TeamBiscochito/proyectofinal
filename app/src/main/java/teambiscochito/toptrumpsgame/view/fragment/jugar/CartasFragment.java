@@ -38,6 +38,7 @@ import java.util.List;
 
 import teambiscochito.toptrumpsgame.R;
 import teambiscochito.toptrumpsgame.model.room.pojo.Card;
+import teambiscochito.toptrumpsgame.view.DialogosGenerales;
 import teambiscochito.toptrumpsgame.view.adapter.RecyclerCartasNoAdminAdapter;
 import teambiscochito.toptrumpsgame.viewmodel.ViewModel;
 
@@ -104,7 +105,7 @@ public class CartasFragment extends Fragment {
      * <h2 align="center">Team Biscochito</h2><hr>
      * <p>
      * Método para ir hacia atrás, con este método especial y no el general de
-     * {@link teambiscochito.toptrumpsgame.view.fragment.DialogosGenerales#volverAtrasDialog(int, Context, View, View)}
+     * {@link DialogosGenerales#volverAtrasDialog(int, Context, View, View)}
      * Paremos la música a la hora de cambiar de fragmento (ir al menú).
      * <br><br>
      * Referencia del método en: {@link CartasFragment#onViewCreated(View, Bundle)}
